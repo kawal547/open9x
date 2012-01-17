@@ -1,0 +1,48 @@
+#summary All open9x compilations options
+
+= Introduction =
+
+We will soon run out of flash, and it will be difficult to enable all options in the same time. Here is the list of all options available in open9x so that you may choose the ones that you need / want.
+
+To compile the firmware here is the syntax:
+{{{
+make OPTION1=VALUE1 OPTION2=VALUE2...
+}}}
+
+= Options =
+
+PCB STD/V4
+
+EXT STD/FRSKY/JETI
+
+HELI NO/YES
+
+TEMPLATES YES/NO
+
+NAVIGATION POTS/NO/RE1
+
+BEEPER BUZZER/BUZZER_MOD/SPEAKER
+
+SPLASH YES/NO
+
+BATT BANDGAP/UNSTABLE_BANDGAP
+
+DECIMALS YES/NO
+
+FRSKY_HUB YES/NO
+
+WS_HOW_HIGH YES/NO
+
+LOGS YES/NO
+
+PXX NO/YES
+
+DSM2 NO/YES
+
+SILVER NO/YES
+
+CTP1009 NO/YES
+
+SOMO NO/YES
+
+TRANSLATIONS EN
