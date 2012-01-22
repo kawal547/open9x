@@ -11,13 +11,19 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 
 = Options =
 
-{{{PCB *STD*/V4}}}
+{{{
+PCB *STD*/V4
+}}}
 Either the stock PCB or the gruvin9x v4 board
 
-{{{EXT *STD*/FRSKY/JETI}}}
+{{{
+EXT *STD*/FRSKY/JETI
+}}}
 Telemetry extension
 
-{{{HELI YES/*NO*}}}
+{{{
+HELI YES/*NO*
+}}}
 Heli support and menus
 
 {{{TEMPLATES *YES*/NO}}}
