@@ -11,31 +11,46 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 
 = Options =
 
-PCB STD/V4
+{{{PCB *STD*/V4}}}
+Either the stock PCB or the gruvin9x v4 board
 
-EXT STD/FRSKY/JETI
+{{{EXT *STD*/FRSKY/JETI}}}
+Telemetry extension
 
-HELI NO/YES
+{{{HELI YES/*NO*}}}
+Heli support and menus
 
-TEMPLATES YES/NO
+{{{TEMPLATES *YES*/NO}}}
+Templates screen enabled
 
-NAVIGATION POTS/NO/RE1
+{{{NAVIGATION NO/*POTS*/RE1}}}
+Pots use in menus navigation
 
-BEEPER BUZZER/BUZZER_MOD/SPEAKER
+{{{BEEPER *BUZZER*/BUZZER_MOD/SPEAKER}}}
+How the sounds are sent
 
-SPLASH YES/NO
+{{{SPLASH *YES*/NO}}}
+Splash displayed on Tx start
 
-BATT BANDGAP/UNSTABLE_BANDGAP
+{{{BATT BANDGAP/UNSTABLE_BANDGAP}}}
 
-DECIMALS YES/NO
+{{{DECIMALS *YES*/NO}}}
+Decimals displayed in outputs values
 
-FRSKY_HUB YES/NO
+{{{FRSKY_HUB *YES*/NO}}}
+FrSky Hub supported (when EXT=FRSKY)
 
-WS_HOW_HIGH YES/NO
+{{{WS_HOW_HIGH *YES*/NO}}}
+Winged Shadow How High supported (when EXT=FRSKY)
 
-LOGS YES/NO
+{{{LOGS *YES*/NO}}}
+When V4 board used: logs enabled on SD-card
 
-PXX NO/YES
+{{{DSM2 *NO*/SERIAL/PPM}}}
+DSM2 protocol
+
+{{{PXX *NO*/YES}}}
+Port from er9x in progress...
 
 DSM2 NO/YES
 
