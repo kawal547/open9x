@@ -1,0 +1,20 @@
+#summary Latest binaries
+#labels Featured
+
+= Latest pre-compiled binaries =
+
+Here are the latest binaries you may download for flashing your '9X, without needing to recompile from source.
+
+There are a lot of options, you choose the one which fits you the best!
+
+=== Unmodified '9X Radio Version ===
+
+ * *[http://open9x.googlecode.com/svn/trunk/open9x-stock.hex open9x-stock.hex]* -- For stock hardware with no internal re-wiring.
+
+ * *[http://open9x.googlecode.com/svn/trunk/open9x-stock-heli-templates.hex open9x-stock-heli-templates.hex]* -- The same with heli and templates menus.
+
+ * *[http://open9x.googlecode.com/svn/trunk/open9x-stock-heli-templates-speaker.hex open9x-stock-heli-templates-speaker.hex]* -- The same, with speaker mods for softer sounding tones.
+
+=== '9X Radio Versions with Fr-sky telemetry modification ===
+
+ * *[http://open9x.googlecode.com/svn/trunk/open9x-stock-frsky.hex open9x-stock-frsky.hex]* -- Fr-Sky telemetry mod.
