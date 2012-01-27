@@ -10,92 +10,74 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 }}}
 
 = Options =
-
-{{{
-PCB *STD* / V4
-}}}
+<code language="xml">
+PCB *STD* / V4</code>
 Either the stock PCB or the gruvin9x v4 board
+<br><br>
 
-{{{
-EXT *STD* / FRSKY / JETI
-}}}
+<code language="xml">EXT *STD* / FRSKY / JETI</code>
 Telemetry extension
+<br><br>
 
-{{{
-TRANSLATIONS *EN* / FR
-}}}
+<code language="xml">TRANSLATIONS *EN* / FR</code>
 Strings translations
+<br><br>
 
-{{{
-HELI YES / *NO*
-}}}
+<code language="xml">HELI YES / *NO*</code>
 Heli support and menus
+<br><br>
 
-{{{
-TEMPLATES *YES* / NO
-}}}
+<code language="xml">TEMPLATES *YES* / NO</code>
 Templates screen enabled
+<br><br>
 
-{{{
-NAVIGATION NO / *POTS* / RE1
-}}}
+<code language="xml">NAVIGATION NO / *POTS* / RE1</code>
 Pots use in menus navigation
+<br><br>
 
-{{{
-BEEPER *BUZZER* / BUZZER_MOD / SPEAKER
-}}}
+<code language="xml">BEEPER *BUZZER* / BUZZER_MOD / SPEAKER</code>
 How the sounds are sent
+<br><br>
 
-{{{
-SPLASH *YES* / NO
-}}}
+<code language="xml">SPLASH *YES* / NO</code>
 Splash displayed on Tx start
+<br><br>
 
-{{{
-BATT BANDGAP / *UNSTABLE_BANDGAP*
-}}}
+<code language="xml">BATT BANDGAP / *UNSTABLE_BANDGAP*</code>
+Awaiting description
+<br><br>
 
-{{{
-DECIMALS *YES* / NO
-}}}
+<code language="xml">DECIMALS *YES* / NO</code>
 Decimals displayed in outputs values
+<br><br>
 
-{{{
-FRSKY_HUB *YES* / NO
-}}}
-FrSky Hub supported (when EXT=FRSKY)
+<code language="xml">FRSKY_HUB *YES* / NO</code>
+!FrSky Hub supported (when EXT=FRSKY)
+<br><br>
 
-{{{
-WS_HOW_HIGH *YES* / NO
-}}}
+<code language="xml">WS_HOW_HIGH *YES* / NO</code>
 Winged Shadow How High supported (when EXT=FRSKY)
+<br><br>
 
-{{{
-LOGS *YES* / NO
-}}}
+<code language="xml">LOGS *YES* / NO</code>
 When V4 board used: logs enabled on SD-card
+<br><br>
 
-{{{
-SOMO *NO* / YES
-}}}
+<code language="xml">SOMO *NO* / YES</code>
 When V4 board used: SOMO-14D board support
+<br><br>
 
-{{{
-DSM2 *NO* / SERIAL / PPM
-}}}
+<code language="xml">DSM2 *NO* / SERIAL / PPM</code>
 DSM2 protocol
+<br><br>
 
-{{{
-PXX *NO* / YES
-}}}
+<code language="xml">PXX *NO* / YES</code>
 Port from er9x in progress...
+<br><br>
 
-{{{
-SILVER *NO* / YES
-}}}
-Silver Protocol
+<code language="xml">SILVER *NO* / YES</code>
+Silverlit Protocol
+<br><br>
 
-{{{
-CTP1009 *NO* / YES
-}}}
+<code language="xml">CTP1009 *NO* / YES</code>
 CTP1009 Protocol
