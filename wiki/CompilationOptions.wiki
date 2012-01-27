@@ -74,10 +74,3 @@ DSM2 protocol
 <code language="xml">PXX *NO* / YES</code>
 Port from er9x in progress...
 <br><br>
-
-<code language="xml">SILVER *NO* / YES</code>
-Silverlit Protocol
-<br><br>
-
-<code language="xml">CTP1009 *NO* / YES</code>
-CTP1009 Protocol
