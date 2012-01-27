@@ -68,9 +68,9 @@ When V4 board used: SOMO-14D board support
 <br><br>
 
 <code language="xml">DSM2 *NO* / SERIAL / PPM</code>
-DSM2 protocol
+DSM2 protocol (testing in progress...)
 <br><br>
 
 <code language="xml">PXX *NO* / YES</code>
-Port from er9x in progress...
+PXX protocol (port from er9x in progress...)
 <br><br>
