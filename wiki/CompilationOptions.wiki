@@ -19,7 +19,7 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 	<tr>
 		<td></td>
 		<td>Default</td>
-		<td colspan="2"></td>
+		<td></td>
 		<td></td>
 	</tr>
 	<tr>
