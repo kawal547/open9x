@@ -33,9 +33,7 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>EXT</td>
 		<td><b>STD</b></td>
 		<td>FRSKY</td>
-		<td>JETI</td>
-                <td>ARDUPILOT</td>
-                <td>NMEA</td>
+		<td>JETI, ARDUPILOT, NMEA</td>
 		<td>Telemetry extension</td>
 	</tr>
 	<tr>
@@ -70,7 +68,7 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>AUDIO</td>
 		<td><b>YES</b></td>
 		<td>NO</td>
-		<td>How the sounds are sent (audio or beeper)</td>
+		<td>How the sounds are sent (testing in progress)</td>
 	</tr>
 	<tr>
 		<td>HAPTIC</td>
