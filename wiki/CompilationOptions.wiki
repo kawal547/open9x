@@ -13,7 +13,7 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 <table border="1">
 	<tr>
 		<td><i>DEFINE</i></td>
-		<td colspan="3"><i>Options</i></td>
+		<td colspan="2"><i>Options</i></td>
 		<td><i>Description</i></td>
 	</tr>
 	<tr>
@@ -26,42 +26,36 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>PCB</td>
 		<td><b>STD</b></td>
 		<td>V4</td>
-		<td></td>
 		<td>Either the stock PCB or the gruvin9x v4 board </td>
 	</tr>
 	<tr>
 		<td>EXT</td>
 		<td><b>STD</b></td>
-		<td>FRSKY</td>
-		<td>JETI, ARDUPILOT, NMEA</td>
+		<td>FRSKY, JETI, ARDUPILOT, NMEA</td>
 		<td>Telemetry extension</td>
 	</tr>
 	<tr>
 		<td>TRANSLATIONS</td>
 		<td><b>EN</b></td>
 		<td>FR</td>
-		<td></td>
 		<td>String translations</td>
 	</tr>
 	<tr>
 		<td>HELI</td>
 		<td><b>NO</b></td>
 		<td>YES</td>
-		<td></td>
 		<td>Heli support and menus </td>
 	</tr>
 	<tr>
 		<td>TEMPLATES</td>
 		<td><b>YES</b></td>
 		<td>NO</td>
-		<td></td>
 		<td>Templates screen enabled </td>
 	</tr>
 	<tr>
 		<td>NAVIGATION</td>
 		<td><b>POTS</b></td>
-		<td>NO</td>
-		<td>RE1</td>
+		<td>NO, RE1</td>
 		<td>Pots use in menus navigation </td>
 	</tr>
 	<tr>
@@ -80,63 +74,54 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>SPLASH</td>
 		<td><b>YES</b></td>
 		<td>NO</td>
-		<td></td>
 		<td>Splash displayed on Tx start </td>
 	</tr>
 	<tr>
 		<td>BATT</td>
 		<td><b>UNSTABLE_BANDGAP</b></td>
 		<td>BANDGAP</td>
-		<td></td>
 		<td>Solves the stability problem of the bandgap on the stock PCB (when PCB=STOCK)</td>
 	</tr>
 	<tr>
 		<td>DECIMALS</td>
 		<td><b>YES</b></td>
 		<td>NO</td>
-		<td></td>
 		<td>Decimals displayed in outputs values </td>
 	</tr>
 	<tr>
 		<td>FRSKY_HUB</td>
 		<td><b>YES</b></td>
 		<td>NO</td>
-		<td></td>
 		<td>FrSky Hub supported (when EXT=FRSKY) </td>
 	</tr>
 	<tr>
 		<td>WS_HOW_HIGH</td>
 		<td><b>YES</b></td>
 		<td>NO</td>
-		<td></td>
 		<td>Winged Shadow How High supported (when EXT=FRSKY) </td>
 	</tr>
 	<tr>
 		<td>LOGS</td>
 		<td><b>YES</b></td>
 		<td>NO</td>
-		<td></td>
 		<td>When V4 board used: logs enabled on SD-card </td>
 	</tr>
 	<tr>
 		<td>SOMO</td>
 		<td><b>NO</b></td>
 		<td>YES</td>
-		<td></td>
 		<td>When V4 board used: SOMO-14D board support </td>
 	</tr>
 	<tr>
 		<td>DSM2</td>
 		<td><b>NO</b></td>
-		<td>SERIAL</td>
-		<td>PPM</td>
+		<td>SERIAL, PPM</td>
 		<td>DSM2 protocol (testing in progress...) </td>
 	</tr>
 	<tr>
 		<td>PXX</td>
 		<td><b>NO</b></td>
 		<td>YES</td>
-		<td></td>
 		<td>PXX protocol (testing in progress...) </td>
 	</tr>
 </table>
