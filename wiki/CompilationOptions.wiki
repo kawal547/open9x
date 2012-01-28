@@ -34,6 +34,8 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td><b>STD</b></td>
 		<td>FRSKY</td>
 		<td>JETI</td>
+                <td>ARDUPILOT</td>
+                <td>NMEA</td>
 		<td>Telemetry extension</td>
 	</tr>
 	<tr>
@@ -65,11 +67,16 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>Pots use in menus navigation </td>
 	</tr>
 	<tr>
-		<td>BEEPER</td>
-		<td><b>BUZZER</b></td>
-		<td>BUZZER_MOD</td>
-		<td>SPEAKER</td>
-		<td>How the sounds are sent </td>
+		<td>AUDIO</td>
+		<td><b>YES</b></td>
+		<td>NO</td>
+		<td>How the sounds are sent (audio or beeper)</td>
+	</tr>
+	<tr>
+		<td>HAPTIC</td>
+		<td><b>NO</b></td>
+		<td>YES</td>
+		<td>Haptic feedback </td>
 	</tr>
 	<tr>
 		<td>SPLASH</td>
@@ -83,7 +90,7 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td><b>UNSTABLE_BANDGAP</b></td>
 		<td>BANDGAP</td>
 		<td></td>
-		<td>Awaiting description</td>
+		<td>Solves the stability problem of the bandgap on the stock PCB (when PCB=STOCK)</td>
 	</tr>
 	<tr>
 		<td>DECIMALS</td>
@@ -132,6 +139,6 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td><b>NO</b></td>
 		<td>YES</td>
 		<td></td>
-		<td>PXX protocol (port from er9x in progress...) </td>
+		<td>PXX protocol (testing in progress...) </td>
 	</tr>
 </table>
