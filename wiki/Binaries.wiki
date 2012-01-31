@@ -8,7 +8,7 @@ Here are the latest binaries you may download for flashing your '9X, without nee
 There are a lot of options, you choose the one which fits you the best!
 Even more can be found using companion9x, which let you "automagically" configure options, perform the download of selected firmware and check for updates.
 
-For futher information have a look to companion9x website: [http://code.google.com/p/companion9x/]
+For further information have a look to companion9x website: [http://code.google.com/p/companion9x/]
 
 === Unmodified '9X Radio Version ===
 
