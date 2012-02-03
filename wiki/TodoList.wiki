@@ -4,8 +4,8 @@
   * Telemetry: Min/Max/Alarms easier to use
   * Telemetry: rework the FrSky Hub screens
   * Telemetry: imperial units
-  * \FrSky RSSI
-  * \FrSky Lipo sensor
+  * !FrSky RSSI
+  * !FrSky Lipo sensor
 
 = V4 only =
   * Integrate the SOMO-14D module
