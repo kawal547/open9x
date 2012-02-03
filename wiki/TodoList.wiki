@@ -4,7 +4,7 @@
   * Telemetry: Min/Max/Alarms easier to use
   * Telemetry: rework the FrSky Hub screens
   * Telemetry: imperial units
-  * !FrSky RSSI
+  * !FrSky RSSI alarms setup
   * !FrSky Lipo sensor
 
 = V4 only =
