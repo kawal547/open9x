@@ -8,6 +8,8 @@
   * !FrSky Lipo sensor
 
 = V4 only =
-  * Integrate the SOMO-14D module
+  * SOMO-14D module integration
   * Finish the Rotary encoder use in menus
   * Rotary encoder use for in-flight parameters modifications
+  * Logs in CSV format
+  * Wifi module integration
