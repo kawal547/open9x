@@ -21,9 +21,9 @@ For further information have a look to companion9x website: [http://code.google.
 
  * *[http://open9x.googlecode.com/svn/trunk/binaries/open9x-stock-heli-templates-fr.hex]* -- The same (FR) with heli and templates menus.
 
- * *[http://open9x.googlecode.com/svn/trunk/binaries/open9x-stock-heli-templates-speaker-en.hex]* -- The same (EN) with speaker mods for softer sounding tones.
+ * *[http://open9x.googlecode.com/svn/trunk/binaries/open9x-stock-heli-templates-audio-en.hex]* -- The same (EN) with speaker mods for softer sounding tones.
 
- * *[http://open9x.googlecode.com/svn/trunk/binaries/open9x-stock-heli-templates-speaker-fr.hex]* -- The same (FR) with speaker mods for softer sounding tones.
+ * *[http://open9x.googlecode.com/svn/trunk/binaries/open9x-stock-heli-templates-audio-fr.hex]* -- The same (FR) with speaker mods for softer sounding tones.
 
 === '9X Radio Versions with Fr-sky telemetry modification ===
 
@@ -35,6 +35,6 @@ For further information have a look to companion9x website: [http://code.google.
 
  * *[http://open9x.googlecode.com/svn/trunk/binaries/open9x-stock-frsky-heli-templates-fr.hex]* -- The same (FR) with heli and templates menus.
 
- * *[http://open9x.googlecode.com/svn/trunk/binaries/open9x-stock-frsky-heli-templates-speaker-en.hex]* -- The same (EN) with speaker mods for softer sounding tones.
+ * *[http://open9x.googlecode.com/svn/trunk/binaries/open9x-stock-frsky-heli-templates-audio-en.hex]* -- The same (EN) with speaker mods for softer sounding tones.
 
- * *[http://open9x.googlecode.com/svn/trunk/binaries/open9x-stock-frsky-heli-templates-speaker-fr.hex]* -- The same (FR) with speaker mods for softer sounding tones.
+ * *[http://open9x.googlecode.com/svn/trunk/binaries/open9x-stock-frsky-heli-templates-audio-fr.hex]* -- The same (FR) with speaker mods for softer sounding tones.
