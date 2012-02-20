@@ -77,12 +77,6 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>Splash displayed on Tx start </td>
 	</tr>
 	<tr>
-		<td>BATT</td>
-		<td><b>UNSTABLE_BANDGAP</b></td>
-		<td>BANDGAP</td>
-		<td>Solves the stability problem of the bandgap on the stock PCB (when PCB=STOCK)</td>
-	</tr>
-	<tr>
 		<td>DECIMALS</td>
 		<td><b>YES</b></td>
 		<td>NO</td>
