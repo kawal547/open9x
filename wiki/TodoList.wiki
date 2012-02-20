@@ -1,11 +1,7 @@
 #summary TODO list
 
 = All versions =
-  * Telemetry: Min/Max/Alarms easier to use
-  * Telemetry: rework the FrSky Hub screens
   * Telemetry: imperial units
-  * !FrSky RSSI alarms setup
-  * !FrSky Lipo sensor
 
 = V4 only =
   * SOMO-14D module integration
