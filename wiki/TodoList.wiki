@@ -2,6 +2,7 @@
 
 = All versions =
   * Telemetry: imperial units
+  * HapticMode NoKey/Normal, do a vibration for Trims in Center/Min/Max
 
 = V4 only =
   * SOMO-14D module integration
