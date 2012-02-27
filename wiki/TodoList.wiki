@@ -2,11 +2,8 @@
 
 = All versions =
   * Telemetry: imperial units
-  * Hapticmode Nokey/Normal, do a vibration for Trims in Center/Min/Max
 
 = V4 only =
   * SOMO-14D module integration
-  * Finish the Rotary encoder use in menus
-  * Rotary encoder use for in-flight parameters modifications
   * Logs in CSV format
   * Wifi module integration
