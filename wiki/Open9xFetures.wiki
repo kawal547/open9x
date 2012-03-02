@@ -1,4 +1,4 @@
-#List of Open9x Features.
+#summary List of Open9x Features.
 
 = Features in open9x: =
 
