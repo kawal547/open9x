@@ -1,0 +1,22 @@
+#summary One-sentence summary of this page.
+
+= Features in open9x: =
+
+ * A full featured _*Timer2*_
+ * The _*throttle trace*_ in statistics can be dependent on Channels and Pots, not only THR
+ * When THRs / THR% / THRt are selected as mode for timer1 or timer2, it's dependent on this parameter (throttle trace)
+ * THRt means trigger: the timer starts at _*THR trigger*_ and doesn't stop when THR again at idle
+ * _*Virtual Switches*_ can be dependent on _*timer1 and timer2*_
+ * With telemetry, they can also be dependent on ALT (altitude) and RPM (of the motor)
+ * It's possible to switch the _*TX stick mode*_ without messing everything in mixers
+ * Open9x is prepared for _*translations*_ in several languages
+ * Calculation _*optimizations*_ again ...
+ * Safety switches moved to Function Switches
+ * Support for _*Frsky HUB*_ 2.0
+ * Screen with _*Telemetry Bars*_
+ * _*Virtual channels Screen*_ for showing Channels 9-16 and Virtual Switches
+ * _*5 Flight Phases*_ with Fade In/Out and elective self trims.
+ * _*Speaker Mode/Lenght*_ separated
+ * In mixers _*Trims*_ can be used as a slider 
+ * _*DR/Expo*_ with Curve and Flight Phase support
+ * _*Haptic*_ mode
