@@ -27,9 +27,11 @@
 || *MAIN SCREEN* || || ||
 || _*Two timers and THRt*_<br>pressing LEFT/RIGHT changing Up/Low case || _*Statistics*_ <br> press LONG UP || _*Delays*_ <br> press UP on previous screen||
 || https://open9x.googlecode.com/svn/wiki/images3/snapshot_01.png || https://open9x.googlecode.com/svn/wiki/images3/statistic.png ||https://open9x.googlecode.com/svn/wiki/images3/screenshot-1.png || 
-|| _*HW switches IDx and shaded TRN*_ || _*Virtual switches and CH9-16*_<br>by pressing LEFT/RIGHT on previous screen || ||
-|| https://open9x.googlecode.com/svn/wiki/images3/snapshot_02.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_14.png || ||
-|| || || ||
+|| _*HW switches IDx and shaded TRN*_ || _*Virtual switches and CH9-16*_<br>by pressing LEFT/RIGHT on previous screen || _*Telemetry Bars*_ <br> press LONG DOWN ||
+|| https://open9x.googlecode.com/svn/wiki/images3/snapshot_02.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_14.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_15.png ||
+|| _*Telemetry*_ <br> DOWN/UP || _*Telemetry*_ <br> DOWN/UP || _*Telemetry*_ <br> DOWN/UP ||
+|| https://open9x.googlecode.com/svn/wiki/images3/snapshot_16.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_17.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_18.png ||
+|| <br> || || ||
 || *MODEL SETTINGS* || || ||
 || _*Flight Phases*_ || _*Switch, selectable Trims, Fade*_ || _*Set Offset*_ = Channel value <br>when MENU + LONG MENU press ||
 || https://open9x.googlecode.com/svn/wiki/images3/snapshot_03.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_04.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_05.png ||
