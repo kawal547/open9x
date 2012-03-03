@@ -19,4 +19,26 @@
  * _*Speaker Mode/Lenght*_ separated
  * In mixers _*Trims*_ can be used as a slider 
  * _*DR/Expo*_ with Curve and Flight Phase support
- * _*Haptic*_ mode
+ * _*Haptic*_ modestatistic
+ * Switchig _*Lower/Uper case characters in Model Name*_ with LEFT/RIGHT press
+
+*[http://open9x.googlecode.com/files/open9x%20manual%20francais.pdf France User Guide Download]*
+
+|| *MAIN SCREEN* || || ||
+|| _*Two timers and THRt*_<br>pressing LEFT/RIGHT changing Up/Low case || _*Statistics*_ <br> press LONG UP || _*Delays*_ <br> press UP on previous screen||
+|| https://pokusny.googlecode.com/svn/wiki/images/snapshot_01.png || https://pokusny.googlecode.com/svn/wiki/images/statistic.png ||https://pokusny.googlecode.com/svn/wiki/images/screenshot-1.png || 
+|| _*HW switches IDx and shaded TRN*_ || _*Virtual switches and CH9-16*_<br>by pressing LEFT/RIGHT on previous screen || ||
+|| https://pokusny.googlecode.com/svn/wiki/images/snapshot_02.png || https://pokusny.googlecode.com/svn/wiki/images/snapshot_14.png || ||
+|| || || ||
+|| *MODEL SETTINGS* || || ||
+|| _*Flight Phases*_ || _*Switch, selectable Trims, Fade*_ || _*Set Offset*_ = Channel value <br>when MENU + LONG MENU press ||
+|| https://pokusny.googlecode.com/svn/wiki/images/snapshot_03.png || https://pokusny.googlecode.com/svn/wiki/images/snapshot_04.png || https://pokusny.googlecode.com/svn/wiki/images/snapshot_05.png ||
+|| _*Curves with presets*_ || _*Switches with Timers1/2 and Telemetry*_ || _*Trainer, Trainer per Stick, Play sounds*_,<br>Channel _*Security*_ with value,<br>Channel _*Instant*_ value to _*Trims*_ ||
+|| https://pokusny.googlecode.com/svn/wiki/images/snapshot_06.png || https://pokusny.googlecode.com/svn/wiki/images/snapshot_07.png || https://pokusny.googlecode.com/svn/wiki/images/snapshot_09.png ||
+|| _*Telemetry*_ || _*Telemetry*_ || _*HUB and Bars*_ ||
+|| https://pokusny.googlecode.com/svn/wiki/images/snapshot_10.png || https://pokusny.googlecode.com/svn/wiki/images/snapshot_11.png || https://pokusny.googlecode.com/svn/wiki/images/snapshot_13.png ||
+
+<wiki:comment>
+|| _*What*_ || _*What*_ || _*What*_ ||
+|| https://pokusny.googlecode.com/svn/wiki/images/statistic.png || https://pokusny.googlecode.com/svn/wiki/images/statistic.png || https://pokusny.googlecode.com/svn/wiki/images/statistic.png ||
+</wiki:comment>
