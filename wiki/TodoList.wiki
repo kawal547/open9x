@@ -1,6 +1,7 @@
 #summary TODO list
 
 = All versions =
+  * Telemetry: flickering A1/A2 values
   * Telemetry: imperial units
 
 = V4 only =
