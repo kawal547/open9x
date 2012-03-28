@@ -7,6 +7,7 @@
  * Less Flash, Less RAM used
  * _*5 Flight Phases*_ with Fade In/Out and elective self trims. 
  * _*Switches like a Mix Sources*_
+ * new source in Mixers and Custom Switches: 3POS (ID0/1/2) which returns -100% / 0 / +100%
  * Simple _*Difference for Ailerons*_
  * _*Trims*_ in mixes  can be used like a _*slider*_ 
  * _*Inverted curves*_ in Mixes and Expos
@@ -18,37 +19,54 @@
  * It's possible to switch  _*TX Stick Mode*_ without messing everything in mixes
  * Safety switches moved to Function Switches
  * Support for _*Frsky HUB*_ 2.0 sensors
+ * Screen with _*Custom Telemetry*_ view with sensors min/max options
  * Screen with _*Telemetry Bars*_
+ * _*Threshholds*_ in Telemetry Bars. A1/A2 threshold is first alarm value, <br>for other telemetry sensors thresholds are set up by Custom Switch and Function Switch combination.
  * _*Virtual channels Screen*_ for showing Channels 9-16 and Virtual Switches
  * _*Speaker Mode/Lenght*_ separated
  * Selectable _*Haptic*_ modes 
  * Open9x is prepared for _*translations*_ in several languages (done for en, fr, se)
  * Switchig _*Lower/Uper case characters in Model Name*_ with LEFT/RIGHT press
  * Select Model with LONG MENU (not EXIT) 
+ * Copy Model with MENU press 
+ * Move Model with DOUBLE MENU press 
 
 *[http://open9x.googlecode.com/files/open9x%20manual%20francais.pdf French User Guide Download]*
 
-|| *MAIN SCREEN* || || ||
-|| _*Two timers*_ and _*THRt*_<br>changing Up/Low case in model name<br>pressing LONG LEFT/RIGHT|| _*Statistics*_ with custom Timers 1 and 2 <br>by press LONG UP on previous screen|| _*Delays*_ <br> press UP on previous screen||
+|| *MAIN SCREEN* views || || ||
+|| _*Two timers*_ and _*THRt*_|| _*Statistics*_ with custom Timers 1 and 2 <br>by press LONG UP on previous screen|| _*Delays*_ <br> press UP on previous screen||
 || https://open9x.googlecode.com/svn/wiki/images3/snapshot_01.png || https://open9x.googlecode.com/svn/wiki/images3/statistic.png ||https://open9x.googlecode.com/svn/wiki/images3/screenshot-1.png || 
-|| _*HW switches display*_<br>and _*shaded ID0/1/2 when TRN*_ || _*Virtual switches*_ and _*CH9-16 display*_<br>pressing LEFT/RIGHT on previous screen || _*Telemetry Bars*_ <br> press LONG DOWN ||
-|| https://open9x.googlecode.com/svn/wiki/images3/snapshot_02.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_14.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_15.png ||
-|| _*Telemetry*_ <br> UP/DOWN || _*Telemetry*_ <br> UP/DOWN || _*Telemetry*_ <br> UP/DOWN ||
-|| https://open9x.googlecode.com/svn/wiki/images3/snapshot_16.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_17.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_18.png ||
-|| <br> || || ||
+|| _*HW switches display*_<br>and _*shaded ID0/1/2 when TRN*_ || _*Virtual switches*_ and _*CH9-16 display*_<br>pressing LEFT/RIGHT on previous screen || _*Telemetry Bars*_ with _*thresholds*_ <br> press LONG DOWN for Telemetry screens||
+|| https://open9x.googlecode.com/svn/wiki/images3/snapshot_02.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_14.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_30.png ||
+|| _*Telemetry*_ A1/A2, min/max, Cells, RSSI  <br> UP/DOWN to switch telemetry screens || _*Telemetry*_ GPS view HMS or NMEA<br> elective in General Settings  || _*Custom Telemetry*_ view with Timers, <br> min/max values and more ||
+|| https://open9x.googlecode.com/svn/wiki/images3/snapshot_19.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_20.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_21.png ||
+<br>
+
+|| *GENERAL SETTINGS* || ||
+|| _*Radio Setup*_ <br> Speaker and Haptic settings|| _*Gps*_ settings HMS or NMEA<br> and Time Zone||
+|| https://open9x.googlecode.com/svn/wiki/images3/snapshot_26.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_29.png ||
+<br>
+
 || *MODEL SETTINGS* || || ||
-|| _*Flight Phases*_ || _*Switch, selectable Trims, Fade*_ || _*Set Offset*_ = Channel value <br>when MENU + LONG MENU press ||
-|| https://open9x.googlecode.com/svn/wiki/images3/snapshot_03.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_04.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_05.png ||
+|| _*Flight Phases*_ || _*Switch, selectable Trims, Fade*_ || _*T-Trace*_ for statistics<br>changing _*Up/Low case in model name*_<br>by pressing LONG LEFT/RIGHT   ||
+|| https://open9x.googlecode.com/svn/wiki/images3/snapshot_03.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_04.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_32.png ||
+|| _*Channel value 2 Offset*_ (Trim not cleared) <br>press MENU + LONG MENU on Offset|| _*Trims 2 Offset*_ (Trims are cleared)<br>press MENU on *Trims=>Offsets* || ||
+|| https://open9x.googlecode.com/svn/wiki/images3/snapshot_05.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_27.png || ||
 || _*Curves with presets*_ || _*Custom Switches*_ with _*Timers1/2,<br>Telemetry, PPM and more*_ || _*Trainer, Trainer per Stick, Play sounds*_,<br>Channel _*Security*_ with value,<br>Channel _*Instant*_ value to _*Trims*_ ||
 || https://open9x.googlecode.com/svn/wiki/images3/snapshot_06.png || https://open9x.googlecode.com/svn/wiki/images3/CustomSwitches_07.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_09.png ||
-|| _*THR trim*_ like a *_Slider:*_ in Mix select source <br>Ail/Thr/Ele/Rud and set Trim to "Offset" || _*Mix Sources*_<br> *_Ail*_ is stick, *_AIL*_ is switch || _*How the FULL was changed*_<br>AIL or other HW/SW switch is 0 or 100 ||
+|| _*Thr trim*_ like a *_Slider:*_ in Mix select source <br>Ail/Thr/Ele/Rud and set Trim to "Offset" || _*Mix Sources*_<br> *_Ail*_ is stick, *_AIL*_ is switch || _*How the FULL was changed*_<br>AIL or other HW/SW switch is 0 or 100 ||
 || https://open9x.googlecode.com/svn/wiki/images3/snapshot_08.png || https://open9x.googlecode.com/svn/wiki/images3/MixesSources_12.png || https://open9x.googlecode.com/svn/wiki/images3/Full-1.png ||
 || _*Aileron Diffentiating*_ 1^st^ ability<br>Differentiated curve from -60 to +100|| _*Aileron Diffentiating*_ 1^st^ ability<br>CH1 with *100% Ail* and *curve1*|| _*Aileron Diffentiating*_ 1^st^ ability<br>CH5 with *-100% Ail* and *inverted curve1*||
 || https://open9x.googlecode.com/svn/wiki/images3/AilDiff01.png || https://open9x.googlecode.com/svn/wiki/images3/AilDiff02.png || https://open9x.googlecode.com/svn/wiki/images3/AilDiff03.png ||
 || _*Aileron Diffentiating in MIX*_ 2^nd^ ability<br>CH1 with *100% Ail* and *Differential*|| _*Aileron Diffentiating in MIX*_ 2^nd^ ability<br>CH5 with *-100% Ail* and *Differential*|| _*Aileron Diffentiating*_ 2^nd^ ability<br>CH5 *inverted in Limits*||
 || https://open9x.googlecode.com/svn/wiki/images3/AilDiff04.png || https://open9x.googlecode.com/svn/wiki/images3/AilDiff05.png || https://open9x.googlecode.com/svn/wiki/images3/AilDiff06.png ||
-|| _*Telemetry*_ || _*Telemetry*_ || Enabling _*Hub and Bars*_ ||
-|| https://open9x.googlecode.com/svn/wiki/images3/snapshot_10.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_11.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_13.png ||
+
+<p align=Center>*TELEMETRY SETUP*</p>
+
+|| _*Telemetry*_ A1/A2 settings <br>first alarm in A1/A2 is _*threshold*_ in bars|| _*Telemetry*_ RSSI and Hub || _*Custom Telemetry*_ with Timers, <br> _*min/max_* values and more||
+|| https://open9x.googlecode.com/svn/wiki/images3/snapshot_22.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_23.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_24.png ||
+|| _*Telemetry Bars*_ || Set Custom Switch threshold <br> for Telemetry Bar (SW6=T1>70°) || And then set Function SW <br>for Telemetry Bar threshold||
+|| https://open9x.googlecode.com/svn/wiki/images3/snapshot_25.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_28.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_31.png ||
 
 <wiki:comment>
 || _*What*_ || _*What*_ || _*What*_ ||
