@@ -25,8 +25,14 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 	<tr>
 		<td>PCB</td>
 		<td><b>STD</b></td>
-		<td>V4</td>
-		<td>Either the stock PCB or the gruvin9x v4 board </td>
+		<td>V4, ARM</td>
+		<td>Either the stock PCB, the gruvin9x v4 PCB or the ersky9x PCB</td>
+	</tr>
+        <tr>
+		<td>PCBREV</td>
+		<td><b>REV1(v4) / REVB(ARM)</b></td>
+		<td>REV0, REVA</td>
+		<td>Revision of the board (gruvin9x or ersky9x)</td>
 	</tr>
 	<tr>
 		<td>EXT</td>
