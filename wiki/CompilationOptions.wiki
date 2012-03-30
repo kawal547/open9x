@@ -58,11 +58,11 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>NO</td>
 		<td>Templates screen enabled </td>
 	</tr>
-	<tr>
+		<tr>
 		<td>NAVIGATION</td>
-		<td><b>POTS</b></td>
-		<td>NO, RE1</td>
-		<td>Pots use in menus navigation </td>
+		<td><b>POTS / RE1(V4)</b></td>
+		<td>NO, POT1, POT2, POT3</td>
+		<td>Pots use in menus navigation</td>
 	</tr>
 	<tr>
 		<td>AUDIO</td>
@@ -92,7 +92,7 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>FRSKY_HUB</td>
 		<td><b>YES</b></td>
 		<td>NO</td>
-		<td>FrSky Hub supported (when EXT=FRSKY) </td>
+		<td>Frsky Hub supported (when EXT=FRSKY) </td>
 	</tr>
 	<tr>
 		<td>WS_HOW_HIGH</td>
@@ -123,5 +123,11 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td><b>NO</b></td>
 		<td>YES</td>
 		<td>PXX protocol (testing in progress...) </td>
+	</tr>
+	<tr>
+		<td>EEPROM_PROGRESS_BAR</td>
+		<td><b>NO</b></td>
+		<td>YES</td>
+		<td>Progress bar on EEPROM writing</td>
 	</tr>
 </table>
