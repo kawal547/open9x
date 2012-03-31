@@ -1,9 +1,0 @@
-#summary TODO list
-
-= All versions =
-  * Telemetry: imperial units
-
-= V4 only =
-  * SOMO-14D module integration
-  * Logs in CSV format
-  * Wifi module integration
