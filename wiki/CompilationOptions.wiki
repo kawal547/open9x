@@ -66,8 +66,8 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 	</tr>
 	<tr>
 		<td>AUDIO</td>
-		<td><b>YES</b></td>
-		<td>NO</td>
+		<td><b>NO</b></td>
+		<td>YES</td>
 		<td>How the sounds are sent (testing in progress)</td>
 	</tr>
 	<tr>
@@ -101,16 +101,22 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>Winged Shadow How High supported (when EXT=FRSKY) </td>
 	</tr>
 	<tr>
-		<td>LOGS</td>
-		<td><b>YES</b></td>
-		<td>NO</td>
-		<td>When V4 board used: logs enabled on SD-card </td>
+		<td>SDCARD</td>
+		<td><b>NO</b></td>
+		<td>YES</td>
+		<td>SD-card and logs</td>
 	</tr>
 	<tr>
 		<td>SOMO</td>
 		<td><b>NO</b></td>
 		<td>YES</td>
 		<td>When V4 board used: SOMO-14D board support </td>
+	</tr>
+	<tr>
+		<td>FLIGHT_PHASES</td>
+		<td><b>YES</b></td>
+		<td>NO</td>
+		<td>Flight phases support </td>
 	</tr>
 	<tr>
 		<td>DSM2</td>
