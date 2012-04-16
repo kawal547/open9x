@@ -21,7 +21,7 @@
  * Support for _*Frsky HUB*_ 2.0 sensors
  * Screen with _*Custom Telemetry*_ view with sensors min/max options
  * Screen with _*Telemetry Bars*_
- * _*Threshholds*_ in Telemetry Bars. A1/A2 threshold is first alarm value, <br>for other telemetry sensors thresholds are set up by Custom Switch and Function Switch combination.
+ * _*Threshholds*_ in Telemetry Bars. A1/A2/RSSI threshold is first alarm value, <br>for other telemetry sensors thresholds are set up by Custom Switch and Function Switch combination.
  * _*Virtual channels Screen*_ for showing Channels 9-16 and Virtual Switches
  * _*Speaker Mode/Lenght*_ separated
  * Selectable _*Haptic*_ modes 
@@ -63,7 +63,7 @@
 
 <p align=Center>*TELEMETRY SETUP*</p>
 
-|| _*Telemetry*_ A1/A2 settings <br>first alarm in A1/A2 is _*threshold*_ in bars|| _*Telemetry*_ RSSI and Hub || _*Custom Telemetry*_ with Timers, <br> _*min/max_* values and more||
+|| _*Telemetry*_ A1/A2 settings <br>first alarm in A1/A2 is _*threshold*_ in bars|| _*Telemetry*_ RSSI and Hub <br>first alarm in RSSI is _*threshold*_ in bars|| _*Custom Telemetry*_ with Timers, <br> _*min/max_* values and more||
 || https://open9x.googlecode.com/svn/wiki/images3/snapshot_22.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_23.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_24.png ||
 || _*Telemetry Bars*_ || Set Custom Switch threshold <br> for Telemetry Bar (SW6=T1>70°) || And then set Function SW <br>for Telemetry Bar threshold||
 || https://open9x.googlecode.com/svn/wiki/images3/snapshot_25.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_28.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_31.png ||
