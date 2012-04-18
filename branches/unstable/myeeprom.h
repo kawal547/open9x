@@ -353,7 +353,8 @@ enum FrskyUsrProtocols {//probably to add x3mfly protocol here
   PROTO_WS_HOW_HIGH
 };
 
-#define VARIO_LIM_MUL 20 //to get 0.2m steps
+#define VARIO_SPEED_LIMIT 10 //m/s
+#define VARIO_SPEED_LIMIT_MUL 20 //to get 0.2m steps
 
 PACK(typedef struct t_FrSkyData {
   FrSkyChannelData channels[2];

@@ -697,7 +697,6 @@ void check_frsky()
 
 #if defined(VARIO_EXTENDED)
 
-#define VARIO_SPEED_LIMIT 10 //m/s
     int16_t verticalSpeed = 0;
     //vertical speed in 0.01m/s now
     if(g_model.frsky.use_baroAltitude_ap)//means if additional data enabled then _ap unit is 0.01
@@ -707,13 +706,14 @@ void check_frsky()
 
     uint8_t SoundAltBeepNextFreq = (0);
     uint8_t SoundAltBeepNextTime = (0);
-    if(verticalSpeed < g_model.varioSpeedUpMin*VARIO_LIM_MUL && verticalSpeed > g_model.varioSpeedDownMin*(-VARIO_LIM_MUL)) //check thresholds here in cm/s
+    if((verticalSpeed < g_model.varioSpeedUpMin*VARIO_SPEED_LIMIT_MUL) && 
+	     (verticalSpeed > g_model.varioSpeedDownMin*(-VARIO_SPEED_LIMIT_MUL))) //check thresholds here in cm/s
     {
       SoundAltBeepNextFreq = (0);
       SoundAltBeepNextTime = (0);
     }else{
-      SoundAltBeepNextFreq = (((((int32_t)verticalSpeed * 84) + 125000)/10)/10)/20;//;150000)/10)/10)/20;
-      SoundAltBeepNextTime = ((1600 - verticalSpeed) / 100);
+      SoundAltBeepNextFreq = (verticalSpeed * 10 + 16000)>>8;
+      SoundAltBeepNextTime = (1600 - verticalSpeed) >> 7;
       if(verticalSpeed > 0){
         if ((int16_t)(g_tmr10ms - s_varioTmr) > (int16_t)(SoundAltBeepNextTime*2)) {
           s_varioTmr = g_tmr10ms;
