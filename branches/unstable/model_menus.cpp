@@ -2190,7 +2190,7 @@ void menuProcTelemetry(uint8_t event)
   if(s_pgOfs<subN) {
     y = (subN-s_pgOfs)*FH;
     lcd_puts(4, y, STR_BARO_UP_LIM);
-    lcd_outdezAtt(TELEM_COL2+FWNUM+2*FW, y, VARIO_LIM_MUL*g_model.varioSpeedUpMin, (sub==subN ? INVERS : 0)|PREC2);//TODO: EDIT DECIMALS HERE
+    lcd_outdezAtt(TELEM_COL2+FWNUM+2*FW, y, VARIO_SPEED_LIMIT_MUL*g_model.varioSpeedUpMin, (sub==subN ? INVERS : 0)|PREC2);
     if (sub==subN)
       CHECK_INCDEC_MODELVAR(event, g_model.varioSpeedUpMin, 0, 15);
   }
@@ -2199,7 +2199,7 @@ void menuProcTelemetry(uint8_t event)
   if(s_pgOfs<subN) {
     y = (subN-s_pgOfs)*FH;
     lcd_puts(4, y, STR_BARO_DWN_LIM);
-    lcd_outdezAtt(TELEM_COL2+FWNUM+2*FW, y, VARIO_LIM_MUL*g_model.varioSpeedDownMin, (sub==subN ? INVERS : 0)|PREC2);//TODO: EDIT DECIMALS HERE
+    lcd_outdezAtt(TELEM_COL2+FWNUM+2*FW, y, VARIO_SPEED_LIMIT_MUL*g_model.varioSpeedDownMin, (sub==subN ? INVERS : 0)|PREC2);
     if (sub==subN)
       CHECK_INCDEC_MODELVAR(event, g_model.varioSpeedDownMin, 0, 15);
   }
