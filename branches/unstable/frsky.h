@@ -119,7 +119,7 @@ PACK(struct FrskyHubData {
   uint8_t  minCellVolts;     //        8bits out of 16bits spare reused
   uint16_t current;          // 0x28   Current
 #if defined(VARIO_EXTENDED)
-  int16_t  baroAltitudeQueue_Acc[5]; //circular buffer
+  int16_t  varioAltitudeQueue_Acc[5]; //circular buffer
 #else
   int8_t   varioQueue[10];   // circular-buffer
 #endif
@@ -140,12 +140,8 @@ PACK(struct FrskyHubData {
   uint16_t maxGpsSpeed;
   uint16_t maxGpsDistance;
   /* end */
-#if defined(VARIO_EXTENDED)
-  int32_t  baroAltitude_full;
-#else
   int16_t  varioAcc1;
   int16_t  varioAcc2;
-#endif
   uint16_t volts_bp;         // 0x3A
   uint16_t volts_ap;         // 0x3B
   // end of FrSky Hub data
@@ -153,8 +149,8 @@ PACK(struct FrskyHubData {
   int16_t  gpsAltitudeOffset;
   uint8_t  minCellMinVolts;
 #if defined(VARIO_EXTENDED)
-  int32_t  gpsAltitude_full;
-  int32_t  baroAltitude_full_prev;
+  int32_t  varioAltitude_full_prev;
+  int32_t  varioAltitude_full;
 #endif
 });
 

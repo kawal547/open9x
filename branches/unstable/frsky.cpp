@@ -249,36 +249,38 @@ void parseTelemHubByte(uint8_t byte)
         //here is baro altitude suggested 0.01m accuracy, i.e. baroAltitude_ap in range [0:99]
         if(VX_SOURCE_BARO == g_model.varioExtendedSource){
           uint16_t alt_sign = frskyHubData.baroAltitude_bp/abs(frskyHubData.baroAltitude_bp);
-          frskyHubData.baroAltitude_full = frskyHubData.baroAltitude_bp*100 + frskyHubData.baroAltitude_ap*alt_sign;
-        }else{
-          frskyHubData.baroAltitude_full = frskyHubData.baroAltitude_bp;
-        }
-        //+++move to vario 
-        if(++frskyHubData.queuePointer>=5)
-          frskyHubData.queuePointer = 0;
+          frskyHubData.varioAltitude_full = frskyHubData.baroAltitude_bp*100 + frskyHubData.baroAltitude_ap*alt_sign;
+          //each source has own frskyHubData.varioSpeed method
+          frskyHubData.queuePointer = ++frskyHubData.queuePointer % 5;
 
-        frskyHubData.baroAltitudeQueue_Acc[frskyHubData.queuePointer] = 
-          frskyHubData.baroAltitude_full - frskyHubData.baroAltitude_full_prev;
+          frskyHubData.varioAltitudeQueue_Acc[frskyHubData.queuePointer] = 
+            frskyHubData.varioAltitude_full - frskyHubData.varioAltitude_full_prev;
 
-        frskyHubData.baroAltitude_full_prev = frskyHubData.baroAltitude_full;
+          frskyHubData.varioAltitude_full_prev = frskyHubData.varioAltitude_full;
           
-        frskyHubData.varioSpeed = 0;
-		    for(uint8_t vi=0; vi<5; vi++){
-          frskyHubData.varioSpeed += frskyHubData.baroAltitudeQueue_Acc[vi];
-			  }		  
-        //---move to vario
+          
+          int16_t  tmpvs = 0;
+		      for(uint8_t vi=0; vi<5; vi++){
+            tmpvs += frskyHubData.varioAltitudeQueue_Acc[vi];
+			    }		  
+          frskyHubData.varioSpeed = tmpvs;
+        }
+        
+        
         // First received barometer altitude => Altitude offset
-        if (!frskyHubData.baroAltitudeOffset)
-          frskyHubData.baroAltitudeOffset = -frskyHubData.baroAltitude_bp;
-
-        frskyHubData.baroAltitude_bp += frskyHubData.baroAltitudeOffset;
 		
-        if(VX_SOURCE_BARO == g_model.varioExtendedSource){
-    	    frskyHubData.Altitude_show = frskyHubData.gpsAltitude_bp;
-          if (frskyHubData.baroAltitude_bp > frskyHubData.maxAltitude)
-            frskyHubData.maxAltitude = frskyHubData.baroAltitude_bp;
-          if (frskyHubData.baroAltitude_bp < frskyHubData.minAltitude)
-            frskyHubData.minAltitude = frskyHubData.baroAltitude_bp;
+        if(VX_SOURCE_BARO == g_model.altExtendedSource){
+    	    frskyHubData.Altitude_show = frskyHubData.baroAltitude_bp;
+          
+          if (!frskyHubData.baroAltitudeOffset)
+            frskyHubData.baroAltitudeOffset = -frskyHubData.Altitude_show;
+
+          frskyHubData.Altitude_show += frskyHubData.baroAltitudeOffset;
+
+          if (frskyHubData.Altitude_show > frskyHubData.maxAltitude)
+            frskyHubData.maxAltitude = frskyHubData.Altitude_show;
+          if (frskyHubData.Altitude_show < frskyHubData.minAltitude)
+            frskyHubData.minAltitude = frskyHubData.Altitude_show;
         }
 
       }
@@ -313,22 +315,24 @@ void parseTelemHubByte(uint8_t byte)
 #endif
 #if defined(VARIO_EXTENDED)
     case offsetof(FrskyHubData, gpsAltitude_ap):
-      if(VX_SOURCE_GPS == g_model.varioExtendedSource){
-        frskyHubData.gpsAltitude_full = frskyHubData.gpsAltitude_bp*100;
-      } else {
-        frskyHubData.gpsAltitude_full = frskyHubData.gpsAltitude_bp;
-      }
-      if (!frskyHubData.gpsAltitudeOffset)
-        frskyHubData.gpsAltitudeOffset = -frskyHubData.gpsAltitude_bp;
+      if(VX_SOURCE_GPS == g_model.varioExtendedSource){//check gps ap digits
+        uint16_t alt_sign = frskyHubData.gpsAltitude_bp/abs(frskyHubData.gpsAltitude_bp);
+        frskyHubData.varioAltitude_full = frskyHubData.gpsAltitude_bp*100 + alt_sign*frskyHubData.gpsAltitude_ap;
+        frskyHubData.varioSpeed = frskyHubData.varioAltitude_full - frskyHubData.varioAltitude_full_prev;
+        frskyHubData.varioAltitude_full_prev = frskyHubData.varioAltitude_full;
+      }      
 
-      frskyHubData.gpsAltitude_bp += frskyHubData.gpsAltitudeOffset;
-
-      if(VX_SOURCE_BARO != g_model.varioExtendedSource){
+      if(VX_SOURCE_GPS == g_model.altExtendedSource){//here is need another settings: altimeter source as set of Baro/GPS
   	    frskyHubData.Altitude_show = frskyHubData.gpsAltitude_bp;
-        if (frskyHubData.gpsAltitude_bp > frskyHubData.maxAltitude)
-          frskyHubData.maxAltitude = frskyHubData.gpsAltitude_bp;
-        if (frskyHubData.gpsAltitude_bp < frskyHubData.minAltitude)
-          frskyHubData.minAltitude = frskyHubData.gpsAltitude_bp;
+        if (!frskyHubData.gpsAltitudeOffset)
+          frskyHubData.gpsAltitudeOffset = -frskyHubData.gpsAltitude_bp;
+
+        frskyHubData.Altitude_show += frskyHubData.gpsAltitudeOffset;
+        
+        if (frskyHubData.Altitude_show > frskyHubData.maxAltitude)
+          frskyHubData.maxAltitude = frskyHubData.Altitude_show;
+        if (frskyHubData.Altitude_show < frskyHubData.minAltitude)
+          frskyHubData.minAltitude = frskyHubData.Altitude_show;
       }      
       if (!frskyHubData.pilotLatitude && !frskyHubData.pilotLongitude) {
         // First received GPS position => Pilot GPS position
@@ -705,6 +709,7 @@ void check_frsky()
     //GPS source need precision to be set, my gps gives 0.1m resolution 
     switch(g_model.varioExtendedSource){
       case VX_SOURCE_BARO://means if additional data enabled then _ap unit is 0.01
+      case VX_SOURCE_GPS://GPS data collector provide varioSpeed too
         verticalSpeed = limit((int16_t)(-VARIO_SPEED_LIMIT*100), (int16_t)frskyHubData.varioSpeed, (int16_t)(+VARIO_SPEED_LIMIT*100));
         break;
       default:
@@ -1186,8 +1191,18 @@ void menuProcFrsky(uint8_t event)
             }
             else {
 #if defined(VARIO_EXTENDED)
-              if((VX_SOURCE_BARO == g_model.varioExtendedSource) & (field == TELEM_VSPD)){
-                putsTelemetryChannel(j ? 128 : 63, i==3 ? 1+7*FH : 1+2*FH+2*FH*i, field-1, value, att|PREC2);
+              if((field == TELEM_VSPD)){
+                switch(g_model.varioExtendedSource){//if extended precision vario sources then PREC2
+                  case VX_SOURCE_BARO:
+                  case VX_SOURCE_GPS:
+                  case VX_SOURCE_A1:
+                  case VX_SOURCE_A2:
+                    putsTelemetryChannel(j ? 128 : 63, i==3 ? 1+7*FH : 1+2*FH+2*FH*i, field-1, value, att|PREC2);
+                    break; 
+                  default:
+                    putsTelemetryChannel(j ? 128 : 63, i==3 ? 1+7*FH : 1+2*FH+2*FH*i, field-1, value, att);
+                    break;
+                }
               }
               else 
 #endif
