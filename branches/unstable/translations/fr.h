@@ -237,11 +237,12 @@
 #define TR_USRDATA      "UsrData"
 #define TR_BLADES       "Blades"
 #ifdef VARIO_EXTENDED
-#define TR_VX_VARIO     "Vario"
+#define TR_VX_VARIO     "Vario/Altimeter"
 #define TR_VX_SOURCES   "\004""None""Baro""GPS ""A1  ""A2  "
-#define TR_VX_UP_LIM    "Up Lim"
-#define TR_VX_DWN_LIM   "Down Lim"
+#define TR_VX_LIM       "Limit"
 #define TR_VX_ZERO      "Zero"
+#define TR_VX_AX_MUL    "Mul"
+#define TR_VX_AX_CAL    "A1/2 Cal"
 #endif //VARIO_EXTENDED
 #define TR_BARS         "Gauges"
 #define TR_DISPLAY      "Display"
