@@ -162,6 +162,13 @@ typedef enum {
   TS_XOR = 0x80 // decode stuffed byte
 } TS_STATE;
 
+#if defined(VARIO_EXTENDED)
+void useA12asVario(void){
+  //TODO
+};
+#endif //VARIO_EXTENDED
+
+
 void parseTelemHubByte(uint8_t byte)
 {
   static int8_t structPos;
@@ -392,7 +399,6 @@ void parseTelemHubByte(uint8_t byte)
     case offsetof(FrskyHubData, accelZ):
       *(int16_t*)(&((uint8_t*)&frskyHubData)[structPos]) /= 10;
       break;
-
   }
 }
 #endif
@@ -444,6 +450,9 @@ void processFrskyPacket(uint8_t *packet)
       frskyRSSI[0].set(packet[3]);
       frskyRSSI[1].set(packet[4] / 2);
       frskyStreaming = FRSKY_TIMEOUT10ms; // reset counter only if valid frsky packets are being detected
+#if defined(VARIO_EXTENDED)
+      useA12asVario();
+#endif //VARIO_EXTENDED
       break;
 #if defined(FRSKY_HUB) || defined (WS_HOW_HIGH)
     case USRPKT: // User Data packet
@@ -710,6 +719,8 @@ void check_frsky()
     switch(g_model.varioExtendedSource){
       case VX_SOURCE_BARO://means if additional data enabled then _ap unit is 0.01
       case VX_SOURCE_GPS://GPS data collector provide varioSpeed too
+      //case VX_SOURCE_A1:
+      //case VX_SOURCE_A2:
         verticalSpeed = limit((int16_t)(-VARIO_SPEED_LIMIT*100), (int16_t)frskyHubData.varioSpeed, (int16_t)(+VARIO_SPEED_LIMIT*100));
         break;
       default:
