@@ -2009,7 +2009,7 @@ void menuProcFunctionSwitches(uint8_t event)
 #define TELEM_COL2 (9*FW+2)
 void menuProcTelemetry(uint8_t event)
 {
-#if defined(FRSKY_HUB) || defined(WS_HOW_HIGH)//                                                                                                     v  v alt source v            v  v  v  v  v vario source = 8 new menu items for altimeter and vario
+#if defined(FRSKY_HUB) || defined(WS_HOW_HIGH)
 #if defined(VARIO_EXTENDED)
   MENU(STR_MENUTELEMETRY, menuTabModel, e_Telemetry, 31, {0, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 1, (uint8_t)-1, 0, 0, (uint8_t)-1, 1, 1, 1, (uint8_t)-1, 1, 1, 1, 1, (uint8_t)-1, 2, 2, 2, 2});
 #else //VARIO_EXTENDED
@@ -2217,10 +2217,10 @@ void menuProcTelemetry(uint8_t event)
     if (sub==subN && (s_editMode>0 || p1valdiff)) {
       switch (m_posHorz) {
         case 0:
-          CHECK_INCDEC_MODELVAR(event, g_model.varioAXCenter, 0, 15);
+          g_model.varioAXCenter = checkIncDec(event, g_model.varioAXCenter, 100, 200, EE_MODEL);
           break;
         case 1:
-          CHECK_INCDEC_MODELVAR(event, g_model.varioAXMultiplier, 0, 15);
+          g_model.varioAXMultiplier = checkIncDec(event, g_model.varioAXMultiplier, 1, 255, EE_MODEL);
           break;
       }
     }        
