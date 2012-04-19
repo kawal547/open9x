@@ -49,6 +49,15 @@ enum AlarmLevel {
   alarm_red = 3
 };
 
+enum vxBaroSources {
+  VX_SOURCE_NONE = 0,
+  VX_SOURCE_BARO = 1,
+  VX_SOURCE_GPS = 2,
+  VX_SOURCE_A1 = 3,
+  VX_SOURCE_A2 = 4,
+  VX_SOURCE_LAST = 4
+};
+
 #define ALARM_GREATER(channel, alarm) ((g_model.frsky.channels[channel].alarms_greater >> alarm) & 1)
 #define ALARM_LEVEL(channel, alarm) ((g_model.frsky.channels[channel].alarms_level >> (2*alarm)) & 3)
 
