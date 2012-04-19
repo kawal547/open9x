@@ -137,7 +137,7 @@ void audioQueue::playNow(uint8_t tFreq, uint8_t tLen, uint8_t tPause,
   t_queueWidx = t_queueRidx;
 
   if (tRepeat) {
-    playASAP(tFreq, tLen, tPause, tRepeat-1, tFreqIncr);
+    playASAP(tFreq, tLen, tPause, tRepeat, tFreqIncr);
   }
 }
 
@@ -247,11 +247,11 @@ void audioQueue::event(uint8_t e, uint8_t f)
         break;
       // time 30 seconds left
       case AU_TIMER_30:
-        playNow(BEEP_DEFAULT_FREQ + 50, 15, 3, 3);
+        playNow(BEEP_DEFAULT_FREQ + 50, 15, 3, 2);
         break;
       // time 20 seconds left
       case AU_TIMER_20:
-        playNow(BEEP_DEFAULT_FREQ + 50, 15, 3, 2);
+        playNow(BEEP_DEFAULT_FREQ + 50, 15, 3, 1);
         break;
       // time 10 seconds left
       case AU_TIMER_10:
