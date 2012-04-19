@@ -2009,12 +2009,12 @@ void menuProcFunctionSwitches(uint8_t event)
 #define TELEM_COL2 (9*FW+2)
 void menuProcTelemetry(uint8_t event)
 {
-#if defined(FRSKY_HUB) || defined(WS_HOW_HIGH)//                                                                                                                  v  v  v  v 4 new menu items for baro alt/vario
+#if defined(FRSKY_HUB) || defined(WS_HOW_HIGH)//                                                                                                                  v  v  v 3 new menu items for baro alt/vario
 #if defined(VARIO_EXTENDED)
-  MENU(STR_MENUTELEMETRY, menuTabModel, e_Telemetry, 32, {0, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 1, (uint8_t)-1, 0, 0, (uint8_t)-1, 0, 0, 0, 0,  (uint8_t)-1, 1, 1, 1, 1, (uint8_t)-1, 2, 2, 2, 2});
-#else 
+  MENU(STR_MENUTELEMETRY, menuTabModel, e_Telemetry, 31, {0, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 1, (uint8_t)-1, 0, 0, (uint8_t)-1, 0, 0, 0,  (uint8_t)-1, 1, 1, 1, 1, (uint8_t)-1, 2, 2, 2, 2});
+#else //VARIO_EXTENDED
   MENU(STR_MENUTELEMETRY, menuTabModel, e_Telemetry, 27, {0, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 1, (uint8_t)-1, 0, 0, (uint8_t)-1, 1, 1, 1, 1, (uint8_t)-1, 2, 2, 2, 2});
-#endif
+#endif //VARIO_EXTENDED
 #else
   MENU(STR_MENUTELEMETRY, menuTabModel, e_Telemetry, 24, {0, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 1, (uint8_t)-1, 1, 1, 1, 1, (uint8_t)-1, 2, 2, 2, 2});
 #endif
@@ -2165,31 +2165,22 @@ void menuProcTelemetry(uint8_t event)
 #if defined(VARIO_EXTENDED)
   if(s_pgOfs<subN) {
     y = (subN-s_pgOfs)*FH;
-    lcd_putsLeft(y, STR_BARO_VARIO);
-  }
-  subN++;
-
-  if(s_pgOfs<subN) {//setup baro altimeter after point data to be used
-    y = (subN-s_pgOfs)*FH;
-    lcd_puts(4, y, STR_BARO_PR);
-    menu_lcd_onoff( TELEM_COL2, y, g_model.frsky.use_baroAltitude_ap, sub==subN ) ;
-    if (sub==subN)
-      CHECK_INCDEC_MODELVAR(event, g_model.frsky.use_baroAltitude_ap, 0, 1);
-  }
-  subN++;
-
-  if(s_pgOfs<subN) {//use barometer altitude only if ON and use GPS altitude if OFF
-    y = (subN-s_pgOfs)*FH;
-    lcd_puts(4, y, STR_BARO_ONLY);
-    menu_lcd_onoff( TELEM_COL2, y, g_model.frsky.use_baroAltitude_only, sub==subN ) ;
-    if (sub==subN)
-      CHECK_INCDEC_MODELVAR(event, g_model.frsky.use_baroAltitude_only, 0, 1);
+    lcd_putsLeft(y, STR_VX_VARIO);
   }
   subN++;
 
   if(s_pgOfs<subN) {
     y = (subN-s_pgOfs)*FH;
-    lcd_puts(4, y, STR_BARO_UP_LIM);
+    lcd_puts(4, y, STR_PROTO);
+    lcd_putsiAtt(TELEM_COL2, y, STR_VX_SOURCES, g_model.varioExtendedSource, sub==subN ? INVERS:0);
+    if (sub==subN)
+      CHECK_INCDEC_MODELVAR(event, g_model.varioExtendedSource, 0, VX_SOURCE_LAST);
+  }
+  subN++;
+
+  if(s_pgOfs<subN) {
+    y = (subN-s_pgOfs)*FH;
+    lcd_puts(4, y, STR_VX_UP_LIM);
     lcd_outdezAtt(TELEM_COL2+FWNUM+2*FW, y, VARIO_SPEED_LIMIT_MUL*g_model.varioSpeedUpMin, (sub==subN ? INVERS : 0)|PREC2);
     if (sub==subN)
       CHECK_INCDEC_MODELVAR(event, g_model.varioSpeedUpMin, 0, 15);
@@ -2198,7 +2189,7 @@ void menuProcTelemetry(uint8_t event)
 
   if(s_pgOfs<subN) {
     y = (subN-s_pgOfs)*FH;
-    lcd_puts(4, y, STR_BARO_DWN_LIM);
+    lcd_puts(4, y, STR_VX_DWN_LIM);
     lcd_outdezAtt(TELEM_COL2+FWNUM+2*FW, y, VARIO_SPEED_LIMIT_MUL*g_model.varioSpeedDownMin, (sub==subN ? INVERS : 0)|PREC2);
     if (sub==subN)
       CHECK_INCDEC_MODELVAR(event, g_model.varioSpeedDownMin, 0, 15);

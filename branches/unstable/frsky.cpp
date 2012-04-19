@@ -244,15 +244,16 @@ void parseTelemHubByte(uint8_t byte)
 #if defined(VARIO_EXTENDED)
     case offsetof(FrskyHubData, baroAltitude_bp):
     case offsetof(FrskyHubData, baroAltitude_ap):
-      if((!g_model.frsky.use_baroAltitude_ap & (offsetof(FrskyHubData, baroAltitude_bp) == (uint8_t)structPos)) |
-          (g_model.frsky.use_baroAltitude_ap & (offsetof(FrskyHubData, baroAltitude_ap) == (uint8_t)structPos))){
+      if((!(VX_SOURCE_BARO == g_model.varioExtendedSource) & (offsetof(FrskyHubData, baroAltitude_bp) == (uint8_t)structPos)) |
+          ((VX_SOURCE_BARO == g_model.varioExtendedSource) & (offsetof(FrskyHubData, baroAltitude_ap) == (uint8_t)structPos))){
         //here is baro altitude suggested 0.01m accuracy, i.e. baroAltitude_ap in range [0:99]
-        if(g_model.frsky.use_baroAltitude_ap){
+        if(VX_SOURCE_BARO == g_model.varioExtendedSource){
           uint16_t alt_sign = frskyHubData.baroAltitude_bp/abs(frskyHubData.baroAltitude_bp);
           frskyHubData.baroAltitude_full = frskyHubData.baroAltitude_bp*100 + frskyHubData.baroAltitude_ap*alt_sign;
         }else{
           frskyHubData.baroAltitude_full = frskyHubData.baroAltitude_bp;
         }
+        //+++move to vario 
         if(++frskyHubData.queuePointer>=5)
           frskyHubData.queuePointer = 0;
 
@@ -265,14 +266,14 @@ void parseTelemHubByte(uint8_t byte)
 		    for(uint8_t vi=0; vi<5; vi++){
           frskyHubData.varioSpeed += frskyHubData.baroAltitudeQueue_Acc[vi];
 			  }		  
-
+        //---move to vario
         // First received barometer altitude => Altitude offset
         if (!frskyHubData.baroAltitudeOffset)
           frskyHubData.baroAltitudeOffset = -frskyHubData.baroAltitude_bp;
 
         frskyHubData.baroAltitude_bp += frskyHubData.baroAltitudeOffset;
 		
-        if(g_model.frsky.use_baroAltitude_only){
+        if(VX_SOURCE_BARO == g_model.varioExtendedSource){
     	    frskyHubData.Altitude_show = frskyHubData.gpsAltitude_bp;
           if (frskyHubData.baroAltitude_bp > frskyHubData.maxAltitude)
             frskyHubData.maxAltitude = frskyHubData.baroAltitude_bp;
@@ -312,7 +313,7 @@ void parseTelemHubByte(uint8_t byte)
 #endif
 #if defined(VARIO_EXTENDED)
     case offsetof(FrskyHubData, gpsAltitude_ap):
-      if(g_model.frsky.use_baroAltitude_ap){
+      if(VX_SOURCE_GPS == g_model.varioExtendedSource){
         frskyHubData.gpsAltitude_full = frskyHubData.gpsAltitude_bp*100;
       } else {
         frskyHubData.gpsAltitude_full = frskyHubData.gpsAltitude_bp;
@@ -322,7 +323,7 @@ void parseTelemHubByte(uint8_t byte)
 
       frskyHubData.gpsAltitude_bp += frskyHubData.gpsAltitudeOffset;
 
-      if(!g_model.frsky.use_baroAltitude_only){
+      if(VX_SOURCE_BARO != g_model.varioExtendedSource){
   	    frskyHubData.Altitude_show = frskyHubData.gpsAltitude_bp;
         if (frskyHubData.gpsAltitude_bp > frskyHubData.maxAltitude)
           frskyHubData.maxAltitude = frskyHubData.gpsAltitude_bp;
@@ -699,10 +700,17 @@ void check_frsky()
 
     int16_t verticalSpeed = 0;
     //vertical speed in 0.01m/s now
-    if(g_model.frsky.use_baroAltitude_ap)//means if additional data enabled then _ap unit is 0.01
-      verticalSpeed = limit((int16_t)(-VARIO_SPEED_LIMIT*100), (int16_t)frskyHubData.varioSpeed, (int16_t)(+VARIO_SPEED_LIMIT*100));
-    else
-      verticalSpeed = limit((int16_t)-VARIO_SPEED_LIMIT, (int16_t)(frskyHubData.varioSpeed), (int16_t)+VARIO_SPEED_LIMIT)*100;
+    //not baro vario only has additional resolution
+    //A1/A2 need conversion there
+    //GPS source need precision to be set, my gps gives 0.1m resolution 
+    switch(g_model.varioExtendedSource){
+      case VX_SOURCE_BARO://means if additional data enabled then _ap unit is 0.01
+        verticalSpeed = limit((int16_t)(-VARIO_SPEED_LIMIT*100), (int16_t)frskyHubData.varioSpeed, (int16_t)(+VARIO_SPEED_LIMIT*100));
+        break;
+      default:
+        verticalSpeed = limit((int16_t)-VARIO_SPEED_LIMIT, (int16_t)(frskyHubData.varioSpeed), (int16_t)+VARIO_SPEED_LIMIT)*100;
+        break;
+    }        
 
     uint8_t SoundAltBeepNextFreq = (0);
     uint8_t SoundAltBeepNextTime = (0);
@@ -1178,7 +1186,7 @@ void menuProcFrsky(uint8_t event)
             }
             else {
 #if defined(VARIO_EXTENDED)
-              if(g_model.frsky.use_baroAltitude_ap & (field == TELEM_VSPD)){
+              if((VX_SOURCE_BARO == g_model.varioExtendedSource) & (field == TELEM_VSPD)){
                 putsTelemetryChannel(j ? 128 : 63, i==3 ? 1+7*FH : 1+2*FH+2*FH*i, field-1, value, att|PREC2);
               }
               else 

@@ -237,11 +237,11 @@
 #define TR_USRDATA      "Anv\201ndardata"
 #define TR_BLADES       "Blad"
 #ifdef VARIO_EXTENDED
-#define TR_BARO_VARIO   "Baro Vario"
-#define TR_BARO_PR      "Use AP"
-#define TR_BARO_ONLY    "BaroOnly"
-#define TR_BARO_UP_LIM  "Up Lim"
-#define TR_BARO_DWN_LIM "Down Lim"
+#define TR_VX_VARIO     "Vario"
+#define TR_VX_SOURCES   "\004""None""Baro""GPS ""A1  ""A2  "
+#define TR_VX_UP_LIM    "Up Lim"
+#define TR_VX_DWN_LIM   "Down Lim"
+#define TR_VX_ZERO      "Zero"
 #endif //VARIO_EXTENDED
 #define TR_BARS         "Staplar som visas"
 #define TR_DISPLAY      "Display"
