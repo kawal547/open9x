@@ -164,7 +164,11 @@ typedef enum {
 
 #if defined(VARIO_EXTENDED)
 void useA12asVario(void){
-  //TODO
+  if(g_model.varioExtendedSource >= VX_SOURCE_A1){
+    frskyHubData.varioSpeed = 
+	    (frskyTelemetry[g_model.varioExtendedSource - VX_SOURCE_A1].value - g_model.varioAXCenter) * 
+		  (g_model.varioAXMultiplier/10);
+  }  
 };
 #endif //VARIO_EXTENDED
 
@@ -719,8 +723,8 @@ void check_frsky()
     switch(g_model.varioExtendedSource){
       case VX_SOURCE_BARO://means if additional data enabled then _ap unit is 0.01
       case VX_SOURCE_GPS://GPS data collector provide varioSpeed too
-      //case VX_SOURCE_A1:
-      //case VX_SOURCE_A2:
+      case VX_SOURCE_A1:
+      case VX_SOURCE_A2:
         verticalSpeed = limit((int16_t)(-VARIO_SPEED_LIMIT*100), (int16_t)frskyHubData.varioSpeed, (int16_t)(+VARIO_SPEED_LIMIT*100));
         break;
       default:
@@ -737,14 +741,15 @@ void check_frsky()
       SoundAltBeepNextTime = (0);
     }else{
       SoundAltBeepNextFreq = (verticalSpeed * 10 + 16000)>>8;
-      SoundAltBeepNextTime = (1600 - verticalSpeed) >> 7;
+      SoundAltBeepNextTime = (1600 - verticalSpeed) / 100;
       if(verticalSpeed > 0){
         if ((int16_t)(g_tmr10ms - s_varioTmr) > (int16_t)(SoundAltBeepNextTime*2)) {
           s_varioTmr = g_tmr10ms;
-          audio.playVario(SoundAltBeepNextFreq, SoundAltBeepNextTime);
+		      audio.event(AU_VARIO, SoundAltBeepNextFreq, SoundAltBeepNextTime, SoundAltBeepNextTime);
         }
       } else {//negative vertical speed gives sound without pauses
-          audio.playVario(SoundAltBeepNextFreq, 1);
+          //audio.playVario(SoundAltBeepNextFreq, 1);
+		      audio.event(AU_VARIO, SoundAltBeepNextFreq, 1, 0);
       }
     }  
 #else //VARIO_EXTENDED
