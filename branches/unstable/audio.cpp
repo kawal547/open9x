@@ -128,7 +128,7 @@ bool s_beeper;
 
 
 void audioQueue::playNow(uint8_t tFreq, uint8_t tLen, uint8_t tPause,
-    uint8_t tRepeat, int8_t tFreqIncr, int8_t tFlags)
+    uint8_t tRepeat, int8_t tFreqIncr, uint8_t tFlags)
 {
 #if defined(VARIO_EXTENDED)
 	if(tFlags & PLAY_FREQUENCY_UNCHANGED ){//when vario event and not pitch and not tone length compensation not applicable, they make funny sounds

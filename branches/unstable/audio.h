@@ -102,7 +102,7 @@ class audioQueue
 
     // only difference between these two functions is that one does the
     // interupt queue (Now) and the other queues for playing ASAP.
-    void playNow(uint8_t tFreq, uint8_t tLen, uint8_t tPause, uint8_t tRepeat=0, int8_t tFreqIncr=0, int8_t tVario=0);
+    void playNow(uint8_t tFreq, uint8_t tLen, uint8_t tPause, uint8_t tRepeat=0, int8_t tFreqIncr=0, uint8_t tFlags=0);
 
     void playASAP(uint8_t tFreq, uint8_t tLen, uint8_t tPause, uint8_t tRepeat=0, int8_t tFreqIncr=0);
 
