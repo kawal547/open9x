@@ -128,10 +128,18 @@ bool s_beeper;
 
 
 void audioQueue::playNow(uint8_t tFreq, uint8_t tLen, uint8_t tPause,
-    uint8_t tRepeat, int8_t tFreqIncr)
+    uint8_t tRepeat, int8_t tFreqIncr, int8_t tVario)
 {
-  toneFreq = ((s_beeper && tFreq) ? tFreq + g_eeGeneral.speakerPitch + BEEP_OFFSET : 0); // add pitch compensator
-  toneTimeLeft = getToneLength(tLen);
+#if defined(VARIO_EXTENDED)
+	if(tVario){//when vario event and not pitch and not tone length compensation not applicable, they make funny sounds
+    toneFreq = tFreq;
+    toneTimeLeft = tLen;
+  }else
+#endif //VARIO_EXTENDED
+  {
+    toneFreq = ((s_beeper && tFreq) ? tFreq + g_eeGeneral.speakerPitch + BEEP_OFFSET : 0); // add pitch compensator
+    toneTimeLeft = getToneLength(tLen);
+  }
   tonePause = tPause;
   toneFreqIncr = tFreqIncr;
   t_queueWidx = t_queueRidx;
@@ -155,22 +163,7 @@ void audioQueue::playASAP(uint8_t tFreq, uint8_t tLen, uint8_t tPause,
   }
 }
 
-#if defined(VARIO_EXTENDED)
-void audioQueue::playVario(uint8_t tFreq, uint8_t tLen)
-{
-  uint8_t next_queueWidx = (t_queueWidx + 1) % AUDIO_QUEUE_LENGTH;
-  if (next_queueWidx != t_queueRidx) {
-    queueToneFreq[t_queueWidx] = tFreq;
-    queueToneLength[t_queueWidx] = tLen;
-    queueTonePause[t_queueWidx] = 0;
-    queueToneRepeat[t_queueWidx] = 0;
-    queueToneFreqIncr[t_queueWidx] = 0;
-    t_queueWidx = next_queueWidx;
-  }
-}
-#endif
-
-void audioQueue::event(uint8_t e, uint8_t f)
+void audioQueue::event(uint8_t e, uint8_t f,uint8_t l,uint8_t p)
 {
   s_beeper = (g_eeGeneral.beeperMode>0 || (g_eeGeneral.beeperMode==0 && e>=AU_WARNING1) || (g_eeGeneral.beeperMode>=-1 && e<=AU_ERROR));
   if (g_eeGeneral.flashBeep && (e <= AU_ERROR || e >= AU_WARNING1)) g_LightOffCounter = FLASH_DURATION; // we got an event do we need to flash the display ?
@@ -260,6 +253,9 @@ void audioQueue::event(uint8_t e, uint8_t f)
       // time <3 seconds left
       case AU_TIMER_LT3:
         playNow(BEEP_DEFAULT_FREQ + 50, 15, 3, 0);
+        break;
+      case AU_VARIO:
+        playNow(f, l, p, 0, 0, 1);
         break;
       case AU_FRSKY_WARN1:
         playASAP(BEEP_DEFAULT_FREQ+20,15,5,2);

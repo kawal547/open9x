@@ -2179,7 +2179,7 @@ void menuProcTelemetry(uint8_t event)
     if (sub==subN && (s_editMode>0 || p1valdiff)) {
       switch (m_posHorz) {
         case 0:
-          CHECK_INCDEC_MODELVAR(event, g_model.varioExtendedSource, 0, VX_SOURCE_LAST);
+          CHECK_INCDEC_MODELVAR(event, g_model.varioExtendedSource, VX_SOURCE_BARO, VX_SOURCE_LAST);
           break;
         case 1:
           CHECK_INCDEC_MODELVAR(event, g_model.altExtendedSource, VX_SOURCE_BARO, VX_SOURCE_GPS);
@@ -2211,13 +2211,13 @@ void menuProcTelemetry(uint8_t event)
   if(s_pgOfs<subN) {
     y = (subN-s_pgOfs)*FH;
     lcd_puts(4, y, STR_VX_AX_CAL);
-    lcd_outdezAtt(TELEM_COL2+FWNUM+2*FW, y, g_model.varioAXCenter, ((sub==subN && m_posHorz==0) ? blink : 0)|PREC2);
-    lcd_outdezAtt(TELEM_COL2+FWNUM+2*FW+6*FW, y, g_model.varioAXMultiplier, ((sub==subN && m_posHorz==1) ? blink : 0)|PREC2);
+    lcd_outdezAtt(TELEM_COL2+FWNUM+2*FW, y, g_model.varioAXCenter, ((sub==subN && m_posHorz==0) ? blink : 0));
+    lcd_outdezAtt(TELEM_COL2+FWNUM+2*FW+6*FW, y, g_model.varioAXMultiplier, ((sub==subN && m_posHorz==1) ? blink : 0)|PREC1);
 
     if (sub==subN && (s_editMode>0 || p1valdiff)) {
       switch (m_posHorz) {
         case 0:
-          g_model.varioAXCenter = checkIncDec(event, g_model.varioAXCenter, 100, 200, EE_MODEL);
+          g_model.varioAXCenter = checkIncDec(event, g_model.varioAXCenter, 0, 255, EE_MODEL);
           break;
         case 1:
           g_model.varioAXMultiplier = checkIncDec(event, g_model.varioAXMultiplier, 1, 255, EE_MODEL);

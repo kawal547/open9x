@@ -72,6 +72,7 @@ enum AUDIO_SOUNDS {
     AU_TIMER_20,
     AU_TIMER_10,
     AU_TIMER_LT3,
+    AU_VARIO,
     AU_FRSKY_FIRST,
     AU_FRSKY_WARN1 = AU_FRSKY_FIRST,
     AU_FRSKY_WARN2,
@@ -97,17 +98,17 @@ class audioQueue
 
     // only difference between these two functions is that one does the
     // interupt queue (Now) and the other queues for playing ASAP.
-    void playNow(uint8_t tFreq, uint8_t tLen, uint8_t tPause, uint8_t tRepeat=0, int8_t tFreqIncr=0);
+    void playNow(uint8_t tFreq, uint8_t tLen, uint8_t tPause, uint8_t tRepeat=0, int8_t tFreqIncr=0, int8_t tVario=0);
 
     void playASAP(uint8_t tFreq, uint8_t tLen, uint8_t tPause, uint8_t tRepeat=0, int8_t tFreqIncr=0);
 
-#if defined(VARIO_EXTENDED)
-    void playVario(uint8_t tFreq, uint8_t tLen);
-#endif
+//#if defined(VARIO_EXTENDED)
+//    void playVario(uint8_t tFreq, uint8_t tLen);
+//#endif
 
     inline bool busy() { return (toneTimeLeft > 0); }
 
-    void event(uint8_t e, uint8_t f=BEEP_DEFAULT_FREQ);
+    void event(uint8_t e, uint8_t f=BEEP_DEFAULT_FREQ,uint8_t l=0,uint8_t p=0);
 
 #if defined(ISER9X)
     inline void driver() {
