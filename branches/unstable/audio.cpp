@@ -128,16 +128,22 @@ bool s_beeper;
 
 
 void audioQueue::playNow(uint8_t tFreq, uint8_t tLen, uint8_t tPause,
-    uint8_t tRepeat, int8_t tFreqIncr, int8_t tVario)
+    uint8_t tRepeat, int8_t tFreqIncr, int8_t tFlags)
 {
 #if defined(VARIO_EXTENDED)
-	if(tVario){//when vario event and not pitch and not tone length compensation not applicable, they make funny sounds
+	if(tFlags & PLAY_FREQUENCY_UNCHANGED ){//when vario event and not pitch and not tone length compensation not applicable, they make funny sounds
     toneFreq = tFreq;
+	}else
+#endif //VARIO_EXTENDED
+	{
+    toneFreq = ((s_beeper && tFreq) ? tFreq + g_eeGeneral.speakerPitch + BEEP_OFFSET : 0); // add pitch compensator
+	}			
+#if defined(VARIO_EXTENDED)
+	if(tFlags & PLAY_LENGTH_UNCHANGED ){//when vario event and not pitch and not tone length compensation not applicable, they make funny sounds
     toneTimeLeft = tLen;
   }else
 #endif //VARIO_EXTENDED
   {
-    toneFreq = ((s_beeper && tFreq) ? tFreq + g_eeGeneral.speakerPitch + BEEP_OFFSET : 0); // add pitch compensator
     toneTimeLeft = getToneLength(tLen);
   }
   tonePause = tPause;
@@ -255,7 +261,7 @@ void audioQueue::event(uint8_t e, uint8_t f,uint8_t l,uint8_t p)
         playNow(BEEP_DEFAULT_FREQ + 50, 15, 3, 0);
         break;
       case AU_VARIO:
-        playNow(f, l, p, 0, 0, 1);
+        playNow(f, l, p, 0, 0, PLAY_SOUND_VARIO);
         break;
       case AU_FRSKY_WARN1:
         playASAP(BEEP_DEFAULT_FREQ+20,15,5,2);

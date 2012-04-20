@@ -50,6 +50,10 @@
 #define BEEP_KEY_UP_FREQ   (BEEP_DEFAULT_FREQ+5)
 #define BEEP_KEY_DOWN_FREQ (BEEP_DEFAULT_FREQ-5)
 
+#define PLAY_FREQUENCY_UNCHANGED  0x01
+#define PLAY_LENGTH_UNCHANGED     0x02
+#define PLAY_SOUND_VARIO          (PLAY_FREQUENCY_UNCHANGED | PLAY_LENGTH_UNCHANGED)
+
 /* make sure the defines below always go in numeric order */
 enum AUDIO_SOUNDS {
     AU_INACTIVITY,
