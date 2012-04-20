@@ -13,28 +13,28 @@ For further information have a look to companion9x website: [http://code.google.
 
 === Unmodified '9X Radio Version ===
 
- * *[http://open9x.googlecode.com/svn/trunk/binaries/open9x-stock-en.hex]* -- For stock hardware with no internal re-wiring English language.
+ * *[http://open9x.freehosting.com/binaries/open9x-stock-en.hex]* -- For stock hardware with no internal re-wiring English language.
 
- * *[http://open9x.googlecode.com/svn/trunk/binaries/open9x-stock-fr.hex]* -- For stock hardware with no internal re-wiring French language.
+ * *[http://open9x.freehosting.com/binaries/open9x-stock-fr.hex]* -- For stock hardware with no internal re-wiring French language.
 
- * *[http://open9x.googlecode.com/svn/trunk/binaries/open9x-stock-heli-templates-en.hex]* -- The same (EN) with heli and templates menus.
+ * *[http://open9x.freehosting.com/binaries/open9x-stock-heli-templates-en.hex]* -- The same (EN) with heli and templates menus.
 
- * *[http://open9x.googlecode.com/svn/trunk/binaries/open9x-stock-heli-templates-fr.hex]* -- The same (FR) with heli and templates menus.
+ * *[http://open9x.freehosting.com/binaries/open9x-stock-heli-templates-fr.hex]* -- The same (FR) with heli and templates menus.
 
- * *[http://open9x.googlecode.com/svn/trunk/binaries/open9x-stock-heli-templates-audio-en.hex]* -- The same (EN) with speaker mods for softer sounding tones.
+ * *[http://open9x.freehosting.com/binaries/open9x-stock-heli-templates-audio-en.hex]* -- The same (EN) with speaker mods for softer sounding tones.
 
- * *[http://open9x.googlecode.com/svn/trunk/binaries/open9x-stock-heli-templates-audio-fr.hex]* -- The same (FR) with speaker mods for softer sounding tones.
+ * *[http://open9x.freehosting.com/binaries/open9x-stock-heli-templates-audio-fr.hex]* -- The same (FR) with speaker mods for softer sounding tones.
 
 === '9X Radio Versions with Fr-sky telemetry modification ===
 
- * *[http://open9x.googlecode.com/svn/trunk/binaries/open9x-stock-frsky-en.hex]* -- For stock hardware with frsky re-wiring English language.
+ * *[http://open9x.freehosting.com/binaries/open9x-stock-frsky-en.hex]* -- For stock hardware with frsky re-wiring English language.
 
- * *[http://open9x.googlecode.com/svn/trunk/binaries/open9x-stock-frsky-fr.hex]* -- For stock hardware with frsky re-wiring French language.
+ * *[http://open9x.freehosting.com/binaries/open9x-stock-frsky-fr.hex]* -- For stock hardware with frsky re-wiring French language.
 
- * *[http://open9x.googlecode.com/svn/trunk/binaries/open9x-stock-frsky-heli-templates-en.hex]* -- The same (EN) with heli and templates menus.
+ * *[http://open9x.freehosting.com/binaries/open9x-stock-frsky-heli-templates-en.hex]* -- The same (EN) with heli and templates menus.
 
- * *[http://open9x.googlecode.com/svn/trunk/binaries/open9x-stock-frsky-heli-templates-fr.hex]* -- The same (FR) with heli and templates menus.
+ * *[http://open9x.freehosting.com/binaries/open9x-stock-frsky-heli-templates-fr.hex]* -- The same (FR) with heli and templates menus.
 
- * *[http://open9x.googlecode.com/svn/trunk/binaries/open9x-stock-frsky-heli-templates-audio-en.hex]* -- The same (EN) with speaker mods for softer sounding tones.
+ * *[http://open9x.freehosting.com/binaries/open9x-stock-frsky-heli-templates-audio-en.hex]* -- The same (EN) with speaker mods for softer sounding tones.
 
- * *[http://open9x.googlecode.com/svn/trunk/binaries/open9x-stock-frsky-heli-templates-audio-fr.hex]* -- The same (FR) with speaker mods for softer sounding tones.
+ * *[http://open9x.freehosting.com/binaries/open9x-stock-frsky-heli-templates-audio-fr.hex]* -- The same (FR) with speaker mods for softer sounding tones.
