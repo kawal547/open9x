@@ -42,6 +42,17 @@ audioQueue::audioQueue()
   t_queueWidx = 0;
 }
 
+#if defined(PCBARM)
+#define QUEUE_TONE(tf,ttl,tfi) queueTone(tf * 61 / 2, ttl * 10, tfi * 61 / 2)
+#define QUEUE_PAUSE(tf,ttl,tfi) queueTone(tf * 61 / 2, ttl * 10, tfi * 61 / 2)
+#endif
+
+#if !defined(PCBARM)
+#define QUEUE_TONE(tf,ttl,tfi) ((toneTimeLeft == 0)? 1 : 0)
+#define QUEUE_PAUSE(tf,ttl,tfi) ((tonePause==0)? 1 : 0)
+#endif
+
+
 // heartbeat is responsibile for issueing the audio tones and general square waves
 // it is essentially the life of the class.
 // it is called every 10ms
@@ -51,17 +62,15 @@ void audioQueue::heartbeat()
   return;
 #endif
 
-#if defined(PCBARM)
-  if (toneTimeLeft) {
-
-    if (queueTone(toneFreq * 61 / 2, toneTimeLeft * 10,
-        toneFreqIncr * 61 / 2)) {
+#if defined(PCBARM) | defined(PCBV4)
+  if (toneTimeLeft > 0) {
+    if (QUEUE_TONE(toneFreq, toneTimeLeft, toneFreqIncr)) {
       toneTimeLeft = 0; //time gets counted down
     }
   }
   else {
-    if (tonePause) {
-      if (queueTone(0, tonePause * 10, 0)) {
+    if (tonePause > 0) {
+      if (QUEUE_PAUSE(0, tonePause, 0)) {
         tonePause = 0; //time gets counted down
       }
     }
@@ -71,45 +80,41 @@ void audioQueue::heartbeat()
         toneTimeLeft = queueToneLength[t_queueRidx];
         toneFreqIncr = queueToneFreqIncr[t_queueRidx];
         tonePause = queueTonePause[t_queueRidx];
+        if((toneFreq==0) || (toneTimeLeft==0)){
+          SPEAKER_OFF;
+        }
         if (!queueToneRepeat[t_queueRidx]--) {
           t_queueRidx = (t_queueRidx + 1) % AUDIO_QUEUE_LENGTH;
         }
+      }else{
+        SPEAKER_OFF;
       }
     }
   }
-#else
-  if (toneTimeLeft > 0) {
+#endif
+
+
+//play all sound here
 #if defined(PCBV4)
-    if (toneFreq) {
+    if ((toneFreq > 0) & (toneTimeLeft)) {
       OCR0A = (5000 / toneFreq); // sticking with old values approx 20(abs. min) to 90, 60 being the default tone(?).
       SPEAKER_ON;
     }
 #endif
+//--------------------
+
+  if (toneTimeLeft > 0) {
     toneTimeLeft--; //time gets counted down
     toneFreq += toneFreqIncr;
-  }
-  else {
-    
+  }else{
     if (tonePause > 0) {
-      SPEAKER_OFF;
-      tonePause--;
+	    SPEAKER_OFF;
+      tonePause--; //time gets counted down
     }
-    else if (t_queueRidx != t_queueWidx) {
-      toneFreq = queueToneFreq[t_queueRidx];
-      toneTimeLeft = queueToneLength[t_queueRidx];
-      toneFreqIncr = queueToneFreqIncr[t_queueRidx];
-      tonePause = queueTonePause[t_queueRidx];
-      if((toneFreq==0) || (toneTimeLeft==0)){
-        SPEAKER_OFF;
-      }
-      if (!queueToneRepeat[t_queueRidx]--) {
-        t_queueRidx = (t_queueRidx + 1) % AUDIO_QUEUE_LENGTH;
-      }
-    } else {
-      SPEAKER_OFF;
-    }
-  }
-#endif
+  }  
+
+
+
 }
 
 inline uint8_t audioQueue::getToneLength(uint8_t tLen)
