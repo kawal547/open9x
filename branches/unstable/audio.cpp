@@ -44,14 +44,15 @@ audioQueue::audioQueue()
 
 #if defined(PCBARM)
 #define QUEUE_TONE(tf,ttl,tfi) queueTone(tf * 61 / 2, ttl * 10, tfi * 61 / 2)
-#define QUEUE_PAUSE(tf,ttl,tfi) queueTone(tf * 61 / 2, ttl * 10, tfi * 61 / 2)
+//#define QUEUE_PAUSE(tf,ttl,tfi) queueTone(tf * 61 / 2, ttl * 10, tfi * 61 / 2)
 #endif
 
-#if !defined(PCBARM)
-#define QUEUE_TONE(tf,ttl,tfi) ((toneTimeLeft == 0)? 1 : 0)
-#define QUEUE_PAUSE(tf,ttl,tfi) ((tonePause==0)? 1 : 0)
-#endif
-
+#if defined(PCBV4)
+ // sticking with old values approx 20(abs. min) to 90, 60 being the default tone(?).
+#define QUEUE_TONE(tf,ttl,tfi) \
+          OCR0A = (5000 / tf); \
+          SPEAKER_ON
+#endif //PCBARM
 
 // heartbeat is responsibile for issueing the audio tones and general square waves
 // it is essentially the life of the class.
@@ -63,18 +64,8 @@ void audioQueue::heartbeat()
 #endif
 
 #if defined(PCBARM) | defined(PCBV4)
-  if (toneTimeLeft > 0) {
-    if (QUEUE_TONE(toneFreq, toneTimeLeft, toneFreqIncr)) {
-      toneTimeLeft = 0; //time gets counted down
-    }
-  }
-  else {
-    if (tonePause > 0) {
-      if (QUEUE_PAUSE(0, tonePause, 0)) {
-        tonePause = 0; //time gets counted down
-      }
-    }
-    else {
+  if (toneTimeLeft == 0) {
+    if (tonePause == 0) {
       if (t_queueRidx != t_queueWidx) {
         toneFreq = queueToneFreq[t_queueRidx];
         toneTimeLeft = queueToneLength[t_queueRidx];
@@ -87,21 +78,25 @@ void audioQueue::heartbeat()
           t_queueRidx = (t_queueRidx + 1) % AUDIO_QUEUE_LENGTH;
         }
       }else{
-        SPEAKER_OFF;
+		    if((tone2Freq == 0) & (tone2TimeLeft == 0)){
+          SPEAKER_OFF;
+			  }		
       }
     }
   }
 #endif
 
 
-//play all sound here
-#if defined(PCBV4)
-    if ((toneFreq > 0) & (toneTimeLeft)) {
-      OCR0A = (5000 / toneFreq); // sticking with old values approx 20(abs. min) to 90, 60 being the default tone(?).
-      SPEAKER_ON;
+#if defined(PCBV4) | defined(PCBARM)
+//+++play all PCBV4 and PCBARM sound here
+    if ((toneFreq > 0) & (toneTimeLeft > 0)) {
+		  QUEUE_TONE(toneFreq, toneTimeLeft, toneFreqIncr);
+    } else if (((tone2Freq > 0) & (tone2TimeLeft > 0)) & (tonePause == 0)){
+		  //second flow tone here, priority on 1st, pause of 1st not allow to start second
+		  QUEUE_TONE(tone2Freq, tone2TimeLeft, 0);
     }
-#endif
-//--------------------
+//---play all PCBV4 and PCBARM sound here
+#endif //PCBV4 | PCBARM
 
   if (toneTimeLeft > 0) {
     toneTimeLeft--; //time gets counted down
@@ -113,6 +108,16 @@ void audioQueue::heartbeat()
     }
   }  
 
+  if (tone2TimeLeft > 0) {
+    tone2TimeLeft--; //time gets counted down
+  }else{
+	  if(toneTimeLeft == 0){
+      SPEAKER_OFF;
+    }	
+    if (tone2Pause > 0) {
+      tone2Pause--; //time gets counted down
+    }
+  }
 
 
 }
@@ -136,25 +141,19 @@ void audioQueue::playNow(uint8_t tFreq, uint8_t tLen, uint8_t tPause,
     uint8_t tRepeat, int8_t tFreqIncr, uint8_t tFlags)
 {
 #if defined(VARIO_EXTENDED)
-	if(tFlags & PLAY_FREQUENCY_UNCHANGED ){//when vario event and not pitch and not tone length compensation not applicable, they make funny sounds
-    toneFreq = tFreq;
-	}else
-#endif //VARIO_EXTENDED
-	{
-    toneFreq = ((s_beeper && tFreq) ? tFreq + g_eeGeneral.speakerPitch + BEEP_OFFSET : 0); // add pitch compensator
-	}			
-#if defined(VARIO_EXTENDED)
-	if(tFlags & PLAY_LENGTH_UNCHANGED ){//when vario event and not pitch and not tone length compensation not applicable, they make funny sounds
-    toneTimeLeft = tLen;
+  if(tFlags & PLAY_SOUND_VARIO){
+	  tone2Freq = tFreq;
+	  tone2TimeLeft = tLen;
+	  tone2Pause = tPause;
   }else
 #endif //VARIO_EXTENDED
   {
+    toneFreq = ((s_beeper && tFreq) ? tFreq + g_eeGeneral.speakerPitch + BEEP_OFFSET : 0); // add pitch compensator
     toneTimeLeft = getToneLength(tLen);
+    tonePause = tPause;
+    toneFreqIncr = tFreqIncr;
+    t_queueWidx = t_queueRidx;
   }
-  tonePause = tPause;
-  toneFreqIncr = tFreqIncr;
-  t_queueWidx = t_queueRidx;
-
   if (tRepeat) {
     playASAP(tFreq, tLen, tPause, tRepeat, tFreqIncr);
   }

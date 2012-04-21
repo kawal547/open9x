@@ -732,8 +732,10 @@ void check_frsky()
         break;
     }        
 
-    uint8_t SoundAltBeepNextFreq = (0);
-    uint8_t SoundAltBeepNextTime = (0);
+    uint8_t SoundAltBeepNextFreq = 0;
+    uint8_t SoundAltBeepNextTime = 0;
+	  static uint8_t SoundAltBeepFreq = 0;
+	  static uint8_t SoundAltBeepTime = 0;
     if((verticalSpeed < g_model.varioSpeedUpMin*VARIO_SPEED_LIMIT_MUL) && 
 	     (verticalSpeed > g_model.varioSpeedDownMin*(-VARIO_SPEED_LIMIT_MUL))) //check thresholds here in cm/s
     {
@@ -743,13 +745,17 @@ void check_frsky()
       SoundAltBeepNextFreq = (verticalSpeed * 10 + 16000)>>8;
       SoundAltBeepNextTime = (1600 - verticalSpeed) / 100;
       if(verticalSpeed > 0){
-        if ((int16_t)(g_tmr10ms - s_varioTmr) > (int16_t)(SoundAltBeepNextTime*2)) {
+        if ((int16_t)(g_tmr10ms - s_varioTmr) > (int16_t)((int16_t)SoundAltBeepTime*2)) {
           s_varioTmr = g_tmr10ms;
-		      audio.event(AU_VARIO, SoundAltBeepNextFreq, SoundAltBeepNextTime, SoundAltBeepNextTime);
+			    SoundAltBeepTime = SoundAltBeepNextTime;
+			    SoundAltBeepFreq = SoundAltBeepNextFreq;
+		      audio.event(AU_VARIO, SoundAltBeepFreq, SoundAltBeepTime, 0);
         }
       } else {//negative vertical speed gives sound without pauses
           //audio.playVario(SoundAltBeepNextFreq, 1);
-		      audio.event(AU_VARIO, SoundAltBeepNextFreq, 1, 0);
+			    SoundAltBeepTime = SoundAltBeepNextTime;
+			    SoundAltBeepFreq = SoundAltBeepNextFreq;
+		      audio.event(AU_VARIO, SoundAltBeepFreq, 1, 0);
       }
     }  
 #else //VARIO_EXTENDED

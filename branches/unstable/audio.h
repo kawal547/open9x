@@ -174,6 +174,12 @@ class audioQueue
     uint8_t toneTimeLeft;
     uint8_t tonePause;
 
+#if defined(VARIO_EXTENDED)
+    uint8_t tone2Freq;
+    uint8_t tone2TimeLeft;
+	  uint8_t tone2Pause;
+#endif //VARIO_EXTENDED
+
     // queue arrays
     uint8_t queueToneFreq[AUDIO_QUEUE_LENGTH];
     int8_t queueToneFreqIncr[AUDIO_QUEUE_LENGTH];
