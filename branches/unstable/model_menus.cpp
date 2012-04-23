@@ -296,6 +296,7 @@ void menuProcModelSelect(uint8_t event)
             sub = m_posVert;
           }
           s_copyTgtOfs = next_ofs;
+          killEvents(_event);
         }
         break;
   }
