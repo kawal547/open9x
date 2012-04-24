@@ -49,9 +49,9 @@
 #define BEEP_VAL     ( (g_eeGeneral.warnOpts & WARN_BVAL_BIT) >>3 )
 
 #if defined(PCBARM)
-#define EEPROM_VER       207
+#define EEPROM_VER       208
 #elif defined(PCBV4)
-#define EEPROM_VER       207
+#define EEPROM_VER       208
 #else
 #define EEPROM_VER       205
 #endif
@@ -426,19 +426,19 @@ PACK(typedef struct t_SwashRingData { // Swash Ring data
 #define TRIM_MAX 125
 #define TRIM_MIN (-TRIM_MAX)
 
-#if defined(PCBV4)
+#if defined(PCBV4) || defined(PCBARM)
 #if defined(EXTRA_ROTARY_ENCODERS)
 #define NUM_EXTRA_ROTARY_ENCODERS 3
-#else //EXTRA_ROTARY_ENCODERS
+#else
 #define NUM_EXTRA_ROTARY_ENCODERS 0
-#endif //EXTRA_ROTARY_ENCODERS
+#endif
 #define NUM_ROTARY_ENCODERS (2+NUM_EXTRA_ROTARY_ENCODERS)
 #define ROTARY_ENCODER_MAX  1024
 #define ROTARY_ENCODER_ARRAY int16_t rotaryEncoders[NUM_ROTARY_ENCODERS];
-#else //PCBV4
+#else
 #define NUM_ROTARY_ENCODERS 0
 #define ROTARY_ENCODER_ARRAY
-#endif //PCBV4
+#endif
 
 #if defined(PCBSTD)
 #define TRIM_ARRAY int8_t trim[4]; int8_t trim_ext:8
@@ -458,6 +458,7 @@ PACK(typedef struct t_PhaseData {
 #if defined(PCBARM)
 #define MAX_MODELS 60
 #define NUM_CHNOUT 32 // number of real output channels CH1-CH32
+#define MAX_PHASES 9
 #define MAX_MIXERS 64
 #define MAX_EXPOS  32
 #define NUM_CSW    32 // number of custom switches
@@ -465,6 +466,7 @@ PACK(typedef struct t_PhaseData {
 #elif defined(PCBV4)
 #define MAX_MODELS 30
 #define NUM_CHNOUT 16 // number of real output channels CH1-CH16
+#define MAX_PHASES 5
 #define MAX_MIXERS 32
 #define MAX_EXPOS  14
 #define NUM_CSW    12 // number of custom switches
@@ -472,6 +474,7 @@ PACK(typedef struct t_PhaseData {
 #else
 #define MAX_MODELS 16
 #define NUM_CHNOUT 16 // number of real output channels CH1-CH16
+#define MAX_PHASES 5
 #define MAX_MIXERS 32
 #define MAX_EXPOS  14
 #define NUM_CSW    12 // number of custom switches
@@ -479,7 +482,6 @@ PACK(typedef struct t_PhaseData {
 #endif
 
 #define MAX_TIMERS 2
-#define MAX_PHASES 5
 #define MAX_CURVE5 8
 #define MAX_CURVE9 8
 
@@ -514,7 +516,7 @@ enum Dsm2Variants {
 #define EXTDATA FrSkyData frsky
 #endif
 
-#if defined(PCBV4)
+#if defined(PCBV4) || defined(PCBARM)
 #define BeepANACenter uint16_t
 #else
 #define BeepANACenter uint8_t
