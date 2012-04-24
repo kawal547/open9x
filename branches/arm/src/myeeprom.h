@@ -426,7 +426,7 @@ PACK(typedef struct t_SwashRingData { // Swash Ring data
 #define TRIM_MAX 125
 #define TRIM_MIN (-TRIM_MAX)
 
-#if defined(PCBV4) || defined(PCBARM)
+#if defined(PCBV4)
 #if defined(EXTRA_ROTARY_ENCODERS)
 #define NUM_EXTRA_ROTARY_ENCODERS 3
 #else

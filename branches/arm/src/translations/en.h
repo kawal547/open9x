@@ -64,7 +64,7 @@
 #else
 #define TR_EXPLABEL_FP
 #endif
-#define TR_EXPLABELS     "Weight""Expo  ""Curve " TR_EXPLABEL_FP "Swtch ""When  ""      " // TODO remove all the trailing spaces
+#define TR_EXPLABELS     "Weight""Expo  ""Curve " TR_EXPLABEL_FP "Swtch ""Side ""      " // TODO remove all the trailing spaces
 
 #define LEN_VMLTPX       "\010"
 #define TR_VMLTPX        "Add     ""Multiply""Replace "
