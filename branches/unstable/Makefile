@@ -19,7 +19,7 @@
 
 # PCB version
 # Values: STD, V4, ARM
-PCB = STD
+PCB = ARM
 
 # PCB revision
 # Values: REVA, REVB
@@ -85,7 +85,7 @@ FRSKY_HUB = YES
 
 # Enable Extended vario functions (V4 board only)
 # Values = YES, NO
-VARIO_EXTENDED = NO
+VARIO_EXTENDED = YES
 
 # WS HowHigh 
 # Values = YES, NO
