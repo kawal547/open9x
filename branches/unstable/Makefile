@@ -19,7 +19,7 @@
 
 # PCB version
 # Values: STD, V4, ARM
-PCB = ARM
+PCB = STD
 
 # PCB revision
 # Values: REVA, REVB
@@ -289,7 +289,7 @@ RUN_FROM_FLASH = 1
 ifeq ($(PCB), ARM)
   # V4 ARM, so ...
   OPT = 2
-  CPPDEFS += -DPCBARM -DAUDIO -DHAPTIC
+  CPPDEFS += -DPCBARM -DAUDIO -DHAPTIC 
   EXTRAINCDIRS += ersky9x
   BOARDSRC = board_ersky9x.cpp 
   EXTRABOARDSRC = ersky9x/core_cm3.c ersky9x/board_lowlevel.c ersky9x/crt.c ersky9x/vectors_sam3s.c
@@ -298,6 +298,13 @@ ifeq ($(PCB), ARM)
   PULSESSRC = pulses_arm.cpp
   CPPSRC += audio.cpp haptic.cpp
   CPPSRC += ersky9x/sound.cpp
+  
+  ifeq ($(VARIO_EXTENDED), YES)
+    CPPDEFS += -DVARIO_EXTENDED
+    MODS:=${MODS}V
+  endif
+  
+    
 endif
 
 ifeq ($(PCB), V4)
