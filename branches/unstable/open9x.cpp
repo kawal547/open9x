@@ -2620,7 +2620,9 @@ int main(void)
   }
 #endif
 
-#if defined(PCBARM) || defined(PCBV4)
+//this changed as error in ARM compile?
+//#if defined(PCBARM) || defined(PCBV4)
+#if defined(PCBV4)
   //never return from main() - there is no code to return back, if any daelays occurs in physical power it does dead loop.
   wdt_disable();
   for(;;){}

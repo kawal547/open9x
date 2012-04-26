@@ -423,6 +423,7 @@ extern "C" void TWI0_IRQHandler()
 	}
 }
 
+
 void hapticOff()
 {
 	PWM->PWM_DIS = PWM_DIS_CHID2 ;						// Disable channel 2
