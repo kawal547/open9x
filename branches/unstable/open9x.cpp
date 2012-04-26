@@ -2624,6 +2624,8 @@ int main(void)
 //#if defined(PCBARM) || defined(PCBV4)
 #if defined(PCBV4)
   //never return from main() - there is no code to return back, if any daelays occurs in physical power it does dead loop.
+  //need to stop all background processes here, just seen another one bug now
+  //Vario still making sounds, frsky still receiving data, led backlight on
   wdt_disable();
   for(;;){}
 #endif
