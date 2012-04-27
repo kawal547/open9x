@@ -262,7 +262,7 @@ void parseTelemHubByte(uint8_t byte)
         //here is baro altitude suggested 0.01m accuracy, i.e. baroAltitude_ap in range [0:99]
         if(VX_SOURCE_BARO == g_model.varioExtendedSource){
           uint16_t alt_sign = frskyHubData.baroAltitude_bp/abs(frskyHubData.baroAltitude_bp);
-          frskyHubData.varioAltitude_full = frskyHubData.baroAltitude_bp*100 + frskyHubData.baroAltitude_ap*alt_sign;
+          frskyHubData.varioAltitude_full = frskyHubData.lastBaroAltitude_bp*100 + frskyHubData.baroAltitude_ap*alt_sign;
           //each source has own frskyHubData.varioSpeed method
           frskyHubData.queuePointer = ++frskyHubData.queuePointer % 5;
 
@@ -277,24 +277,23 @@ void parseTelemHubByte(uint8_t byte)
             tmpvs += frskyHubData.varioAltitudeQueue_Acc[vi];
 			    }		  
           frskyHubData.varioSpeed = tmpvs;
-        }
+        }else if((VX_SOURCE_BARO == g_model.varioExtendedSource) & (offsetof(FrskyHubData, baroAltitude_bp) == (uint8_t)structPos)){//_bp here
+			    frskyHubData.lastBaroAltitude_bp = frskyHubData.baroAltitude_bp;
+        }			
         
         
         // First received barometer altitude => Altitude offset
 		
-        if(VX_SOURCE_BARO == g_model.altExtendedSource){
-    	    frskyHubData.Altitude_show = frskyHubData.baroAltitude_bp;
-          
-          if (!frskyHubData.baroAltitudeOffset)
-            frskyHubData.baroAltitudeOffset = -frskyHubData.Altitude_show;
+        if (!frskyHubData.baroAltitudeOffset)
+          frskyHubData.baroAltitudeOffset = -frskyHubData.baroAltitude_bp;
 
-          frskyHubData.Altitude_show += frskyHubData.baroAltitudeOffset;
+        frskyHubData.baroAltitude_bp += frskyHubData.baroAltitudeOffset;
 
-          if (frskyHubData.Altitude_show > frskyHubData.maxAltitude)
-            frskyHubData.maxAltitude = frskyHubData.Altitude_show;
-          if (frskyHubData.Altitude_show < frskyHubData.minAltitude)
-            frskyHubData.minAltitude = frskyHubData.Altitude_show;
-        }
+        if (frskyHubData.baroAltitude_bp > frskyHubData.maxAltitude)
+          frskyHubData.maxAltitude = frskyHubData.baroAltitude_bp;
+        if (frskyHubData.baroAltitude_bp < frskyHubData.minAltitude)
+          frskyHubData.minAltitude = frskyHubData.baroAltitude_bp;
+
 
       }
       break;
@@ -335,18 +334,16 @@ void parseTelemHubByte(uint8_t byte)
         frskyHubData.varioAltitude_full_prev = frskyHubData.varioAltitude_full;
       }      
 
-      if(VX_SOURCE_GPS == g_model.altExtendedSource){//here is need another settings: altimeter source as set of Baro/GPS
-  	    frskyHubData.Altitude_show = frskyHubData.gpsAltitude_bp;
-        if (!frskyHubData.gpsAltitudeOffset)
-          frskyHubData.gpsAltitudeOffset = -frskyHubData.gpsAltitude_bp;
+      if (!frskyHubData.gpsAltitudeOffset)
+        frskyHubData.gpsAltitudeOffset = -frskyHubData.gpsAltitude_bp;
 
-        frskyHubData.Altitude_show += frskyHubData.gpsAltitudeOffset;
+      frskyHubData.gpsAltitude_bp += frskyHubData.gpsAltitudeOffset;
         
-        if (frskyHubData.Altitude_show > frskyHubData.maxAltitude)
-          frskyHubData.maxAltitude = frskyHubData.Altitude_show;
-        if (frskyHubData.Altitude_show < frskyHubData.minAltitude)
-          frskyHubData.minAltitude = frskyHubData.Altitude_show;
-      }      
+      if (frskyHubData.gpsAltitude_bp > frskyHubData.maxAltitude)
+        frskyHubData.maxAltitude = frskyHubData.gpsAltitude_bp;
+      if (frskyHubData.gpsAltitude_bp < frskyHubData.minAltitude)
+        frskyHubData.minAltitude = frskyHubData.gpsAltitude_bp;
+
       if (!frskyHubData.pilotLatitude && !frskyHubData.pilotLongitude) {
         // First received GPS position => Pilot GPS position
         getGpsPilotPosition();
@@ -739,7 +736,7 @@ void check_frsky()
 	  static uint8_t SoundAltBeepFreq = 0;
 	  static uint8_t SoundAltBeepTime = 0;
     if((verticalSpeed < g_model.varioSpeedUpMin*VARIO_SPEED_LIMIT_MUL) && 
-	     (verticalSpeed > (15 - g_model.varioSpeedDownMin)*(-VARIO_SPEED_LIMIT_MUL))) //check thresholds here in cm/s
+	     (verticalSpeed > (255 - g_model.varioSpeedDownMin)*(-VARIO_SPEED_LIMIT_MUL))) //check thresholds here in cm/s
     {
       SoundAltBeepNextFreq = (0);
       SoundAltBeepNextTime = (0);

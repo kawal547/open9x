@@ -125,11 +125,7 @@ PACK(struct FrskyHubData {
 #endif
   uint8_t  queuePointer;     // circular-buffer pointer
   int8_t   spare3;
-#if defined(VARIO_EXTENDED)
-  int16_t  Altitude_show;
-#else
   int16_t  lastBaroAltitude_bp;
-#endif
   int16_t  varioSpeed;
   /* next fields must keep this order! */
   int16_t  minAltitude;
