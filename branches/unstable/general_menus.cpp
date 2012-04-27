@@ -629,7 +629,7 @@ void menuProcDiagAna(uint8_t event)
   putsVolts(17*FW, 6*FH-2, g_vbat100mV, (m_posVert==1 ? INVERS : 0));
   if (m_posVert==1) CHECK_INCDEC_GENVAR(event, g_eeGeneral.vBatCalib, -127, 127);
 
-#if defined(PCBARM) && defined(REVB)
+#if defined(PCBARM) && defined(REVB) && defined(FRSKY)
   lcd_putsLeft(7*FH-2, STR_CURRENT_CALIB);
   putsTelemetryValue(17*FW, 7*FH-2, getCurrent(), UNIT_MILLIAMPS, (m_posVert==2 ? INVERS : 0)) ;
   if (m_posVert==2) CHECK_INCDEC_GENVAR(event, g_eeGeneral.currentCalib, -49, 49);

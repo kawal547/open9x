@@ -116,8 +116,9 @@ void menuProcDebug(uint8_t event)
   lcd_outdezAtt(MENU_DEBUG_COL_OFS, 4*FH, (g_timeMain*100)/16, PREC2);
 #endif
 
-#if defined(PCBARM)
-#if defined(REVB)
+#if defined(PCBARM) && defined (FRSKY)
+
+#if defined(REVB) 
   lcd_putsLeft(2*FH, STR_CURRENT);
   putsTelemetryValue(MENU_DEBUG_COL_OFS, 2*FH, getCurrent(), UNIT_MILLIAMPS, 0) ;
 #endif
