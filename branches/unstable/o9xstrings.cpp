@@ -152,9 +152,6 @@ const pm_char STR_BLADES[] PROGMEM = TR_BLADES; // TODO check that it is optimiz
 const pm_char STR_VX_VARIO[] PROGMEM = TR_VX_VARIO;
 const pm_char STR_VX_SOURCES[] PROGMEM = TR_VX_SOURCES;
 const pm_char STR_VX_LIM[] PROGMEM = TR_VX_LIM;
-const pm_char STR_VX_ZERO[] PROGMEM = TR_VX_ZERO;
-const pm_char STR_VX_AX_MUL[] PROGMEM = TR_VX_AX_MUL;
-const pm_char STR_VX_AX_CAL[] PROGMEM = TR_VX_AX_CAL;
 #endif //VARIO_EXTENDED
 const pm_char STR_BARS[] PROGMEM = TR_BARS;
 const pm_char STR_DISPLAY[] PROGMEM = TR_DISPLAY;

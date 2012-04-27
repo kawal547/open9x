@@ -280,6 +280,7 @@ PACK(typedef struct t_FuncSwData { // Function Switches data
 enum TelemetryUnit {
   UNIT_VOLTS,
   UNIT_AMPS,
+  UNIT_METERS_PER_SECOND,
   UNIT_RAW,
   UNIT_KTS,
   UNIT_KMH,
@@ -518,8 +519,6 @@ PACK(typedef struct t_ModelData {
   uint8_t sparevx:2;
   uint8_t varioSpeedUpMin:4;    //if increment in 0.2m/s = 3.0m/s max
   uint8_t varioSpeedDownMin:4;  //too small but enough in most cases
-  uint8_t varioAXCenter;
-  uint8_t varioAXMultiplier;
 #endif //VARIO_EXTENDED
 }) ModelData;
 
