@@ -2626,6 +2626,7 @@ int main(void)
   //never return from main() - there is no code to return back, if any daelays occurs in physical power it does dead loop.
   //need to stop all background processes here, just seen another one bug now
   //Vario still making sounds, frsky still receiving data, led backlight on
+  cli();
   wdt_disable();
   for(;;){}
 #endif
