@@ -423,11 +423,7 @@ int16_t getValue(uint8_t i)
   else if(i<CSW_CHOUT_BASE+NUM_CHNOUT+TELEM_RSSI_TX) return frskyRSSI[1].value;
   else if(i<CSW_CHOUT_BASE+NUM_CHNOUT+TELEM_RSSI_RX) return frskyRSSI[0].value;
 #if defined(FRSKY_HUB) || defined(WS_HOW_HIGH)
-#if defined(VARIO_EXTENDED)
-  else if(i<CSW_CHOUT_BASE+NUM_CHNOUT+TELEM_ALT) return frskyHubData.Altitude_show;
-#else //VARIO_EXTENDED
   else if(i<CSW_CHOUT_BASE+NUM_CHNOUT+TELEM_ALT) return frskyHubData.baroAltitude_bp;
-#endif //VARIO_EXTENDED
 #endif //FRSKY_HUB || WS_HOW_HIGH
 #if defined(FRSKY_HUB)
   else if(i<CSW_CHOUT_BASE+NUM_CHNOUT+TELEM_RPM) return frskyHubData.rpm;

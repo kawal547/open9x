@@ -2012,7 +2012,7 @@ void menuProcTelemetry(uint8_t event)
 {
 #if defined(FRSKY_HUB) || defined(WS_HOW_HIGH)
 #if defined(VARIO_EXTENDED)
-  MENU(STR_MENUTELEMETRY, menuTabModel, e_Telemetry, 30, {0, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 1, (uint8_t)-1, 0, 0, (uint8_t)-1, 1, 1, (uint8_t)-1, 1, 1, 1, 1, (uint8_t)-1, 2, 2, 2, 2});
+  MENU(STR_MENUTELEMETRY, menuTabModel, e_Telemetry, 30, {0, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 1, (uint8_t)-1, 0, 0, (uint8_t)-1, 0, 1, (uint8_t)-1, 1, 1, 1, 1, (uint8_t)-1, 2, 2, 2, 2});
 #else //VARIO_EXTENDED
   MENU(STR_MENUTELEMETRY, menuTabModel, e_Telemetry, 27, {0, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 1, (uint8_t)-1, 0, 0,                    (uint8_t)-1, 1, 1, 1, 1, (uint8_t)-1, 2, 2, 2, 2});
 #endif //VARIO_EXTENDED
@@ -2176,16 +2176,8 @@ void menuProcTelemetry(uint8_t event)
     y = (subN-s_pgOfs)*FH;
     lcd_puts(4, y, STR_SOURCE);
     lcd_putsiAtt(TELEM_COL2, y, STR_VX_SOURCES, g_model.varioExtendedSource, ((sub==subN && m_posHorz==0) ? blink : 0));
-    lcd_putsiAtt(TELEM_COL2+6*FW, y, STR_VX_SOURCES, g_model.altExtendedSource, ((sub==subN && m_posHorz==1) ? blink : 0));
     if (sub==subN && (s_editMode>0 || p1valdiff)) {
-      switch (m_posHorz) {
-        case 0:
-          CHECK_INCDEC_MODELVAR(event, g_model.varioExtendedSource, VX_SOURCE_NONE, VX_SOURCE_LAST);
-          break;
-        case 1:
-          CHECK_INCDEC_MODELVAR(event, g_model.altExtendedSource, VX_SOURCE_BARO, VX_SOURCE_GPS);
-          break;
-      }
+        CHECK_INCDEC_MODELVAR(event, g_model.varioExtendedSource, VX_SOURCE_NONE, VX_SOURCE_LAST);
     }                
   }
   subN++;
@@ -2193,16 +2185,18 @@ void menuProcTelemetry(uint8_t event)
   if(s_pgOfs<subN) {
     y = (subN-s_pgOfs)*FH;
     lcd_puts(4, y, STR_VX_LIM);
-    lcd_outdezAtt(TELEM_COL2+FWNUM+2*FW, y, -VARIO_SPEED_LIMIT_MUL*(15 - g_model.varioSpeedDownMin), ((sub==subN && m_posHorz==0) ? blink : 0)|PREC2);
+    lcd_outdezAtt(TELEM_COL2+FWNUM+2*FW, y, -VARIO_SPEED_LIMIT_MUL*(255 - g_model.varioSpeedDownMin), ((sub==subN && m_posHorz==0) ? blink : 0)|PREC2);
     lcd_outdezAtt(TELEM_COL2+FWNUM+2*FW+6*FW, y, VARIO_SPEED_LIMIT_MUL*g_model.varioSpeedUpMin, ((sub==subN && m_posHorz==1) ? blink : 0)|PREC2);
 
     if (sub==subN && (s_editMode>0 || p1valdiff)) {
       switch (m_posHorz) {
         case 0:
-          CHECK_INCDEC_MODELVAR(event, g_model.varioSpeedDownMin, 0, 15);
+		      checkIncDec(event, g_model.varioSpeedDownMin, 0, 255, EE_MODEL);
+          //CHECK_INCDEC_MODELVAR(event, g_model.varioSpeedDownMin, 0, 255);
           break;
         case 1:
-          CHECK_INCDEC_MODELVAR(event, g_model.varioSpeedUpMin, 0, 15);
+		      checkIncDec(event, g_model.varioSpeedUpMin, 0, 15, EE_MODEL);
+			    //CHECK_INCDEC_MODELVAR(event, g_model.varioSpeedUpMin, 0, 15);
           break;
       }
     }        

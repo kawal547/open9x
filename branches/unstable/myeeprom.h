@@ -515,10 +515,8 @@ PACK(typedef struct t_ModelData {
 #if defined(VARIO_EXTENDED)
   //TODO:temporary place, need to move to frskydata
   uint8_t varioExtendedSource:4;
-  uint8_t altExtendedSource:2;
-  uint8_t sparevx:2;
   uint8_t varioSpeedUpMin:4;    //if increment in 0.2m/s = 3.0m/s max
-  uint8_t varioSpeedDownMin:4;  //too small but enough in most cases
+  uint8_t varioSpeedDownMin:8;  //too small but enough in most cases
 #endif //VARIO_EXTENDED
 }) ModelData;
 
