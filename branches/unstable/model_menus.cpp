@@ -2012,9 +2012,9 @@ void menuProcTelemetry(uint8_t event)
 {
 #if defined(FRSKY_HUB) || defined(WS_HOW_HIGH)
 #if defined(VARIO_EXTENDED)
-  MENU(STR_MENUTELEMETRY, menuTabModel, e_Telemetry, 31, {0, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 1, (uint8_t)-1, 0, 0, (uint8_t)-1, 1, 1, 1, (uint8_t)-1, 1, 1, 1, 1, (uint8_t)-1, 2, 2, 2, 2});
+  MENU(STR_MENUTELEMETRY, menuTabModel, e_Telemetry, 30, {0, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 1, (uint8_t)-1, 0, 0, (uint8_t)-1, 1, 1, (uint8_t)-1, 1, 1, 1, 1, (uint8_t)-1, 2, 2, 2, 2});
 #else //VARIO_EXTENDED
-  MENU(STR_MENUTELEMETRY, menuTabModel, e_Telemetry, 27, {0, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 1, (uint8_t)-1, 0, 0,                       (uint8_t)-1, 1, 1, 1, 1, (uint8_t)-1, 2, 2, 2, 2});
+  MENU(STR_MENUTELEMETRY, menuTabModel, e_Telemetry, 27, {0, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 1, (uint8_t)-1, 0, 0,                    (uint8_t)-1, 1, 1, 1, 1, (uint8_t)-1, 2, 2, 2, 2});
 #endif //VARIO_EXTENDED
 #else
   MENU(STR_MENUTELEMETRY, menuTabModel, e_Telemetry, 24, {0, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 0, 2, 2, (uint8_t)-1, 1, 1, (uint8_t)-1, 1, 1, 1, 1, (uint8_t)-1, 2, 2, 2, 2});
@@ -2203,25 +2203,6 @@ void menuProcTelemetry(uint8_t event)
           break;
         case 1:
           CHECK_INCDEC_MODELVAR(event, g_model.varioSpeedUpMin, 0, 15);
-          break;
-      }
-    }        
-  }
-  subN++;
-
-  if(s_pgOfs<subN) {
-    y = (subN-s_pgOfs)*FH;
-    lcd_puts(4, y, STR_VX_AX_CAL);
-    lcd_outdezAtt(TELEM_COL2+FWNUM+2*FW, y, g_model.varioAXCenter, ((sub==subN && m_posHorz==0) ? blink : 0));
-    lcd_outdezAtt(TELEM_COL2+FWNUM+2*FW+6*FW, y, g_model.varioAXMultiplier - 127, ((sub==subN && m_posHorz==1) ? blink : 0)|PREC1);
-
-    if (sub==subN && (s_editMode>0 || p1valdiff)) {
-      switch (m_posHorz) {
-        case 0:
-          g_model.varioAXCenter = checkIncDec(event, g_model.varioAXCenter, 0, 255, EE_MODEL);
-          break;
-        case 1:
-          g_model.varioAXMultiplier = checkIncDec(event, g_model.varioAXMultiplier, 0, 255, EE_MODEL);
           break;
       }
     }        

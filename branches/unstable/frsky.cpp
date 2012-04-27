@@ -165,9 +165,11 @@ typedef enum {
 #if defined(VARIO_EXTENDED)
 void useA12asVario(void){
   if(g_model.varioExtendedSource >= VX_SOURCE_A1){
+	  uint8_t channel = g_model.varioExtendedSource - VX_SOURCE_A1;
+	  uint8_t val = frskyTelemetry[channel].value;
     frskyHubData.varioSpeed = 
-	    (frskyTelemetry[g_model.varioExtendedSource - VX_SOURCE_A1].value - g_model.varioAXCenter) * 
-		  ((g_model.varioAXMultiplier - 127)/10);
+	    ((int32_t)val+g_model.frsky.channels[channel].offset) * 
+		   (g_model.frsky.channels[channel].ratio << g_model.frsky.channels[channel].multiplier) * 2 / 51;
   }  
 };
 #endif //VARIO_EXTENDED
