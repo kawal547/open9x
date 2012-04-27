@@ -167,7 +167,7 @@ void useA12asVario(void){
   if(g_model.varioExtendedSource >= VX_SOURCE_A1){
     frskyHubData.varioSpeed = 
 	    (frskyTelemetry[g_model.varioExtendedSource - VX_SOURCE_A1].value - g_model.varioAXCenter) * 
-		  (g_model.varioAXMultiplier/10);
+		  ((g_model.varioAXMultiplier - 127)/10);
   }  
 };
 #endif //VARIO_EXTENDED
@@ -737,7 +737,7 @@ void check_frsky()
 	  static uint8_t SoundAltBeepFreq = 0;
 	  static uint8_t SoundAltBeepTime = 0;
     if((verticalSpeed < g_model.varioSpeedUpMin*VARIO_SPEED_LIMIT_MUL) && 
-	     (verticalSpeed > g_model.varioSpeedDownMin*(-VARIO_SPEED_LIMIT_MUL))) //check thresholds here in cm/s
+	     (verticalSpeed > (15 - g_model.varioSpeedDownMin)*(-VARIO_SPEED_LIMIT_MUL))) //check thresholds here in cm/s
     {
       SoundAltBeepNextFreq = (0);
       SoundAltBeepNextTime = (0);
