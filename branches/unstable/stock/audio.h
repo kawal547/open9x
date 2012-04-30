@@ -31,14 +31,11 @@
  *
  */
 
-#if defined(PCBARM)
-#include "ersky9x/sound.h"
-#endif
 
-#if defined(PCBSTD)
+//#if defined(PCBSTD)
 #define SPEAKER_ON   BUZZER_ON
 #define SPEAKER_OFF  BUZZER_OFF
-#endif
+//#endif
 
 //audio
 #define AUDIO_QUEUE_LENGTH (8)  //8 seems to suit most alerts
