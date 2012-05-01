@@ -2175,8 +2175,8 @@ void menuProcTelemetry(uint8_t event)
   if(s_pgOfs<subN) {//4
     y = (subN-s_pgOfs)*FH;
     lcd_puts(4, y, STR_SOURCE);
-    lcd_putsiAtt(TELEM_COL2, y, STR_VX_SOURCES, g_model.varioExtendedSource, ((sub==subN && m_posHorz==0) ? blink : 0));
-    if (sub==subN && (s_editMode>0 || p1valdiff)) {
+    lcd_putsiAtt(TELEM_COL2, y, STR_VX_SOURCES, g_model.varioExtendedSource, sub==subN ? INVERS : 0);
+    if (sub==subN) {
         CHECK_INCDEC_MODELVAR(event, g_model.varioExtendedSource, VX_SOURCE_NONE, VX_SOURCE_LAST);
     }                
   }
@@ -2191,11 +2191,11 @@ void menuProcTelemetry(uint8_t event)
     if (sub==subN && (s_editMode>0 || p1valdiff)) {
       switch (m_posHorz) {
         case 0:
-		      checkIncDec(event, g_model.varioSpeedDownMin, 0, 255, EE_MODEL);
+		      g_model.varioSpeedDownMin = checkIncDec(event, g_model.varioSpeedDownMin, 0, 255, EE_MODEL);
           //CHECK_INCDEC_MODELVAR(event, g_model.varioSpeedDownMin, 0, 255);
           break;
         case 1:
-		      checkIncDec(event, g_model.varioSpeedUpMin, 0, 15, EE_MODEL);
+		      g_model.varioSpeedUpMin = checkIncDec(event, g_model.varioSpeedUpMin, 0, 15, EE_MODEL);
 			    //CHECK_INCDEC_MODELVAR(event, g_model.varioSpeedUpMin, 0, 15);
           break;
       }
