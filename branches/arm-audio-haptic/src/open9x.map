@@ -1,0 +1,1410 @@
+Archive member included because of file (symbol)
+
+c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memcpy.o)
+                              allsrc.o (memcpy)
+c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memmove.o)
+                              allsrc.o (memmove)
+c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memset.o)
+                              allsrc.o (memset)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x00400000         0x00040000         xr
+RAM              0x20000000         0x0000c000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD allsrc.o
+START GROUP
+LOAD c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/thumb/v7m\libgcc.a
+LOAD c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a
+END GROUP
+
+.text           0x00400000    0x11464
+                0x00400000                _stext = .
+ CREATE_OBJECT_SYMBOLS
+ *(.vectors)
+ .vectors       0x00400000       0xd0 allsrc.o
+ *(.text)
+ .text          0x004000d0     0xf238 allsrc.o
+                0x004000d0                TC3_IRQHandler
+                0x00400160                SPI_IRQHandler
+                0x0040018c                NMI_Handler()
+                0x00400190                HardFault_Handler()
+                0x00400194                MemManage_Handler()
+                0x00400198                BusFault_Handler()
+                0x0040019c                UsageFault_Handler()
+                0x004001a0                SVC_Handler()
+                0x004001a4                DebugMon_Handler()
+                0x004001a8                PendSV_Handler()
+                0x004001ac                SysTick_Handler()
+                0x004001b0                SUPC_IRQHandler()
+                0x004001b4                RSTC_IRQHandler()
+                0x004001b8                RTC_IRQHandler()
+                0x004001bc                RTT_IRQHandler()
+                0x004001c0                WDT_IRQHandler()
+                0x004001c4                PMC_IRQHandler()
+                0x004001c8                EEFC_IRQHandler()
+                0x004001cc                UART0_IRQHandler()
+                0x004001d0                UART1_IRQHandler()
+                0x004001d4                SMC_IRQHandler()
+                0x004001d8                PIOA_IRQHandler()
+                0x004001dc                PIOB_IRQHandler()
+                0x004001e0                PIOC_IRQHandler()
+                0x004001e4                USART0_IRQHandler()
+                0x004001e8                USART1_IRQHandler()
+                0x004001ec                MCI_IRQHandler()
+                0x004001f0                TWI1_IRQHandler()
+                0x004001f4                SSC_IRQHandler()
+                0x004001f8                TC0_IRQHandler()
+                0x004001fc                TC1_IRQHandler()
+                0x00400200                TC4_IRQHandler()
+                0x00400204                TC5_IRQHandler()
+                0x00400208                ADC_IRQHandler()
+                0x0040020c                CRCCU_IRQHandler()
+                0x00400210                ACC_IRQHandler()
+                0x00400214                USBD_IRQHandler()
+                0x00400218                DAC_IRQHandler
+                0x00400250                TWI0_IRQHandler
+                0x00400284                check_soft_power()
+                0x004002b4                start_timer4()
+                0x0040030c                end_ppm_capture()
+                0x0040032c                configure_pins(unsigned long, unsigned short)
+                0x0040038c                init_pwm()
+                0x00400470                start_ppm_capture()
+                0x004004cc                soft_power_off()
+                0x004004d4                read_keys()
+                0x00400524                read_trims()
+                0x00400588                keyDown()
+                0x00400598                keyState(EnumKeys)
+                0x0040062c                read_9_adc()
+                0x004006c8                startPdcUsartReceive()
+                0x0040070c                endPdcUsartReceive()
+                0x0040071c                rxPdcUsart(void (*)(unsigned char))
+                0x004007b8                txPdcUsart(unsigned char*, unsigned long)
+                0x004007e0                txPdcPending()
+                0x00400808                getCurrent()
+                0x00400864                channel_order(unsigned char)
+                0x0040088c                idx2char(signed char)
+                0x004008d4                phaseaddress(unsigned char)
+                0x004008e4                expoaddress(unsigned char)
+                0x004008f4                mixaddress(unsigned char)
+                0x00400904                limitaddress(unsigned char)
+                0x00400914                generalDefault()
+                0x00400990                evalChkSum()
+                0x004009bc                resetProto()
+                0x004009cc                intpol(short, unsigned char)
+                0x00400a70                curveFn(short)
+                0x00400a80                applyCurve(short, signed char)
+                0x00400aec                expou(unsigned short, unsigned short)
+                0x00400b1c                expo(short, short)
+                0x00400ba4                applyLimits(unsigned char, long)
+                0x00400c74                getValue(unsigned char)
+                0x00400e20                getRawTrimValue(unsigned char, unsigned char)
+                0x00400e58                setTrimValue(unsigned char, unsigned char, short)
+                0x00400eb4                getTrimFlightPhase(unsigned char, unsigned char)
+                0x00400f30                getTrimValue(unsigned char, unsigned char)
+                0x00400f70                clearKeyEvents()
+                0x00400f88                stickMoveValue()
+                0x00400fb4                anaIn(unsigned char)
+                0x00400fdc                getADC_filt()
+                0x00401028                getADC_osmp()
+                0x00401078                getADC_single()
+                0x0040109c                resetTimer(unsigned char)
+                0x004010d0                isqrt32(unsigned long)
+                0x004010f4                disable_main_ppm()
+                0x00401120                init_ssc()
+                0x0040116c                disable_ssc()
+                0x00401188                setupPulsesPPM()
+                0x00401318                startPulses()
+                0x00401320                put_serial_bit(unsigned char)
+                0x00401370                crc(unsigned char)
+                0x00401398                putPcmPart(unsigned char)
+                0x004013b4                putPcmFlush()
+                0x004013d4                putPcmBit(unsigned char)
+                0x00401410                putPcmByte(unsigned char)
+                0x00401454                putPcmHead()
+                0x00401488                setupPulsesPXX()
+                0x00401550                sendByteDsm2(unsigned char)
+                0x0040157c                setupPulsesDsm2(unsigned char)
+                0x00401680                setupPulses()
+                0x00401764                PWM_IRQHandler
+                0x00401828                getExpoMixCount(unsigned char)
+                0x0040186c                reachExpoMixCountLimit(unsigned char)
+                0x004018a4                deleteExpoMix(unsigned char, unsigned char)
+                0x0040194c                insertExpoMix(unsigned char, unsigned char)
+                0x00401a24                copyExpoMix(unsigned char, unsigned char)
+                0x00401a80                memswap(void*, void*, unsigned char)
+                0x00401aa0                swapExpo(unsigned char&, unsigned char)
+                0x00401b44                swapMix(unsigned char&, unsigned char)
+                0x00401be4                swapExpoMix(unsigned char, unsigned char&, unsigned char)
+                0x00401c18                eeDirty(unsigned char)
+                0x00401c34                spi_PDC_action(unsigned char*, unsigned char*, unsigned char*, unsigned long, unsigned long)
+                0x00401cd0                eeprom_write_one(unsigned char, unsigned char)
+                0x00401d30                eeprom_write_enable()
+                0x00401d38                eeprom_read_status()
+                0x00401d40                read32_eeprom_data(unsigned long, unsigned char*, unsigned long, unsigned long)
+                0x00401d84                write32_eeprom_block(unsigned long, unsigned char*, unsigned long, unsigned long)
+                0x00401dd4                byte_checksum(unsigned char*, unsigned long)
+                0x00401dec                ee32_check_header(t_eeprom_header*)
+                0x00401e0c                get_current_block_number(unsigned long, unsigned short*, unsigned long*)
+                0x00401f10                ee32LoadGeneral()
+                0x00401f90                eeModelExists(unsigned char)
+                0x00401fb0                ee32LoadModelName(unsigned char, char*, unsigned char)
+                0x00401ff4                spi_operation(unsigned char*, unsigned char*, unsigned long)
+                0x00402064                init_spi()
+                0x004020e4                end_spi()
+                0x00402108                ee32_process()
+                0x004022fc                eeWaitFinished()
+                0x0040231c                eeCheck(bool)
+                0x004023a4                eeCopyModel(unsigned char, unsigned char)
+                0x0040243c                eeSwapModels(unsigned char, unsigned char)
+                0x004024d8                eeDeleteModel(unsigned char)
+                0x0040252c                fill_file_index()
+                0x00402558                ee32_read_model_names()
+                0x0040257c                eeprom_init()
+                0x00402598                unprotect_eeprom()
+                0x004025d0                lcd_clear()
+                0x004025e0                lcd_img(unsigned char, unsigned char, unsigned char const*, unsigned char, unsigned char)
+                0x0040266c                lcd_putcAtt(unsigned char, unsigned char, unsigned char, unsigned char)
+                0x004027e4                lcd_putc(unsigned char, unsigned char, unsigned char)
+                0x004027e8                lcd_putsnAtt(unsigned char, unsigned char, char const*, unsigned char, unsigned char)
+                0x00402870                lcd_putsiAtt(unsigned char, unsigned char, char const*, unsigned char, unsigned char)
+                0x00402888                menu_lcd_onoff(unsigned char, unsigned char, unsigned char, unsigned char)
+                0x004028a8                lcd_putsn(unsigned char, unsigned char, char const*, unsigned char)
+                0x004028b8                lcd_putsAtt(unsigned char, unsigned char, char const*, unsigned char)
+                0x004028c8                lcd_puts(unsigned char, unsigned char, char const*)
+                0x004028cc                lcd_putsLeft(unsigned char, char const*)
+                0x004028d8                lcd_outhex4(unsigned char, unsigned char, unsigned short)
+                0x0040290c                lcd_mask(unsigned char*, unsigned char, unsigned char)
+                0x00402928                lcd_plot(unsigned char, unsigned char, unsigned char)
+                0x00402954                lcd_hlineStip(signed char, unsigned char, unsigned char, unsigned char, unsigned char)
+                0x00402a04                lcd_hline(unsigned char, unsigned char, unsigned char, unsigned char)
+                0x00402a18                lcd_vlineStip(unsigned char, signed char, signed char, unsigned char)
+                0x00402ae0                DrawCurve(short (*)(short))
+                0x00402b50                lcd_vline(unsigned char, signed char, signed char)
+                0x00402b54                lcd_outdezNAtt(unsigned char, unsigned char, short, unsigned char, unsigned char)
+                0x00402e38                lcd_outdezAtt(unsigned char, unsigned char, short, unsigned char)
+                0x00402e48                lcd_outdez8(unsigned char, unsigned char, signed char)
+                0x00402e4c                DisplayScreenIndex(unsigned char, unsigned char, unsigned char)
+                0x00402e90                putsTelemetryValue(unsigned char, unsigned char, short, unsigned char, unsigned char)
+                0x00402f08                lcd_rect(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)
+                0x00402f94                doMainScreenGrphics()
+                0x0040315c                lcd_filled_rect(unsigned char, signed char, unsigned char, unsigned char, unsigned char, unsigned char)
+                0x004031ac                displayBox()
+                0x004031f0                displayConfirmation(unsigned char)
+                0x00403264                displayWarning(unsigned char)
+                0x004032a4                putsTime(unsigned char, unsigned char, short, unsigned char, unsigned char)
+                0x00403360                putsVolts(unsigned char, unsigned char, unsigned short, unsigned char)
+                0x004033a0                putsVBat(unsigned char, unsigned char, unsigned char)
+                0x004033b8                putsStrIdx(unsigned char, unsigned char, char const*, unsigned char, unsigned char)
+                0x00403404                putsChnRaw(unsigned char, unsigned char, unsigned char, unsigned char)
+                0x0040347c                putsChn(unsigned char, unsigned char, unsigned char, unsigned char)
+                0x00403494                putsChnLetter(unsigned char, unsigned char, unsigned char, unsigned char)
+                0x004034b0                putsModelName(unsigned char, unsigned char, char*, unsigned char, unsigned char)
+                0x004034f4                putsSwitches(unsigned char, unsigned char, signed char, unsigned char)
+                0x004035a4                putsMixerSource(unsigned char, unsigned char, unsigned char, unsigned char)
+                0x004035b8                putsFlightPhase(unsigned char, unsigned char, signed char, unsigned char)
+                0x00403624                putsCurve(unsigned char, unsigned char, signed char, unsigned char)
+                0x00403678                putsTmrMode(unsigned char, unsigned char, signed char, unsigned char)
+                0x004036c4                putsTrimMode(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)
+                0x00403724                lcdSendCtl(unsigned char)
+                0x00403784                lcd_init()
+                0x00403b30                lcdSetRefVolt(unsigned char)
+                0x00403bec                refreshDisplay()
+                0x00403d1c                displayPopup(char const*)
+                0x00403d3c                putEvent(unsigned char)
+                0x00403d4c                getEvent()
+                0x00403d60                Key::input(bool, EnumKeys)
+                0x00403e7c                readKeysAndTrims()
+                0x00403ed0                pauseEvents(unsigned char)
+                0x00403ef0                killEvents(unsigned char)
+                0x00403f14                frskyPushValue(unsigned char*&, unsigned char)
+                0x00403f48                applyChannelRatio(unsigned char, short)
+                0x00403fa0                checkMinMaxAltitude()
+                0x00403fc8                parseTelemHubByte(unsigned char)
+                0x00404610                parseTelemWSHowHighByte(unsigned char)
+                0x00404644                frskyTransmitBuffer(unsigned long)
+                0x0040466c                FRSKY_alarmRaised(unsigned char)
+                0x004046dc                FrskyRSSI::set(unsigned char)
+                0x0040470c                FrskyData::set(unsigned char)
+                0x00404724                processFrskyPacket(unsigned char*)
+                0x00404868                processSerialData(unsigned char)
+                0x00404910                resetTelemetry()
+                0x0040494c                FRSKY_Init()
+                0x004049a8                resetAll()
+                0x004049dc                maxTelemValue(unsigned char)
+                0x004049f8                convertTelemValue(unsigned char, unsigned char)
+                0x00404a44                __getSwitch(signed char)
+                0x00404c50                getSwitch(signed char, bool)
+                0x00404c64                checkBacklight()
+                0x00404ca0                doSplash()
+                0x00404d78                getFlightPhase()
+                0x00404dac                applyExpos(short*, unsigned char)
+                0x00404ea4                expoFn(short)
+                0x00404eec                evalSticks(unsigned char)
+                0x004051b0                putsTelemetryChannel(unsigned char, unsigned char, unsigned char, short, unsigned char)
+                0x004052c0                displayGpsTime()
+                0x0040533c                displayGpsCoord(unsigned char, char, short, short)
+                0x004054c4                getTelemCustomField(unsigned char, unsigned char)
+                0x00405508                getRssiAlarmValue(unsigned char)
+                0x00405520                displayRssiLine()
+                0x00405644                buzzer_on()
+                0x00405654                buzzer_off()
+                0x00405664                buzzer_sound(unsigned char)
+                0x00405680                set_frequency(unsigned long)
+                0x004056c4                start_timer1()
+                0x00405728                init_dac()
+                0x0040578c                end_sound()
+                0x004057dc                sound_5ms()
+                0x00405920                playTone(unsigned long, unsigned long)
+                0x00405938                queueTone(unsigned long, unsigned long, unsigned long)
+                0x0040595c                tone_start(unsigned long)
+                0x0040599c                tone_stop()
+                0x004059b8                set_volume(unsigned char)
+                0x004059f8                init_twi()
+                0x00405a74                start_sound()
+                0x00405a98                board_init()
+                0x00405d00                audioQueue::audioQueue()
+                0x00405d00                audioQueue::audioQueue()
+                0x00405d0c                audioQueue::heartbeat()
+                0x00405e48                audioQueue::play(unsigned char, unsigned char, unsigned char, unsigned char, signed char)
+                0x00405f04                audioQueue::event(unsigned char, unsigned char)
+                0x0040635c                hapticOff()
+                0x00406378                hapticOn(unsigned long)
+                0x00406394                hapticQueue::hapticQueue()
+                0x00406394                hapticQueue::hapticQueue()
+                0x004063a4                hapticQueue::heartbeat()
+                0x00406438                hapticQueue::play(unsigned char, unsigned char, unsigned char)
+                0x004064a4                hapticQueue::event(unsigned char)
+                0x0040650c                audioDefevent(unsigned char)
+                0x00406538                per10ms()
+                0x004065e0                TC2_IRQHandler
+                0x00406640                chainMenu(void (*)(unsigned char))
+                0x00406664                menuProcStatistic(unsigned char)
+                0x00406790                menuProcFrsky(unsigned char)
+                0x00406e7c                menuProcDebug(unsigned char)
+                0x00406f80                checkIncDec(unsigned char, short, short, short, unsigned char)
+                0x004071d8                checkIncDecGen(unsigned char, signed char, signed char, signed char)
+                0x004071ec                selectMenuItem(unsigned char, char const*, char const*, signed char, signed char, signed char, unsigned char, unsigned char)
+                0x00407238                onoffMenuItem(unsigned char, unsigned char, char const*, unsigned char, unsigned char)
+                0x00407268                checkIncDecModel(unsigned char, signed char, signed char, signed char)
+                0x0040727c                EditName(unsigned char, unsigned char, char*, unsigned char, unsigned char, bool, unsigned char&)
+                0x004073b8                message(char const*, char const*, char const*, char const*)
+                0x00407410                alert(char const*)
+                0x0040744c                checkAlarm()
+                0x00407470                checkSwitches()
+                0x004074e0                checkTHR()
+                0x004075ac                pushMenu(void (*)(unsigned char))
+                0x004075f8                popMenu()
+                0x00407640                menuProcCurveOne(unsigned char)
+                0x004079f4                perOut(unsigned char)
+                0x00407f18                check(unsigned char, unsigned char, void (* const*)(unsigned char), unsigned char, unsigned char const*, unsigned char, unsigned char)
+                0x004081f0                menuProcSetup(unsigned char)
+                0x00408a44                menuProcTelemetry(unsigned char)
+                0x0040975c                menuProcFunctionSwitches(unsigned char)
+                0x0040999c                menuProcCustomSwitches(unsigned char)
+                0x00409ca8                check_simple(unsigned char, unsigned char, void (* const*)(unsigned char), unsigned char, unsigned char)
+                0x00409cc0                menuProcDiagAna(unsigned char)
+                0x00409e50                menuProcDiagKeys(unsigned char)
+                0x00409f88                menuProcDiagVers(unsigned char)
+                0x0040a00c                menuProcCurvesAll(unsigned char)
+                0x0040a188                menuProcExpoMix(unsigned char, unsigned char)
+                0x0040ac10                menuProcMixAll(unsigned char)
+                0x0040ac18                menuProcExposAll(unsigned char)
+                0x0040ac20                menuProcPhasesAll(unsigned char)
+                0x0040adf4                check_submenu_simple(unsigned char, unsigned char)
+                0x0040ae0c                menuProcMixOne(unsigned char)
+                0x0040b224                menuProcExpoOne(unsigned char)
+                0x0040b4d4                menuProcDiagCalib(unsigned char)
+                0x0040b6d0                menuProcModel(unsigned char)
+                0x0040be6c                menuProcPhaseOne(unsigned char)
+                0x0040c12c                menuProcTrainer(unsigned char)
+                0x0040c3b8                check_frsky()
+                0x0040c6a0                menuMainView(unsigned char)
+                0x0040cd58                moveTrimsToOffsets()
+                0x0040ced8                menuProcLimits(unsigned char)
+                0x0040d1e8                instantTrim()
+                0x0040d28c                checkTrim(unsigned char)
+                0x0040d4bc                evalFunctions()
+                0x0040d62c                perMain()
+                0x0040e000                setDest(unsigned char, bool)
+                0x0040e080                clearMixes()
+                0x0040e0b0                clearCurves()
+                0x0040e0d8                setCurve(unsigned char, signed char const*)
+                0x0040e11c                setSwitch(unsigned char, unsigned char, signed char, signed char)
+                0x0040e138                applyTemplate(unsigned char)
+                0x0040e5c8                modelDefault(unsigned char)
+                0x0040e5e4                eeLoadModel(unsigned char)
+                0x0040e664                menuProcModelSelect(unsigned char)
+                0x0040ee4c                eeReadAll()
+                0x0040eecc                menuProcTemplates(unsigned char)
+                0x0040eff8                __get_PSP
+                0x0040f004                __set_PSP
+                0x0040f00c                __get_MSP
+                0x0040f018                __set_MSP
+                0x0040f020                __get_BASEPRI
+                0x0040f028                __set_BASEPRI
+                0x0040f030                __get_PRIMASK
+                0x0040f038                __set_PRIMASK
+                0x0040f040                __get_FAULTMASK
+                0x0040f048                __set_FAULTMASK
+                0x0040f050                __get_CONTROL
+                0x0040f058                __set_CONTROL
+                0x0040f060                __REV
+                0x0040f064                __REV16
+                0x0040f068                __REVSH
+                0x0040f06c                __RBIT
+                0x0040f074                __LDREXB
+                0x0040f07c                __LDREXH
+                0x0040f084                __LDREXW
+                0x0040f08c                __STREXB
+                0x0040f094                __STREXH
+                0x0040f09c                __STREXW
+                0x0040f0a4                revert_osc()
+                0x0040f0f4                sam_boot
+                0x0040f124                usb_mode()
+                0x0040f1e8                SystemInit()
+                0x0040f2a4                ResetHandler()
+ .text          0x0040f308       0x84 c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memcpy.o)
+                0x0040f308                memcpy
+ .text          0x0040f38c       0xc8 c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memmove.o)
+                0x0040f38c                memmove
+ .text          0x0040f454       0x94 c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memset.o)
+                0x0040f454                memset
+ *(.text.*)
+ .text.startup  0x0040f4e8      0x248 allsrc.o
+                0x0040f4e8                main
+                0x0040f730                . = ALIGN (0x4)
+ *(.ARM.exidx)
+ *(.ARM.exidx.*)
+                0x0040f730                . = ALIGN (0x4)
+ *(.rodata)
+ .rodata        0x0040f730     0x1ce0 allsrc.o
+                0x0040f730                bchout_ar
+                0x0040f95c                STR_NOFREEEXPO
+                0x0040f96c                STR_NOFREEMIXER
+                0x0040f97c                font_dblsize
+                0x004100fc                font
+                0x004102dc                STR_OPEN9X
+                0x0041078c                modn12x3
+                0x0041079c                STR_POPUPS
+                0x004107ac                STR_PPM
+                0x004107b0                STR_CH
+                0x004107b4                STR_MODEL
+                0x004107bc                STR_FP
+                0x004107c8                STR_TX
+                0x004107d0                STR_NODATA
+                0x004107f0                STR_MENUSTAT
+                0x004107f8                STR_TM1TM2
+                0x00410800                STR_THRTHP
+                0x00410808                STR_TOT
+                0x0041080c                STR_ACCEL
+                0x00410814                STR_LATITUDE
+                0x00410820                STR_LONGITUDE
+                0x0041082c                STR_MINRSSI
+                0x00410838                STR_MENUDEBUG
+                0x00410840                STR_TMAINMAXMS
+                0x00410850                STR_CURRENT
+                0x00410858                STR_MENUTORESET
+                0x00410868                STR_ALERT
+                0x00410870                STR_PRESSANYKEY
+                0x00410880                STR_ALARMSDISABLED
+                0x00410890                STR_SWITCHESNOTOFF
+                0x004108a4                STR_PLEASERESETTHEM
+                0x004108b8                STR_PRESSANYKEYTOSKIP
+                0x004108d0                STR_THROTTLENOTIDLE
+                0x004108e4                STR_RESETTHROTTLE
+                0x004108f4                STR_MENUSERROR
+                0x00410904                STR_MENUCURVE
+                0x0041090c                STR_MODE
+                0x0041094c                STR_MENURADIOSETUP
+                0x00410958                STR_BEEPERMODE
+                0x00410968                STR_BEEPERLEN
+                0x00410978                STR_SPKRPITCH
+                0x00410988                STR_HAPTICMODE
+                0x00410994                STR_HAPTICLENGTH
+                0x004109a4                STR_HAPTICSTRENGTH
+                0x004109b4                STR_CONTRAST
+                0x004109c0                STR_BATTERYWARNING
+                0x004109d0                STR_INACTIVITYALARM
+                0x004109e0                STR_FILTERADC
+                0x004109ec                STR_THROTTLEREVERSE
+                0x004109f8                STR_MINUTEBEEP
+                0x00410a04                STR_BEEPCOUNTDOWN
+                0x00410a14                STR_FLASHONBEEP
+                0x00410a24                STR_LIGHTSWITCH
+                0x00410a34                STR_LIGHTOFFAFTER
+                0x00410a44                STR_SPLASHSCREEN
+                0x00410a54                STR_THROTTLEWARNING
+                0x00410a60                STR_SWITCHWARNING
+                0x00410a70                STR_MEMORYWARNING
+                0x00410a80                STR_ALARMWARNING
+                0x00410a90                STR_NODATAALARM
+                0x00410aa0                STR_TIMEZONE
+                0x00410aac                STR_GPSCOORD
+                0x00410ab8                STR_RXCHANNELORD
+                0x00410b60                STR_MENUTELEMETRY
+                0x00410b6c                STR_ACHANNEL
+                0x00410b78                STR_RANGE
+                0x00410b80                STR_OFFSET
+                0x00410b88                STR_ALARM
+                0x00410b90                STR_USRDATA
+                0x00410b98                STR_PROTO
+                0x00410ba0                STR_BLADES
+                0x00410ba8                STR_VARIO
+                0x00410bb0                STR_SOURCE
+                0x00410bb8                STR_MINLIMIT
+                0x00410bc4                STR_DISPLAY
+                0x00410bcc                STR_BARS
+                0x00410bd8                STR_MENUFUNCSWITCHES
+                0x00410bec                STR_MENUCUSTOMSWITCHES
+                0x00410bfc                STR_SW
+                0x00410c00                STR_MENUANA
+                0x00410c08                STR_BATT_CALIB
+                0x00410c18                STR_CURRENT_CALIB
+                0x00410c28                STR_MENUDIAG
+                0x00410c30                STR_VTRIM
+                0x00410c38                STR_MENUVERSION
+                0x00410c40                stamp1
+                0x00410c50                stamp2
+                0x00410c60                stamp3
+                0x00410c74                stamp4
+                0x00410c84                STR_EEPROMV
+                0x00410c90                STR_MENUCURVES
+                0x00410c98                STR_CV
+                0x00410c9c                STR_MENUDREXPO
+                0x00410ca4                STR_MIXER
+                0x00410cac                STR_MENUFLIGHTPHASES
+                0x00410cbc                STR_DEFAULT
+                0x00410cc8                STR_CHECKTRIMS
+                0x00410cd4                STR_INSERTMIX
+                0x00410ce0                STR_EDITMIX
+                0x00410cec                STR_WEIGHT
+                0x00410cf4                STR_DIFFERENTIAL
+                0x00410cfc                STR_TRIM
+                0x00410d04                STR_CURVES
+                0x00410d0c                STR_SWITCH
+                0x00410d14                STR_FPHASE
+                0x00410d1c                STR_WARNING
+                0x00410d24                STR_OFF
+                0x00410d28                STR_MULTPX
+                0x00410d30                STR_DELAYUP
+                0x00410d3c                STR_DELAYDOWN
+                0x00410d48                STR_SLOWUP
+                0x00410d54                STR_SLOWDOWN
+                0x00410d60                STR_MENUCALIBRATION
+                0x00410d6c                STR_MENUTOSTART
+                0x00410d7c                STR_SETMIDPOINT
+                0x00410d8c                STR_MENUWHENDONE
+                0x00410da0                STR_MOVESTICKSPOTS
+                0x00410dc0                STR_MENUSETUP
+                0x00410dc8                STR_NAME
+                0x00410dd0                STR_TIMER
+                0x00410dd8                STR_ELIMITS
+                0x00410de4                STR_ETRIMS
+                0x00410dec                STR_TRIMINC
+                0x00410df8                STR_TTRACE
+                0x00410e00                STR_TTRIM
+                0x00410e08                STR_BEEPCTR
+                0x00410e14                STR_PPMFRAME
+                0x00410e20                STR_MS
+                0x00410e28                STR_MENUFLIGHTPHASE
+                0x00410e38                STR_TRIMS
+                0x00410e40                STR_FADEIN
+                0x00410e48                STR_FADEOUT
+                0x00410e5c                STR_MENUTRAINER
+                0x00410e64                STR_SLAVE
+                0x00410e6c                STR_MODESRC
+                0x00410e78                STR_MULTIPLIER
+                0x00410e84                STR_CAL
+                0x00410ea4                STR_MENULIMITS
+                0x00410eac                STR_TRIMS2OFFSETS
+                0x00410ee8                STR_MENUMODELSEL
+                0x00410ef4                STR_DELETEMODEL
+                0x00410f04                STR_COPYINGMODEL
+                0x00410f18                STR_LOADINGMODEL
+                0x00410f2c                STR_MOVINGMODEL
+                0x00410f3c                STR_BADEEPROMDATA
+                0x00410f4c                STR_MESSAGE
+                0x00410f58                STR_EEPROMFORMATTING
+                0x00410f6c                STR_MENUTEMPLATES
+                0x00410f78                STR_SHUTDOWN
+                0x00410f88                STR_EEPROMOVERFLOW
+                0x00410f98                STR_EEPROMLOWMEM
+                0x00410fa8                STR_FREESTACKMINB
+                0x00410fb8                STR_TMR1JITTERUS
+                0x00410fc8                STR_TMR1LATMINUS
+                0x00410fd8                STR_TMR1LATMAXUS
+                0x00410fe8                STR_RXBATT
+                0x00410ff4                STR_BG
+                0x00410ff8                STR_BAR
+                0x00410ffc                STR_FREE
+ *(.rodata.*)
+ .rodata.str1.4
+                0x00411410       0x54 allsrc.o
+                0x00411464                . = ALIGN (0x4)
+                0x00411464                _etext = .
+
+.glue_7         0x00411464        0x0
+ .glue_7        0x00000000        0x0 linker stubs
+
+.glue_7t        0x00411464        0x0
+ .glue_7t       0x00000000        0x0 linker stubs
+
+.vfp11_veneer   0x00411464        0x0
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+
+.v4_bx          0x00411464        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.data           0x20000000      0x104 load address 0x00411464
+                0x20000000                . = ALIGN (0x4)
+                0x20000000                _sdata = .
+ *(.data)
+ .data          0x20000000      0x104 allsrc.o
+                0x20000000                Sine_values
+                0x200000c8                Pulses
+                0x200000fa                frskyStreaming
+                0x200000fc                s9xsplash
+ .data          0x20000104        0x0 c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memcpy.o)
+ .data          0x20000104        0x0 c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memmove.o)
+ .data          0x20000104        0x0 c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memset.o)
+ *(.data.*)
+                0x20000104                . = ALIGN (0x4)
+ *(.fastrun)
+ *(.fastrun.*)
+                0x20000104                . = ALIGN (0x4)
+                0x20000104                _edata = .
+
+.init_array     0x20000104        0x4 load address 0x00411568
+ .init_array    0x20000104        0x4 allsrc.o
+
+.bss            0x20000108     0x2070 load address 0x0041156c
+                0x20000108                . = ALIGN (0x4)
+                0x20000108                _sbss = .
+ *(.bss)
+ .bss           0x20000108     0x2070 allsrc.o
+                0x2000010a                ppmInState
+                0x2000010c                Temp_captures
+                0x2000011c                g_ppmIns
+                0x2000012c                g_eeGeneral
+                0x20000180                Spi_complete
+                0x20000184                Sound_g
+                0x200001a4                Master_frequency
+                0x200001a8                keys
+                0x200001d4                Analog_values
+                0x200001e6                Temperature
+                0x200001e8                maxTemperature
+                0x200001ec                TelemetryInBuffer
+                0x20000234                TelemetryActiveBuffer
+                0x20000238                Current_analogue
+                0x20000244                g_model
+                0x2000099e                FrskyAlarmSendState
+                0x200009a0                safetyCh
+                0x200009c0                calibratedStick
+                0x200009d0                ex_chans
+                0x20000a10                s_timerVal
+                0x20000a14                frskyTelemetry
+                0x20000a1c                frskyRSSI
+                0x20000a20                frskyHubData
+                0x20000aa0                s_trimPtr
+                0x20000ab0                s_eeDirtyMsk
+                0x20000ab2                g_tmr10ms
+                0x20000ab4                s_eeDirtyTime10ms
+                0x20000af0                s_timerState
+                0x20000af4                s_timerVal_10ms
+                0x20000af8                g_chans512
+                0x20000b38                Serial_byte
+                0x20000b39                Serial_bit_count
+                0x20000b3c                Pulses2MHzptr
+                0x20000b40                Serial_byte_count
+                0x20000b42                PcmCrc
+                0x20000b44                PcmOnesCount
+                0x20000b48                Bit_pulses
+                0x20000b88                pxxFlag
+                0x20000b89                heartbeat
+                0x20000b8a                Current_protocol
+                0x20000b8c                Pulses_index
+                0x20000b90                s_warning
+                0x20000b9c                Spi_tx_buf
+                0x20000bb4                File_system
+                0x20000e90                Eeprom_buffer
+                0x200015fc                Eeprom32_process_state
+                0x200015fd                Eeprom32_file_index
+                0x20001600                Eeprom32_address
+                0x20001604                Eeprom32_state_after_erase
+                0x20001608                Eeprom32_source_address
+                0x2000160c                Eeprom32_data_size
+                0x20001610                Eeprom32_buffer_address
+                0x20001614                ModelNames
+                0x2000186c                Spi_rx_buf
+                0x20001884                displayBuf
+                0x20001c84                g_blinkTmr10ms
+                0x20001c85                lcd_lastPos
+                0x20001c86                stickMode
+                0x20001c87                s_confirmation
+                0x20001c88                s_warning_info
+                0x20001c8c                s_warning_info_len
+                0x20001c8e                g_vbat100mV
+                0x20001c90                inacCounter
+                0x20001c98                g_menuStack
+                0x20001cac                frskyUsrStreaming
+                0x20001cb0                frskyTxBuffer
+                0x20001cbc                frskyAlarms
+                0x20001cc8                FrskyRxBufferReady
+                0x20001ccc                frskyRxBuffer
+                0x20001ce0                s_last_switch_used
+                0x20001ce2                s_last_switch_value
+                0x20001ce4                barsThresholds
+                0x20001cfa                bpanaCenter
+                0x20001cfc                s_perout_mode
+                0x20001cfe                active_functions
+                0x20001d00                anas
+                0x20001d08                trimsCheckTimer
+                0x20001d0c                trims
+                0x20001d14                Buzzer_count
+                0x20001d16                g_LightOffCounter
+                0x20001d18                haptic
+                0x20001d28                audio
+                0x20001d98                Tenms
+                0x20001d9c                mixWarning
+                0x20001da4                g_menuStackPtr
+                0x20001da6                s_timeCumThr
+                0x20001da8                s_timeCum16ThrP
+                0x20001daa                s_timeCumTot
+                0x20001dac                s_traceCnt
+                0x20001dad                s_traceWr
+                0x20001db0                s_traceBuf
+                0x20001e2a                g_timeMain
+                0x20001e2c                s_editMode
+                0x20001e2d                checkIncDec_Ret
+                0x20001e30                g_menuPos
+                0x20001e34                m_posVert
+                0x20001e35                m_posHorz
+                0x20001e38                chans
+                0x20001eb8                swOn
+                0x20001ef8                sDelay
+                0x20001f78                tick10ms
+                0x20001f7c                act
+                0x2000207c                s_noScroll
+                0x2000207d                s_pgOfs
+                0x20002084                reusableBuffer
+                0x200020b4                s_noHi
+                0x200020d0                sum_chans512
+                0x20002170                inacSum
+                0x20002173                Other_general_block_blank
+                0x20002174                Current_general_block
+                0x20002175                Eeprom32_write_pending
+ .bss           0x20002178        0x0 c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memcpy.o)
+ .bss           0x20002178        0x0 c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memmove.o)
+ .bss           0x20002178        0x0 c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memset.o)
+ *(.bss.*)
+                0x20002178                . = ALIGN (0x4)
+                0x20002178                _ebss = .
+                0x2000c000                _estack = (ORIGIN (RAM) + 0xc000)
+OUTPUT(open9x.elf elf32-littlearm)
+
+.debug_info     0x00000000    0x1204f
+ .debug_info    0x00000000    0x11cdb allsrc.o
+ .debug_info    0x00011cdb      0x130 c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memcpy.o)
+ .debug_info    0x00011e0b      0x12e c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memmove.o)
+ .debug_info    0x00011f39      0x116 c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memset.o)
+
+.debug_abbrev   0x00000000      0xc47
+ .debug_abbrev  0x00000000      0xa79 allsrc.o
+ .debug_abbrev  0x00000a79       0x99 c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memcpy.o)
+ .debug_abbrev  0x00000b12       0xa8 c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memmove.o)
+ .debug_abbrev  0x00000bba       0x8d c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memset.o)
+
+.debug_loc      0x00000000     0xdd67
+ .debug_loc     0x00000000     0xd74f allsrc.o
+ .debug_loc     0x0000d74f      0x1cc c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memcpy.o)
+ .debug_loc     0x0000d91b      0x251 c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memmove.o)
+ .debug_loc     0x0000db6c      0x1fb c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memset.o)
+
+.debug_aranges  0x00000000       0x90
+ .debug_aranges
+                0x00000000       0x30 allsrc.o
+ .debug_aranges
+                0x00000030       0x20 c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memcpy.o)
+ .debug_aranges
+                0x00000050       0x20 c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memmove.o)
+ .debug_aranges
+                0x00000070       0x20 c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memset.o)
+
+.debug_ranges   0x00000000     0x4520
+ .debug_ranges  0x00000000     0x4520 allsrc.o
+
+.debug_line     0x00000000     0x5603
+ .debug_line    0x00000000     0x516e allsrc.o
+ .debug_line    0x0000516e      0x175 c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memcpy.o)
+ .debug_line    0x000052e3      0x19d c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memmove.o)
+ .debug_line    0x00005480      0x183 c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memset.o)
+
+.debug_str      0x00000000     0x6f74
+ .debug_str     0x00000000     0x6df6 allsrc.o
+                               0x7110 (size before relaxing)
+ .debug_str     0x00006df6       0xd1 c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memcpy.o)
+                                0x15a (size before relaxing)
+ .debug_str     0x00006ec7       0x5a c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memmove.o)
+                                0x166 (size before relaxing)
+ .debug_str     0x00006f21       0x53 c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memset.o)
+                                0x147 (size before relaxing)
+
+.comment        0x00000000       0x11
+ .comment       0x00000000       0x11 allsrc.o
+                                 0x12 (size before relaxing)
+ .comment       0x00000000       0x12 c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memcpy.o)
+ .comment       0x00000000       0x12 c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memmove.o)
+ .comment       0x00000000       0x12 c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memset.o)
+
+.ARM.attributes
+                0x00000000       0x31
+ .ARM.attributes
+                0x00000000       0x31 allsrc.o
+ .ARM.attributes
+                0x00000031       0x2b c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memcpy.o)
+ .ARM.attributes
+                0x0000005c       0x2b c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memmove.o)
+ .ARM.attributes
+                0x00000087       0x2b c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memset.o)
+
+.debug_frame    0x00000000     0x258c
+ .debug_frame   0x00000000     0x2508 allsrc.o
+ .debug_frame   0x00002508       0x2c c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memcpy.o)
+ .debug_frame   0x00002534       0x2c c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memmove.o)
+ .debug_frame   0x00002560       0x2c c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memset.o)
+
+Cross Reference Table
+
+Symbol                                            File
+ACC_IRQHandler()                                  allsrc.o
+ADC_IRQHandler()                                  allsrc.o
+Analog_values                                     allsrc.o
+Bit_pulses                                        allsrc.o
+BusFault_Handler()                                allsrc.o
+Buzzer_count                                      allsrc.o
+CRCCU_IRQHandler()                                allsrc.o
+Current_analogue                                  allsrc.o
+Current_general_block                             allsrc.o
+Current_protocol                                  allsrc.o
+DAC_IRQHandler                                    allsrc.o
+DebugMon_Handler()                                allsrc.o
+DisplayScreenIndex(unsigned char, unsigned char, unsigned char) allsrc.o
+DrawCurve(short (*)(short))                       allsrc.o
+EEFC_IRQHandler()                                 allsrc.o
+EditName(unsigned char, unsigned char, char*, unsigned char, unsigned char, bool, unsigned char&) allsrc.o
+Eeprom32_address                                  allsrc.o
+Eeprom32_buffer_address                           allsrc.o
+Eeprom32_data_size                                allsrc.o
+Eeprom32_file_index                               allsrc.o
+Eeprom32_process_state                            allsrc.o
+Eeprom32_source_address                           allsrc.o
+Eeprom32_state_after_erase                        allsrc.o
+Eeprom32_write_pending                            allsrc.o
+Eeprom_buffer                                     allsrc.o
+FRSKY_Init()                                      allsrc.o
+FRSKY_alarmRaised(unsigned char)                  allsrc.o
+File_system                                       allsrc.o
+FrskyAlarmSendState                               allsrc.o
+FrskyData::set(unsigned char)                     allsrc.o
+FrskyRSSI::set(unsigned char)                     allsrc.o
+FrskyRxBufferReady                                allsrc.o
+HardFault_Handler()                               allsrc.o
+Key::input(bool, EnumKeys)                        allsrc.o
+MCI_IRQHandler()                                  allsrc.o
+Master_frequency                                  allsrc.o
+MemManage_Handler()                               allsrc.o
+ModelNames                                        allsrc.o
+NMI_Handler()                                     allsrc.o
+Other_general_block_blank                         allsrc.o
+PIOA_IRQHandler()                                 allsrc.o
+PIOB_IRQHandler()                                 allsrc.o
+PIOC_IRQHandler()                                 allsrc.o
+PMC_IRQHandler()                                  allsrc.o
+PWM_IRQHandler                                    allsrc.o
+PcmCrc                                            allsrc.o
+PcmOnesCount                                      allsrc.o
+PendSV_Handler()                                  allsrc.o
+Pulses                                            allsrc.o
+Pulses2MHzptr                                     allsrc.o
+Pulses_index                                      allsrc.o
+RSTC_IRQHandler()                                 allsrc.o
+RTC_IRQHandler()                                  allsrc.o
+RTT_IRQHandler()                                  allsrc.o
+ResetHandler()                                    allsrc.o
+SMC_IRQHandler()                                  allsrc.o
+SPI_IRQHandler                                    allsrc.o
+SSC_IRQHandler()                                  allsrc.o
+STR_ACCEL                                         allsrc.o
+STR_ACHANNEL                                      allsrc.o
+STR_ALARM                                         allsrc.o
+STR_ALARMSDISABLED                                allsrc.o
+STR_ALARMWARNING                                  allsrc.o
+STR_ALERT                                         allsrc.o
+STR_BADEEPROMDATA                                 allsrc.o
+STR_BAR                                           allsrc.o
+STR_BARS                                          allsrc.o
+STR_BATTERYWARNING                                allsrc.o
+STR_BATT_CALIB                                    allsrc.o
+STR_BEEPCOUNTDOWN                                 allsrc.o
+STR_BEEPCTR                                       allsrc.o
+STR_BEEPERLEN                                     allsrc.o
+STR_BEEPERMODE                                    allsrc.o
+STR_BG                                            allsrc.o
+STR_BLADES                                        allsrc.o
+STR_CAL                                           allsrc.o
+STR_CH                                            allsrc.o
+STR_CHECKTRIMS                                    allsrc.o
+STR_CONTRAST                                      allsrc.o
+STR_COPYINGMODEL                                  allsrc.o
+STR_CURRENT                                       allsrc.o
+STR_CURRENT_CALIB                                 allsrc.o
+STR_CURVES                                        allsrc.o
+STR_CV                                            allsrc.o
+STR_DEFAULT                                       allsrc.o
+STR_DELAYDOWN                                     allsrc.o
+STR_DELAYUP                                       allsrc.o
+STR_DELETEMODEL                                   allsrc.o
+STR_DIFFERENTIAL                                  allsrc.o
+STR_DISPLAY                                       allsrc.o
+STR_EDITMIX                                       allsrc.o
+STR_EEPROMFORMATTING                              allsrc.o
+STR_EEPROMLOWMEM                                  allsrc.o
+STR_EEPROMOVERFLOW                                allsrc.o
+STR_EEPROMV                                       allsrc.o
+STR_ELIMITS                                       allsrc.o
+STR_ETRIMS                                        allsrc.o
+STR_FADEIN                                        allsrc.o
+STR_FADEOUT                                       allsrc.o
+STR_FILTERADC                                     allsrc.o
+STR_FLASHONBEEP                                   allsrc.o
+STR_FP                                            allsrc.o
+STR_FPHASE                                        allsrc.o
+STR_FREE                                          allsrc.o
+STR_FREESTACKMINB                                 allsrc.o
+STR_GPSCOORD                                      allsrc.o
+STR_HAPTICLENGTH                                  allsrc.o
+STR_HAPTICMODE                                    allsrc.o
+STR_HAPTICSTRENGTH                                allsrc.o
+STR_INACTIVITYALARM                               allsrc.o
+STR_INSERTMIX                                     allsrc.o
+STR_LATITUDE                                      allsrc.o
+STR_LIGHTOFFAFTER                                 allsrc.o
+STR_LIGHTSWITCH                                   allsrc.o
+STR_LOADINGMODEL                                  allsrc.o
+STR_LONGITUDE                                     allsrc.o
+STR_MEMORYWARNING                                 allsrc.o
+STR_MENUANA                                       allsrc.o
+STR_MENUCALIBRATION                               allsrc.o
+STR_MENUCURVE                                     allsrc.o
+STR_MENUCURVES                                    allsrc.o
+STR_MENUCUSTOMSWITCHES                            allsrc.o
+STR_MENUDEBUG                                     allsrc.o
+STR_MENUDIAG                                      allsrc.o
+STR_MENUDREXPO                                    allsrc.o
+STR_MENUFLIGHTPHASE                               allsrc.o
+STR_MENUFLIGHTPHASES                              allsrc.o
+STR_MENUFUNCSWITCHES                              allsrc.o
+STR_MENULIMITS                                    allsrc.o
+STR_MENUMODELSEL                                  allsrc.o
+STR_MENURADIOSETUP                                allsrc.o
+STR_MENUSERROR                                    allsrc.o
+STR_MENUSETUP                                     allsrc.o
+STR_MENUSTAT                                      allsrc.o
+STR_MENUTELEMETRY                                 allsrc.o
+STR_MENUTEMPLATES                                 allsrc.o
+STR_MENUTORESET                                   allsrc.o
+STR_MENUTOSTART                                   allsrc.o
+STR_MENUTRAINER                                   allsrc.o
+STR_MENUVERSION                                   allsrc.o
+STR_MENUWHENDONE                                  allsrc.o
+STR_MESSAGE                                       allsrc.o
+STR_MINLIMIT                                      allsrc.o
+STR_MINRSSI                                       allsrc.o
+STR_MINUTEBEEP                                    allsrc.o
+STR_MIXER                                         allsrc.o
+STR_MODE                                          allsrc.o
+STR_MODEL                                         allsrc.o
+STR_MODESRC                                       allsrc.o
+STR_MOVESTICKSPOTS                                allsrc.o
+STR_MOVINGMODEL                                   allsrc.o
+STR_MS                                            allsrc.o
+STR_MULTIPLIER                                    allsrc.o
+STR_MULTPX                                        allsrc.o
+STR_NAME                                          allsrc.o
+STR_NODATA                                        allsrc.o
+STR_NODATAALARM                                   allsrc.o
+STR_NOFREEEXPO                                    allsrc.o
+STR_NOFREEMIXER                                   allsrc.o
+STR_OFF                                           allsrc.o
+STR_OFFSET                                        allsrc.o
+STR_OPEN9X                                        allsrc.o
+STR_PLEASERESETTHEM                               allsrc.o
+STR_POPUPS                                        allsrc.o
+STR_PPM                                           allsrc.o
+STR_PPMFRAME                                      allsrc.o
+STR_PRESSANYKEY                                   allsrc.o
+STR_PRESSANYKEYTOSKIP                             allsrc.o
+STR_PROTO                                         allsrc.o
+STR_RANGE                                         allsrc.o
+STR_RESETTHROTTLE                                 allsrc.o
+STR_RXBATT                                        allsrc.o
+STR_RXCHANNELORD                                  allsrc.o
+STR_SETMIDPOINT                                   allsrc.o
+STR_SHUTDOWN                                      allsrc.o
+STR_SLAVE                                         allsrc.o
+STR_SLOWDOWN                                      allsrc.o
+STR_SLOWUP                                        allsrc.o
+STR_SOURCE                                        allsrc.o
+STR_SPKRPITCH                                     allsrc.o
+STR_SPLASHSCREEN                                  allsrc.o
+STR_SW                                            allsrc.o
+STR_SWITCH                                        allsrc.o
+STR_SWITCHESNOTOFF                                allsrc.o
+STR_SWITCHWARNING                                 allsrc.o
+STR_THROTTLENOTIDLE                               allsrc.o
+STR_THROTTLEREVERSE                               allsrc.o
+STR_THROTTLEWARNING                               allsrc.o
+STR_THRTHP                                        allsrc.o
+STR_TIMER                                         allsrc.o
+STR_TIMEZONE                                      allsrc.o
+STR_TM1TM2                                        allsrc.o
+STR_TMAINMAXMS                                    allsrc.o
+STR_TMR1JITTERUS                                  allsrc.o
+STR_TMR1LATMAXUS                                  allsrc.o
+STR_TMR1LATMINUS                                  allsrc.o
+STR_TOT                                           allsrc.o
+STR_TRIM                                          allsrc.o
+STR_TRIMINC                                       allsrc.o
+STR_TRIMS                                         allsrc.o
+STR_TRIMS2OFFSETS                                 allsrc.o
+STR_TTRACE                                        allsrc.o
+STR_TTRIM                                         allsrc.o
+STR_TX                                            allsrc.o
+STR_USRDATA                                       allsrc.o
+STR_VARIO                                         allsrc.o
+STR_VTRIM                                         allsrc.o
+STR_WARNING                                       allsrc.o
+STR_WEIGHT                                        allsrc.o
+SUPC_IRQHandler()                                 allsrc.o
+SVC_Handler()                                     allsrc.o
+Serial_bit_count                                  allsrc.o
+Serial_byte                                       allsrc.o
+Serial_byte_count                                 allsrc.o
+Sine_values                                       allsrc.o
+Sound_g                                           allsrc.o
+Spi_complete                                      allsrc.o
+Spi_rx_buf                                        allsrc.o
+Spi_tx_buf                                        allsrc.o
+SysTick_Handler()                                 allsrc.o
+SystemInit()                                      allsrc.o
+TC0_IRQHandler()                                  allsrc.o
+TC1_IRQHandler()                                  allsrc.o
+TC2_IRQHandler                                    allsrc.o
+TC3_IRQHandler                                    allsrc.o
+TC4_IRQHandler()                                  allsrc.o
+TC5_IRQHandler()                                  allsrc.o
+TWI0_IRQHandler                                   allsrc.o
+TWI1_IRQHandler()                                 allsrc.o
+TelemetryActiveBuffer                             allsrc.o
+TelemetryInBuffer                                 allsrc.o
+Temp_captures                                     allsrc.o
+Temperature                                       allsrc.o
+Tenms                                             allsrc.o
+UART0_IRQHandler()                                allsrc.o
+UART1_IRQHandler()                                allsrc.o
+USART0_IRQHandler()                               allsrc.o
+USART1_IRQHandler()                               allsrc.o
+USBD_IRQHandler()                                 allsrc.o
+UsageFault_Handler()                              allsrc.o
+WDT_IRQHandler()                                  allsrc.o
+__LDREXB                                          allsrc.o
+__LDREXH                                          allsrc.o
+__LDREXW                                          allsrc.o
+__RBIT                                            allsrc.o
+__REV                                             allsrc.o
+__REV16                                           allsrc.o
+__REVSH                                           allsrc.o
+__STREXB                                          allsrc.o
+__STREXH                                          allsrc.o
+__STREXW                                          allsrc.o
+__getSwitch(signed char)                          allsrc.o
+__get_BASEPRI                                     allsrc.o
+__get_CONTROL                                     allsrc.o
+__get_FAULTMASK                                   allsrc.o
+__get_MSP                                         allsrc.o
+__get_PRIMASK                                     allsrc.o
+__get_PSP                                         allsrc.o
+__set_BASEPRI                                     allsrc.o
+__set_CONTROL                                     allsrc.o
+__set_FAULTMASK                                   allsrc.o
+__set_MSP                                         allsrc.o
+__set_PRIMASK                                     allsrc.o
+__set_PSP                                         allsrc.o
+_ebss                                             allsrc.o
+_edata                                            allsrc.o
+_estack                                           allsrc.o
+_etext                                            allsrc.o
+_sbss                                             allsrc.o
+_sdata                                            allsrc.o
+_stext                                            allsrc.o
+act                                               allsrc.o
+active_functions                                  allsrc.o
+alert(char const*)                                allsrc.o
+anaIn(unsigned char)                              allsrc.o
+anas                                              allsrc.o
+applyChannelRatio(unsigned char, short)           allsrc.o
+applyCurve(short, signed char)                    allsrc.o
+applyExpos(short*, unsigned char)                 allsrc.o
+applyLimits(unsigned char, long)                  allsrc.o
+applyTemplate(unsigned char)                      allsrc.o
+audio                                             allsrc.o
+audioDefevent(unsigned char)                      allsrc.o
+audioQueue::audioQueue()                          allsrc.o
+audioQueue::audioQueue()                          allsrc.o
+audioQueue::event(unsigned char, unsigned char)   allsrc.o
+audioQueue::heartbeat()                           allsrc.o
+audioQueue::play(unsigned char, unsigned char, unsigned char, unsigned char, signed char) allsrc.o
+barsThresholds                                    allsrc.o
+bchout_ar                                         allsrc.o
+board_init()                                      allsrc.o
+bpanaCenter                                       allsrc.o
+buzzer_off()                                      allsrc.o
+buzzer_on()                                       allsrc.o
+buzzer_sound(unsigned char)                       allsrc.o
+byte_checksum(unsigned char*, unsigned long)      allsrc.o
+calibratedStick                                   allsrc.o
+chainMenu(void (*)(unsigned char))                allsrc.o
+channel_order(unsigned char)                      allsrc.o
+chans                                             allsrc.o
+check(unsigned char, unsigned char, void (* const*)(unsigned char), unsigned char, unsigned char const*, unsigned char, unsigned char) allsrc.o
+checkAlarm()                                      allsrc.o
+checkBacklight()                                  allsrc.o
+checkIncDec(unsigned char, short, short, short, unsigned char) allsrc.o
+checkIncDecGen(unsigned char, signed char, signed char, signed char) allsrc.o
+checkIncDecModel(unsigned char, signed char, signed char, signed char) allsrc.o
+checkIncDec_Ret                                   allsrc.o
+checkMinMaxAltitude()                             allsrc.o
+checkSwitches()                                   allsrc.o
+checkTHR()                                        allsrc.o
+checkTrim(unsigned char)                          allsrc.o
+check_frsky()                                     allsrc.o
+check_simple(unsigned char, unsigned char, void (* const*)(unsigned char), unsigned char, unsigned char) allsrc.o
+check_soft_power()                                allsrc.o
+check_submenu_simple(unsigned char, unsigned char) allsrc.o
+clearCurves()                                     allsrc.o
+clearKeyEvents()                                  allsrc.o
+clearMixes()                                      allsrc.o
+configure_pins(unsigned long, unsigned short)     allsrc.o
+convertTelemValue(unsigned char, unsigned char)   allsrc.o
+copyExpoMix(unsigned char, unsigned char)         allsrc.o
+crc(unsigned char)                                allsrc.o
+curveFn(short)                                    allsrc.o
+deleteExpoMix(unsigned char, unsigned char)       allsrc.o
+disable_main_ppm()                                allsrc.o
+disable_ssc()                                     allsrc.o
+displayBox()                                      allsrc.o
+displayBuf                                        allsrc.o
+displayConfirmation(unsigned char)                allsrc.o
+displayGpsCoord(unsigned char, char, short, short) allsrc.o
+displayGpsTime()                                  allsrc.o
+displayPopup(char const*)                         allsrc.o
+displayRssiLine()                                 allsrc.o
+displayWarning(unsigned char)                     allsrc.o
+doMainScreenGrphics()                             allsrc.o
+doSplash()                                        allsrc.o
+ee32LoadGeneral()                                 allsrc.o
+ee32LoadModelName(unsigned char, char*, unsigned char) allsrc.o
+ee32_check_header(t_eeprom_header*)               allsrc.o
+ee32_process()                                    allsrc.o
+ee32_read_model_names()                           allsrc.o
+eeCheck(bool)                                     allsrc.o
+eeCopyModel(unsigned char, unsigned char)         allsrc.o
+eeDeleteModel(unsigned char)                      allsrc.o
+eeDirty(unsigned char)                            allsrc.o
+eeLoadModel(unsigned char)                        allsrc.o
+eeModelExists(unsigned char)                      allsrc.o
+eeReadAll()                                       allsrc.o
+eeSwapModels(unsigned char, unsigned char)        allsrc.o
+eeWaitFinished()                                  allsrc.o
+eeprom_init()                                     allsrc.o
+eeprom_read_status()                              allsrc.o
+eeprom_write_enable()                             allsrc.o
+eeprom_write_one(unsigned char, unsigned char)    allsrc.o
+endPdcUsartReceive()                              allsrc.o
+end_ppm_capture()                                 allsrc.o
+end_sound()                                       allsrc.o
+end_spi()                                         allsrc.o
+evalChkSum()                                      allsrc.o
+evalFunctions()                                   allsrc.o
+evalSticks(unsigned char)                         allsrc.o
+ex_chans                                          allsrc.o
+expo(short, short)                                allsrc.o
+expoFn(short)                                     allsrc.o
+expoaddress(unsigned char)                        allsrc.o
+expou(unsigned short, unsigned short)             allsrc.o
+fill_file_index()                                 allsrc.o
+font                                              allsrc.o
+font_dblsize                                      allsrc.o
+frskyAlarms                                       allsrc.o
+frskyHubData                                      allsrc.o
+frskyPushValue(unsigned char*&, unsigned char)    allsrc.o
+frskyRSSI                                         allsrc.o
+frskyRxBuffer                                     allsrc.o
+frskyStreaming                                    allsrc.o
+frskyTelemetry                                    allsrc.o
+frskyTransmitBuffer(unsigned long)                allsrc.o
+frskyTxBuffer                                     allsrc.o
+frskyUsrStreaming                                 allsrc.o
+g_LightOffCounter                                 allsrc.o
+g_blinkTmr10ms                                    allsrc.o
+g_chans512                                        allsrc.o
+g_eeGeneral                                       allsrc.o
+g_menuPos                                         allsrc.o
+g_menuStack                                       allsrc.o
+g_menuStackPtr                                    allsrc.o
+g_model                                           allsrc.o
+g_ppmIns                                          allsrc.o
+g_timeMain                                        allsrc.o
+g_tmr10ms                                         allsrc.o
+g_vbat100mV                                       allsrc.o
+generalDefault()                                  allsrc.o
+getADC_filt()                                     allsrc.o
+getADC_osmp()                                     allsrc.o
+getADC_single()                                   allsrc.o
+getCurrent()                                      allsrc.o
+getEvent()                                        allsrc.o
+getExpoMixCount(unsigned char)                    allsrc.o
+getFlightPhase()                                  allsrc.o
+getRawTrimValue(unsigned char, unsigned char)     allsrc.o
+getRssiAlarmValue(unsigned char)                  allsrc.o
+getSwitch(signed char, bool)                      allsrc.o
+getTelemCustomField(unsigned char, unsigned char) allsrc.o
+getTrimFlightPhase(unsigned char, unsigned char)  allsrc.o
+getTrimValue(unsigned char, unsigned char)        allsrc.o
+getValue(unsigned char)                           allsrc.o
+get_current_block_number(unsigned long, unsigned short*, unsigned long*) allsrc.o
+haptic                                            allsrc.o
+hapticOff()                                       allsrc.o
+hapticOn(unsigned long)                           allsrc.o
+hapticQueue::event(unsigned char)                 allsrc.o
+hapticQueue::hapticQueue()                        allsrc.o
+hapticQueue::hapticQueue()                        allsrc.o
+hapticQueue::heartbeat()                          allsrc.o
+hapticQueue::play(unsigned char, unsigned char, unsigned char) allsrc.o
+heartbeat                                         allsrc.o
+idx2char(signed char)                             allsrc.o
+inacCounter                                       allsrc.o
+inacSum                                           allsrc.o
+init_dac()                                        allsrc.o
+init_pwm()                                        allsrc.o
+init_spi()                                        allsrc.o
+init_ssc()                                        allsrc.o
+init_twi()                                        allsrc.o
+insertExpoMix(unsigned char, unsigned char)       allsrc.o
+instantTrim()                                     allsrc.o
+intpol(short, unsigned char)                      allsrc.o
+isqrt32(unsigned long)                            allsrc.o
+keyDown()                                         allsrc.o
+keyState(EnumKeys)                                allsrc.o
+keys                                              allsrc.o
+killEvents(unsigned char)                         allsrc.o
+lcdSendCtl(unsigned char)                         allsrc.o
+lcdSetRefVolt(unsigned char)                      allsrc.o
+lcd_clear()                                       allsrc.o
+lcd_filled_rect(unsigned char, signed char, unsigned char, unsigned char, unsigned char, unsigned char) allsrc.o
+lcd_hline(unsigned char, unsigned char, unsigned char, unsigned char) allsrc.o
+lcd_hlineStip(signed char, unsigned char, unsigned char, unsigned char, unsigned char) allsrc.o
+lcd_img(unsigned char, unsigned char, unsigned char const*, unsigned char, unsigned char) allsrc.o
+lcd_init()                                        allsrc.o
+lcd_lastPos                                       allsrc.o
+lcd_mask(unsigned char*, unsigned char, unsigned char) allsrc.o
+lcd_outdez8(unsigned char, unsigned char, signed char) allsrc.o
+lcd_outdezAtt(unsigned char, unsigned char, short, unsigned char) allsrc.o
+lcd_outdezNAtt(unsigned char, unsigned char, short, unsigned char, unsigned char) allsrc.o
+lcd_outhex4(unsigned char, unsigned char, unsigned short) allsrc.o
+lcd_plot(unsigned char, unsigned char, unsigned char) allsrc.o
+lcd_putc(unsigned char, unsigned char, unsigned char) allsrc.o
+lcd_putcAtt(unsigned char, unsigned char, unsigned char, unsigned char) allsrc.o
+lcd_puts(unsigned char, unsigned char, char const*) allsrc.o
+lcd_putsAtt(unsigned char, unsigned char, char const*, unsigned char) allsrc.o
+lcd_putsLeft(unsigned char, char const*)          allsrc.o
+lcd_putsiAtt(unsigned char, unsigned char, char const*, unsigned char, unsigned char) allsrc.o
+lcd_putsn(unsigned char, unsigned char, char const*, unsigned char) allsrc.o
+lcd_putsnAtt(unsigned char, unsigned char, char const*, unsigned char, unsigned char) allsrc.o
+lcd_rect(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) allsrc.o
+lcd_vline(unsigned char, signed char, signed char) allsrc.o
+lcd_vlineStip(unsigned char, signed char, signed char, unsigned char) allsrc.o
+limitaddress(unsigned char)                       allsrc.o
+m_posHorz                                         allsrc.o
+m_posVert                                         allsrc.o
+main                                              allsrc.o
+maxTelemValue(unsigned char)                      allsrc.o
+maxTemperature                                    allsrc.o
+memcpy                                            c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memcpy.o)
+                                                  allsrc.o
+memmove                                           c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memmove.o)
+                                                  allsrc.o
+memset                                            c:/program files (x86)/yagarto/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/thumb/v7m\libc.a(lib_a-memset.o)
+                                                  allsrc.o
+memswap(void*, void*, unsigned char)              allsrc.o
+menuMainView(unsigned char)                       allsrc.o
+menuProcCurveOne(unsigned char)                   allsrc.o
+menuProcCurvesAll(unsigned char)                  allsrc.o
+menuProcCustomSwitches(unsigned char)             allsrc.o
+menuProcDebug(unsigned char)                      allsrc.o
+menuProcDiagAna(unsigned char)                    allsrc.o
+menuProcDiagCalib(unsigned char)                  allsrc.o
+menuProcDiagKeys(unsigned char)                   allsrc.o
+menuProcDiagVers(unsigned char)                   allsrc.o
+menuProcExpoMix(unsigned char, unsigned char)     allsrc.o
+menuProcExpoOne(unsigned char)                    allsrc.o
+menuProcExposAll(unsigned char)                   allsrc.o
+menuProcFrsky(unsigned char)                      allsrc.o
+menuProcFunctionSwitches(unsigned char)           allsrc.o
+menuProcLimits(unsigned char)                     allsrc.o
+menuProcMixAll(unsigned char)                     allsrc.o
+menuProcMixOne(unsigned char)                     allsrc.o
+menuProcModel(unsigned char)                      allsrc.o
+menuProcModelSelect(unsigned char)                allsrc.o
+menuProcPhaseOne(unsigned char)                   allsrc.o
+menuProcPhasesAll(unsigned char)                  allsrc.o
+menuProcSetup(unsigned char)                      allsrc.o
+menuProcStatistic(unsigned char)                  allsrc.o
+menuProcTelemetry(unsigned char)                  allsrc.o
+menuProcTemplates(unsigned char)                  allsrc.o
+menuProcTrainer(unsigned char)                    allsrc.o
+menu_lcd_onoff(unsigned char, unsigned char, unsigned char, unsigned char) allsrc.o
+message(char const*, char const*, char const*, char const*) allsrc.o
+mixWarning                                        allsrc.o
+mixaddress(unsigned char)                         allsrc.o
+modelDefault(unsigned char)                       allsrc.o
+modn12x3                                          allsrc.o
+moveTrimsToOffsets()                              allsrc.o
+onoffMenuItem(unsigned char, unsigned char, char const*, unsigned char, unsigned char) allsrc.o
+parseTelemHubByte(unsigned char)                  allsrc.o
+parseTelemWSHowHighByte(unsigned char)            allsrc.o
+pauseEvents(unsigned char)                        allsrc.o
+per10ms()                                         allsrc.o
+perMain()                                         allsrc.o
+perOut(unsigned char)                             allsrc.o
+phaseaddress(unsigned char)                       allsrc.o
+playTone(unsigned long, unsigned long)            allsrc.o
+popMenu()                                         allsrc.o
+ppmInState                                        allsrc.o
+processFrskyPacket(unsigned char*)                allsrc.o
+processSerialData(unsigned char)                  allsrc.o
+pushMenu(void (*)(unsigned char))                 allsrc.o
+putEvent(unsigned char)                           allsrc.o
+putPcmBit(unsigned char)                          allsrc.o
+putPcmByte(unsigned char)                         allsrc.o
+putPcmFlush()                                     allsrc.o
+putPcmHead()                                      allsrc.o
+putPcmPart(unsigned char)                         allsrc.o
+put_serial_bit(unsigned char)                     allsrc.o
+putsChn(unsigned char, unsigned char, unsigned char, unsigned char) allsrc.o
+putsChnLetter(unsigned char, unsigned char, unsigned char, unsigned char) allsrc.o
+putsChnRaw(unsigned char, unsigned char, unsigned char, unsigned char) allsrc.o
+putsCurve(unsigned char, unsigned char, signed char, unsigned char) allsrc.o
+putsFlightPhase(unsigned char, unsigned char, signed char, unsigned char) allsrc.o
+putsMixerSource(unsigned char, unsigned char, unsigned char, unsigned char) allsrc.o
+putsModelName(unsigned char, unsigned char, char*, unsigned char, unsigned char) allsrc.o
+putsStrIdx(unsigned char, unsigned char, char const*, unsigned char, unsigned char) allsrc.o
+putsSwitches(unsigned char, unsigned char, signed char, unsigned char) allsrc.o
+putsTelemetryChannel(unsigned char, unsigned char, unsigned char, short, unsigned char) allsrc.o
+putsTelemetryValue(unsigned char, unsigned char, short, unsigned char, unsigned char) allsrc.o
+putsTime(unsigned char, unsigned char, short, unsigned char, unsigned char) allsrc.o
+putsTmrMode(unsigned char, unsigned char, signed char, unsigned char) allsrc.o
+putsTrimMode(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) allsrc.o
+putsVBat(unsigned char, unsigned char, unsigned char) allsrc.o
+putsVolts(unsigned char, unsigned char, unsigned short, unsigned char) allsrc.o
+pxxFlag                                           allsrc.o
+queueTone(unsigned long, unsigned long, unsigned long) allsrc.o
+reachExpoMixCountLimit(unsigned char)             allsrc.o
+read32_eeprom_data(unsigned long, unsigned char*, unsigned long, unsigned long) allsrc.o
+readKeysAndTrims()                                allsrc.o
+read_9_adc()                                      allsrc.o
+read_keys()                                       allsrc.o
+read_trims()                                      allsrc.o
+refreshDisplay()                                  allsrc.o
+resetAll()                                        allsrc.o
+resetProto()                                      allsrc.o
+resetTelemetry()                                  allsrc.o
+resetTimer(unsigned char)                         allsrc.o
+reusableBuffer                                    allsrc.o
+revert_osc()                                      allsrc.o
+rxPdcUsart(void (*)(unsigned char))               allsrc.o
+s9xsplash                                         allsrc.o
+sDelay                                            allsrc.o
+s_confirmation                                    allsrc.o
+s_editMode                                        allsrc.o
+s_eeDirtyMsk                                      allsrc.o
+s_eeDirtyTime10ms                                 allsrc.o
+s_last_switch_used                                allsrc.o
+s_last_switch_value                               allsrc.o
+s_noHi                                            allsrc.o
+s_noScroll                                        allsrc.o
+s_perout_mode                                     allsrc.o
+s_pgOfs                                           allsrc.o
+s_timeCum16ThrP                                   allsrc.o
+s_timeCumThr                                      allsrc.o
+s_timeCumTot                                      allsrc.o
+s_timerState                                      allsrc.o
+s_timerVal                                        allsrc.o
+s_timerVal_10ms                                   allsrc.o
+s_traceBuf                                        allsrc.o
+s_traceCnt                                        allsrc.o
+s_traceWr                                         allsrc.o
+s_trimPtr                                         allsrc.o
+s_warning                                         allsrc.o
+s_warning_info                                    allsrc.o
+s_warning_info_len                                allsrc.o
+safetyCh                                          allsrc.o
+sam_boot                                          allsrc.o
+selectMenuItem(unsigned char, char const*, char const*, signed char, signed char, signed char, unsigned char, unsigned char) allsrc.o
+sendByteDsm2(unsigned char)                       allsrc.o
+setCurve(unsigned char, signed char const*)       allsrc.o
+setDest(unsigned char, bool)                      allsrc.o
+setSwitch(unsigned char, unsigned char, signed char, signed char) allsrc.o
+setTrimValue(unsigned char, unsigned char, short) allsrc.o
+set_frequency(unsigned long)                      allsrc.o
+set_volume(unsigned char)                         allsrc.o
+setupPulses()                                     allsrc.o
+setupPulsesDsm2(unsigned char)                    allsrc.o
+setupPulsesPPM()                                  allsrc.o
+setupPulsesPXX()                                  allsrc.o
+soft_power_off()                                  allsrc.o
+sound_5ms()                                       allsrc.o
+spi_PDC_action(unsigned char*, unsigned char*, unsigned char*, unsigned long, unsigned long) allsrc.o
+spi_operation(unsigned char*, unsigned char*, unsigned long) allsrc.o
+stamp1                                            allsrc.o
+stamp2                                            allsrc.o
+stamp3                                            allsrc.o
+stamp4                                            allsrc.o
+startPdcUsartReceive()                            allsrc.o
+startPulses()                                     allsrc.o
+start_ppm_capture()                               allsrc.o
+start_sound()                                     allsrc.o
+start_timer1()                                    allsrc.o
+start_timer4()                                    allsrc.o
+stickMode                                         allsrc.o
+stickMoveValue()                                  allsrc.o
+sum_chans512                                      allsrc.o
+swOn                                              allsrc.o
+swapExpo(unsigned char&, unsigned char)           allsrc.o
+swapExpoMix(unsigned char, unsigned char&, unsigned char) allsrc.o
+swapMix(unsigned char&, unsigned char)            allsrc.o
+tick10ms                                          allsrc.o
+tone_start(unsigned long)                         allsrc.o
+tone_stop()                                       allsrc.o
+trims                                             allsrc.o
+trimsCheckTimer                                   allsrc.o
+txPdcPending()                                    allsrc.o
+txPdcUsart(unsigned char*, unsigned long)         allsrc.o
+unprotect_eeprom()                                allsrc.o
+usb_mode()                                        allsrc.o
+write32_eeprom_block(unsigned long, unsigned char*, unsigned long, unsigned long) allsrc.o
