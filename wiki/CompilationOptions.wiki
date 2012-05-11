@@ -30,21 +30,15 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 	</tr>
         <tr>
 		<td>PCBREV</td>
-		<td><b>REV1(v4) / REVB(ARM)</b></td>
+		<td><b>REVB</b></td>
 		<td>REV0, REVA</td>
-		<td>Revision of the board (gruvin9x or ersky9x)</td>
+		<td>Revision of the board (ersky9x REVB/A or gruvin9x REVB/0)</td>
 	</tr>
 	<tr>
 		<td>EXT</td>
 		<td><b>STD</b></td>
-		<td>FRSKY, JETI, ARDUPILOT, NMEA</td>
-		<td>Telemetry extension</td>
-	</tr>
-	<tr>
-		<td>TRANSLATIONS</td>
-		<td><b>EN</b></td>
-		<td>FR, SE</td>
-		<td>String translations</td>
+		<td>FRSKY, JETI, NMEA, ARDUPILOT, MAVLINK</td>
+		<td>Telemetry extension (needs TX modification)</td>
 	</tr>
 	<tr>
 		<td>HELI</td>
@@ -60,21 +54,27 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 	</tr>
 		<tr>
 		<td>NAVIGATION</td>
-		<td><b>POTS / RE1(V4)</b></td>
-		<td>NO, POT1, POT2, POT3</td>
+		<td><b>NO</b></td>
+		<td>POT1, POT2, POT3, POTS</td>
 		<td>Pots use in menus navigation</td>
+	</tr>
+	<tr>
+		<td>AUTOSWITCH</td>
+		<td><b>NO</b></td>
+		<td>YES</td>
+		<td>in model setup menus automatically set switch by moving some of them</td>
 	</tr>
 	<tr>
 		<td>AUDIO</td>
 		<td><b>NO</b></td>
 		<td>YES</td>
-		<td>How the sounds are sent (testing in progress)</td>
+		<td>better Audio feedback (needs TX modification)</td>
 	</tr>
 	<tr>
 		<td>HAPTIC</td>
 		<td><b>NO</b></td>
 		<td>YES</td>
-		<td>Haptic feedback </td>
+		<td>Haptic feedback (needs TX modification)</td>
 	</tr>
 	<tr>
 		<td>SPLASH</td>
@@ -99,30 +99,18 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td><b>YES</b></td>
 		<td>NO</td>
 		<td>Winged Shadow How High supported (when EXT=FRSKY) </td>
+        <tr>
+                <td>VARIO</td>
+                <td><b>YES</b></td>
+                <td>NO</td>
+                <td>Enable variable tone telemetry vario (when EXT=FRSKY)</td>
+        </tr>
 	</tr>
 	<tr>
 		<td>SDCARD</td>
 		<td><b>NO</b></td>
 		<td>YES</td>
-		<td>SD-card and logs</td>
-	</tr>
-	<tr>
-		<td>SOMO</td>
-		<td><b>NO</b></td>
-		<td>YES</td>
-		<td>When V4 board used: SOMO-14D board support </td>
-	</tr>
-	<tr>
-		<td>FLIGHT_PHASES</td>
-		<td><b>YES</b></td>
-		<td>NO</td>
-		<td>Flight phases support </td>
-	</tr>
-	<tr>
-		<td>DSM2</td>
-		<td><b>NO</b></td>
-		<td>SERIAL, PPM</td>
-		<td>DSM2 protocol (testing in progress...) </td>
+		<td>When V4 board used: SD-card and logs </td>
 	</tr>
 	<tr>
 		<td>PXX</td>
@@ -131,15 +119,45 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>PXX protocol (testing in progress...) </td>
 	</tr>
 	<tr>
+		<td>DSM2</td>
+		<td><b>NO</b></td>
+		<td>SERIAL, PPM</td>
+		<td>DSM2 protocol (testing in progress...) </td>
+	</tr>
+	<tr>
+		<td>SOMO</td>
+		<td><b>NO</b></td>
+		<td>YES</td>
+		<td>When V4 board used: SOMO-14D board support </td>
+	</tr>
+	<tr>
+		<td>TRANSLATIONS</td>
+		<td><b>EN</b></td>
+		<td>FR, SE</td>
+		<td>String translations</td>
+	</tr>
+	<tr>
+		<td>UNITS</td>
+		<td><b>METRIC</b></td>
+		<td>IMPERIAL</td>
+		<td>Metric or Imperial units </td>
+	</tr>
+	<tr>
 		<td>EEPROM_PROGRESS_BAR</td>
 		<td><b>NO</b></td>
 		<td>YES</td>
 		<td>Progress bar on EEPROM writing</td>
 	</tr>
 	<tr>
-		<td>VARIO</td>
+		<td>EXTRA_ROTARY_ENCODERS</td>
 		<td><b>NO</b></td>
 		<td>YES</td>
-		<td>Enable variable tone telemetry vario</td>
+		<td>Enable extra rotary encoders (V4 board only)</td>
+	</tr>
+	<tr>
+		<td>FLIGHT_PHASES</td>
+		<td><b>YES</b></td>
+		<td>NO</td>
+		<td>Flight phases support </td>
 	</tr>
 </table>
