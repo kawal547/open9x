@@ -34,7 +34,7 @@
  * _*Fast Inverting values_* by pressing +- at same time
  ==LIMITS==
  * _*PPM Center Adjustment_* in limits (compile option)
- * _*PPM Limit Units* percent or microseconds (compile option)
+ * _*PPM Limit Units*_ percent or microseconds (compile option)
  * _*Channel*_ value _*2 Offset*_ pressing MENU then LONG MENU on Offset
  * _*Trims 2 Offset_*
  ==CUSTOM SWITCHES== 
