@@ -3,28 +3,38 @@
 
 = Features in open9x: =
 
+----
+*`*` * - New in last firmware
+
  * Calculation _*speed optimizations*_
- * Less Flash, Less RAM used
+ * Less Flash, Less RAM used (depending on FW options)
+
  ==Main view==
  * _*Virtual channels Screen*_ for showing Channels 9-16 and Virtual Switches
  * _*CH9-16 values and bars *_ screens 
+
  ==MODELSEL==
  * Select Model with LONG MENU (not EXIT) 
  * Copy Model with MENU press 
  * Move Model with DOUBLE MENU press 
+
  ==SETUPmodel== 
  * Switching _*Lower/Uper case characters in Model Name*_ with LEFT/RIGHT press
  * A full featured _*Timer2*_
  * Model based *_Throttle warning*_
  * _*Speaker Mode/Lenght*_ separated (compile option)
- * _*Haptic Mode/Lenght*_ separated (compile option)
+ * *`*` *_*Haptic Mode/Lenght*_ separated (compile option)
  * It's possible to switch  _*TX Stick Mode*_ without messing everything in mixes
  * The _*throttle trace*_ in statistics can be dependent on Channels and Pots, not only THR
  * THRt means trigger: the timer starts at _*THR trigger*_ and doesn't stop when THR again at idle
+ * *`*` *Options not included in compiled FW are displayed in square bracket `[PXX], [DSM2]`
+
  ==FLIGHT PHASES== 
  * _*5 Flight Phases*_ with Fade In/Out and elective self trims. 
+
  ==DR/EXPO==
  * _*DR/Expo*_ with Curve and Flight Phase support
+
  ==MIXER==
  * _*Inverted curves*_ in Mixes and Expos
  * _*Switches like a Mix Sources*_
@@ -32,36 +42,41 @@
  * Simple _*Difference for Ailerons*_
  * _*Trims*_ in mixes  can be used like a _*slider*_ 
  * _*Fast Inverting values_* by pressing +- at same time
+
  ==LIMITS==
  * _*PPM Center Adjustment_* in limits (compile option)
  * _*PPM Limit Units*_ percent or microseconds (compile option)
  * _*Channel*_ value _*2 Offset*_ pressing MENU then LONG MENU on Offset
  * _*Trims 2 Offset_*
+
  ==CUSTOM SWITCHES== 
  * _*Timers_* and _*Telemetry_* inputs in _*Custom Switches*_
+
  ==FUNCTION SWITCHES== 
- * Safety switches 
+ * Safety Channels (security switches) 
  * Trainer switches
  * Instatnt trim
  * Play sounds switches
- * Haptic switches
+ * *`*` *Haptic switches
  * Reset timers and/or telemetry values
- * Vario audio alerts
- * Momentary switches *_SWXm*_ play sound/haptic only once
+ * *`*` *Vario audio alerts
+ * *`*` *Momentary switches *_SWXm*_ play sound/haptic only once
+ * *`*` *Options not included in compiled FW are displayed in square bracket `[Haptic], [Vario]`
  
  ==TELEMETRY==
  * Support for _*Frsky HUB*_ 2.0 sensors
+ * *`*` *for easier set up Range and Offset, _*A1/A2*_ displaying _*live value*_ on telemetry setup screen
  * Screen with _*Custom Telemetry*_ view with sensors min/max options
  * Screen with _*Telemetry Bars*_
  * _*Threshholds*_ in Telemetry Bars. A1/A2/RSSI threshold is first alarm value, <br>for other telemetry sensors thresholds are set up by Custom Switch and Function Switch combination.
- * *_Vario acoustic*_ warnings limits for falling/elevation 
+ * *`*` **_Vario acoustic*_ warnings limits for falling/elevation 
  * supports _*Metric or Imperial units_* (compile option)
  ==Other compile options== 
- * *_Autoswitch*_ - in model setup menus automatically set switch by moving some of them
+ * *`*` **_Autoswitch*_ - in model setup menus automatically set switch by moving some of them
  * eeprom _*write Progress Bar_*
  * Open9x is prepared for _*translations*_ in several languages (done for en, fr, se)
 
-*[http://9xforums.com/wiki/index.php/Open9x_user_guide Wiki User Guide]*
+*[http://9xforums.com/wiki/index.php/Open9x_user_guide 9xforums Wiki User Guide]*
 
 *[http://open9x.googlecode.com/files/open9x%20manual%20francais.pdf French User Guide Download]*
 
