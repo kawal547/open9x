@@ -136,4 +136,10 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>YES</td>
 		<td>Progress bar on EEPROM writing</td>
 	</tr>
+	<tr>
+		<td>VARIO</td>
+		<td><b>NO</b></td>
+		<td>YES</td>
+		<td>Enable variable tone telemetry vario</td>
+	</tr>
 </table>
