@@ -451,7 +451,7 @@ PACK(typedef struct t_SwashRingData { // Swash Ring data
 #define NUM_ROTARY_ENCODERS (2+NUM_EXTRA_ROTARY_ENCODERS)
 #endif //EXTRA_ROTARY_ENCODERS
 #define ROTARY_ENCODER_MAX  1024
-#define ROTARY_ENCODER_ARRAY int16_t rotaryEncoders[NUM_ROTARY_ENCODERS];
+#define ROTARY_ENCODER_ARRAY int16_t rotaryEncoders[MAX_PHASES][NUM_ROTARY_ENCODERS];
 #else //PCBV4
 #define NUM_ROTARY_ENCODERS 0
 #define ROTARY_ENCODER_ARRAY
@@ -469,7 +469,6 @@ PACK(typedef struct t_PhaseData {
   char name[6];
   uint8_t fadeIn:4;
   uint8_t fadeOut:4;
-  ROTARY_ENCODER_ARRAY
 }) PhaseData;
 
 #if defined(PCBARM)
@@ -576,6 +575,7 @@ PACK(typedef struct t_ModelData {
   uint8_t   varioSource:3;
   uint8_t   varioSpeedUpMin:5;    // if increment in 0.2m/s = 3.0m/s max
   uint8_t   varioSpeedDownMin;
+  ROTARY_ENCODER_ARRAY
 }) ModelData;
 
 extern EEGeneral g_eeGeneral;
