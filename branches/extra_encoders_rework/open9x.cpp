@@ -2467,6 +2467,7 @@ volatile uint8_t g_rotenc[2] = {0};
 #ifndef SIMU
 
 #if defined (PCBV4)
+#if !defined(EXTRA_ROTARY_ENCODERS)
 ISR(INT2_vect)
 {
   uint8_t input = PIND & 0b00001100;
@@ -2477,16 +2478,24 @@ ISR(INT3_vect)
   uint8_t input = PIND & 0b00001100;
   if (input == 0 || input == 0b00001100) incRotaryEncoder(0, +1);
 }
+#endif //EXTRA_ROTARY_ENCODERS
+
+#if !defined(EXTRA_ROTARY_ENCODERS)
+#define ENC_B_ID 1
+#else 
+#define ENC_B_ID 0
+#endif
+
 
 ISR(INT5_vect)
 {
   uint8_t input = PINE & 0b01100000;
-  if (input == 0 || input == 0b01100000) incRotaryEncoder(1, +1);
+  if (input == 0 || input == 0b01100000) incRotaryEncoder(ENC_B_ID, +1);
 }
 ISR(INT6_vect)
 {
   uint8_t input = PINE & 0b01100000;
-  if (input == 0 || input == 0b01100000) incRotaryEncoder(1, -1);
+  if (input == 0 || input == 0b01100000) incRotaryEncoder(ENC_B_ID, -1);
 }
 #endif
 
