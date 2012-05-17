@@ -445,16 +445,17 @@ PACK(typedef struct t_SwashRingData { // Swash Ring data
 #if defined(PCBV4)
 #if defined(EXTRA_ROTARY_ENCODERS)
 #define NUM_EXTRA_ROTARY_ENCODERS 3
-#else
+#define NUM_ROTARY_ENCODERS (1+NUM_EXTRA_ROTARY_ENCODERS)
+#else //EXTRA_ROTARY_ENCODERS
 #define NUM_EXTRA_ROTARY_ENCODERS 0
-#endif
 #define NUM_ROTARY_ENCODERS (2+NUM_EXTRA_ROTARY_ENCODERS)
+#endif //EXTRA_ROTARY_ENCODERS
 #define ROTARY_ENCODER_MAX  1024
 #define ROTARY_ENCODER_ARRAY int16_t rotaryEncoders[NUM_ROTARY_ENCODERS];
-#else
+#else //PCBV4
 #define NUM_ROTARY_ENCODERS 0
 #define ROTARY_ENCODER_ARRAY
-#endif
+#endif //PCBV4
 
 #if defined(PCBSTD)
 #define TRIM_ARRAY int8_t trim[4]; int8_t trim_ext:8
