@@ -133,7 +133,7 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 	<tr>
 		<td>TRANSLATIONS</td>
 		<td><b>EN</b></td>
-		<td>FR, SE</td>
+		<td>FR, IT, SE, CZ, DE</td>
 		<td>String translations</td>
 	</tr>
 	<tr>
