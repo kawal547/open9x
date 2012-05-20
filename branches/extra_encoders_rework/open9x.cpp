@@ -687,7 +687,11 @@ uint8_t getRotaryEncoderFlightPhase(uint8_t idx)
   uint8_t phase = s_perout_flight_phase;
   for (uint8_t i=0; i<MAX_PHASES; i++) {
     if (phase == 0) return 0;
-    int16_t value = g_model.rotaryEncoders[phase][idx];
+	  int16_t value = 0;
+	  if(idx<(NUM_ROTARY_ENCODERS - NUM_EXTRA_ROTARY_ENCODERS))
+	    value = phaseaddress(phase)->rotaryEncoders[idx];
+		else
+	    value = g_model.rotaryEncodersExtra[phase][idx-(NUM_ROTARY_ENCODERS - NUM_EXTRA_ROTARY_ENCODERS)];
     if (value <= ROTARY_ENCODER_MAX) return phase;
     uint8_t result = value-ROTARY_ENCODER_MAX-1;
     if (result >= phase) result++;
@@ -698,13 +702,20 @@ uint8_t getRotaryEncoderFlightPhase(uint8_t idx)
 
 int16_t getRotaryEncoder(uint8_t idx)
 {
-  return g_model.rotaryEncoders[getRotaryEncoderFlightPhase(idx)][idx];
+	if(idx < (NUM_ROTARY_ENCODERS - NUM_EXTRA_ROTARY_ENCODERS))
+    return phaseaddress(getRotaryEncoderFlightPhase(idx))->rotaryEncoders[idx];
+  else
+	  return g_model.rotaryEncodersExtra[getRotaryEncoderFlightPhase(idx)][idx-(NUM_ROTARY_ENCODERS - NUM_EXTRA_ROTARY_ENCODERS)];
 }
 
 void incRotaryEncoder(uint8_t idx, int8_t inc)
 {
   g_rotenc[idx] += inc;
-  int16_t *value = &(g_model.rotaryEncoders[getRotaryEncoderFlightPhase(idx)][idx]);
+  int16_t *value;
+ 	if(idx < (NUM_ROTARY_ENCODERS - NUM_EXTRA_ROTARY_ENCODERS))
+    value = &(phaseaddress(getRotaryEncoderFlightPhase(idx))->rotaryEncoders[idx]);
+	else
+	  value = &(g_model.rotaryEncodersExtra[getRotaryEncoderFlightPhase(idx)][idx-(NUM_ROTARY_ENCODERS - NUM_EXTRA_ROTARY_ENCODERS)]);
   *value = limit((int16_t)-1024, (int16_t)(*value + (inc * 8)), (int16_t)+1024);
   eeDirty(EE_MODEL);
 }

@@ -444,17 +444,23 @@ PACK(typedef struct t_SwashRingData { // Swash Ring data
 
 #if defined(PCBV4)
 #if defined(EXTRA_ROTARY_ENCODERS)
-#define NUM_EXTRA_ROTARY_ENCODERS 3
-#define NUM_ROTARY_ENCODERS (1+NUM_EXTRA_ROTARY_ENCODERS)
+#define NUM_EXTRA_ROTARY_ENCODERS 2
+#define NUM_ROTARY_ENCODERS (2+NUM_EXTRA_ROTARY_ENCODERS)
+#define NUM_UART_ROTARY_ENCODERS 3
+#define ROTARY_ENCODER_ARRAY_EXTRA int16_t rotaryEncodersExtra[MAX_PHASES][2];
 #else //EXTRA_ROTARY_ENCODERS
 #define NUM_EXTRA_ROTARY_ENCODERS 0
-#define NUM_ROTARY_ENCODERS (2+NUM_EXTRA_ROTARY_ENCODERS)
+#define NUM_ROTARY_ENCODERS 2
+#define ROTARY_ENCODER_ARRAY_EXTRA
 #endif //EXTRA_ROTARY_ENCODERS
 #define ROTARY_ENCODER_MAX  1024
-#define ROTARY_ENCODER_ARRAY int16_t rotaryEncoders[MAX_PHASES][NUM_ROTARY_ENCODERS];
+#define ROTARY_ENCODER_ARRAY int16_t rotaryEncoders[2];
+
 #else //PCBV4
 #define NUM_ROTARY_ENCODERS 0
+#define NUM_EXTRA_ROTARY_ENCODERS 0
 #define ROTARY_ENCODER_ARRAY
+#define ROTARY_ENCODER_ARRAY_EXTRA
 #endif //PCBV4
 
 #if defined(PCBSTD)
@@ -575,7 +581,7 @@ PACK(typedef struct t_ModelData {
   uint8_t   varioSource:3;
   uint8_t   varioSpeedUpMin:5;    // if increment in 0.2m/s = 3.0m/s max
   uint8_t   varioSpeedDownMin;
-  ROTARY_ENCODER_ARRAY
+  ROTARY_ENCODER_ARRAY_EXTRA
 }) ModelData;
 
 extern EEGeneral g_eeGeneral;
