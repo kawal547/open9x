@@ -150,11 +150,11 @@ ISR(USART1_RX_vect)
     vpot_mod_state = 1;
   }
   else {
-    if(vpot_mod_state & (vpotToChange>0) & (vpotToChange<=NUM_EXTRA_ROTARY_ENCODERS))
+    if(vpot_mod_state & (vpotToChange>0) & (vpotToChange<=NUM_UART_ROTARY_ENCODERS))
     {
       int8_t vpot_inc = res & 0xff;
       if(vpot_inc){
-        incRotaryEncoder(NUM_ROTARY_ENCODERS-NUM_EXTRA_ROTARY_ENCODERS+vpotToChange-1, vpot_inc);
+        incRotaryEncoder((NUM_ROTARY_ENCODERS - NUM_UART_ROTARY_ENCODERS) + (vpotToChange - 1), vpot_inc);
       }    
       vpot_mod_state = 0;
     }
