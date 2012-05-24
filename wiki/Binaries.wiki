@@ -5,7 +5,9 @@
 
 On this page you  find the most common versions of open9x. You can download any of these and flash them to your '9X transmitter using whichever flashing tool you prefer.
 
-Please note that the format of the model information stored in your transmitter may differ between firmware versions. This is especially true if you have been using another firmware like e.g. Er9x. If you need to translate model data you must use the companion9x program to back up and translate your current model information to the open9x format.
+Note 1) The format of the model information stored in your transmitter may differ between firmware versions. This is especially true if you have been using another firmware like e.g. Er9x. If you want to transfer your current model setup to open9x you can do this by using the companion9x program to back up and translate the data.
+
+Note 2) It is not possible to transfer model information from radios with original firmware.
 
 === Open9x for unmodified '9X Radios ===
 || *Standard* ||[http://85.18.253.250/getfw.php?fw=open9x-stock-cz.hex Czech] || [http://85.18.253.250/getfw.php?fw=open9x-stock-en.hex English] || [http://85.18.253.250/getfw.php?fw=open9x-stock-fr.hex French] || [http://85.18.253.250/getfw.php?fw=open9x-stock-de.hex German] || [http://85.18.253.250/getfw.php?fw=open9x-stock-it.hex Italian] || [http://85.18.253.250/getfw.php?fw=open9x-stock-se.hex Swedish] ||
@@ -24,7 +26,7 @@ Please note that the format of the model information stored in your transmitter 
 || *Heli+Templates* || [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-heli-templates-audio-cz.hex Czech] ||  [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-heli-templates-audio-en.hex English] ||  [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-heli-templates-audio-fr.hex French] || [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-heli-templates-audio-de.hex German] || [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-heli-templates-audio-it.hex Italian] || [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-heli-templates-audio-se.hex Swedish] ||
 
 = Access more open9x options by using companion9x =
-The memory size of the '9x radio is limited and it is not possible to add all features to the radio at the same time. In order to provide you with exactly the functions you need, the companion9x program can request  the build server to prepare exactly the open9x version you need. companion9x will then automatically download your customized version and make it available for flashing to your radio.
+The memory size of the '9x radio is limited and it is not possible to add all features to the radio at the same time. In order to provide you with exactly the functions you need, the companion9x program can request  the build server to prepare a custom open9x version for you. companion9x will then automatically download your customized version and make it available for flashing to your radio.
 
 For further information about companion9x, have a look at the project website: [http://code.google.com/p/companion9x/]
 
