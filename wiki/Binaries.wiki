@@ -1,40 +1,55 @@
 #summary Latest binaries
 #labels Featured
 
-= Latest pre-compiled binaries =
+= Download the latest open9x versions =
 
-Here are the latest binaries you may download for flashing your '9X, without needing to recompile from source.
+On this page you  find the most common versions of open9x. You can download any of these and flash them to your '9X transmitter using whichever flashing tool you prefer.
 
-There are a lot of options, you choose the one which fits you the best!
+Please note that the format of the model information stored in your transmitter may differ between firmware versions. This is especially true if you have been using another firmware like e.g. Er9x. If you need to translate model data you must use the companion9x program to back up and translate your current model information to the open9x format.
 
-Even more can be found using companion9x, which let you "automagically" configure options, perform the download of selected firmware and check for updates.
+=== Open9x for unmodified '9X Radios ===
+|| *Standard* ||[http://85.18.253.250/getfw.php?fw=open9x-stock-cz.hex Czech] || [http://85.18.253.250/getfw.php?fw=open9x-stock-en.hex English] || [http://85.18.253.250/getfw.php?fw=open9x-stock-fr.hex French] || [http://85.18.253.250/getfw.php?fw=open9x-stock-de.hex German] || [http://85.18.253.250/getfw.php?fw=open9x-stock-it.hex Italian] || [http://85.18.253.250/getfw.php?fw=open9x-stock-se.hex Swedish] ||
+|| *Heli+Templates* || [http://85.18.253.250/getfw.php?fw=open9x-stock-heli-templates-cz.hex Czech] || [http://85.18.253.250/getfw.php?fw=open9x-stock-heli-templates-en.hex English] || [http://85.18.253.250/getfw.php?fw=open9x-stock-heli-templates-fr.hex French] || [http://85.18.253.250/getfw.php?fw=open9x-stock-heli-templates-de.hex German] || [http://85.18.253.250/getfw.php?fw=open9x-stock-heli-templates-it.hex Italian] || [http://85.18.253.250/getfw.php?fw=open9x-stock-heli-templates-se.hex Swedish] ||
 
-For further information have a look to companion9x website: [http://code.google.com/p/companion9x/]
+=== Open9x for '9X Radios with speaker modification ===
+|| *Standard* || [http://85.18.253.250/getfw.php?fw=open9x-stock-cz.hex Czech] ||  [http://85.18.253.250/getfw.php?fw=open9x-stock-en.hex English] ||  [http://85.18.253.250/getfw.php?fw=open9x-stock-fr.hex French] || [http://85.18.253.250/getfw.php?fw=open9x-stock-de.hex German] || [http://85.18.253.250/getfw.php?fw=open9x-stock-it.hex Italian] || [http://85.18.253.250/getfw.php?fw=open9x-stock-se.hex Swedish] ||
+|| *Heli+Templates* || [http://85.18.253.250/getfw.php?fw=open9x-stock-heli-templates-cz.hex Czech] || [http://85.18.253.250/getfw.php?fw=open9x-stock-heli-templates-en.hex English] || [http://85.18.253.250/getfw.php?fw=open9x-stock-heli-templates-fr.hex French] || [http://85.18.253.250/getfw.php?fw=open9x-stock-heli-templates-de.hex German] || [http://85.18.253.250/getfw.php?fw=open9x-stock-heli-templates-it.hex Italian] || [http://85.18.253.250/getfw.php?fw=open9x-stock-heli-templates-se.hex Swedish] ||
 
-=== Unmodified '9X Radio Version ===
+=== Open9x for '9X Radios with FrSky telemetry modification ===
+|| *Standard* || [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-cz.hex Czech] || [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-en.hex English] || [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-fr.hex French] || [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-de.hex German] || [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-it.hex Italian] ||[http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-se.hex Swedish] ||
+|| *Heli+Templates* || [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-heli-templates-cz.hex Czech] ||  [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-heli-templates-en.hex English] ||  [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-heli-templates-fr.hex French] || [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-heli-templates-de.hex German] || [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-heli-templates-it.hex Italian] || [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-heli-templates-se.hex Swedish] ||
 
- * *[http://85.18.253.250/getfw.php?fw=open9x-stock-en.hex]* -- For stock hardware with no internal re-wiring English language.
+=== Open9x for '9X Radios with FrSky and speaker modifications ===
+|| *Standard* || [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-audio-cz.hex Czech] ||  [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-audio-en.hex English] ||  [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-audio-fr.hex French] || [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-audio-de.hex German] || [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-audio-it.hex Italian] || [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-audio-se.hex Swedish] ||
+|| *Heli+Templates* || [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-heli-templates-audio-cz.hex Czech] ||  [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-heli-templates-audio-en.hex English] ||  [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-heli-templates-audio-fr.hex French] || [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-heli-templates-audio-de.hex German] || [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-heli-templates-audio-it.hex Italian] || [http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-heli-templates-audio-se.hex Swedish] ||
 
- * *[http://85.18.253.250/getfw.php?fw=open9x-stock-fr.hex]* -- For stock hardware with no internal re-wiring French language.
+= Access more open9x options by using companion9x =
+The memory size of the '9x radio is limited and it is not possible to add all features to the radio at the same time. In order to provide you with exactly the functions you need, the companion9x program can request  the build server to prepare exactly the open9x version you need. companion9x will then automatically download your customized version and make it available for flashing to your radio.
 
- * *[http://85.18.253.250/getfw.php?fw=open9x-stock-heli-templates-en.hex]* -- The same (EN) with heli and templates menus.
+For further information about companion9x, have a look at the project website: [http://code.google.com/p/companion9x/]
 
- * *[http://85.18.253.250/getfw.php?fw=open9x-stock-heli-templates-fr.hex]* -- The same (FR) with heli and templates menus.
+The following configuration options are currently available in companion9x:
 
- * *[http://85.18.253.250/getfw.php?fw=open9x-stock-heli-templates-audio-en.hex]* -- The same (EN) with speaker mods for softer sounding tones.
-
- * *[http://85.18.253.250/getfw.php?fw=open9x-stock-heli-templates-audio-fr.hex]* -- The same (FR) with speaker mods for softer sounding tones.
-
-=== '9X Radio Versions with Fr-sky telemetry modification ===
-
- * *[http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-en.hex]* -- For stock hardware with frsky re-wiring English language.
-
- * *[http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-fr.hex]* -- For stock hardware with frsky re-wiring French language.
-
- * *[http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-heli-templates-en.hex]* -- The same (EN) with heli and templates menus.
-
- * *[http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-heli-templates-fr.hex]* -- The same (FR) with heli and templates menus.
-
- * *[http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-heli-templates-audio-en.hex]* -- The same (EN) with speaker mods for softer sounding tones.
-
- * *[http://85.18.253.250/getfw.php?fw=open9x-stock-frsky-heli-templates-audio-fr.hex]* -- The same (FR) with speaker mods for softer sounding tones.
+|| *Option* || *Explanation* ||
+|| PCB || The main board of the transmitter can be replaced by more powerful board versions that provide more features and computing power. Open9x is available for the stock PCB, the gruvin9x v4 PCB or the ersky9x PCB ||
+|| Language || All open9x versions are available in any of the following langauges: Czech, English, French, German, Italian, Swedish ||
+|| Splash Screen || You may select your start screen from a large number of ready made screens. It is also possible to use an image you create yourself ||
+|| frsky|| Support for FrSky's telemetry enabled system with telemetry data display on the '9x transmitter screen. That means that there is no need for an external telemetry screen! All telemetry systems require hardware modifications of the radio. ||
+|| jeti || Also a telemetry system ||
+|| ardupilot ||  Also a telemetry system  ||
+|| nmea ||  Also a telemetry system  ||
+|| heli || Includes a configuration page for helicopters. If you do not fly helicopters you do not need this page. ||
+|| templates || Includes a configuration page with templates for a number of common types of models. A more advanced user will typically remove this page to preserve space. ||
+|| nosplash || Used to remove splash screen and preserve space for other options. ||
+|| nofp || Removes Flight Phases configuration page to simplify setup and preserve space. ||
+|| audio || The standard beep of the radio is horrible. It is possible to make a HW mod for this and this option makes it possible to control that modification ||
+|| haptic || Support for haptic HW modification of the radio (that is addition of vibrations during the beeps) ||
+|| PXX || Support for PXX radio protocol ||
+|| DSM2 || Support for DSM2 radio protocol ||
+|| ppmca || Adds possibility for PPM center adjustment ||
+|| potscroll || Uses potentiometers to scroll in menus. ||
+|| autoswitch || During model setup it is possible to select and set switches by moving them. ||
+|| pgbar || Shows a small progress bar when data are stored in the transmitter memory ||
+|| imperial || Uses imperial units rather than the standard metric ones. ||
+|| mode || Select which stick mode to use (can also be configured in the transmitter) ||
+|| channel order || Selects the standard channel order (can also be configured in the transmitter)  ||
