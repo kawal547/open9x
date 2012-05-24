@@ -1,4 +1,4 @@
-#summary Latest binaries
+#summary Download Latest open9x
 #labels Featured
 
 = Download the latest open9x versions =
