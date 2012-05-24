@@ -174,8 +174,9 @@ PACK(typedef struct t_ExpoData {
 PACK(typedef struct t_LimitData {
   int8_t  min;
   int8_t  max;
-  bool    revert;
-  int16_t offset;
+  int16_t revert:1;
+  int16_t offset:12;
+  int16_t spare:3;
 }) LimitData;
 
 enum MixSources {
