@@ -585,14 +585,16 @@ void menuProcDiagVers(uint8_t event)
   lcd_outdezAtt(8*FW, 7*FH, g_eeGeneral.myVers, LEFT);
   uint8_t x = 12;
 #if EEPROM_VARIANT_PCB(EEPROM_VARIANT) == EEPROM_VARIANT_PCB(EEPROM_VARIANT_PCB_V4)
-  lcd_putsAtt((x)*FW, 7*FH, STR_EEPROM_VAR_V4 , 0); x += 3;
+  lcd_putc((x++)*FW, 7*FH, 'G'); 
 #elif EEPROM_VARIANT_PCB(EEPROM_VARIANT) == EEPROM_VARIANT_PCB(EEPROM_VARIANT_PCB_ARM)
-  lcd_putsAtt((x)*FW, 7*FH, STR_EEPROM_VAR_ARM, 0); x += 4;
+  lcd_putc((x++)*FW, 7*FH, 'A'); 
 #endif
-  if(EEPROM_VARIANT_FEATURE(g_eeGeneral.myVariant) == EEPROM_VARIANT_FEATURE_MAVLINK)
+  if(EEPROM_VARIANT_FEATURE(g_eeGeneral.myVariant) & EEPROM_VARIANT_FEATURE_MAVLINK)
     lcd_putc((x++)*FW, 7*FH, 'M');
+  if(EEPROM_VARIANT_FEATURE(g_eeGeneral.myVariant) & EEPROM_VARIANT_FEATURE_FRSKY)
+    lcd_putc((x++)*FW, 7*FH, 'F');
 #if defined(PCBV4)
-  if(EEPROM_VARIANT_FEATURE(g_eeGeneral.myVariant) == EEPROM_VARIANT_FEATURE_RENC_EXTRA)
+  if(EEPROM_VARIANT_FEATURE(g_eeGeneral.myVariant) & EEPROM_VARIANT_FEATURE_RENC_EXTRA)
     lcd_putc((x++)*FW, 7*FH, 'X');
 #endif //PCBV4
 }

@@ -308,8 +308,6 @@
 #define TR_MULTIPLIER                   "Multiplikator"                                   
 #define TR_CAL                          "Kal."                                            
 #define TR_EEPROMV                      "EEPROM v"                                        
-#define TR_EEPROM_VAR_V4                "V4"
-#define TR_EEPROM_VAR_ARM               "ARM"
 #define TR_VTRIM                        "Trim- +"                                         
 #define TR_BG                           "BG:"                                             
 #define TR_MENUTOSTART                  "[MENU] > Starten"                                
