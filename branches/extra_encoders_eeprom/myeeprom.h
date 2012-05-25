@@ -461,20 +461,17 @@ PACK(typedef struct t_SwashRingData { // Swash Ring data
 #if defined(EXTRA_ROTARY_ENCODERS)
 #define NUM_ROTARY_ENCODERS_EXTRA 2
 #define NUM_ROTARY_ENCODERS (2+NUM_ROTARY_ENCODERS_EXTRA)
-#define ROTARY_ENCODER_ARRAY_EXTRA int16_t rotaryEncodersExtra[MAX_PHASES][NUM_ROTARY_ENCODERS_EXTRA];
 #else //EXTRA_ROTARY_ENCODERS
 #define NUM_ROTARY_ENCODERS_EXTRA 0
 #define NUM_ROTARY_ENCODERS 2
-#define ROTARY_ENCODER_ARRAY_EXTRA
 #endif //EXTRA_ROTARY_ENCODERS
 #define ROTARY_ENCODER_MAX  1024
-#define ROTARY_ENCODER_ARRAY int16_t rotaryEncoders[2];
+#define ROTARY_ENCODER_ARRAY int16_t rotaryEncoders[NUM_ROTARY_ENCODERS];
 
 #else //PCBV4
 #define NUM_ROTARY_ENCODERS_EXTRA 0
 #define NUM_ROTARY_ENCODERS 0
 #define ROTARY_ENCODER_ARRAY
-#define ROTARY_ENCODER_ARRAY_EXTRA
 #endif //PCBV4
 
 #if defined(PCBSTD)
@@ -608,7 +605,6 @@ PACK(typedef struct t_ModelData {
   uint8_t   varioSpeedDownMin;
 
   uint8_t switchWarningStates;
-  ROTARY_ENCODER_ARRAY_EXTRA;
 }) ModelData;
 
 extern EEGeneral g_eeGeneral;
