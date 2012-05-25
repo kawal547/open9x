@@ -583,6 +583,11 @@ void menuProcDiagVers(uint8_t event)
   lcd_putsLeft(5*FH, stamp4);
   lcd_putsLeft(7*FH, STR_EEPROMV);
   lcd_outdezAtt(8*FW, 7*FH, g_eeGeneral.myVers, LEFT);
+  uint8_t x = 11;
+  if(g_eeGeneral.myVariant & EEPROM_MAVLINK_VARIANT)
+    lcd_putsAtt((x++)*FW, 7*FH, STR_EEPROM_VAR_M, 0);
+  if(g_eeGeneral.myVariant & EEPROM_ROTARY_ENCODERS_EXTRA_VARIANT)
+    lcd_putsAtt((x++)*FW, 7*FH, STR_EEPROM_VAR_X, 0);
 }
 
 void menuProcDiagKeys(uint8_t event)

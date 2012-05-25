@@ -286,6 +286,8 @@ extern const pm_char STR_MULTIPLIER[];
 #define LEN_MULTIPLIER PSIZE(TR_MULTIPLIER)
 extern const pm_char STR_CAL[];
 extern const pm_char STR_EEPROMV[];
+extern const pm_char STR_EEPROM_VAR_M[];
+extern const pm_char STR_EEPROM_VAR_X[];
 extern const pm_char STR_VTRIM[];
 extern const pm_char STR_BG[];
 extern const pm_char STR_MENUTOSTART[];
