@@ -50,54 +50,64 @@
 
 /* EEPROM_VARIANT mod
   bits are:
-  7     = reserved
-  [6:4] = PCB Version, also includes CPU info
+  [7:5] = PCB Version, also includes CPU info
   4     = reserved
   3     = reserved
-  2     = reserved
-  1     = EXTRA_ROTARY_ENCODERS EEPROM variant
+  2     = EXTRA_ROTARY_ENCODERS EEPROM variant
+  1     = FRSKY EEPROM variant
   0     = MAVLINK EEPROM variant
 */
 
-#define EEPROM_VARIANT_PCB_MASK                       0x70
-#define EEPROM_VARIANT_PCB_bp                         4
-#define EEPROM_VARIANT_PCB_STD                        0x00
-#define EEPROM_VARIANT_PCB_V4                         0x10
-#define EEPROM_VARIANT_PCB_ARM                        0x20
-#define EEPROM_VARIANT_PCB_XX0                        0x30
-#define EEPROM_VARIANT_PCB_XX1                        0x40
-#define EEPROM_VARIANT_PCB_XX2                        0x50
-#define EEPROM_VARIANT_PCB_XX3                        0x60
-#define EEPROM_VARIANT_PCB_XX4                        0x70
-#define EEPROM_VARIANT_PCB(x)                         ((x | EEPROM_VARIANT_PCB_MASK) >> EEPROM_VARIANT_PCB_bp)
+#define EEPROM_VARIANT_PCB_bp               5
+#define EEPROM_VARIANT_PCB_MASK             (0x07 << EEPROM_VARIANT_PCB_bp)
+#define EEPROM_VARIANT_PCB_STD              (0x00 << EEPROM_VARIANT_PCB_bp)
+#define EEPROM_VARIANT_PCB_V4               (0x01 << EEPROM_VARIANT_PCB_bp)
+#define EEPROM_VARIANT_PCB_ARM              (0x02 << EEPROM_VARIANT_PCB_bp)
+#define EEPROM_VARIANT_PCB_XX3              (0x03 << EEPROM_VARIANT_PCB_bp)
+#define EEPROM_VARIANT_PCB_XX4              (0x04 << EEPROM_VARIANT_PCB_bp)
+#define EEPROM_VARIANT_PCB_XX5              (0x05 << EEPROM_VARIANT_PCB_bp)
+#define EEPROM_VARIANT_PCB_XX6              (0x06 << EEPROM_VARIANT_PCB_bp)
+#define EEPROM_VARIANT_PCB_XX7              (0x07 << EEPROM_VARIANT_PCB_bp)
+#define EEPROM_VARIANT_PCB(x)               (x & EEPROM_VARIANT_PCB_MASK)
 
-#define EEPROM_VARIANT_FEATURE_MASK                   0x02
-#define EEPROM_VARIANT_FEATURE_bp                     0
-#define EEPROM_VARIANT_FEATURE_MAVLINK                0x01
-#define EEPROM_VARIANT_FEATURE_RENC_EXTRA             0x02
-#define EEPROM_VARIANT_FEATURE(x)                     ((x | EEPROM_VARIANT_FEATURE_MASK) >> EEPROM_VARIANT_FEATURE_bp)
+#define EEPROM_VARIANT_FEATURE_bp           0
+#define EEPROM_VARIANT_FEATURE_MASK         (0x07 << EEPROM_VARIANT_FEATURE_bp)
+#define EEPROM_VARIANT_FEATURE_MAVLINK      (0x01 << EEPROM_VARIANT_FEATURE_bp)
+#define EEPROM_VARIANT_FEATURE_FRSKY        (0x02 << EEPROM_VARIANT_FEATURE_bp)
+#define EEPROM_VARIANT_FEATURE_RENC_EXTRA   (0x04 << EEPROM_VARIANT_FEATURE_bp)
+#define EEPROM_VARIANT_FEATURE(x)           (x & EEPROM_VARIANT_FEATURE_MASK)
 
 #if defined(PCBARM)
 #define EEPROM_VER        209
 #define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_ARM + 0)
 #elif defined(PCBV4)
+
 #define EEPROM_VER        209
-#if defined(EXTRA_ROTARY_ENCODERS) & defined(MAVLINK)
+#if defined(MAVLINK) & !defined(EXTRA_ROTARY_ENCODERS)
+#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_V4 + EEPROM_VARIANT_FEATURE_MAVLINK)
+#elif defined(FRSKY) & !defined(EXTRA_ROTARY_ENCODERS)
+#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_V4 + EEPROM_VARIANT_FEATURE_FRSKY)
+#elif defined(MAVLINK) & defined(EXTRA_ROTARY_ENCODERS)
 #define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_V4 + EEPROM_VARIANT_FEATURE_RENC_EXTRA + EEPROM_VARIANT_FEATURE_MAVLINK)
+#elif defined(FRSKY) & defined(EXTRA_ROTARY_ENCODERS)
+#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_V4 + EEPROM_VARIANT_FEATURE_RENC_EXTRA + EEPROM_VARIANT_FEATURE_FRSKY)
 #elif defined(EXTRA_ROTARY_ENCODERS)
 #define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_V4 + EEPROM_VARIANT_FEATURE_RENC_EXTRA)
-#elif defined(MAVLINK)
-#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_V4 + EEPROM_VARIANT_FEATURE_MAVLINK)
-#else //NO ENCODERS and NO MAVLINK
+#else //no ENCODERS and no MAVLINK and no FRSKY
 #define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_V4 + 0)
-#endif //EE_PROM_VARIANT
+#endif //
+
 #else //STD
+
 #define EEPROM_VER        209
 #if defined(MAVLINK)
 #define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_STD + EEPROM_VARIANT_FEATURE_MAVLINK)
-#else //STD + MAVLINK
+#elif defined(FRSKY)
+#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_STD + EEPROM_VARIANT_FEATURE_FRSKY)
+#else
 #define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_STD + 0)
-#endif //STD + MAVLINK
+#endif //STD FEATURES
+
 #endif //STD
 
 
@@ -315,10 +325,9 @@ PACK(typedef struct t_MixData {
   uint8_t delayDown:4;
   uint8_t speedUp:4;         // Servogeschwindigkeit aus Tabelle (10ms Cycle)
   uint8_t speedDown:4;       // 0 nichts
-  uint16_t srcRaw:7;         //
-  uint16_t spare:7;          // spere bits appears after srcRaw expanded by 1 bit
-  int16_t differential:7;
-  int16_t carryTrim:3;
+  uint8_t srcRaw;
+  int8_t differential;
+  int8_t carryTrim;
   int8_t  sOffset;
 }) MixData;
 #endif
@@ -585,10 +594,12 @@ enum Dsm2Variants {
   DSM2_DSMX
 };
 
-#ifdef MAVLINK
-#define EXTDATA MavlinkData mavlink
+#if defined(MAVLINK)
+#define EXTDATA MavlinkData mavlink;
+#elif defined(FRSKY)
+#define EXTDATA FrSkyData frsky;
 #else
-#define EXTDATA FrSkyData frsky
+#define EXTDATA
 #endif
 
 #if defined(PCBV4) || defined(PCBARM)
@@ -621,7 +632,7 @@ PACK(typedef struct t_ModelData {
   SwashRingData swashR;
   PhaseData phaseData[MAX_PHASES];
 
-  EXTDATA;
+  EXTDATA
 
   int8_t    ppmFrameLength;       // 0=22.5ms  (10ms-30ms) 0.5msec increments
   uint8_t   thrTraceSrc;
