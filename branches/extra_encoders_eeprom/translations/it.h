@@ -308,6 +308,8 @@
 #define TR_MULTIPLIER   "Moltiplica"
 #define TR_CAL          "Cal"
 #define TR_EEPROMV      "EEPROM v"
+#define TR_EEPROM_VAR_M "M"
+#define TR_EEPROM_VAR_X "X"
 #define TR_VTRIM        "Trim- +"
 #define TR_BG           "BG:"
 #define TR_MENUTOSTART  "[Men\200] per Cal."

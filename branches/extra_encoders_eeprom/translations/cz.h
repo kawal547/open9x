@@ -313,6 +313,8 @@
 #define TR_MULTIPLIER   "N\200sobi\201"
 #define TR_CAL          "Kal."
 #define TR_EEPROMV      "EEPROM v"
+#define TR_EEPROM_VAR_M "M"
+#define TR_EEPROM_VAR_X "X"
 #define TR_VTRIM        "Trim- +"
 #define TR_BG           "BG:"
 #define TR_MENUTOSTART  " [MENU] = START"

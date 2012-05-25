@@ -48,13 +48,28 @@
 #define WARN_MEM     (!(g_eeGeneral.warnOpts & WARN_MEM_BIT))
 #define BEEP_VAL     ( (g_eeGeneral.warnOpts & WARN_BVAL_BIT) >>3 )
 
+#define EEPROM_MAVLINK_VARIANT                0x01
+#define EEPROM_ROTARY_ENCODERS_EXTRA_VARIANT  0x02
+
 #if defined(PCBARM)
-#define EEPROM_VER       209
+#define EEPROM_VER        209
+#define EEPROM_VARIANT    0 
 #elif defined(PCBV4)
-#define EEPROM_VER       209
-#else
-#define EEPROM_VER       209
+#define EEPROM_VER        209
+#if defined(EXTRA_ROTARY_ENCODERS) & defined(MAVLINK)
+#define EEPROM_VARIANT    (EEPROM_ROTARY_ENCODERS_EXTRA_VARIANT | EEPROM_MAVLINK_VARIANT)
+#elif defined(EXTRA_ROTARY_ENCODERS)
+#define EEPROM_VARIANT    EEPROM_ROTARY_ENCODERS_EXTRA_VARIANT
+#elif defined(MAVLINK)
+#define EEPROM_VARIANT    EEPROM_MAVLINK_VARIANT
+#else //NO ENCODERS and NO MAVLINK
+#define EEPROM_VARIANT    0
+#endif //EE_PROM_VARIANT
+#else //STD
+#define EEPROM_VER        209
+#define EEPROM_VARIANT    0 
 #endif
+
 
 #ifndef PACK
 #define PACK( __Declaration__ ) __Declaration__ __attribute__((__packed__))
@@ -103,6 +118,7 @@ enum BeeperMode {
 #define ALTERNATE_VIEW 0x10
 PACK(typedef struct t_EEGeneral {
   uint8_t   myVers;
+  uint8_t   myVariant;
   int16_t   calibMid[7];
   int16_t   calibSpanNeg[7];
   int16_t   calibSpanPos[7];
