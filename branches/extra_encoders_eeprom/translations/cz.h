@@ -313,7 +313,6 @@
 #define TR_MULTIPLIER   "N\200sobi\201"
 #define TR_CAL          "Kal."
 #define TR_EEPROMV      "EEPROM v"
-#define TR_EEPROM_VAR_STD "STD"
 #define TR_EEPROM_VAR_V4  "V4"
 #define TR_EEPROM_VAR_ARM "ARM"
 #define TR_VTRIM        "Trim- +"

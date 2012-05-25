@@ -59,41 +59,44 @@
   0     = MAVLINK EEPROM variant
 */
 
-#define EEPROM_VARIANT_MASK                   0x70
-#define EEPROM_VARIANT_BP                     4
-#define EEPROM_VARIANT_PCB_STD                0x00
-#define EEPROM_VARIANT_PCB_V4                 0x10
-#define EEPROM_VARIANT_PCB_ARM                0x20
-#define EEPROM_VARIANT_PCB_XX0                0x30
-#define EEPROM_VARIANT_PCB_XX1                0x40
-#define EEPROM_VARIANT_PCB_XX2                0x50
-#define EEPROM_VARIANT_PCB_XX3                0x60
-#define EEPROM_VARIANT_PCB_XX4                0x70
-#define EEPROM_VARIANT_PCB(x)                 ((x | EEPROM_VARIANT_MASK) >> EEPROM_VARIANT_BP)
+#define EEPROM_VARIANT_PCB_MASK                       0x70
+#define EEPROM_VARIANT_PCB_bp                         4
+#define EEPROM_VARIANT_PCB_STD                        0x00
+#define EEPROM_VARIANT_PCB_V4                         0x10
+#define EEPROM_VARIANT_PCB_ARM                        0x20
+#define EEPROM_VARIANT_PCB_XX0                        0x30
+#define EEPROM_VARIANT_PCB_XX1                        0x40
+#define EEPROM_VARIANT_PCB_XX2                        0x50
+#define EEPROM_VARIANT_PCB_XX3                        0x60
+#define EEPROM_VARIANT_PCB_XX4                        0x70
+#define EEPROM_VARIANT_PCB(x)                         ((x | EEPROM_VARIANT_PCB_MASK) >> EEPROM_VARIANT_PCB_bp)
 
-#define EEPROM_VARIANT_MAVLINK                0x01
-#define EEPROM_VARIANT_ROTARY_ENCODERS_EXTRA  0x02
+#define EEPROM_VARIANT_FEATURE_MASK                   0x02
+#define EEPROM_VARIANT_FEATURE_bp                     0
+#define EEPROM_VARIANT_FEATURE_MAVLINK                0x01
+#define EEPROM_VARIANT_FEATURE_RENC_EXTRA             0x02
+#define EEPROM_VARIANT_FEATURE(x)                     ((x | EEPROM_VARIANT_FEATURE_MASK) >> EEPROM_VARIANT_FEATURE_bp)
 
 #if defined(PCBARM)
 #define EEPROM_VER        209
-#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_ARM | 0)
+#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_ARM + 0)
 #elif defined(PCBV4)
 #define EEPROM_VER        209
 #if defined(EXTRA_ROTARY_ENCODERS) & defined(MAVLINK)
-#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_V4 | EEPROM_VARIANT_ROTARY_ENCODERS_EXTRA | EEPROM_VARIANT_MAVLINK)
+#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_V4 + EEPROM_VARIANT_FEATURE_RENC_EXTRA + EEPROM_VARIANT_FEATURE_MAVLINK)
 #elif defined(EXTRA_ROTARY_ENCODERS)
-#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_V4 | EEPROM_VARIANT_ROTARY_ENCODERS_EXTRA)
+#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_V4 + EEPROM_VARIANT_FEATURE_RENC_EXTRA)
 #elif defined(MAVLINK)
-#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_V4 | EEPROM_VARIANT_MAVLINK)
+#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_V4 + EEPROM_VARIANT_FEATURE_MAVLINK)
 #else //NO ENCODERS and NO MAVLINK
-#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_V4 | 0)
+#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_V4 + 0)
 #endif //EE_PROM_VARIANT
 #else //STD
 #define EEPROM_VER        209
 #if defined(MAVLINK)
-#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_STD | EEPROM_VARIANT_MAVLINK)
+#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_STD + EEPROM_VARIANT_FEATURE_MAVLINK)
 #else //STD + MAVLINK
-#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_STD | 0)
+#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_STD + 0)
 #endif //STD + MAVLINK
 #endif //STD
 
