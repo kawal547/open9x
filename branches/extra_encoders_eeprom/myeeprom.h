@@ -48,27 +48,54 @@
 #define WARN_MEM     (!(g_eeGeneral.warnOpts & WARN_MEM_BIT))
 #define BEEP_VAL     ( (g_eeGeneral.warnOpts & WARN_BVAL_BIT) >>3 )
 
-#define EEPROM_MAVLINK_VARIANT                0x01
-#define EEPROM_ROTARY_ENCODERS_EXTRA_VARIANT  0x02
+/* EEPROM_VARIANT mod
+  bits are:
+  7     = reserved
+  [6:4] = PCB Version, also includes CPU info
+  4     = reserved
+  3     = reserved
+  2     = reserved
+  1     = EXTRA_ROTARY_ENCODERS EEPROM variant
+  0     = MAVLINK EEPROM variant
+*/
+
+#define EEPROM_VARIANT_MASK                   0x70
+#define EEPROM_VARIANT_BP                     4
+#define EEPROM_VARIANT_PCB_STD                0x00
+#define EEPROM_VARIANT_PCB_V4                 0x10
+#define EEPROM_VARIANT_PCB_ARM                0x20
+#define EEPROM_VARIANT_PCB_XX0                0x30
+#define EEPROM_VARIANT_PCB_XX1                0x40
+#define EEPROM_VARIANT_PCB_XX2                0x50
+#define EEPROM_VARIANT_PCB_XX3                0x60
+#define EEPROM_VARIANT_PCB_XX4                0x70
+#define EEPROM_VARIANT_PCB(x)                 ((x | EEPROM_VARIANT_MASK) >> EEPROM_VARIANT_BP)
+
+#define EEPROM_VARIANT_MAVLINK                0x01
+#define EEPROM_VARIANT_ROTARY_ENCODERS_EXTRA  0x02
 
 #if defined(PCBARM)
 #define EEPROM_VER        209
-#define EEPROM_VARIANT    0 
+#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_ARM | 0)
 #elif defined(PCBV4)
 #define EEPROM_VER        209
 #if defined(EXTRA_ROTARY_ENCODERS) & defined(MAVLINK)
-#define EEPROM_VARIANT    (EEPROM_ROTARY_ENCODERS_EXTRA_VARIANT | EEPROM_MAVLINK_VARIANT)
+#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_V4 | EEPROM_VARIANT_ROTARY_ENCODERS_EXTRA | EEPROM_VARIANT_MAVLINK)
 #elif defined(EXTRA_ROTARY_ENCODERS)
-#define EEPROM_VARIANT    EEPROM_ROTARY_ENCODERS_EXTRA_VARIANT
+#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_V4 | EEPROM_VARIANT_ROTARY_ENCODERS_EXTRA)
 #elif defined(MAVLINK)
-#define EEPROM_VARIANT    EEPROM_MAVLINK_VARIANT
+#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_V4 | EEPROM_VARIANT_MAVLINK)
 #else //NO ENCODERS and NO MAVLINK
-#define EEPROM_VARIANT    0
+#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_V4 | 0)
 #endif //EE_PROM_VARIANT
 #else //STD
 #define EEPROM_VER        209
-#define EEPROM_VARIANT    0 
-#endif
+#if defined(MAVLINK)
+#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_STD | EEPROM_VARIANT_MAVLINK)
+#else //STD + MAVLINK
+#define EEPROM_VARIANT    (EEPROM_VARIANT_PCB_STD | 0)
+#endif //STD + MAVLINK
+#endif //STD
 
 
 #ifndef PACK
@@ -285,7 +312,8 @@ PACK(typedef struct t_MixData {
   uint8_t delayDown:4;
   uint8_t speedUp:4;         // Servogeschwindigkeit aus Tabelle (10ms Cycle)
   uint8_t speedDown:4;       // 0 nichts
-  uint16_t srcRaw:6;         //
+  uint16_t srcRaw:7;         //
+  uint16_t spare:7;          // spere bits appears after srcRaw expanded by 1 bit
   int16_t differential:7;
   int16_t carryTrim:3;
   int8_t  sOffset;

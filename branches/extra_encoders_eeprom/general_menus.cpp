@@ -583,11 +583,20 @@ void menuProcDiagVers(uint8_t event)
   lcd_putsLeft(5*FH, stamp4);
   lcd_putsLeft(7*FH, STR_EEPROMV);
   lcd_outdezAtt(8*FW, 7*FH, g_eeGeneral.myVers, LEFT);
-  uint8_t x = 11;
-  if(g_eeGeneral.myVariant & EEPROM_MAVLINK_VARIANT)
-    lcd_putsAtt((x++)*FW, 7*FH, STR_EEPROM_VAR_M, 0);
-  if(g_eeGeneral.myVariant & EEPROM_ROTARY_ENCODERS_EXTRA_VARIANT)
-    lcd_putsAtt((x++)*FW, 7*FH, STR_EEPROM_VAR_X, 0);
+  uint8_t x = 12;
+#if EEPROM_VARIANT_PCB(EEPROM_VARIANT) == EEPROM_VARIANT_PCB(EEPROM_VARIANT_PCB_STD)
+  lcd_putsAtt((x)*FW, 7*FH, STR_EEPROM_VAR_STD, 0); x += 4;
+#elif EEPROM_VARIANT_PCB(EEPROM_VARIANT) == EEPROM_VARIANT_PCB(EEPROM_VARIANT_PCB_V4)
+  lcd_putsAtt((x)*FW, 7*FH, STR_EEPROM_VAR_V4 , 0); x += 3;
+#elif EEPROM_VARIANT_PCB(EEPROM_VARIANT) == EEPROM_VARIANT_PCB(EEPROM_VARIANT_PCB_ARM)
+  lcd_putsAtt((x)*FW, 7*FH, STR_EEPROM_VAR_ARM, 0); x += 4;
+#endif
+  if(g_eeGeneral.myVariant & EEPROM_VARIANT_MAVLINK)
+    lcd_putc((x++)*FW, 7*FH, 'M');
+#if defined(PCBV4)
+  if(g_eeGeneral.myVariant & EEPROM_VARIANT_ROTARY_ENCODERS_EXTRA)
+    lcd_putc((x++)*FW, 7*FH, 'X');
+#endif //PCBV4
 }
 
 void menuProcDiagKeys(uint8_t event)
