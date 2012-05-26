@@ -50,7 +50,7 @@
 
 /* EEPROM_VARIANT mod
   bits are:
-  [7:5] = PCB Version, also includes CPU info
+  [7:5] = PCB Version, also includes CPU info, not to be stored in ee_General, for SD card only
   4     = reserved
   3     = reserved
   2     = EXTRA_ROTARY_ENCODERS EEPROM variant
