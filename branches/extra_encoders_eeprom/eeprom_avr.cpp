@@ -599,8 +599,8 @@ const pm_char * eeBackupModel(uint8_t i_fileSrc)
   if (result != FR_OK) {
     return SDCARD_ERROR(result);
   }
-
-  result = f_write(&archiveFile, &g_eeGeneral.myVariant, 1, &written);
+  uint8_t myVariant = EEPROM_VARIANT;
+  result = f_write(&archiveFile, &myVariant, 1, &written);
   if (result != FR_OK) {
     return SDCARD_ERROR(result);
   }
@@ -645,7 +645,7 @@ const pm_char * eeRestoreModel(uint8_t i_fileDst, char *model_name)
     return SDCARD_ERROR(result);
   }
 
-  if ((buf[0] != g_eeGeneral.myVers) || (buf[1] != g_eeGeneral.myVariant)) {
+  if ((buf[0] != g_eeGeneral.myVers) || (buf[1] != EEPROM_VARIANT)) {
     // TODO
   }
 
@@ -824,7 +824,7 @@ void RlcFile::DisplayProgressBar(uint8_t x)
 bool eeLoadGeneral()
 {
   theFile.openRlc(FILE_GENERAL);
-  if (theFile.readRlc((uint8_t*)&g_eeGeneral, 2) == 2 && g_eeGeneral.myVers == EEPROM_VER && g_eeGeneral.myVariant == EEPROM_VARIANT) {
+  if ((theFile.readRlc((uint8_t*)&g_eeGeneral, 2) == 2) && (g_eeGeneral.myVers == EEPROM_VER) && (EEPROM_VARIANT_FEATURE(g_eeGeneral.myVariant) == EEPROM_VARIANT_FEATURE(EEPROM_VARIANT))) {
     theFile.openRlc(FILE_GENERAL); // TODO include this openRlc inside readRlc
     if (theFile.readRlc((uint8_t*)&g_eeGeneral, sizeof(g_eeGeneral)) <= sizeof(EEGeneral)) {
       uint16_t sum = evalChkSum();
