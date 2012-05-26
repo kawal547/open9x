@@ -136,7 +136,7 @@ void generalDefault()
   memset(&g_eeGeneral, 0, sizeof(g_eeGeneral));
   g_eeGeneral.lightSw   = SWITCH_ON;
   g_eeGeneral.myVers    = EEPROM_VER;
-  g_eeGeneral.myVariant = EEPROM_VARIANT;
+  g_eeGeneral.myVariant = EEPROM_VARIANT_FEATURE(EEPROM_VARIANT);
   g_eeGeneral.contrast  = 25;
   g_eeGeneral.vBatWarn  = 90;
   for (int i = 0; i < 7; ++i) {
