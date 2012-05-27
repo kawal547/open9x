@@ -83,6 +83,24 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>Splash displayed on Tx start </td>
 	</tr>
 	<tr>
+		<td>GRAPHICS</td>
+		<td><b>YES</b></td>
+		<td>NO</td>
+		<td>Graphical sliders and check boxes </td>
+	</tr>	
+        <tr>
+		<td>PPM_CENTER_ADJUSTABLE</td>
+		<td><b>NO</b></td>
+		<td>YES</td>
+		<td>Adjustable PPM center for servos in limits menu</td>
+	</tr>
+        <tr>
+		<td>PPM_LIMITS_UNIT</td>
+		<td><b>PERCENT</b></td>
+		<td>US</td>
+		<td>Units for PPM center in % or µs </td>
+	</tr>
+        <tr>
 		<td>DECIMALS</td>
 		<td><b>YES</b></td>
 		<td>NO</td>
