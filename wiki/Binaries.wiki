@@ -35,7 +35,6 @@ The following configuration options are currently available in companion9x:
 || *Option* || *Explanation* ||
 || PCB || The main board of the transmitter can be replaced by more powerful board versions that provide more features and computing power. Open9x is available for the stock PCB, the gruvin9x v4 PCB or the ersky9x PCB ||
 || Language || All open9x versions are available in any of the following langauges: Czech, English, French, German, Italian, Swedish ||
-|| Splash Screen || You may select your start screen from a large number of ready made screens. It is also possible to use an image you create yourself ||
 || frsky|| Support for the Fr-Sky telemetry enabled radio system with telemetry data display on the '9x transmitter screen. That means that there is no need for an external telemetry screen! All telemetry systems require hardware modifications of the radio. ||
 || jeti || Also a telemetry system ||
 || ardupilot ||  Also a telemetry system  ||
@@ -51,7 +50,6 @@ The following configuration options are currently available in companion9x:
 || ppmca || Adds possibility for PPM center adjustment ||
 || potscroll || Uses potentiometers to scroll in menus. ||
 || autoswitch || During model setup it is possible to select and set switches by moving them. ||
+|| nographics || Disabling graphic of sliders and check boxes ||
 || pgbar || Shows a small progress bar when data are stored in the transmitter memory ||
 || imperial || Uses imperial units rather than the standard metric ones. ||
-|| mode || Select which stick mode to use (can also be configured in the transmitter) ||
-|| channel order || Selects the standard channel order (can also be configured in the transmitter)  ||
