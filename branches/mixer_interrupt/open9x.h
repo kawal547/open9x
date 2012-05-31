@@ -287,6 +287,7 @@ extern uint8_t stickMode;
 
 extern uint8_t channel_order(uint8_t x);
 
+extern uint8_t s_evt;
 enum EnumKeys {
   KEY_MENU ,
   KEY_EXIT ,

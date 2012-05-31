@@ -33,11 +33,12 @@
 
 #include "open9x.h"
 
-static uint8_t s_evt;
+uint8_t s_evt;
 void putEvent(uint8_t evt)
 {
   s_evt = evt;
 }
+
 uint8_t getEvent()
 {
   uint8_t evt = s_evt;
@@ -105,7 +106,7 @@ void Key::input(bool val, EnumKeys enuk)
         m_state >>= 1;
         m_cnt     = 0;
       }
-      //fallthrough
+      // no break
     case 1:
       if( (m_cnt & (m_state-1)) == 0)  putEvent(EVT_KEY_REPT(enuk));
       break;
@@ -133,7 +134,6 @@ void killEvents(uint8_t event)
   if(event < (int)DIM(keys))  keys[event].killEvents();
 }
 
-//uint16_t g_anaIns[8];
 volatile uint16_t g_tmr10ms;
 volatile uint8_t  g_blinkTmr10ms;
 
@@ -156,6 +156,11 @@ void per10ms()
 
   readKeysAndTrims();
 
+  if (s_current_protocol >= PROTO_NONE) // pulses are not started or paused
+    return;
+
+  checkTrims();
+
 #if defined(MAVLINK) && !defined(PCBARM)
   check_mavlink();
 #endif
@@ -163,6 +168,8 @@ void per10ms()
 #if defined (FRSKY) && !defined(PCBARM)
   check_frsky();
 #endif
+
+  doMixerCalculations();
 
   // These moved here from perOut() to improve beep trigger reliability.
   if(mixWarning & 1) if(((g_tmr10ms&0xFF)==  0)) AUDIO_MIX_WARNING_1();
