@@ -768,7 +768,7 @@ void clearKeyEvents()
 #ifdef SIMU
     while (keyDown() && main_thread_running) sleep(1/*ms*/);
 #else
-    while (keyDown()) wdt_reset();  // loop until all keys are up
+    while (keyDown());  // loop until all keys are up
 #endif
     memset(keys, 0, sizeof(keys));
     putEvent(0);
@@ -882,7 +882,6 @@ void checkTHR()
 
       checkBacklight();
 
-      wdt_reset();
   }
 }
 
@@ -925,8 +924,6 @@ void checkSwitches()
 
     checkBacklight();
 
-    wdt_reset();
-
 #ifdef SIMU
     if (!main_thread_running) return;
     sleep(1/*ms*/);
@@ -952,7 +949,6 @@ void alert(const pm_char * t, const pm_char *s)
 
     checkBacklight();
 
-    wdt_reset();
   }
 }
 
