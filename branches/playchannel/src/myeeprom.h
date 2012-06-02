@@ -300,6 +300,7 @@ enum Functions {
 #if defined(PCBV4)
   FUNC_LOGS,
 #endif
+  FUNC_PLAY_CHANNEL,
 #if defined(DEBUG)
   FUNC_TEST, // should remain the last before MAX as not added in companion9x
 #endif

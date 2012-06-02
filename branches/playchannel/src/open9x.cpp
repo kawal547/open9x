@@ -1457,6 +1457,8 @@ void testFunc()
 uint16_t active_functions = 0;
 MASK_FSW_TYPE active_switches = 0;
 
+extern void playVario(int16_t verticalSpeed, int16_t varioSpeedDownMin, int16_t varioSpeedUpMin);
+
 void evalFunctions()
 {
   assert((int)(sizeof(active_functions)*8) > (int)(FUNC_MAX-NUM_CHNOUT));
@@ -1522,6 +1524,10 @@ void evalFunctions()
             // TODO sound with warble = !(g_tmr10ms % 60); AUDIO_WARNING2(); }
             beep(3);
 #endif
+          }
+
+          if (sd->func == FUNC_PLAY_CHANNEL) {
+            playVario(getValue(CSW_CHOUT_BASE+sd->param), -16, 16);
           }
 
 #if defined(HAPTIC)
