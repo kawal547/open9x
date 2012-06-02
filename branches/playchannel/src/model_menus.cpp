@@ -2194,6 +2194,10 @@ void menuProcFunctionSwitches(uint8_t event)
               if (active) sd->param = (sd->param & 1) + (checkIncDecModel(event, value, -63, 63) << 1);
               break;
             }
+            else if (sd->func == FUNC_PLAY_CHANNEL) {
+              putsChnRaw(17*FW-2, y, NUM_STICKS+NUM_POTS+NUM_ROTARY_ENCODERS+NUM_STICKS+2+3+NUM_PPM+val_displayed+1, attr);
+              val_max = NUM_CHNOUT-1;
+            }
             else {
               if (attr) m_posHorz = 0;
               break;

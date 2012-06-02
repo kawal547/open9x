@@ -616,6 +616,41 @@ inline void FRSKY10mspoll(void)
 #endif
 }
 
+void playVario(int16_t verticalSpeed, int16_t varioSpeedDownMin, int16_t varioSpeedUpMin)
+{
+  static uint16_t s_varioTmr = 0;
+
+  uint8_t SoundVarioBeepNextFreq = 0;
+  uint8_t SoundVarioBeepNextTime = 0;
+  static uint8_t SoundVarioBeepFreq = 0;
+  static uint8_t SoundVarioBeepTime = 0;
+  if ((verticalSpeed < varioSpeedUpMin) && (verticalSpeed > varioSpeedDownMin)) { //check thresholds here in cm/s
+    SoundVarioBeepNextFreq = (0);
+    SoundVarioBeepNextTime = (0);
+  }
+  else {
+    if((varioSpeedUpMin < 0) & (verticalSpeed >= varioSpeedUpMin)){
+      verticalSpeed -= varioSpeedUpMin;
+    }
+    SoundVarioBeepNextFreq = (verticalSpeed * 10 + 16000) >> 8;
+    SoundVarioBeepNextTime = (1600 - verticalSpeed) / 100;
+    if (verticalSpeed >= 0) {
+      if ((uint16_t)(g_tmr10ms - s_varioTmr) > (uint16_t)SoundVarioBeepTime*2) {
+        s_varioTmr = g_tmr10ms;
+        SoundVarioBeepTime = SoundVarioBeepNextTime;
+        SoundVarioBeepFreq = SoundVarioBeepNextFreq;
+        audio.play(SoundVarioBeepFreq, SoundVarioBeepTime, 0, PLAY_SOUND_VARIO);
+      }
+    }
+    else {
+      // negative vertical speed gives sound without pauses
+      SoundVarioBeepTime = SoundVarioBeepNextTime;
+      SoundVarioBeepFreq = SoundVarioBeepNextFreq;
+      audio.play(SoundVarioBeepFreq, 1, 0, PLAY_SOUND_VARIO);
+    }
+  }
+}
+
 void check_frsky()
 {
 #if defined(PCBARM)
@@ -644,42 +679,12 @@ void check_frsky()
 #endif
 
 #if defined(VARIO)
-  static uint16_t s_varioTmr = 0;
   if (isFunctionActive(FUNC_VARIO)) {
 #if defined(AUDIO)
     int16_t varioSpeedUpMin = (g_model.varioSpeedUpMin - VARIO_SPEED_LIMIT_UP_CENTER)*VARIO_SPEED_LIMIT_MUL;
     int16_t varioSpeedDownMin = (VARIO_SPEED_LIMIT_DOWN_OFF - g_model.varioSpeedDownMin)*(-VARIO_SPEED_LIMIT_MUL);
     int16_t verticalSpeed = limit((int16_t)(-VARIO_SPEED_LIMIT*100), frskyHubData.varioSpeed, (int16_t)(+VARIO_SPEED_LIMIT*100));
-
-    uint8_t SoundVarioBeepNextFreq = 0;
-    uint8_t SoundVarioBeepNextTime = 0;
-    static uint8_t SoundVarioBeepFreq = 0;
-    static uint8_t SoundVarioBeepTime = 0;
-    if ((verticalSpeed < varioSpeedUpMin) && (verticalSpeed > varioSpeedDownMin)) { //check thresholds here in cm/s
-      SoundVarioBeepNextFreq = (0);
-      SoundVarioBeepNextTime = (0);
-    }
-    else {
-      if((varioSpeedUpMin < 0) & (verticalSpeed >= varioSpeedUpMin)){
-        verticalSpeed -= varioSpeedUpMin;
-      }		  
-      SoundVarioBeepNextFreq = (verticalSpeed * 10 + 16000) >> 8;
-      SoundVarioBeepNextTime = (1600 - verticalSpeed) / 100;
-      if (verticalSpeed >= 0) {
-        if ((uint16_t)(g_tmr10ms - s_varioTmr) > (uint16_t)SoundVarioBeepTime*2) {
-          s_varioTmr = g_tmr10ms;
-          SoundVarioBeepTime = SoundVarioBeepNextTime;
-          SoundVarioBeepFreq = SoundVarioBeepNextFreq;
-          audio.play(SoundVarioBeepFreq, SoundVarioBeepTime, 0, PLAY_SOUND_VARIO);
-        }
-      }
-      else {
-        // negative vertical speed gives sound without pauses
-        SoundVarioBeepTime = SoundVarioBeepNextTime;
-        SoundVarioBeepFreq = SoundVarioBeepNextFreq;
-        audio.play(SoundVarioBeepFreq, 1, 0, PLAY_SOUND_VARIO);
-      }
-    }
+    playVario(verticalSpeed, varioSpeedDownMin, varioSpeedUpMin);
 #else
     int8_t verticalSpeed = limit((int16_t)-100, (int16_t)(frskyHubData.varioSpeed/10), (int16_t)+100);
 
