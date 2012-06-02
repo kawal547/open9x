@@ -2269,32 +2269,8 @@ uint16_t getTmr16KHz()
   }
 }
 
-#if defined (PCBV4)
-ISR(TIMER2_COMPA_vect, ISR_NOBLOCK) //10ms timer
-#else
-ISR(TIMER0_COMP_vect, ISR_NOBLOCK) //10ms timer
-#endif
+NOINLINE void interrupt10ms()
 {
-  cli();
-  
-#if defined (PCBV4)
-  static uint8_t accuracyWarble = 4; // becasue 16M / 1024 / 100 = 156.25. So bump every 4.
-  uint8_t bump = (!(accuracyWarble++ & 0x03)) ? 157 : 156;
-  TIMSK2 &= ~(1<<OCIE2A); //stop reentrance
-  OCR2A += bump;
-#else
-  TIMSK &= ~(1<<OCIE0); //stop reentrance
-#if defined (AUDIO)
-  OCR0 += 2; // run much faster, to generate speaker tones
-#else
-  static uint8_t accuracyWarble = 4; // becasue 16M / 1024 / 100 = 156.25. So bump every 4.
-  uint8_t bump = (!(accuracyWarble++ & 0x03)) ? 157 : 156;
-  OCR0 += bump;
-#endif
-#endif
-
-  sei();
-  
 #if defined (PCBSTD) && defined (AUDIO)
   AUDIO_DRIVER();
   static uint8_t cnt10ms = 77; // execute 10ms code once every 78 ISRs
@@ -2339,14 +2315,42 @@ ISR(TIMER0_COMP_vect, ISR_NOBLOCK) //10ms timer
 #if defined (PCBSTD) && defined (AUDIO)
   } // end 10ms event
 #endif
+}
+
+#if defined (PCBV4)
+ISR(TIMER2_COMPA_vect) //10ms timer
+#else
+ISR(TIMER0_COMP_vect) //10ms timer
+#endif
+{
+#if defined (PCBV4)
+  static uint8_t accuracyWarble = 4; // becasue 16M / 1024 / 100 = 156.25. So bump every 4.
+  uint8_t bump = (!(accuracyWarble++ & 0x03)) ? 157 : 156;
+  TIMSK2 &= ~(1<<OCIE2A); //stop reentrance
+  OCR2A += bump;
+#else
+  TIMSK &= ~(1<<OCIE0); //stop reentrance
+#if defined (AUDIO)
+  OCR0 += 2; // run much faster, to generate speaker tones
+#else
+  static uint8_t accuracyWarble = 4; // becasue 16M / 1024 / 100 = 156.25. So bump every 4.
+  uint8_t bump = (!(accuracyWarble++ & 0x03)) ? 157 : 156;
+  OCR0 += bump;
+#endif
+#endif
+
+  sei();
+
+  interrupt10ms();
 
   cli();
+
 #if defined (PCBV4)
   TIMSK2 |= (1<<OCIE2A);
 #else
   TIMSK |= (1<<OCIE0);
 #endif
-  sei();
+
 }
 
 // Timer3 used for PPM_IN pulse width capture. Counter running at 16MHz / 8 = 2MHz
