@@ -55,7 +55,8 @@ ModelData  g_model;
 uint8_t g_tmr1Latency_max;
 uint8_t g_tmr1Latency_min;
 #endif
-uint16_t g_timeMain;
+uint8_t  g_timeMainLast; // TODO change names
+uint16_t g_timeMainMax;
 
 #ifdef AUDIO
 audioQueue  audio;
@@ -981,10 +982,10 @@ void message(const pm_char *title, const pm_char *t, const char *last)
 
 void checkTrims()
 {
-  int8_t  k = (s_evt & EVT_KEY_MASK) - TRM_BASE;
-  int8_t  s = g_model.trimInc;
-
-  if (k>=0 && k<8) { // && (event & _MSK_KEY_REPT))
+  uint8_t evt = getEvent(true);
+  if (evt) {
+    int8_t  k = (evt & EVT_KEY_MASK) - TRM_BASE;
+    int8_t  s = g_model.trimInc;
     //LH_DWN LH_UP LV_DWN LV_UP RV_DWN RV_UP RH_DWN RH_UP
     uint8_t idx = CONVERT_MODE(1+k/2) - 1;
     uint8_t phase = getTrimFlightPhase(s_perout_flight_phase, idx);
@@ -1028,18 +1029,17 @@ void checkTrims()
 #endif
 
     if (beepTrim) {
-      killEvents(s_evt);
+      killEvents(evt);
       AUDIO_TRIM_MIDDLE(after);
     }
     else {
 #if defined (AUDIO)
       audio.event(AU_TRIM_MOVE, after);
 #else
-      if (s_evt & _MSK_KEY_REPT) warble = true;
+      if (evt & _MSK_KEY_REPT) warble = true;
       AUDIO_TRIM();
 #endif
     }
-    s_evt = 0;
   }
 }
 
@@ -2160,8 +2160,7 @@ void perMain()
 #endif
 
   lcd_clear();
-  uint8_t evt = getEvent();
-  // evt = checkTrim(evt); // TODO should be inside the interrupt!
+  uint8_t evt = getEvent(false);
 
   // TODO port lightOnStickMove from er9x + flash saving, call checkBacklight()
   if(g_LightOffCounter) g_LightOffCounter--;
@@ -2269,60 +2268,46 @@ uint16_t getTmr16KHz()
   }
 }
 
-NOINLINE void interrupt10ms()
+#if defined (PCBV4)
+ISR(TIMER5_COMPA_vect, ISR_NOBLOCK) // mixer interrupt
 {
-#if defined (PCBSTD) && defined (AUDIO)
-  AUDIO_DRIVER();
-  static uint8_t cnt10ms = 77; // execute 10ms code once every 78 ISRs
-  if (cnt10ms-- == 0) { // BEGIN { ... every 10ms ... }
-    // Begin 10ms event
-    cnt10ms = 77;
-#endif
+  cli();
+  TIMSK5 &= ~(1<<OCIE5A); //stop reentrance
+  OCR5A = 0x7d * 40; /* 20ms */
+  sei();
 
-    AUDIO_HEARTBEAT();
+  uint16_t t0 = getTmr16KHz();
 
-#ifdef HAPTIC
-    HAPTIC_HEARTBEAT();
-#endif
+  if (s_current_protocol < PROTO_NONE) {
+    checkTrims();
+    doMixerCalculations();
+  }
 
-#if defined(PCBARM)
-    uint16_t t0 = getTmr2MHz();
-#else
-    uint16_t t0 = getTmr16KHz();
-#endif
+  heartbeat |= HEART_TIMER10ms;
 
-    per10ms();
+  if (heartbeat == HEART_TIMER_PULSES+HEART_TIMER10ms) {
+    wdt_reset();
+    heartbeat = 0;
+  }
 
-#if defined (PCBV4) && defined(SDCARD)
-    disk_timerproc();
-#endif
+  t0 = getTmr16KHz() - t0;
+  g_timeMainLast = t0 / 8;
+  if (t0 > g_timeMainMax) g_timeMainMax = t0 ;
 
-    heartbeat |= HEART_TIMER10ms;
-    
-    if (heartbeat == HEART_TIMER_PULSES+HEART_TIMER10ms) {
-      wdt_reset();
-      heartbeat = 0;
-    }
-
-#if defined(PCBARM)
-    t0 = getTmr2MHz() - t0;
-#else
-    t0 = getTmr16KHz() - t0;
-#endif
-
-    if (t0 > g_timeMain) g_timeMain = t0 ;
-
-#if defined (PCBSTD) && defined (AUDIO)
-  } // end 10ms event
-#endif
+  cli();
+  TIMSK5 |= (1<<OCIE5A); //stop reentrance
+  sei();
 }
+#endif
 
 #if defined (PCBV4)
-ISR(TIMER2_COMPA_vect) //10ms timer
+ISR(TIMER2_COMPA_vect, ISR_NOBLOCK) //10ms timer
 #else
-ISR(TIMER0_COMP_vect) //10ms timer
+ISR(TIMER0_COMP_vect, ISR_NOBLOCK) //10ms timer
 #endif
 {
+  cli();
+  
 #if defined (PCBV4)
   static uint8_t accuracyWarble = 4; // becasue 16M / 1024 / 100 = 156.25. So bump every 4.
   uint8_t bump = (!(accuracyWarble++ & 0x03)) ? 157 : 156;
@@ -2341,7 +2326,30 @@ ISR(TIMER0_COMP_vect) //10ms timer
 
   sei();
 
-  interrupt10ms();
+#if defined (PCBSTD) && defined (AUDIO)
+  AUDIO_DRIVER();
+  static uint8_t cnt10ms = 77; // execute 10ms code once every 78 ISRs
+  if (cnt10ms-- == 0) { // BEGIN { ... every 10ms ... }
+    // Begin 10ms event
+    cnt10ms = 77;
+#endif
+
+    AUDIO_HEARTBEAT();
+
+#ifdef HAPTIC
+    HAPTIC_HEARTBEAT();
+#endif
+
+    per10ms();
+
+#if defined (PCBV4) && defined(SDCARD)
+    disk_timerproc();
+#endif
+
+
+#if defined (PCBSTD) && defined (AUDIO)
+  } // end 10ms event
+#endif
 
   cli();
 
@@ -2351,6 +2359,7 @@ ISR(TIMER0_COMP_vect) //10ms timer
   TIMSK |= (1<<OCIE0);
 #endif
 
+  sei();
 }
 
 // Timer3 used for PPM_IN pulse width capture. Counter running at 16MHz / 8 = 2MHz

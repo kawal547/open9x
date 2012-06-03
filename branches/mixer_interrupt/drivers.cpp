@@ -33,17 +33,25 @@
 
 #include "open9x.h"
 
-uint8_t s_evt;
+static uint8_t s_evt;
 void putEvent(uint8_t evt)
 {
   s_evt = evt;
 }
 
-uint8_t getEvent()
+uint8_t getEvent(bool trim)
 {
   uint8_t evt = s_evt;
-  s_evt = 0;
-  return evt;
+  int8_t k = (s_evt & EVT_KEY_MASK) - TRM_BASE;
+  bool trim_evt = (k>=0 && k<8);
+
+  if (trim == trim_evt) {
+    s_evt = 0;
+    return evt;
+  }
+  else {
+    return 0;
+  }
 }
 
 #if defined(PCBARM)
@@ -156,11 +164,6 @@ void per10ms()
 
   readKeysAndTrims();
 
-  if (s_current_protocol >= PROTO_NONE) // pulses are not started or paused
-    return;
-
-  checkTrims();
-
 #if defined(MAVLINK) && !defined(PCBARM)
   check_mavlink();
 #endif
@@ -168,8 +171,6 @@ void per10ms()
 #if defined (FRSKY) && !defined(PCBARM)
   check_frsky();
 #endif
-
-  doMixerCalculations();
 
   // These moved here from perOut() to improve beep trigger reliability.
   if(mixWarning & 1) if(((g_tmr10ms&0xFF)==  0)) AUDIO_MIX_WARNING_1();
