@@ -287,7 +287,6 @@ extern uint8_t stickMode;
 
 extern uint8_t channel_order(uint8_t x);
 
-extern uint8_t s_evt;
 enum EnumKeys {
   KEY_MENU ,
   KEY_EXIT ,
@@ -478,7 +477,7 @@ extern char idx2char(int8_t idx);
 void clearKeyEvents();
 void pauseEvents(uint8_t enuk);
 void killEvents(uint8_t enuk);
-uint8_t getEvent();
+uint8_t getEvent(bool trim);
 void putEvent(uint8_t evt);
 
 uint8_t keyDown();
@@ -559,10 +558,8 @@ void resetAll();
 
 extern uint8_t g_tmr1Latency_max;
 extern uint8_t g_tmr1Latency_min;
-extern uint16_t g_timeMain;
-#ifdef DEBUG
-extern uint16_t g_time_per10;
-#endif
+extern uint16_t g_timeMainMax;
+extern uint8_t  g_timeMainLast;
 
 #define MAXTRACE 120
 extern uint8_t s_traceBuf[MAXTRACE];
