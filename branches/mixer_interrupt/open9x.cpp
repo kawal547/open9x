@@ -2078,9 +2078,6 @@ inline void doMixerCalculations()
 
   evalFunctions();
 
-  if (s_noHi) s_noHi--;
-  if (trimsCheckTimer) trimsCheckTimer --;
-
   // Bandgap has had plenty of time to settle...
 #if not defined(PCBARM)
   getADC_bandgap();

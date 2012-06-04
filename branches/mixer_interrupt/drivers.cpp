@@ -149,6 +149,8 @@ void per10ms()
 {
   g_tmr10ms++;
   g_blinkTmr10ms++;
+  if (s_noHi) s_noHi--;
+  if (trimsCheckTimer) trimsCheckTimer --;
 
 #if defined (PCBARM)
   Tenms |= 1 ;                    // 10 mS has passed

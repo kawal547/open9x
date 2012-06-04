@@ -1221,8 +1221,28 @@ bool reachExpoMixCountLimit(uint8_t expo)
   return false;
 }
 
+#if defined(PCBV4)
+inline void pauseMixerCalculations()
+{
+  cli();
+  TIMSK5 &= ~(1<<OCIE5A);
+  sei();
+}
+
+inline void resumeMixerCalculations()
+{
+  cli();
+  TIMSK5 |= (1<<OCIE5A);
+  sei();
+}
+#else
+#define pauseMixerCalculations()
+#define resumeMixerCalculations()
+#endif
+
 void deleteExpoMix(uint8_t expo, uint8_t idx)
 {
+  pauseMixerCalculations();
   if (expo) {
     memmove(expoaddress(idx), expoaddress(idx+1), (MAX_EXPOS-(idx+1))*sizeof(ExpoData));
     memset(expoaddress(MAX_EXPOS-1), 0, sizeof(ExpoData));
@@ -1231,12 +1251,14 @@ void deleteExpoMix(uint8_t expo, uint8_t idx)
     memmove(mixaddress(idx), mixaddress(idx+1), (MAX_MIXERS-(idx+1))*sizeof(MixData));
     memset(mixaddress(MAX_MIXERS-1), 0, sizeof(MixData));
   }
+  resumeMixerCalculations();
   STORE_MODELVARS;
 }
 
 static int8_t s_currCh;
 void insertExpoMix(uint8_t expo, uint8_t idx)
 {
+  pauseMixerCalculations();
   if (expo) {
     ExpoData *expo = expoaddress(idx);
     memmove(expo+1, expo, (MAX_EXPOS-(idx+1))*sizeof(ExpoData));
@@ -1253,11 +1275,13 @@ void insertExpoMix(uint8_t expo, uint8_t idx)
     mix->srcRaw = (s_currCh > 4 ? s_currCh : channel_order(s_currCh));
     mix->weight = 100;
   }
+  resumeMixerCalculations();
   STORE_MODELVARS;
 }
 
 void copyExpoMix(uint8_t expo, uint8_t idx)
 {
+  pauseMixerCalculations();
   if (expo) {
     ExpoData *expo = expoaddress(idx);
     memmove(expo+1, expo, (MAX_EXPOS-(idx+1))*sizeof(ExpoData));
@@ -1266,6 +1290,7 @@ void copyExpoMix(uint8_t expo, uint8_t idx)
     MixData *mix = mixaddress(idx);
     memmove(mix+1, mix, (MAX_MIXERS-(idx+1))*sizeof(MixData));
   }
+  resumeMixerCalculations();
   STORE_MODELVARS;
 }
 
@@ -1275,11 +1300,13 @@ void memswap(void *a, void *b, uint8_t size)
   uint8_t *y = (uint8_t*)b;
   uint8_t temp ;
 
+  pauseMixerCalculations();
   while (size--) {
     temp = *x;
     *x++ = *y;
     *y++ = temp;
   }
+  resumeMixerCalculations();
 }
 
 bool swapExpo(uint8_t &idx, uint8_t up)
@@ -1895,7 +1922,9 @@ void menuProcLimits(uint8_t event)
         if (event==EVT_KEY_LONG(KEY_MENU)) {
           s_noHi = NO_HI_LEN;
           killEvents(event);
+          pauseMixerCalculations();
           moveTrimsToOffsets(); // if highlighted and menu pressed - move trims to offsets
+          resumeMixerCalculations();
         }
       }
       return;
@@ -1933,11 +1962,18 @@ void menuProcLimits(uint8_t event)
           lcd_outdezAtt(  8*FW, y,  ld->offset, attr|PREC1);
 #endif
           if (active) {
-            ld->offset = checkIncDec(event, ld->offset, -1000, 1000, EE_MODEL|NO_INCDEC_MARKS);
+            int16_t new_offset = checkIncDec(event, ld->offset, -1000, 1000, EE_MODEL|NO_INCDEC_MARKS);
+            if (checkIncDec_Ret) {
+              pauseMixerCalculations();
+              ld->offset = new_offset;
+              resumeMixerCalculations();
+            }
           }
           else if (attr && event==EVT_KEY_LONG(KEY_MENU)) {
             int16_t zero = g_chans512[k];
+            pauseMixerCalculations();
             ld->offset = (ld->revert) ? -zero : zero;
+            resumeMixerCalculations();
             s_editMode = 0;
             STORE_MODELVARS;
           }
