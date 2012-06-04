@@ -1220,8 +1220,6 @@ void getADC_bandgap()
 #endif // SIMU
 
 uint8_t g_vbat100mV = 0;
-
-volatile uint8_t tick10ms = 0;
 uint16_t g_LightOffCounter;
 
 #if !defined(PCBARM)
@@ -1547,6 +1545,7 @@ void evalFunctions()
 }
 
 uint8_t s_perout_flight_phase;
+volatile uint8_t tick10ms;
 void perOut()
 {
   BeepANACenter anaCenter = evalSticks();
@@ -1683,7 +1682,7 @@ void perOut()
             sDelay[i] = md->delayUp * 100;
           }
           if (sDelay[i]) { // perform delay
-            if(tick10ms) sDelay[i]--;
+            if(tick10ms) sDelay[i]-=tick10ms;
             if (!md->swtch) {
               v = -1024;
             }
@@ -1704,7 +1703,7 @@ void perOut()
           sDelay[i] = md->delayDown * 100;
         }
         if (sDelay[i]) { // perform delay
-          if(tick10ms) sDelay[i]--;
+          if(tick10ms) sDelay[i]-=tick10ms;
           if (!md->swtch) v = +1024;
           has_delay = true;
         }
@@ -1738,7 +1737,7 @@ void perOut()
         //act[i] += diff>0 ? (32768)/((int16_t)100*md->speedUp) : -(32768)/((int16_t)100*md->speedDown);
         //-100..100 => 32768 ->  100*83886/256 = 32768,   For MAX we divide by 2 since it's asymmetrical
         if (tick10ms) {
-            int32_t rate = (int32_t)DEL_MULT*2048*100;
+            int32_t rate = (int32_t)DEL_MULT*2048*100*tick10ms;
             if(md->weight) rate /= abs(md->weight);
 
             act[i] = (diff>0) ? ((md->speedUp>0)   ? act[i]+(rate)/((int16_t)100*md->speedUp)   :  (int32_t)v*DEL_MULT) :
@@ -1813,6 +1812,11 @@ char userDataDisplayBuf[TELEM_SCREEN_BUFFER_SIZE];
 int32_t sum_chans512[NUM_CHNOUT] = {0};
 inline void doMixerCalculations()
 {
+  static uint16_t lastTMR;
+  uint16_t tmr10ms = get_tmr10ms();
+  uint8_t tick10ms = (tmr10ms - lastTMR);
+  lastTMR = tmr10ms;
+
   if (g_eeGeneral.filterInput == 1) {
     getADC_filt() ;
   }
@@ -1925,7 +1929,6 @@ inline void doMixerCalculations()
   s_cnt_1s++;
   s_sum_1s += val;
 
-  uint16_t tmr10ms = get_tmr10ms();
   if ((uint16_t)(tmr10ms - s_time_tot) >= 100) { // 1sec
     s_time_tot += 100;
     s_timeCumTot += 1;
@@ -1980,7 +1983,7 @@ inline void doMixerCalculations()
         lastSwPos[i] = swPos;
       }
 
-      if ( (s_timerVal_10ms[i] += 1 ) >= 100 ) {
+      if ( (s_timerVal_10ms[i] += tick10ms ) >= 100 ) {
         s_timerVal_10ms[i] -= 100 ;
 
         if (tv) s_timerVal[i] = tv - s_timerVal[i];
@@ -2054,16 +2057,16 @@ inline void doMixerCalculations()
     for (uint8_t p=0; p<MAX_PHASES; p++) {
       if (s_fade_flight_phases & (1<<p)) {
         if (p == phase) {
-          if (MAX_ACT - fp_act[p] > delta)
-            fp_act[p] += delta;
+          if (MAX_ACT - fp_act[p] > delta * tick10ms)
+            fp_act[p] += delta * tick10ms;
           else {
             fp_act[p] = MAX_ACT;
             s_fade_flight_phases -= (1<<p);
           }
         }
         else {
-          if (fp_act[p] > delta)
-            fp_act[p] -= delta;
+          if (fp_act[p] > delta * tick10ms)
+            fp_act[p] -= delta * tick10ms;
           else {
             fp_act[p] = 0;
             s_fade_flight_phases -= (1<<p);
@@ -2089,7 +2092,7 @@ void perMain()
 {
   static uint16_t lastTMR;
   uint16_t tmr10ms = get_tmr10ms();
-  tick10ms = (tmr10ms != lastTMR);
+  uint8_t tick10ms = (tmr10ms != lastTMR);
   lastTMR = tmr10ms;
 
 // TODO same code here + integrate the timer which could be common
