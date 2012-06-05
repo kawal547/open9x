@@ -474,6 +474,7 @@ extern uint8_t pxxFlag;
 
 extern char idx2char(int8_t idx);
 
+void clearKeyEvents();
 void pauseEvents(uint8_t enuk);
 void killEvents(uint8_t enuk);
 uint8_t getEvent();
@@ -761,7 +762,7 @@ extern int16_t applyCurve(int16_t, int8_t);
 extern void applyExpos(int16_t *anas);
 
 extern uint16_t anaIn(uint8_t chan);
-extern int16_t calibratedStick[7];
+extern int16_t calibratedStick[NUM_STICKS+NUM_POTS];
 
 #define FLASH_DURATION 50
 

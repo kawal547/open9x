@@ -40,7 +40,7 @@ const pm_uchar splashdata[] PROGMEM = { 'S','P','S',0,
 const pm_uchar * splash_lbm = splashdata+4;
 #endif
 
-#if defined(PCBV4) || defined(PCBARM)
+#if defined(PCBV4) || defined(PCBARM) || defined(EXTSTD)
 const pm_uchar asterisk_lbm[] PROGMEM = {
 #include "asterisk.lbm"
 };
@@ -399,6 +399,8 @@ int16_t applyLimits(uint8_t channel, int32_t value)
   return ofs;
 }
 
+int16_t calibratedStick[NUM_STICKS+NUM_POTS];
+int16_t g_chans512[NUM_CHNOUT];
 int16_t ex_chans[NUM_CHNOUT] = {0}; // Outputs (before LIMITS) of the last perMain
 #ifdef HELI
 int16_t cyc_anas[3] = {0};
@@ -750,8 +752,9 @@ void clearKeyEvents()
 #ifdef SIMU
     while (keyDown() && main_thread_running) sleep(1/*ms*/);
 #else
-    while (keyDown());  // loop until all keys are up
+    while (keyDown()) wdt_reset();  // loop until all keys are up
 #endif
+    memset(keys, 0, sizeof(keys));
     putEvent(0);
 }
 
@@ -862,6 +865,8 @@ void checkTHR()
       }
 
       checkBacklight();
+
+      wdt_reset();
   }
 }
 
@@ -904,6 +909,8 @@ void checkSwitches()
 
     checkBacklight();
 
+    wdt_reset();
+
 #ifdef SIMU
     if (!main_thread_running) return;
     sleep(1/*ms*/);
@@ -937,12 +944,12 @@ void message(const pm_char *title, const pm_char *t, const char *last)
 {
   lcd_clear();
 
-#if defined(PCBV4) || defined(PCBARM)
+#if defined(PCBV4) || defined(PCBARM) || defined(EXTSTD)
   lcd_img(2, 0, asterisk_lbm, 0, 0);
 #else
   lcd_putsAtt(0, 0, PSTR("(!)"), DBLSIZE);
 #endif
-#if defined(TRANSLATIONS_FR) || defined(TRANSLATIONS_IT)
+#if defined(TRANSLATIONS_FR) || defined(TRANSLATIONS_IT) || defined(TRANSLATIONS_CZ)
   lcd_putsAtt(6*FW, 0, STR_WARNING, DBLSIZE);
   lcd_putsAtt(6*FW, 2*FH, title, DBLSIZE);
 #else
@@ -1302,20 +1309,19 @@ FORCEINLINE void evalTrims()
   uint8_t phase = s_perout_flight_phase;
   for (uint8_t i=0; i<NUM_STICKS; i++) {
     // do trim -> throttle trim if applicable
-    // TODO avoid int32_t vv
-    int32_t vv = 2*RESX;
     int16_t trim = getTrimValue(phase, i);
     if (i==THR_STICK && g_model.thrTrim) {
       if (g_eeGeneral.throttleReversed)
         trim = -trim;
       int16_t v = anas[i];
-      vv = ((int32_t)trim-TRIM_MIN)*(RESX-v)/(2*RESX);
+      int32_t vv = ((int32_t)trim-TRIM_MIN)*(RESX-v)/(2*RESX);
+      trim = vv;
     }
     else if (trimsCheckTimer > 0) {
       trim = 0;
     }
 
-    trims[i] = (vv==2*RESX) ? trim*2 : (int16_t)vv*2; // if throttle trim -> trim low end
+    trims[i] = trim*2;
   }
 }
 
@@ -1723,12 +1729,16 @@ void perOut()
         if (tick10ms) {
             int32_t rate = (int32_t)DEL_MULT*2048*100;
             if(md->weight) rate /= abs(md->weight);
-            // TODO port optim er9x by Mike
+
             act[i] = (diff>0) ? ((md->speedUp>0)   ? act[i]+(rate)/((int16_t)100*md->speedUp)   :  (int32_t)v*DEL_MULT) :
                                 ((md->speedDown>0) ? act[i]-(rate)/((int16_t)100*md->speedDown) :  (int32_t)v*DEL_MULT) ;
         }
 
-        if(((diff>0) && (v<(act[i]/DEL_MULT))) || ((diff<0) && (v>(act[i]/DEL_MULT)))) act[i]=(int32_t)v*DEL_MULT; //deal with overflow
+        {
+          int32_t tmp = act[i]/DEL_MULT ;
+          if(((diff>0) && (v<tmp)) || ((diff<0) && (v>tmp))) act[i]=(int32_t)v*DEL_MULT; //deal with overflow
+        }
+
         v = act[i]/DEL_MULT;
       }
     }
@@ -2341,8 +2351,6 @@ ISR(TIMER3_CAPT_vect) // G: High frequency noise can cause stack overflo with IS
 #endif
 }
 
-extern uint16_t g_timeMain;
-
 /*
 // gruvin: Fuse declarations work if we use the .elf file for AVR Studio (v4)
 // instead of the Intel .hex files.  They should also work with AVRDUDE v5.10
@@ -2539,6 +2547,20 @@ uint16_t stack_free()
 
 int main(void)
 {
+  // The WDT remains active after a WDT reset -- at maximum clock speed. So it's
+  // important to disable it before commencing with system initialisation (or
+  // we could put a bunch more wdt_reset()s in. But I don't like that approach
+  // during boot up.)
+#if defined(PCBV4)
+  uint8_t mcusr_mirror = MCUSR; // save the WDT (etc) flags
+  MCUSR = 0; // must be zeroed before disabling the WDT
+#elif defined(PCBSTD)
+  uint8_t mcusr_mirror = MCUCSR;
+  MCUCSR = 0;
+#endif
+
+  wdt_disable();
+
   board_init();
 
   lcd_init();
@@ -2605,13 +2627,13 @@ int main(void)
 #endif
 
 #if defined(PCBV4)
-  if ((~MCUSR & (1 << WDRF)) && !g_eeGeneral.unexpectedShutdown)
+  if ((~mcusr_mirror & (1 << WDRF)) && !g_eeGeneral.unexpectedShutdown)
 #elif defined(PCBSTD)
-  if (~MCUCSR & (1 << WDRF))
+  if (~mcusr_mirror & (1 << WDRF))
 #else
   if (!g_eeGeneral.unexpectedShutdown)
 #endif
-   {
+  {
 #ifdef SPLASH
 #ifdef DSM2
     // TODO rather use another Model Parameter
@@ -2626,7 +2648,6 @@ int main(void)
 
     getADC_single();
     checkTHR();
-
     checkSwitches();
     checkAlarm();
   }
@@ -2723,6 +2744,9 @@ int main(void)
   g_eeGeneral.unexpectedShutdown=0;
   eeDirty(EE_GENERAL);
   eeCheck(true);
+#if defined(SDCARD)
+  closeLogs();
+#endif
   lcd_clear() ;
   refreshDisplay() ;
   soft_power_off();            // Only turn power off if necessary

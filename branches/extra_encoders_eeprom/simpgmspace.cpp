@@ -32,6 +32,9 @@
  */
 
 #include "open9x.h"
+#include <stdlib.h>
+#include <errno.h>
+#include <fcntl.h>
 
 volatile uint8_t pinb=0xff, pinc=0xff, pind, pine=0xff, ping=0xff, pinh=0xff, pinj=0xff, pinl=0;
 uint8_t portb, portc, porth=0, dummyport;
@@ -55,7 +58,7 @@ extern const char* eeprom_buffer_data;
 #endif
 
 uint8_t eeprom[EESIZE];
-sem_t eeprom_write_sem;
+sem_t *eeprom_write_sem;
 
 void setSwitch(int8_t swtch)
 {
@@ -103,8 +106,7 @@ void setSwitch(int8_t swtch)
 bool eeprom_thread_running = true;
 void *eeprom_write_function(void *)
 {
-  while (!sem_wait(&eeprom_write_sem)) {
-
+  while (!sem_wait(eeprom_write_sem)) {
     if (!eeprom_thread_running)
       return NULL;
 #if defined(PCBARM)
@@ -143,7 +145,6 @@ void *eeprom_write_function(void *)
     Spi_complete = 1;
 #endif
   }
-
   return 0;
 }
 
@@ -157,6 +158,10 @@ void *main_thread(void *)
 
   try {
 #endif
+
+    s_current_protocol = 255;
+
+    g_menuStackPtr = 0;
     g_menuStack[0] = menuMainView;
     g_menuStack[1] = menuProcModelSelect;
 
@@ -177,6 +182,8 @@ void *main_thread(void *)
       checkSwitches();
       checkAlarm();
     }
+
+    s_current_protocol = 0;
 
     while (main_thread_running) {
       perMain();
@@ -215,7 +222,12 @@ void StartEepromThread(const char *filename)
       fp = fopen(eepromFile, "w+");
     if (!fp) perror("error in fopen");
   }
-  sem_init(&eeprom_write_sem, 0, 0);
+#ifdef __APPLE__
+  eeprom_write_sem = sem_open("eepromsemaphore", O_CREAT);
+#else
+  eeprom_write_sem = (sem_t *)malloc(sizeof(sem_t));
+  sem_init(eeprom_write_sem, 0, 0);
+#endif
   eeprom_thread_running = true;
   assert(!pthread_create(&eeprom_thread_pid, NULL, &eeprom_write_function, NULL));
 }
@@ -223,7 +235,7 @@ void StartEepromThread(const char *filename)
 void StopEepromThread()
 {
   eeprom_thread_running = false;
-  sem_post(&eeprom_write_sem);
+  sem_post(eeprom_write_sem);
   pthread_join(eeprom_thread_pid, NULL);
 }
 
