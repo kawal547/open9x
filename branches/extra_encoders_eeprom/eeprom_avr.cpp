@@ -100,7 +100,7 @@ void eeWriteBlockCmp(const void *i_pointer_ram, uint16_t i_pointer_eeprom, size_
   eeprom_buffer_size = size+1;
 
 #ifdef SIMU
-  sem_post(&eeprom_write_sem);
+  sem_post(eeprom_write_sem);
 #elif defined (PCBARM)
 
 #elif defined (PCBV4)
@@ -546,16 +546,21 @@ const pm_char * eeBackupModel(uint8_t i_fileSrc)
   }
 #endif
 
+  wdt_reset();
+
   // check and create folder here
   strcpy_P(buf, STR_MODELS_PATH);
 #ifndef SIMU
   result = f_opendir(&archiveFolder, buf);
   if (result != FR_OK) {
-    result = f_mkdir(buf);
+    if (result == FR_NO_PATH)
+      result = f_mkdir(buf);
     if (result != FR_OK)
       return SDCARD_ERROR(result);
   }
 #endif
+
+  wdt_reset();
 
   buf[sizeof(MODELS_PATH)-1] = '/';
   eeLoadModelName(i_fileSrc, &buf[sizeof(MODELS_PATH)]);
@@ -595,6 +600,8 @@ const pm_char * eeBackupModel(uint8_t i_fileSrc)
     return SDCARD_ERROR(result);
   }
 
+  wdt_reset();
+
   result = f_write(&archiveFile, &g_eeGeneral.myVers, 1, &written);
   if (result != FR_OK) {
     return SDCARD_ERROR(result);
@@ -613,6 +620,7 @@ const pm_char * eeBackupModel(uint8_t i_fileSrc)
     if (result != FR_OK) {
       return SDCARD_ERROR(result);
     }
+    wdt_reset();
   }
 
   f_close(&archiveFile);
@@ -629,6 +637,8 @@ const pm_char * eeRestoreModel(uint8_t i_fileDst, char *model_name)
   if (result != FR_OK) {
     return SDCARD_ERROR(result);
   }
+
+  wdt_reset();
 
   strcpy_P(buf, STR_MODELS_PATH);
   buf[sizeof(MODELS_PATH)-1] = '/';
@@ -667,6 +677,7 @@ const pm_char * eeRestoreModel(uint8_t i_fileDst, char *model_name)
         s_sync_write = false;
         return STR_EEPROMOVERFLOW;
       }
+      wdt_reset();
     }
   } while (read == 15);
 
@@ -857,6 +868,15 @@ bool eeModelExists(uint8_t id)
 void eeLoadModel(uint8_t id)
 {
   if (id<MAX_MODELS) {
+
+#ifdef SDCARD
+    closeLogs();
+#endif
+
+    if (pulsesStarted()) {
+      pausePulses();
+    }
+
     theFile.openRlc(FILE_MODEL(id));
     uint16_t sz = theFile.readRlc((uint8_t*)&g_model, sizeof(g_model));
 
@@ -867,16 +887,22 @@ void eeLoadModel(uint8_t id)
 #endif
 
     if (sz < 256) {
-      // alert("Error Loading Model");
       modelDefault(id);
       eeCheck(true);
+    }
+
+    if (pulsesStarted()) {
+      checkTHR();
+      checkSwitches();
+      resumePulses();
+      clearKeyEvents();
     }
 
     resetProto();
     resetAll();
 
 #ifdef SDCARD
-    initLogs();
+    openLogs();
 #endif
   }
 }

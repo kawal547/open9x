@@ -44,6 +44,7 @@
 #endif
 
 uint8_t s_current_protocol = 255;
+uint8_t s_pulses_paused = 0;
 
 #ifdef DSM2_SERIAL
 inline void DSM2_EnableTXD(void)
@@ -59,7 +60,9 @@ void setupPulsesPPM16( uint8_t proto  ) ;
 
 void startPulses()
 {
-#ifndef SIMU
+#ifdef SIMU
+  s_current_protocol = g_model.protocol;
+#else
   setupPulses();
 
 #ifdef DSM2_SERIAL
@@ -118,15 +121,17 @@ ISR(TIMER1_COMPA_vect) //2MHz pulse generation
   else
 #endif
   {
-    // Orginal bitbang for PPM
+    // Original bitbang for PPM
 #if !defined(PCBV4)
-    if (pulsePol) {
-      PORTB |=  (1<<OUT_B_PPM); // GCC optimisation should result in a single SBI instruction
-      pulsePol = 0;
-    }
-    else {
-      PORTB &= ~(1<<OUT_B_PPM);
-      pulsePol = 1;
+    if (s_current_protocol != PROTO_NONE) {
+      if (pulsePol) {
+        PORTB |=  (1<<OUT_B_PPM); // GCC optimisation should result in a single SBI instruction
+        pulsePol = 0;
+      }
+      else {
+        PORTB &= ~(1<<OUT_B_PPM);
+        pulsePol = 1;
+      }
     }
 #endif
 
@@ -134,17 +139,19 @@ ISR(TIMER1_COMPA_vect) //2MHz pulse generation
 
 #if defined(PCBV4)
     OCR1B = *((uint16_t*)pulses2MHzRPtr); /* G: Using timer in CTC mode, restricted to using OCR1A for interrupt triggering.
-                                So we actually have to handle the OCR1B register separately in this way. */
+                                                So we actually have to handle the OCR1B register separately in this way. */
 
     // We cannot read the status of the PPM_OUT pin when OC1B is connected to it on the ATmega2560.
     // So the only way to set polarity is to manually control set/reset mode in COM1B0/1
-    if (pulsePol) {
-      TCCR1A = (3<<COM1B0); // SET the state of PB6(OC1B) on next TCNT1==OCR1B
-      pulsePol = 0;
-    }
-    else {
-      TCCR1A = (2<<COM1B0); // CLEAR the state of PB6(OC1B) on next TCNT1==OCR1B
-      pulsePol = 1;
+    if (s_current_protocol != PROTO_NONE) {
+      if (pulsePol) {
+        TCCR1A = (3<<COM1B0); // SET the state of PB6(OC1B) on next TCNT1==OCR1B
+        pulsePol = 0;
+      }
+      else {
+        TCCR1A = (2<<COM1B0); // CLEAR the state of PB6(OC1B) on next TCNT1==OCR1B
+        pulsePol = 1;
+      }
     }
 #endif
 
@@ -163,8 +170,7 @@ ISR(TIMER1_COMPA_vect) //2MHz pulse generation
 
       setupPulses();
 
-      // TODO test that it's optimized
-      if (!IS_PXX_PROTOCOL(g_model.protocol) && !IS_DSM2_PROTOCOL(g_model.protocol)) {
+      if (!IS_PXX_PROTOCOL(s_current_protocol) && !IS_DSM2_PROTOCOL(s_current_protocol)) {
 
         // cli is not needed because for these 2 protocols interrupts are not enabled when entering here
 
@@ -694,6 +700,8 @@ static void setupPulsesPiccoZ(uint8_t chn)
 void setupPulses()
 {
   uint8_t required_protocol = g_model.protocol;
+  if (s_pulses_paused)
+    required_protocol = PROTO_NONE;
 
   if (s_current_protocol != required_protocol) {
 
@@ -711,7 +719,7 @@ void setupPulses()
 #if defined(PCBV4)
         TIMSK1 &= ~0x3C;       // All interrupts off
         TIFR1 = 0x2F;
-        TIMSK1 |= 0x28;        // Enable CAPT and COMPB
+        TIMSK1 |= 0x28;        // Enable CAPT and COMPC
 #else
         TIMSK &= ~0x3C;        // All interrupts off
         TIFR = 0x3C;
@@ -754,7 +762,7 @@ void setupPulses()
         TCNT1 = 0 ;
 #if defined(PCBV4)
         TIMSK1 &= ~0x3C; // All interrupts off
-        TIMSK3 &= ~(1<<OCIE1C) ;            // COMPC1 off
+        TIMSK1 &= ~(1<<OCIE1C) ;            // COMPC1 off
         TIFR1 = 0x2F;
         TIMSK1 |= 0x10; // Enable COMPA
 #else
@@ -777,7 +785,7 @@ void setupPulses()
         TCNT1 = 0 ;
 #if defined(PCBV4)
         TIMSK1 &= ~0x3C; // All interrupts off
-        TIMSK3 &= ~(1<<OCIE1C) ;            // COMPC1 off
+        TIMSK1 &= ~(1<<OCIE1C) ;            // COMPC1 off
         TIFR1 = 0x2F;
 #else
         TIMSK &= ~0x3C ;    // All interrupts off

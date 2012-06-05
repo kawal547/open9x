@@ -138,12 +138,14 @@ bool listSDcardModels()
 #endif
 
   s_menu_count = 0;
+  s_menu_more = false;
   s_menu_flags = BSS;
   uint8_t offset = 0;
 
   FRESULT res = f_opendir(&dir, MODELS_PATH);        /* Open the directory */
   if (res == FR_OK) {
     for (;;) {
+      wdt_reset();
       res = f_readdir(&dir, &fno);                   /* Read a directory item */
       if (res != FR_OK || fno.fname[0] == 0) break;  /* Break on error or end of dir */
       if (fno.fname[0] == '.') continue;             /* Ignore dot entry */
@@ -242,9 +244,7 @@ void menuProcModelSelect(uint8_t event)
   {
       case EVT_ENTRY:
         m_posVert = sub = g_eeGeneral.currModel;
-        s_copyMode = 0; // TODO only this one?
-        s_copyTgtOfs = 0;
-        s_copySrcRow = -1;
+        s_copyMode = 0;
         s_editMode = -1;
         eeCheck(true);
         break;
@@ -257,10 +257,8 @@ void menuProcModelSelect(uint8_t event)
         // no break
       case EVT_KEY_BREAK(KEY_EXIT):
         if (s_copyMode) {
-          sub = m_posVert = (s_copyMode == MOVE_MODE || s_copySrcRow<0) ? (MAX_MODELS+sub+s_copyTgtOfs) % MAX_MODELS : s_copySrcRow; // TODO reset s_copySrcRow?
-          s_copyMode = 0; // TODO only this one?
-          s_copySrcRow = -1;
-          s_copyTgtOfs = 0;
+          sub = m_posVert = (s_copyMode == MOVE_MODE || s_copySrcRow<0) ? (MAX_MODELS+sub+s_copyTgtOfs) % MAX_MODELS : s_copySrcRow;
+          s_copyMode = 0;
           killEvents(_event);
         }
         break;
@@ -305,9 +303,7 @@ void menuProcModelSelect(uint8_t event)
             STORE_GENERALVARS;
           }
 
-          s_copyMode = 0; // TODO only this one?
-          s_copySrcRow = -1;
-          s_copyTgtOfs = 0;
+          s_copyMode = 0;
           return;
         }
         else if (_event == EVT_KEY_LONG(KEY_MENU) || IS_RE_NAVIGATION_EVT_TYPE(_event, EVT_KEY_LONG)) {
@@ -342,6 +338,8 @@ void menuProcModelSelect(uint8_t event)
         }
         else if (eeModelExists(sub)) {
           s_copyMode = (s_copyMode == COPY_MODE ? MOVE_MODE : COPY_MODE);
+          s_copyTgtOfs = 0;
+          s_copySrcRow = -1;
         }
         break;
       case EVT_KEY_FIRST(KEY_LEFT):
@@ -367,9 +365,7 @@ void menuProcModelSelect(uint8_t event)
               // no free room for duplicating the model
               AUDIO_ERROR();
               m_posVert = oldSub;
-              s_copyMode = 0; // TODO only this one?
-              s_copyTgtOfs = 0;
-              s_copySrcRow = -1;
+              s_copyMode = 0;
             }
             next_ofs = 0;
             sub = m_posVert;
@@ -424,7 +420,7 @@ void menuProcModelSelect(uint8_t event)
       putsModelName(4*FW, y, name, k, 0);
       lcd_outdezAtt(20*FW, y, size, 0);
 #endif
-      if (k==g_eeGeneral.currModel && (s_copySrcRow<0 || i+s_pgOfs!=sub)) lcd_putc(1, y, '*');
+      if (k==g_eeGeneral.currModel && (s_copyMode!=COPY_MODE || s_copySrcRow<0 || i+s_pgOfs!=sub)) lcd_putc(1, y, '*');
     }
 
     if (s_copyMode && sub==i+s_pgOfs) {
@@ -459,6 +455,7 @@ void menuProcModelSelect(uint8_t event)
   if (s_menu_count) {
     const char * result = displayMenu(event);
     if (result) {
+      refresh = true;
       if (result == STR_SELECT_MODEL || result == STR_CREATE_MODEL) {
         displayPopup(STR_LOADINGMODEL);
         eeCheck(true); // force writing of current model data before this is changed
@@ -475,6 +472,7 @@ void menuProcModelSelect(uint8_t event)
       else if (result == STR_RESTORE_MODEL || result == STR_UPDATE_LIST) {
         if (!listSDcardModels()) {
           s_sdcard_error = PSTR("No Models on SD");
+          s_menu_flags = 0;
         }
       }
       else if (result == STR_DELETE_MODEL) {
@@ -484,8 +482,7 @@ void menuProcModelSelect(uint8_t event)
         // The user choosed a file on SD to restore
         s_sdcard_error = eeRestoreModel(sub, (char *)result);
         if (!s_sdcard_error && g_eeGeneral.currModel == sub)
-          eeLoadModel(sub); // force writing of current model data before this is changed
-        refresh = true;
+          eeLoadModel(sub);
       }
     }
   }
@@ -505,7 +502,6 @@ void EditName(uint8_t x, uint8_t y, char *name, uint8_t size, uint8_t event, boo
           || event==EVT_KEY_REPT(KEY_DOWN) || event==EVT_KEY_REPT(KEY_UP)) {
          v = checkIncDec(event, abs(v), 0, ZCHAR_MAX, 0);
          if (c < 0) v = -v;
-         STORE_MODELVARS;
       }
 
       switch (event) {
@@ -531,14 +527,16 @@ void EditName(uint8_t x, uint8_t y, char *name, uint8_t size, uint8_t event, boo
         case EVT_KEY_LONG(KEY_RIGHT):
           if (v>=-26 && v<=26) {
             v = -v; // toggle case
-            STORE_MODELVARS; // TODO optim if (c!=v) at the end
             if (event==EVT_KEY_LONG(KEY_LEFT))
               killEvents(KEY_LEFT);
           }
           break;
       }
 
-      name[cur] = v;
+      if (c != v) {
+        name[cur] = v;
+        STORE_MODELVARS;
+      }
       lcd_putcAtt(x+cur*FW, y, idx2char(v), INVERS);
       cur = next;
     }
@@ -1851,13 +1849,25 @@ void menuProcMixAll(uint8_t event)
   return menuProcExpoMix(0, event);
 }
 
-void menuProcLimits(uint8_t event)
+bool thrOutput(uint8_t ch)
+{
+  for (uint8_t i=0; i<MAX_MIXERS; i++) {
+    MixData *mix = mixaddress(i);
+    if (mix->destCh==ch && mix->srcRaw==MIXSRC_Thr)
+      return true;
+  }
+  return false;
+}
+
+void menuProcLimits(uint8_t _event)
 {
 #ifdef PPM_CENTER_ADJUSTABLE
 #define LIMITS_ITEMS_COUNT 4
 #else
 #define LIMITS_ITEMS_COUNT 3
 #endif
+
+  uint8_t event = (s_warning ? 0 : _event);
 
   MENU(STR_MENULIMITS, menuTabModel, e_Limits, 1+NUM_CHNOUT+1, {0, LIMITS_ITEMS_COUNT, LIMITS_ITEMS_COUNT, LIMITS_ITEMS_COUNT, LIMITS_ITEMS_COUNT, LIMITS_ITEMS_COUNT, LIMITS_ITEMS_COUNT, LIMITS_ITEMS_COUNT, LIMITS_ITEMS_COUNT, LIMITS_ITEMS_COUNT, LIMITS_ITEMS_COUNT, LIMITS_ITEMS_COUNT, LIMITS_ITEMS_COUNT, LIMITS_ITEMS_COUNT, LIMITS_ITEMS_COUNT, LIMITS_ITEMS_COUNT, LIMITS_ITEMS_COUNT, 0});
 
@@ -1869,6 +1879,13 @@ void menuProcLimits(uint8_t event)
     lcd_puts(12*FW, 0, STR_US);
   }
 #endif
+
+  if (s_confirmation) {
+    LimitData *ld = limitaddress(sub);
+    ld->revert = !ld->revert;
+    s_confirmation = 0;
+    AUDIO_WARNING2();
+  }
 
   for (uint8_t i=0; i<7; i++) {
     uint8_t y = (i+1)*FH;
@@ -1957,7 +1974,14 @@ void menuProcLimits(uint8_t event)
           lcd_putsiAtt(18*FW, y, STR_MMMINV, ld->revert, attr);
 #endif
           if (active) {
-            CHECK_INCDEC_MODELVAR(event, ld->revert, 0, 1);
+            bool revert_new = checkIncDecModel(event, ld->revert, 0, 1);
+            if (checkIncDec_Ret && thrOutput(k)) {
+              s_warning = STR_INVERT_THR;
+              killEvents(event);
+              _event = 0;
+            }
+            else
+              ld->revert = revert_new;
           }
           break;
 #ifdef PPM_CENTER_ADJUSTABLE
@@ -1970,6 +1994,10 @@ void menuProcLimits(uint8_t event)
 #endif
       }
     }
+  }
+
+  if (s_warning) {
+    displayConfirmation(_event);
   }
 }
 

@@ -1,18 +1,18 @@
 // NON ZERO TERMINATED STRINGS
 #define LEN_OFFON        "\003"
-#define TR_OFFON         "OFF""ON "
+#define TR_OFFON         "OFF""ON\0"
 
 #define LEN_MMMINV       "\003"
 #define TR_MMMINV        "---""INV"
 
 #define LEN_NCHANNELS    "\004"
-#define TR_NCHANNELS     "4CH 6CH 8CH 10CH12CH14CH16CH"
+#define TR_NCHANNELS     "\0014CH\0016CH\0018CH10CH12CH14CH16CH"
 
 #define LEN_VBEEPMODE    "\005"
 #define TR_VBEEPMODE     "Silen""Avvis""Notst""Tutti"
 
 #define LEN_VBEEPLEN     "\005"
-#define TR_VBEEPLEN      "0====""=0===""==0==""===0=""====0"
+#define TR_VBEEPLEN      "+Cort""Corta""Media""Lunga""+Lung"
 
 #define LEN_VRENAVIG     "\003"
 #define TR_VRENAVIG      "No REaREb"
@@ -54,7 +54,12 @@
 #else
 #define TR_DSM2 "[DSM2]"
 #endif
-#define TR_VPROTOS       "PPM\0  ""PPM16\0""PPMsim" TR_PXX TR_DSM2
+#ifdef IRPROTOS
+#define TR_IRPROTOS "SILV  TRAC09PICZ  SWIFT\0"
+#else
+#define TR_IRPROTOS
+#endif
+#define TR_VPROTOS       "PPM\0  ""PPM16\0""PPMsim" TR_PXX TR_DSM2 TR_IRPROTOS
 
 #define LEN_POSNEG       "\003"
 #define TR_POSNEG        "POS""NEG"
@@ -71,7 +76,7 @@
 #else
 #define TR_EXPLABEL_FP
 #endif
-#define TR_EXPLABELS     "Peso  ""Expo  ""Curva " TR_EXPLABEL_FP "Switch""Lato ""      " // TODO remove all the trailing spaces
+#define TR_EXPLABELS     "Peso  ""Expo  ""Curva " TR_EXPLABEL_FP "Switch""Lato  ""\0"
 
 #define LEN_VMLTPX       "\010"
 #define TR_VMLTPX        "Aggiungi""Moltipl.""Riscrivi"
@@ -86,7 +91,7 @@
 #define TR_VCSWFUNC      "----\0  ""v>ofs  ""v<ofs  ""|v|>ofs""|v|<ofs""AND    ""OR     ""XOR    ""v1==v2 ""v1!=v2 ""v1>v2  ""v1<v2  ""v1>=v2 ""v1<=v2 "
 
 #define LEN_VFSWFUNC     "\015"
-#if defined(FRSKY_HUB) || defined(WS_HOW_HIGH)
+#if defined(VARIO)
 #define TR_VVARIO        "Vario\0       "
 #else
 #define TR_VVARIO        "[Vario]\0     "
@@ -161,7 +166,7 @@
 #endif
 
 #define LEN_VARIOSRC     "\006"
-#define TR_VARIOSRC      "BaroV1""BaroV2""A1    ""A2    "
+#define TR_VARIOSRC      "BaroV1""BaroV2""A1\0   ""A2\0"
 
 #define LEN_GPSFORMAT    "\004"
 #define TR_GPSFORMAT     "HMS NMEA"
@@ -171,7 +176,7 @@
 #define TR_VTEMPLATES    "Clear Mixes\0\0""Simple 4-CH \0""T-Cut       \0""V-Tail      \0""Elevon\\Delta\0""eCCPM       \0""Heli Setup  \0""Servo Test  \0"
 
 #define LEN_VSWASHTYPE   "\004"
-#define TR_VSWASHTYPE    "--- ""120 ""120X""140 ""90  "
+#define TR_VSWASHTYPE    "--- ""120 ""120X""140 ""90\0"
 
 #define LEN_VKEYS        "\005"
 #define TR_VKEYS         " Men\200"" EXIT""  DN ""   UP""   SX""   DX"
@@ -215,7 +220,7 @@
 #define TR_MENUWHENDONE "[Men\200] Conferma"
 #define TR_FREE         " Disp."
 #define TR_DELETEMODEL  "Elimina modello?"
-#define TR_COPYINGMODEL "Copia in corso..."
+#define TR_COPYINGMODEL "Copia in corso.."
 #define TR_MOVINGMODEL  "Spostamento..."
 #define TR_LOADINGMODEL "Caricamento..."
 #define TR_NAME         "Nome"
@@ -298,7 +303,7 @@
 #define TR_LIGHTOFFAFTER "Spegni ill.dopo"
 #define TR_SPLASHSCREEN  "Schermata avvio"
 #define TR_THROTTLEWARNING "All. Thr  "
-#define TR_SWITCHWARNING "Avviso Switch "
+#define TR_SWITCHWARNING "Avv. SW.      "
 #define TR_MEMORYWARNING "Avviso Memoria"
 #define TR_ALARMWARNING "Avviso Allarme"
 #define TR_TIMEZONE     "Ora locale"
@@ -392,3 +397,4 @@
 #define TR_THROTTLEWARN  "MOTORE"
 #define TR_ALARMSWARN    "ALLARMI"
 #define TR_SWITCHWARN    "SWITCH"
+#define TR_INVERT_THR    "Invert Thr?"

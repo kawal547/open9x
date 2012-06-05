@@ -345,7 +345,7 @@ extern const pm_char STR_MENUSTAT[];
 extern const pm_char STR_MENUDEBUG[];
 extern const pm_char STR_RXNUM[];
 extern const pm_char STR_SYNCMENU[];
-#endif
+extern const pm_char STR_INVERT_THR[];
 
 #if defined(ROTARY_ENCODERS)
 extern const pm_char STR_BACK[];
@@ -390,6 +390,7 @@ extern const pm_char STR_RESTORE_MODEL[];
 extern const pm_char STR_SDCARD_ERROR[];
 extern const pm_char STR_NO_SDCARD[];
 extern const pm_char STR_LOGS_PATH[];
+extern const pm_char STR_LOGS_EXT[];
 extern const pm_char STR_MODELS_PATH[];
 extern const pm_char STR_MODELS_EXT[];
 #define STR_UPDATE_LIST STR_DELAYDOWN
@@ -403,3 +404,5 @@ extern const pm_char STR_EEPROMWARN[];
 extern const pm_char STR_THROTTLEWARN[];
 extern const pm_char STR_ALARMSWARN[];
 extern const pm_char STR_SWITCHWARN[];
+
+#endif

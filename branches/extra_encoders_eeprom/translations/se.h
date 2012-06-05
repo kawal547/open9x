@@ -6,7 +6,7 @@
 #define TR_MMMINV        "---""INV"
 
 #define LEN_NCHANNELS    "\004"
-#define TR_NCHANNELS     "4CH 6KN 8KN 10KN12KN14KN16KN"
+#define TR_NCHANNELS     "4KN 6KN 8KN 10KN12KN14KN16KN"
 
 #define LEN_VBEEPMODE    "\005"
 #define TR_VBEEPMODE     "Tyst ""Alarm""EjKnp""Alla "
@@ -24,13 +24,13 @@
 #define TR_TRNMODE       " AV"" +="" :="
 
 #define LEN_TRNCHN       "\003"
-#define TR_TRNCHN        "kn1kn2kn3kn4"
+#define TR_TRNCHN        "KN1KN2KN3KN4"
 
 #define LEN_DATETIME     "\005"
 #define TR_DATETIME      "DAG: ""TID: "
 
 #define LEN_VTRIMINC     "\006"
-#define TR_VTRIMINC      "Exp   ""xFin  ""Fin   ""Medel.""Grov  "
+#define TR_VTRIMINC      "Exp   ""xFin  ""Fin   ""Medium""Grov  "
 
 #define LEN_RETA123      "\001"
 #if defined(PCBV4)
@@ -71,10 +71,10 @@
 #else
 #define TR_EXPLABEL_FP
 #endif
-#define TR_EXPLABELS     "Vikt  ""Expo  ""Kurva " TR_EXPLABEL_FP "Brytar""N\201r   ""      " // TODO remove all the trailing spaces
+#define TR_EXPLABELS     "Vikt  ""Expo  ""Kurva " TR_EXPLABEL_FP "Brytar""N\201r   ""\0"
 
 #define LEN_VMLTPX       "\010"
-#define TR_VMLTPX        "Addera  ""F\202rst\201rk""Ers\201tt  "
+#define TR_VMLTPX        "Addera  ""F\202rst\201rk""Ers\201tt\0"
 
 #define LEN_VMLTPX2      "\002"
 #define TR_VMLTPX2       "+=""*="":="
@@ -83,7 +83,7 @@
 #define TR_VMIXTRIMS     "AV ""P\203 ""Rod""Hjd""Gas""Ske"
 
 #define LEN_VCSWFUNC     "\007"
-#define TR_VCSWFUNC      "----\0  ""v>ofs  ""v<ofs  ""(v)>ofs""(v)<ofs""AND    ""OR     ""XOR    ""v1==v2 ""v1!=v2 ""v1>v2  ""v1<v2  ""v1>=v2 ""v1<=v2 "
+#define TR_VCSWFUNC      " ---\0  "" X>Y   "" X<Y   "" (X)>Y "" (X)<Y "" AND   "" OR    "" XOR   "" X=Y   "" X!=Y  "" X>Y   "" X<Y   "" X>=Y  "" X<=Y  "
 
 #define LEN_VFSWFUNC     "\015"
 #if defined(VARIO)
@@ -121,10 +121,10 @@
 #else
 #define TR_TEST
 #endif
-#define TR_VFSWFUNC      "S\201kerh.\0     ""Trainer \0    ""Instant Trim " TR_SOUND TR_HAPTIC TR_SOMO "Reset\0       " TR_VVARIO TR_SDCLOGS TR_TEST
+#define TR_VFSWFUNC      "S\201kra\0       ""Trainer\0     ""S\201tt Trim    " TR_SOUND TR_HAPTIC TR_SOMO "Nollst\201ll    " TR_VVARIO TR_SDCLOGS TR_TEST
 
 #define LEN_VFSWRESET    "\006"
-#define TR_VFSWRESET     "Timer1""Timer2""All   ""Telem."
+#define TR_VFSWRESET     "Timer1""Timer2""Allt  ""Telem."
 
 #define LEN_FUNCSOUNDS   "\006"
 #define TR_FUNCSOUNDS    "Varn1 ""Varn2 ""F\200r   ""Ring  ""SciFi ""Robot ""Pip   ""Tada  ""Syrsa ""Siren ""Alarm ""Ratata""Tick  "
@@ -133,11 +133,11 @@
 #define TR_VTELEMCHNS    "---\0""Tmr1""Tmr2""A1\0 ""A2\0 ""Tx\0 ""Rx\0 ""H\202jd""Varv""Tank""T1\0 ""T2\0 ""Fart""Avst""GHjd""Batt""AccX""AccY""AccZ""Hdg\0""VFrt""A1-\0""A2-\0""Hjd-""Hjd+""Rpm+""T1+\0""T2+\0""Frt+""Avs+""Acc\0""Tid\0"
 
 #ifdef IMPERIAL_UNITS
-#define LENGTH_UNIT "fot"
-#define SPEED_UNIT  "knp"
+#define LENGTH_UNIT      "fot"
+#define SPEED_UNIT       "knp"
 #else
-#define LENGTH_UNIT "m\0 "
-#define SPEED_UNIT  "kmh"
+#define LENGTH_UNIT      "m\0 "
+#define SPEED_UNIT       "kmh"
 #endif
 
 #define LEN_VTELEMUNIT   "\003"
@@ -161,7 +161,7 @@
 #endif
 
 #define LEN_VARIOSRC     "\006"
-#define TR_VARIOSRC      "BaroV1""BaroV2""A1    ""A2    "
+#define TR_VARIOSRC      "BaroV1""BaroV2""A1    ""A2\0"
 
 #define LEN_GPSFORMAT    "\004"
 #define TR_GPSFORMAT     "HMS NMEA"
@@ -174,7 +174,7 @@
 #define TR_VTEMPLATES    "Nolla Mixar\0\0""Enkel 4kanal\0""Gasklippning\0""V-Stj\201rt    \0""Deltavinge  \0""eCCPM       \0""Helikopter  \0""Servotest   \0"
 
 #define LEN_VSWASHTYPE   "\004"
-#define TR_VSWASHTYPE    "--- ""120 ""120X""140 ""90  "
+#define TR_VSWASHTYPE    "--- ""120 ""120X""140 ""90\0"
 
 #define LEN_VKEYS        "\005"
 #define TR_VKEYS         " MENU"" EXIT""  Ned""  Upp""H\202ger""V\201nst"
@@ -211,7 +211,6 @@
 
 #define LEN_DSM2MODE     "\007"
 #define TR_DSM2MODE      "LP4/LP5DSMonlyDSMX   "
-
 // ZERO TERMINATED STRINGS
 #define TR_POPUPS       "[MENU]\004[EXIT]"
 #define OFS_EXIT        7
@@ -267,7 +266,7 @@
 #define TR_DELAYUP      "F\202rdr\202jn.Upp"
 #define TR_SLOWDOWN     "Tr\202ghet Ned"
 #define TR_SLOWUP       "Tr\202ghet Upp"
-#define TR_MIXER        "MIXER"
+#define TR_MIXER        "MIXAR"
 #define TR_CV           "KU"
 #define TR_ACHANNEL     "A\002kanal  "
 #define TR_RANGE        "Omr\200de"
@@ -282,8 +281,8 @@
 #define TR_BEEPERLEN    "H\202gtalare tid"
 #define TR_SPKRPITCH    "H\202gtalare ton"
 #else
-#define TR_BEEPERMODE   "Summer l\201ge"
-#define TR_BEEPERLEN    "Summer tid"
+#define TR_BEEPERMODE   "Summer-l\201ge"
+#define TR_BEEPERLEN    "Summer-tid"
 #endif
 #define TR_HAPTICMODE   "Vibrator l\201ge"
 #define TR_HAPTICSTRENGTH "Vibrator Niv\200"
@@ -293,7 +292,7 @@
 #define TR_INACTIVITYALARM "Inaktivitetslarm"
 #define TR_RENAVIG      "Navig RotEnc"
 #define TR_FILTERADC    "ADC-filter"
-#define TR_THROTTLEREVERSE "Inverterad Gas"
+#define TR_THROTTLEREVERSE "Reverserad Gas"
 #define TR_MINUTEBEEP   "Minutpip"
 #define TR_BEEPCOUNTDOWN "Nedr\201kningspip"
 #define TR_FLASHONBEEP  "Pip vid blink"
@@ -301,7 +300,7 @@
 #define TR_LIGHTOFFAFTER "Ljus av efter"
 #define TR_SPLASHSCREEN  "Bild vid start"
 #define TR_THROTTLEWARNING "Gasvarn."
-#define TR_SWITCHWARNING "Brytarvarning"
+#define TR_SWITCHWARNING "Bryt.varn."
 #define TR_MEMORYWARNING "Minnesvarning"
 #define TR_ALARMWARNING "Alarmvarning"
 #define TR_TIMEZONE     "Tidszon"
@@ -354,7 +353,7 @@
 #define TR_MENUCALIBRATION "KALIBRERING"
 #define TR_TRIMS2OFFSETS "[Spara Trimv\201rden]"
 #define TR_MENUMODELSEL "MODELL"
-#define TR_MENUSETUP    "KONF."
+#define TR_MENUSETUP    "V\204RDEN"
 #define TR_MENUFLIGHTPHASE "FLYGFAS"
 #define TR_MENUFLIGHTPHASES "FLYGFASER"
 #define TR_MENUHELISETUP "HELIKOPTER"
@@ -362,8 +361,8 @@
 #define TR_MENULIMITS   "GR\204NSER"
 #define TR_MENUCURVES   "KURVOR"
 #define TR_MENUCURVE    "KURVA"
-#define TR_MENUCUSTOMSWITCHES "SPEC.BRYTARE"
-#define TR_MENUFUNCSWITCHES "FUNK.BRYTARE"
+#define TR_MENUCUSTOMSWITCHES "LOGISKA BRYTARE"
+#define TR_MENUFUNCSWITCHES "BRYTAR-EFFEKTER"
 #define TR_MENUTELEMETRY "TELEMETRI"
 #define TR_MENUTEMPLATES "MALLAR"
 #define TR_MENUSTAT      "STATSISTIK"
@@ -382,7 +381,7 @@
 #define TR_UNITSFORMAT   "Enhetsformat"
 #define TR_SHUTDOWN      "ST\204NGER AV"
 #define TR_BATT_CALIB    "Kalib. Batteri"
-#define TR_CURRENT_CALIB "Kalib. Spänning"
+#define TR_CURRENT_CALIB "Kalib. Sp\201nning"
 #define TR_CURRENT       "Sp\201nning"
 #define TR_SELECT_MODEL  "V\201lj Modell"
 #define TR_CREATE_MODEL  "Skapa Modell"
@@ -396,3 +395,4 @@
 #define TR_THROTTLEWARN  "GAS"
 #define TR_ALARMSWARN    "ALARM"
 #define TR_SWITCHWARN    "BRYTARE"
+#define TR_INVERT_THR    "Revers.Gas?"

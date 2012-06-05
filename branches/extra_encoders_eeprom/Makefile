@@ -256,6 +256,11 @@ ifeq ($(FLIGHT_PHASES), YES)
   CPPDEFS += -DFLIGHT_PHASES
 endif
 
+# If STD-Support is enabled
+ifeq ($(EXT), STD)
+  CPPDEFS += -DEXTSTD
+endif
+
 # If ARDUPILOT-Support is enabled
 ifeq ($(EXT), ARDUPILOT)
   CPPDEFS += -DARDUPILOT
@@ -615,7 +620,7 @@ FOXLIB=-L/usr/local/lib \
        -lFOX-1.6 \
        -Wl,-rpath,$(FOXPATH)/src/.libs
 
-simu: $(BOARDSRC) $(CPPSRC) Makefile simu.cpp simpgmspace.cpp *.h *.lbm eeprom.bin
+simu: stamp_header $(BOARDSRC) $(CPPSRC) Makefile simu.cpp simpgmspace.cpp *.h *.lbm eeprom.bin
 	g++ simu.cpp $(CPPFLAGS) $(BOARDSRC) $(CPPSRC) simpgmspace.cpp $(ARCH) -MD -DSIMU -o simu $(FOXINC) $(FOXLIB) -pthread
 
 eeprom.bin:
@@ -702,6 +707,7 @@ clean_list :
 	$(REMOVE) *.d
 	$(REMOVE) *.lst
 	$(REMOVE) allsrc.cpp
+	$(REMOVE) stamp-open9x.h
 
 #### GOOGLE TESTS 
 

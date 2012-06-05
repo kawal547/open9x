@@ -12,7 +12,7 @@
 #define TR_VBEEPMODE     "Tich\212""Alarm""BezKL""V\207e  "
 
 #define LEN_VBEEPLEN     "\005"
-#define TR_VBEEPLEN      "0====""=0===""==0==""===0=""====0"
+#define TR_VBEEPLEN      "O====""=O===""==O==""===O=""====O"
 
 #define LEN_VRENAVIG     "\003"
 #define TR_VRENAVIG      "Ne REaREb"
@@ -76,7 +76,7 @@
 #else
 #define TR_EXPLABEL_FP
 #endif
-#define TR_EXPLABELS     "V\200ha  ""Expo  ""K\206ivka" TR_EXPLABEL_FP "Sp\204na\201""Strana""      " // TODO remove all the trailing spaces
+#define TR_EXPLABELS     "V\200ha  ""Expo  ""K\206ivka" TR_EXPLABEL_FP "Sp\204na\201""Strana""\0"
 
 #define LEN_VMLTPX       "\010"
 #define TR_VMLTPX        "Se\201\204st  ""N\200sobit ""Zam\203nit  "
@@ -113,9 +113,9 @@
 #define TR_SDCLOGS       "[SDCARD Logs]"
 #endif
 #if defined(SOMO)
-#define TR_SOMO          "Play Track\0  "
+#define TR_SOMO          "P\206ehr\200t stopu"
 #else
-#define TR_SOMO          "[Play Track]\0"
+#define TR_SOMO          "[Hr\200t stopu]\0"
 #endif
 #else
 #define TR_SDCLOGS
@@ -166,7 +166,7 @@
 #endif
 
 #define LEN_VARIOSRC     "\006"
-#define TR_VARIOSRC      "BaroV1""BaroV2""A1    ""A2    "
+#define TR_VARIOSRC      "BaroV1""BaroV2""A1\0   ""A2\0"
 
 #define LEN_GPSFORMAT    "\004"
 #define TR_GPSFORMAT     "HMS NMEA"
@@ -176,7 +176,7 @@
 #define TR_VTEMPLATES    "Smazat Mixy\0\0""Z\200kl. 4kan\200l\0""T-Cut       \0""V-Ocas      \0""Elevon\\Delta\0""eCCPM       \0""Heli Setup  \0""Servo Test  \0"
 
 #define LEN_VSWASHTYPE   "\004"
-#define TR_VSWASHTYPE    "--- ""120 ""120X""140 ""90  "
+#define TR_VSWASHTYPE    "--- ""120 ""120X""140 ""90\0"
 
 #define LEN_VKEYS        "\005"
 #define TR_VKEYS         " Menu"" Exit"" Dol\211""Nhoru""Vprvo""Vlevo"
@@ -304,7 +304,7 @@
 #define TR_SPLASHSCREEN  "\210vodn\204Logo"
 #define TR_THROTTLEWARNING "Upoz:Plyn"
 #define TR_SWITCHWARNING ":=Sp\204na\201e"
-#define TR_MEMORYWARNING "UpozNaPlnPam\203t"
+#define TR_MEMORYWARNING "UpozNaPlnPam\203t'"
 #define TR_ALARMWARNING "UpozNaVypZvuk"
 #define TR_TIMEZONE     "\201asov\202 p\200smo"
 #define TR_RXCHANNELORD "Po\206ad\204 Kan\200l\211"
@@ -338,11 +338,11 @@
 #define TR_CH           "CH"
 #define TR_MODEL        "MODEL"
 #define TR_FP           "FP"
-#define TR_EEPROMLOWMEM "EEPROM low mem"
+#define TR_EEPROMLOWMEM "Doch\200z\204 EEPROM"
 #define TR_ALERT        "\003(!)POZOR"
 #define TR_PRESSANYKEYTOSKIP "Kl\200vesa >>> p\206esko\201it"
 #define TR_THROTTLENOTIDLE "P\200ka plynu je pohnut\200."
-#define TR_ALARMSDISABLED "Alarmy Zak\200z\200ny"
+#define TR_ALARMSDISABLED "Alarmy jsou zak\200z\200ny"
 #define TR_PRESSANYKEY  "\003Stiskni Kl\200vesu"
 #define TR_BADEEPROMDATA "\003Chyba dat EEprom"
 #define TR_EEPROMFORMATTING " Formatov\200n\204 EEPROM"
@@ -381,19 +381,20 @@
 #define TR_LONGITUDE     "Longitude"
 #define TR_GPSCOORD      "Gps Sou\206adnice"
 #define TR_VARIO         "Vario"
-#define TR_SHUTDOWN      "SHUTTING DOWN"
+#define TR_SHUTDOWN      "Vyp\204n\200n\204.."
 #define TR_BATT_CALIB    "Kalibrace Bat"
-#define TR_CURRENT_CALIB "Current Calib"
-#define TR_CURRENT       "Current"
-#define TR_SELECT_MODEL  "Select Model"
-#define TR_CREATE_MODEL  "Create Model"
-#define TR_BACKUP_MODEL  "Backup Model"
-#define TR_DELETE_MODEL  "Delete Model" // TODO merged into DELETEMODEL?
-#define TR_RESTORE_MODEL "Restore Model"
-#define TR_SDCARD_ERROR  "SDCARD Error"
-#define TR_NO_SDCARD     "No SDCARD"
-#define TR_WARNING       "WARNING"
+#define TR_CURRENT_CALIB "Kalib. Proudu"
+#define TR_CURRENT       "Proud"
+#define TR_SELECT_MODEL  "Vyber Model"
+#define TR_CREATE_MODEL  "Vytvo\206 Model"
+#define TR_BACKUP_MODEL  "Z\200lohuj Model"
+#define TR_DELETE_MODEL  "Sma\217 Model" // TODO merged into DELETEMODEL?
+#define TR_RESTORE_MODEL "Obnov Model"
+#define TR_SDCARD_ERROR  "Chyba SDkarty"
+#define TR_NO_SDCARD     "Nen\204 SDkarta"
+#define TR_WARNING       "KONTROLA"
 #define TR_EEPROMWARN    "EEPROM"
-#define TR_THROTTLEWARN  "THROTTLE"
-#define TR_ALARMSWARN    "ALARMS"
-#define TR_SWITCHWARN    "SWITCH"
+#define TR_THROTTLEWARN  "PLYNU"
+#define TR_ALARMSWARN    "ALARMU"
+#define TR_SWITCHWARN    "POZICE"
+#define TR_INVERT_THR    "Invertovat Plyn?"
