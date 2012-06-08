@@ -2785,11 +2785,11 @@ int main(void)
     uint16_t t0 = getTmr16KHz();
 #endif
 
-    if (g_eeGeneral.filterInput == 1) {
-      getADC_osmp() ;
-    }
-    else if ( g_eeGeneral.filterInput == 2) {
+    if (g_eeGeneral.filterInput == e_adc_filtered) {
       getADC_filt() ;
+    }
+    else if ( g_eeGeneral.filterInput == e_adc_osmp) {
+      getADC_osmp() ;
     }
     else {
       getADC_single() ;
