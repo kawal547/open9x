@@ -1162,7 +1162,7 @@ void getADC_osmp()
       ADCSRA|=0x10;
       temp_ana += ADCW;
     }
-    s_anaFilt[adc_input] = temp_ana / 2; // divide by 2^n to normalize result.
+    s_anaFilt[adc_input] = temp_ana >> 1; // divide by 2^n to normalize result.
   }
 }
 
@@ -1504,7 +1504,7 @@ void playValue(uint8_t idx)
     default:
     {
       uint8_t unit;
-      if (idx <= NUM_XCHNRAW+TELEM_GPSALT-1)
+      if (idx >= NUM_XCHNRAW && idx <= NUM_XCHNRAW+TELEM_GPSALT-1)
         unit = idx - NUM_XCHNRAW - 6;
       else if (idx >= NUM_XCHNRAW+TELEM_MAX_T1-1 && idx <= NUM_XCHNRAW+TELEM_MAX_DIST-1)
         unit = idx - NUM_XCHNRAW - 22;
@@ -2786,10 +2786,10 @@ int main(void)
 #endif
 
     if (g_eeGeneral.filterInput == 1) {
-      getADC_filt() ;
+      getADC_osmp() ;
     }
     else if ( g_eeGeneral.filterInput == 2) {
-      getADC_osmp() ;
+      getADC_filt() ;
     }
     else {
       getADC_single() ;
