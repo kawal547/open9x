@@ -1162,7 +1162,7 @@ void getADC_osmp()
       ADCSRA|=0x10;
       temp_ana += ADCW;
     }
-    s_anaFilt[adc_input] = temp_ana >> 1; // divide by 2^n to normalize result.
+    s_anaFilt[adc_input] = temp_ana / 2; // divide by 2^n to normalize result.
   }
 }
 
