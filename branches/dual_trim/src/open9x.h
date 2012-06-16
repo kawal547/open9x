@@ -913,6 +913,33 @@ union ReusableBuffer
 
 extern union ReusableBuffer reusableBuffer;
 
+#if defined(DUAL_TRIM)
+#define DUAL_ELECTION_NONE 0
+#define DUAL_ELECTION_RATE 1
+#define DUAL_ELECTION_MIX 2
+#define DUAL_STICK_TRIGGER_VALUE	800
+//1 Byte structure to hold the DualTrim monitoring variable
+//This structure is use in an array into dual_trim_election  for the 4 stick and is permanently updated for each perOut()
+//They contains all the informations to evaluate if we do a standard trim action or if we go for a Dual Trim action
+typedef struct
+{
+	uint8_t position:1; 		//  ( will be set in evalSticks() function ) 0->center 1->1/4 2->2/4 3->3/4 4->full
+	uint8_t mix_trim:4; 		// Could be trigger for these trim event because the stick is involved into the some mix or is directly associate to it.
+	uint8_t associated_trim:3; // Store trim associate to the stick
+}dual_trim_stick_info;
+
+// The structure hold all informations related to Dual Trim
+typedef struct
+{
+	dual_trim_stick_info	stick[4]; 	// See dual_trim_stick_info Comment.
+	uint8_t trim_idx:2;					// Trim number 0->3 will old the current trim event( will be set in checkEvent() function )
+	uint8_t way:1; 						// 1 stand for UP 0 for DOWN event ( will be set in checkEvent() function )
+	uint8_t election:3; 				// Store the the current election for dual trim DUAL_ELECTION_NONE,DUAL_ELECTION_RATE,DUAL_ELECTION_MIX
+	uint8_t stick_target:2;				// Gather info for this stick_target
+	int8_t target_id; 					// store the potential mix_target ( will be set in evalSticks() function or into perOut() depending of election type )
+} dual_trim_election;
+#endif
+
 void checkFlashOnBeep();
 
 #if defined(FRSKY) || defined(PCBARM)
