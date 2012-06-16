@@ -383,6 +383,10 @@ endif
 
 ### Global Build-Option Directives ###
 
+ifeq ($(DUAL_TRIM), YES)
+  CPPDEFS += -DDUAL_TRIM
+endif
+
 ifeq ($(PPM_CENTER_ADJUSTABLE), YES)
   CPPDEFS += -DPPM_CENTER_ADJUSTABLE
 endif

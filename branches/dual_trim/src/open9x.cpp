@@ -64,6 +64,10 @@ uint16_t g_time_per10;
 audioQueue  audio;
 #endif
 
+#ifdef DUAL_TRIM
+static dual_trim_election g_dualTrimElection;
+#endif
+
 uint8_t heartbeat;
 
 uint8_t stickMode;
@@ -357,6 +361,12 @@ void applyExpos(int16_t *anas)
       }
     }
     if (getSwitch(ed.swtch, 1)) {
+
+#ifdef DUAL_TRIM
+    	//Store DualTrim Active Stick current dual_rate_id.
+    	if(g_dualTrimElection.election==DUAL_ELECTION_RATE && g_dualTrimElection.stick_target==ed.chn)
+    		g_dualTrimElection.target_id=i;
+#endif
       int16_t v = anas2[ed.chn];
       if((v<0 && ed.mode&1) || (v>=0 && ed.mode&2)) {
         cur_chn = ed.chn;
@@ -991,6 +1001,46 @@ uint8_t checkTrim(uint8_t event)
   int8_t  k = (event & EVT_KEY_MASK) - TRM_BASE;
   int8_t  s = g_model.trimInc;
 
+#if defined(DUAL_TRIM)
+
+    //Check if we have to handle a previously triggered DUAL_TRIM
+  	switch(g_dualTrimElection.election)
+    {
+    	case DUAL_ELECTION_RATE: //@todo code cleaning here simplify
+    		if(g_dualTrimElection.target_id<MAX_EXPOS){
+    			if(g_dualTrimElection.way){
+    				if(g_model.expoData[g_dualTrimElection.target_id].weight<100)
+    					g_model.expoData[g_dualTrimElection.target_id].weight+=1;
+    			}
+    			else
+    			{
+    				if(g_model.expoData[g_dualTrimElection.target_id].weight>0)
+    					g_model.expoData[g_dualTrimElection.target_id].weight-=1;
+    			}
+    		}
+
+    	break;
+
+    	case DUAL_ELECTION_MIX: //@todo code cleaning here simplify
+    		if(g_dualTrimElection.target_id<MAX_MIXERS){
+    		    			if(g_dualTrimElection.way){
+    		    				if(g_model.mixData[g_dualTrimElection.target_id].weight<125)
+    		    					g_model.mixData[g_dualTrimElection.target_id].weight+=1;
+    		    			}
+    		    			else
+    		    			{
+    		    				if(g_model.mixData[g_dualTrimElection.target_id].weight>-125)
+    		    					g_model.mixData[g_dualTrimElection.target_id].weight-=1;
+    		    			}
+    		}
+
+    	break;
+
+    }
+    g_dualTrimElection.election=DUAL_ELECTION_NONE;
+    g_dualTrimElection.target_id=MAX_MIXERS;
+#endif
+
   if (k>=0 && k<8) { // && (event & _MSK_KEY_REPT))
     //LH_DWN LH_UP LV_DWN LV_UP RV_DWN RV_UP RH_DWN RH_UP
     uint8_t idx = CONVERT_MODE(1+k/2) - 1;
@@ -1000,6 +1050,34 @@ uint8_t checkTrim(uint8_t event)
     bool thro = (idx==THR_STICK && g_model.thrTrim);
     if (thro) v = 4; // if throttle trim and trim trottle then step=4
     int16_t after = (k&1) ? before + v : before - v;   // positive = k&1
+
+#if defined(DUAL_TRIM)
+    //Check if we handle the event instead of the normal Trim Action
+    //Store Current Event
+    g_dualTrimElection.trim_idx=idx;
+    g_dualTrimElection.way=(k&1);
+
+    //Search what could be the stick association with the current trim event
+    for(int8_t i=0; i<NUM_STICKS;i++)
+    	if(g_dualTrimElection.stick[i].associated_trim==idx && g_dualTrimElection.stick[i].position){
+    			g_dualTrimElection.stick_target=i;
+    			g_dualTrimElection.election=DUAL_ELECTION_RATE;
+    	}
+    //No direct dual trim found then search for a trim to mix action
+    if(g_dualTrimElection.election==DUAL_ELECTION_NONE){
+    	 for(int8_t i=0; i<NUM_STICKS;i++)
+    	    	if( (g_dualTrimElection.stick[i].mix_trim&(1<<idx))>0 && g_dualTrimElection.stick[i].position){
+    	    			g_dualTrimElection.stick_target=i;
+    	    			g_dualTrimElection.election=DUAL_ELECTION_MIX;
+    	    	}
+    }
+
+    // If we handle the event  we exit now the function and disallow repeat event.
+    if(g_dualTrimElection.election!=DUAL_ELECTION_NONE){
+    	 killEvents(event);
+    	 return 0;
+    }
+#endif
 
     bool beepTrim = false;
     for (int16_t mark=TRIM_MIN; mark<=TRIM_MAX; mark+=TRIM_MAX) {
@@ -1022,6 +1100,7 @@ uint8_t checkTrim(uint8_t event)
     }
 
     setTrimValue(phase, idx, after);
+
 
 #if defined (AUDIO)
     // toneFreq higher/lower according to trim position
@@ -1402,6 +1481,13 @@ BeepANACenter evalSticks()
     if (tmp <= 1) anaCenter |= (tmp==0 ? (BeepANACenter)1<<ch : bpanaCenter & ((BeepANACenter)1<<ch));
 
     if (ch < NUM_STICKS) { //only do this for sticks
+#if defined(DUAL_TRIM) // Store current position of stick if he is eligible to trigger dualtrim
+    	//Handle the Throtle mode of the stick (did not test)
+    	if(g_model.thrTrim && ch==THR_STICK )
+    		g_dualTrimElection.stick[ch].position= calibratedStick[ch]>DUAL_STICK_TRIGGER_VALUE;
+    	else
+    		g_dualTrimElection.stick[ch].position=abs( calibratedStick[ch])>DUAL_STICK_TRIGGER_VALUE;
+#endif
       if (s_perout_mode==e_perout_mode_normal && (isFunctionActive(FUNC_TRAINER) || isFunctionActive(FUNC_TRAINER_RUD+ch))) {
         // trainer mode
         TrainerMix* td = &g_eeGeneral.trainer.mix[ch];
@@ -1632,10 +1718,22 @@ void perOut()
   }
 
   memset(chans, 0, sizeof(chans));        // All outputs to 0
+#ifdef DUAL_TRIM
+  int8_t destChannelChange=-1;
+  int8_t srcCurrenttrim=-1;
 
+  // Reset structure for stick to trim monitoring
+  //@todo Replace this with memset()
+  for (uint8_t i=0; i<NUM_STICKS; i++){
+	g_dualTrimElection.stick[i].associated_trim=NUM_STICKS;
+	g_dualTrimElection.stick[i].mix_trim=0;
+}
+
+#endif
   //========== MIXER LOOP ===============
   uint8_t lv_mixWarning = 0;
   uint8_t phase = s_perout_flight_phase + 1;
+
   for (uint8_t i=0; i<MAX_MIXERS; i++) {
 
     MixData *md = mixaddress( i ) ;
@@ -1766,6 +1864,24 @@ void perOut()
     if (md->curve)
       v = applyCurve(v, md->curve);
 
+#ifdef DUAL_TRIM
+    //Check any output channel change and reset the associate trim
+    if(destChannelChange!=md->destCh){
+    	destChannelChange=md->destCh;
+           	srcCurrenttrim=-1;
+           }
+    //Allow mix trim only if we have a master trim into the current channel
+    if(srcCurrenttrim!=-1)
+    	   if (k < NUM_STICKS)
+    	   {
+    		   //Store Mix trim info for the stick
+    		   g_dualTrimElection.stick[k].mix_trim|= (1 << srcCurrenttrim);
+    		   //We got a winner here
+    		   //We check that we have a event that match plus check if do not have v>0 or v<0 Curve  active for better target selection
+    		   if(g_dualTrimElection.election==DUAL_ELECTION_MIX && g_dualTrimElection.stick_target==k && srcCurrenttrim==g_dualTrimElection.trim_idx && (md->curve!=1 || v>0 ) && (md->curve!=2 || v<0 ))
+    			   g_dualTrimElection.target_id=i;
+    	   }
+#endif
     //========== TRIMS ===============
     if (s_perout_mode < e_perout_mode_zeros) {
       int8_t mix_trim = md->carryTrim;
@@ -1775,8 +1891,17 @@ void perOut()
         mix_trim = k;
       else
         mix_trim = -1;
-      if (mix_trim >= 0)
+      if (mix_trim >= 0) {
         v += trims[mix_trim];
+
+#ifdef DUAL_TRIM
+       //Collect association to a trim only if its the first declared trim of the current channel
+        if(srcCurrenttrim==-1){
+        	srcCurrenttrim=mix_trim;
+        	if (k < NUM_STICKS) g_dualTrimElection.stick[k].associated_trim = mix_trim;
+        }
+#endif
+      }
     }
 
     //========== MULTIPLEX ===============
