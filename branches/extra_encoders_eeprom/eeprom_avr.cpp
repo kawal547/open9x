@@ -110,7 +110,7 @@ void eeWriteBlockCmp(const void *i_pointer_ram, uint16_t i_pointer_eeprom, size_
 #endif
 
   if (s_sync_write) {
-    while (eeprom_buffer_size > 0) wdt_reset();
+    while (eeprom_buffer_size > 0) WDT_RESET_STOCK();
   }
 }
 
@@ -810,7 +810,7 @@ void RlcFile::nextRlcWriteStep()
 
 void RlcFile::flush()
 {
-  while (eeprom_buffer_size > 0) wdt_reset();
+  while (eeprom_buffer_size > 0) WDT_RESET_STOCK();
 
   s_sync_write = true;
   while (m_write_len && !s_write_err)

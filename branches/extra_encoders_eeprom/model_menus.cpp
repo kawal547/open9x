@@ -142,6 +142,11 @@ bool listSDcardModels()
   s_menu_flags = BSS;
   uint8_t offset = 0;
 
+  FRESULT result = f_mount(0, &g_FATFS_Obj);
+  if (result != FR_OK) {
+    return SDCARD_ERROR(result);
+  }
+
   FRESULT res = f_opendir(&dir, MODELS_PATH);        /* Open the directory */
   if (res == FR_OK) {
     for (;;) {
@@ -177,15 +182,17 @@ bool listSDcardModels()
 
   return s_menu_count;
 }
-
 #endif
 
 void menuProcModelSelect(uint8_t event)
 {
   TITLE(STR_MENUMODELSEL);
 
-#if defined(SDCARD)
+#if defined(PCBARM)
+  #define REFRESH(x)
+#elif defined(PCBV4) && defined(SDCARD)
   static bool refresh = true;
+  #define REFRESH(x) refresh = (x)
 #else
 #define refresh event
 #endif
@@ -226,7 +233,7 @@ void menuProcModelSelect(uint8_t event)
       ) {
     eeFlush(); // flush eeprom write
 #if defined(SDCARD)
-    refresh = true;
+    REFRESH(true);
 #endif
   }
 #endif
@@ -442,7 +449,7 @@ void menuProcModelSelect(uint8_t event)
   }
 
 #if defined(SDCARD)
-  refresh = false;
+  REFRESH(false);
   if (s_sdcard_error) {
     s_warning = s_sdcard_error;
     displayWarning(event);
@@ -455,7 +462,7 @@ void menuProcModelSelect(uint8_t event)
   if (s_menu_count) {
     const char * result = displayMenu(event);
     if (result) {
-      refresh = true;
+      REFRESH(true);
       if (result == STR_SELECT_MODEL || result == STR_CREATE_MODEL) {
         displayPopup(STR_LOADINGMODEL);
         eeCheck(true); // force writing of current model data before this is changed
@@ -1207,8 +1214,28 @@ bool reachExpoMixCountLimit(uint8_t expo)
   return false;
 }
 
+#if defined(PCBV4)
+inline void pauseMixerCalculations()
+{
+  cli();
+  TIMSK5 &= ~(1<<OCIE5A);
+  sei();
+}
+
+inline void resumeMixerCalculations()
+{
+  cli();
+  TIMSK5 |= (1<<OCIE5A);
+  sei();
+}
+#else
+#define pauseMixerCalculations()
+#define resumeMixerCalculations()
+#endif
+
 void deleteExpoMix(uint8_t expo, uint8_t idx)
 {
+  pauseMixerCalculations();
   if (expo) {
     memmove(expoaddress(idx), expoaddress(idx+1), (MAX_EXPOS-(idx+1))*sizeof(ExpoData));
     memset(expoaddress(MAX_EXPOS-1), 0, sizeof(ExpoData));
@@ -1217,12 +1244,14 @@ void deleteExpoMix(uint8_t expo, uint8_t idx)
     memmove(mixaddress(idx), mixaddress(idx+1), (MAX_MIXERS-(idx+1))*sizeof(MixData));
     memset(mixaddress(MAX_MIXERS-1), 0, sizeof(MixData));
   }
+  resumeMixerCalculations();
   STORE_MODELVARS;
 }
 
 static int8_t s_currCh;
 void insertExpoMix(uint8_t expo, uint8_t idx)
 {
+  pauseMixerCalculations();
   if (expo) {
     ExpoData *expo = expoaddress(idx);
     memmove(expo+1, expo, (MAX_EXPOS-(idx+1))*sizeof(ExpoData));
@@ -1239,11 +1268,13 @@ void insertExpoMix(uint8_t expo, uint8_t idx)
     mix->srcRaw = (s_currCh > 4 ? s_currCh : channel_order(s_currCh));
     mix->weight = 100;
   }
+  resumeMixerCalculations();
   STORE_MODELVARS;
 }
 
 void copyExpoMix(uint8_t expo, uint8_t idx)
 {
+  pauseMixerCalculations();
   if (expo) {
     ExpoData *expo = expoaddress(idx);
     memmove(expo+1, expo, (MAX_EXPOS-(idx+1))*sizeof(ExpoData));
@@ -1252,6 +1283,7 @@ void copyExpoMix(uint8_t expo, uint8_t idx)
     MixData *mix = mixaddress(idx);
     memmove(mix+1, mix, (MAX_MIXERS-(idx+1))*sizeof(MixData));
   }
+  resumeMixerCalculations();
   STORE_MODELVARS;
 }
 
@@ -1261,11 +1293,13 @@ void memswap(void *a, void *b, uint8_t size)
   uint8_t *y = (uint8_t*)b;
   uint8_t temp ;
 
+  pauseMixerCalculations();
   while (size--) {
     temp = *x;
     *x++ = *y;
     *y++ = temp;
   }
+  resumeMixerCalculations();
 }
 
 bool swapExpo(uint8_t &idx, uint8_t up)
@@ -1463,6 +1497,7 @@ enum MixFields {
   MIX_FIELD_COUNT
 };
 
+#define MIXES_2ND_COLUMN (9*FW)
 void menuProcMixOne(uint8_t event)
 {
   TITLEP(s_currCh ? STR_INSERTMIX : STR_EDITMIX);
@@ -1478,38 +1513,38 @@ void menuProcMixOne(uint8_t event)
     uint8_t attr = (sub==i ? (s_editMode>0 ? BLINK|INVERS : INVERS) : 0);
     switch(i) {
       case MIX_FIELD_SOURCE:
-        lcd_puts(2*FW, y, STR_SOURCE);
-        putsMixerSource(FW*10, y, md2->srcRaw, attr);
+        lcd_putsLeft(y, STR_SOURCE);
+        putsMixerSource(MIXES_2ND_COLUMN, y, md2->srcRaw, attr);
         if(attr) CHECK_INCDEC_MODELVAR(event, md2->srcRaw, 1, NUM_XCHNMIX);
         break;
       case MIX_FIELD_WEIGHT:
-        lcd_puts(2*FW, y, STR_WEIGHT);
-        lcd_outdezAtt(FW*10, y, md2->weight, attr|LEFT|INFLIGHT(md2->weight));
+        lcd_putsLeft(y, STR_WEIGHT);
+        lcd_outdezAtt(MIXES_2ND_COLUMN, y, md2->weight, attr|LEFT|INFLIGHT(md2->weight));
         if (attr) CHECK_INFLIGHT_INCDEC_MODELVAR(event, md2->weight, -125, 125, 0, STR_MIXERWEIGHT);
         break;
       case MIX_FIELD_DIFFERENTIAL:
         // TODO INFLIGHT
-        lcd_puts(2*FW, y, STR_DIFFERENTIAL);
-        lcd_outdezAtt(FW*10, y, md2->differential*2, attr|LEFT);
+        lcd_putsLeft(y, STR_DIFFERENTIAL);
+        lcd_outdezAtt(MIXES_2ND_COLUMN, y, md2->differential*2, attr|LEFT);
         if (attr) CHECK_INCDEC_MODELVAR(event, md2->differential, -50, 50);
         break;
       case MIX_FIELD_OFFSET:
-        lcd_puts(2*FW, y, STR_OFFSET);
-        lcd_outdezAtt(FW*10, y, md2->sOffset, attr|LEFT|INFLIGHT(md2->sOffset));
+        lcd_putsLeft(y, STR_OFFSET);
+        lcd_outdezAtt(MIXES_2ND_COLUMN, y, md2->sOffset, attr|LEFT|INFLIGHT(md2->sOffset));
         if (attr) CHECK_INFLIGHT_INCDEC_MODELVAR(event, md2->sOffset, -125, 125, 0, STR_MIXEROFFSET);
         break;
       case MIX_FIELD_TRIM:
       {
         uint8_t not_stick = (md2->srcRaw > NUM_STICKS);
         int8_t carryTrim = -md2->carryTrim;
-        lcd_puts(2*FW, y, STR_TRIM);
-        lcd_putsiAtt(FW*10, y, STR_VMIXTRIMS, (not_stick && carryTrim == 0) ? 0 : carryTrim+1, attr);
+        lcd_putsLeft(y, STR_TRIM);
+        lcd_putsiAtt(MIXES_2ND_COLUMN, y, STR_VMIXTRIMS, (not_stick && carryTrim == 0) ? 0 : carryTrim+1, attr);
         if (attr) md2->carryTrim = -checkIncDecModel(event, carryTrim, not_stick ? TRIM_ON : -TRIM_OFF, -TRIM_AIL);
         break;
       }
       case MIX_FIELD_CURVE:
-        lcd_puts(2*FW, y, STR_CURVES);
-        putsCurve(FW*10, y, md2->curve, attr);
+        lcd_putsLeft(y, STR_CURVES);
+        putsCurve(MIXES_2ND_COLUMN, y, md2->curve, attr);
         if(attr) CHECK_INCDEC_MODELVAR( event, md2->curve, -MAX_CURVE5-MAX_CURVE9, MAX_CURVE5+MAX_CURVE9+7-1);
         if(attr && event==EVT_KEY_FIRST(KEY_MENU) && (md2->curve<0 || md2->curve>=CURVE_BASE)){
           s_curveChan = (md2->curve<0 ? -md2->curve-1 : md2->curve-CURVE_BASE);
@@ -1517,49 +1552,49 @@ void menuProcMixOne(uint8_t event)
         }
         break;
       case MIX_FIELD_SWITCH:
-        lcd_puts(  2*FW,y,STR_SWITCH);
-        putsSwitches(10*FW,  y,md2->swtch,attr);
+        lcd_putsLeft(y, STR_SWITCH);
+        putsSwitches(MIXES_2ND_COLUMN,  y,md2->swtch,attr);
         if(attr) CHECK_INCDEC_MODELSWITCH( event, md2->swtch, -MAX_SWITCH, MAX_SWITCH);
         break;
 #ifdef FLIGHT_PHASES
       case MIX_FIELD_FLIGHT_PHASE:
-        lcd_puts(  2*FW,y,STR_FPHASE);
-        putsFlightPhase(10*FW, y, md2->phase, attr);
+        lcd_putsLeft(y, STR_FPHASE);
+        putsFlightPhase(MIXES_2ND_COLUMN, y, md2->phase, attr);
         if(attr) CHECK_INCDEC_MODELVAR( event, md2->phase, -MAX_PHASES, MAX_PHASES);
         break;
 #endif
       case MIX_FIELD_WARNING:
-        lcd_puts(  2*FW,y,STR_MIXWARNING);
+        lcd_putsLeft(y, STR_MIXWARNING);
         if(md2->mixWarn)
-          lcd_outdezAtt(FW*10,y,md2->mixWarn,attr|LEFT);
+          lcd_outdezAtt(MIXES_2ND_COLUMN,y,md2->mixWarn,attr|LEFT);
         else
-          lcd_putsAtt(FW*10, y, STR_OFF, attr);
+          lcd_putsAtt(MIXES_2ND_COLUMN, y, STR_OFF, attr);
         if(attr) CHECK_INCDEC_MODELVAR( event, md2->mixWarn, 0,3);
         break;
       case MIX_FIELD_MLTPX:
-        lcd_puts(  2*FW,y,STR_MULTPX);
-        lcd_putsiAtt(10*FW, y, STR_VMLTPX, md2->mltpx, attr);
+        lcd_putsLeft(y, STR_MULTPX);
+        lcd_putsiAtt(MIXES_2ND_COLUMN, y, STR_VMLTPX, md2->mltpx, attr);
         if(attr) CHECK_INCDEC_MODELVAR( event, md2->mltpx, 0, 2);
         break;
       case MIX_FIELD_DELAY_UP:
-        lcd_puts(  2*FW,y,STR_DELAYUP);
-        lcd_outdezAtt(FW*16,y,md2->delayUp,attr);
-        if(attr)  CHECK_INCDEC_MODELVAR( event, md2->delayUp, 0,15);
+        lcd_putsLeft(y, STR_DELAYUP);
+        lcd_outdezAtt(MIXES_2ND_COLUMN,y,md2->delayUp,attr|LEFT);
+        if(attr)  CHECK_INCDEC_MODELVAR( event, md2->delayUp, 0, MAX_DELAY);
         break;
       case MIX_FIELD_DELAY_DOWN:
-        lcd_puts(  2*FW,y,STR_DELAYDOWN);
-        lcd_outdezAtt(FW*16,y,md2->delayDown,attr);
-        if(attr)  CHECK_INCDEC_MODELVAR( event, md2->delayDown, 0,15);
+        lcd_putsLeft(y, STR_DELAYDOWN);
+        lcd_outdezAtt(MIXES_2ND_COLUMN,y,md2->delayDown,attr|LEFT);
+        if(attr)  CHECK_INCDEC_MODELVAR( event, md2->delayDown, 0, MAX_DELAY);
         break;
       case MIX_FIELD_SLOW_UP:
-        lcd_puts(  2*FW,y,STR_SLOWUP);
-        lcd_outdezAtt(FW*16,y,md2->speedUp,attr);
-        if(attr)  CHECK_INCDEC_MODELVAR( event, md2->speedUp, 0,15);
+        lcd_putsLeft(y, STR_SLOWUP);
+        lcd_outdezAtt(MIXES_2ND_COLUMN,y,5*md2->speedUp,attr|PREC1|LEFT);
+        if(attr)  CHECK_INCDEC_MODELVAR( event, md2->speedUp, 0, MAX_SLOW);
         break;
       case MIX_FIELD_SLOW_DOWN:
-        lcd_puts(  2*FW,y,STR_SLOWDOWN);
-        lcd_outdezAtt(FW*16,y,md2->speedDown,attr);
-        if(attr)  CHECK_INCDEC_MODELVAR( event, md2->speedDown, 0,15);
+        lcd_putsLeft(y, STR_SLOWDOWN);
+        lcd_outdezAtt(MIXES_2ND_COLUMN,y,5*md2->speedDown,attr|PREC1|LEFT);
+        if(attr)  CHECK_INCDEC_MODELVAR( event, md2->speedDown, 0, MAX_SLOW);
         break;
     }
   }
@@ -1900,7 +1935,9 @@ void menuProcLimits(uint8_t _event)
         if (event==EVT_KEY_LONG(KEY_MENU)) {
           s_noHi = NO_HI_LEN;
           killEvents(event);
+          pauseMixerCalculations();
           moveTrimsToOffsets(); // if highlighted and menu pressed - move trims to offsets
+          resumeMixerCalculations();
         }
       }
       return;
@@ -1938,11 +1975,21 @@ void menuProcLimits(uint8_t _event)
           lcd_outdezAtt(  8*FW, y,  ld->offset, attr|PREC1);
 #endif
           if (active) {
-            ld->offset = checkIncDec(event, ld->offset, -1000, 1000, EE_MODEL|NO_INCDEC_MARKS);
+            int16_t new_offset = checkIncDec(event, ld->offset, -1000, 1000, EE_MODEL|NO_INCDEC_MARKS);
+#if defined(PCBV4)
+            if (checkIncDec_Ret)
+#endif
+            {
+              pauseMixerCalculations();
+              ld->offset = new_offset;
+              resumeMixerCalculations();
+            }
           }
           else if (attr && event==EVT_KEY_LONG(KEY_MENU)) {
             int16_t zero = g_chans512[k];
+            pauseMixerCalculations();
             ld->offset = (ld->revert) ? -zero : zero;
+            resumeMixerCalculations();
             s_editMode = 0;
             STORE_MODELVARS;
           }
