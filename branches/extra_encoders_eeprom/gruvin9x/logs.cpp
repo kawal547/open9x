@@ -32,7 +32,7 @@
  */
 
 #include "../open9x.h"
-#include "ff.h"
+#include "FatFs/ff.h"
 
 char g_logFilename[21]; // "/O9XLOGS/M00_000.CSV\0" max required length = 21
 FATFS g_FATFS_Obj; // TODO not here
@@ -54,8 +54,6 @@ const pm_char * openLogs()
     return SDCARD_ERROR(result);
   }
 
-  wdt_reset();
-
   strcpy_P(buf, STR_LOGS_PATH);
 
   result = f_opendir(&folder, buf);
@@ -65,8 +63,6 @@ const pm_char * openLogs()
     if (result != FR_OK)
       return SDCARD_ERROR(result);
   }
-
-  wdt_reset();
 
   buf[sizeof(LOGS_PATH)-1] = '/';
   memcpy(&buf[sizeof(LOGS_PATH)], g_model.name, sizeof(g_model.name));

@@ -41,6 +41,12 @@
 #include <string.h>
 #include <stddef.h>
 
+#if defined(PCBSTD)
+#define WDT_RESET_STOCK() wdt_reset()
+#else
+#define WDT_RESET_STOCK()
+#endif
+
 #if defined(PCBARM)
 #include "board_ersky9x.h"
 #endif
@@ -48,7 +54,6 @@
 #if defined(SIMU)
 #include "simpgmspace.h"
 #elif defined(PCBARM)
-#include "ersky9x/core_cm3.h"
 typedef const unsigned char pm_uchar;
 typedef const char pm_char;
 typedef const uint16_t pm_uint16_t;
@@ -439,7 +444,7 @@ extern Key keys[NUM_KEYS];
 #define DSW_SW6  15
 
 #define THRCHK_DEADBAND 16
-#define SPLASH_TIMEOUT  (4*100)  //400 msec - 4 seconds
+#define SPLASH_TIMEOUT  (4*100)  // 4 seconds
 
 #define TRM_BASE TRM_LH_DWN
 
@@ -479,7 +484,11 @@ extern char idx2char(int8_t idx);
 void clearKeyEvents();
 void pauseEvents(uint8_t enuk);
 void killEvents(uint8_t enuk);
+#if defined(PCBV4)
+uint8_t getEvent(bool trim);
+#else
 uint8_t getEvent();
+#endif
 void putEvent(uint8_t evt);
 
 uint8_t keyDown();
@@ -560,9 +569,9 @@ void resetAll();
 
 extern uint8_t g_tmr1Latency_max;
 extern uint8_t g_tmr1Latency_min;
-extern uint16_t g_timeMain;
-#ifdef DEBUG
-extern uint16_t g_time_per10;
+extern uint16_t g_timeMainMax;
+#if defined(PCBV4)
+extern uint8_t  g_timeMainLast;
 #endif
 
 #define MAXTRACE 120
@@ -605,13 +614,8 @@ extern uint8_t  s_eeDirtyMsk;
 #define STORE_GENERALVARS eeDirty(EE_GENERAL)
 
 #if defined (PCBARM)
-#ifndef SIMU
 #define BACKLIGHT_ON    (PWM->PWM_CH_NUM[0].PWM_CDTY = g_eeGeneral.backlightBright)
 #define BACKLIGHT_OFF   (PWM->PWM_CH_NUM[0].PWM_CDTY = 100)
-#else
-#define BACKLIGHT_ON
-#define BACKLIGHT_OFF
-#endif
 #ifdef REVB
 #define NUMBER_ANALOG   9
 #else
@@ -754,7 +758,6 @@ extern uint8_t            ppmInState; //0=unsync 1..8= wait for value i-1
 extern int16_t            g_ppmIns[8];
 extern int16_t            ex_chans[NUM_CHNOUT]; // Outputs (before LIMITS) of the last perMain
 extern int16_t            g_chans512[NUM_CHNOUT];
-extern volatile uint8_t   tick10ms;
 extern uint16_t           BandGap;
 
 extern uint16_t expou(uint16_t x, uint16_t k);
