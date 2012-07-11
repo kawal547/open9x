@@ -10,21 +10,25 @@
  * Less Flash, Less RAM used (depending on FW options)
 
  ==Main view==
- * *`*` *_*Virtual Switches Screen*_ for showing SW1-C
- * *`*` *_*CH1-8 and CH9-16 values and bars *_ screens switchable with LEFT/RIGHT 
- * *`*` * New *_Warning*_ screens 
- * *`*` * One Warning screen for *_all switches*_
+ * _*Virtual Switches Screen*_ for showing Custom Switches CS1-CSC state
+ * _*CH1-8 and CH9-16 values and bars *_ screens switchable with LEFT/RIGHT 
+ * New *_Warning*_ screens 
+ * One Warning screen for *_all switches*_
+ * *`*` * *_LowEEPROM Warning*_ screens with non blocking transmission
 
  ==RADIO SETUP==
- * *`*` *_*Graphical Sliders*_ for Speaker and Haptic length
+ * _*Graphical Sliders*_ for Speaker and Haptic length
  * _*Speaker Mode/Lenght*_ separated (compile option)
  * _*Haptic Mode/Lenght*_ separated (compile option)
- * *`*` * Graphical _*ON/OFF Check boxes*_
+ * Graphical _*ON/OFF Check boxes*_
+
 
  ==MODELSEL==
  * Select Model with LONG MENU (not EXIT) 
  * Copy Model with MENU press 
  * Move Model with DOUBLE MENU press 
+ * *`*` * More accurate *_Free EEPROM*_ calculation
+ * *`*` * Checking switches, Throttle stick and LowEEPROM on model load. 
 
  ==SETUPmodel== 
  * Switching _*Lower/Uper case characters in Model Name*_ with LEFT/RIGHT press
@@ -33,28 +37,33 @@
  * It's possible to switch  _*TX Stick Mode*_ without messing everything in mixes
  * The _*throttle trace*_ in statistics can be dependent on Channels and Pots, not only THR
  * THRt means trigger: the timer starts at _*THR trigger*_ and doesn't stop when THR again at idle
- * *`*` *Model based _*Startup Switches warning*_ 
+ * Model based _*Startup Switches warning*_ 
           # On S-Warning press MENU to toggle ON / OFF
           # Place your switches in the default position
           # Press LONG MENU to store them, they will be displayed near the ON / OFF
- * *`*` * Graphical _*ON/OFF Check boxes*_
+ * Graphical _*ON/OFF Check boxes*_
  * Options not included in compiled FW are displayed in square bracket `[PXX], [DSM2]`
 
  ==FLIGHT PHASES== 
  * _*5 Flight Phases*_ with Fade In/Out and elective self trims. 
-
+ * *`*` * Fade In/Out from 0 to 7.5 seconds
+ * *`*` * *Bolt FPx* for active Flight Phases
+ 
  ==DR/EXPO==
  * _*DR/Expo*_ with Curve and Flight Phase support
+ * *`*` * *Bolt weight* for active DR/EXPO
 
  ==MIXER==
  * _*Inverted curves*_ in Mixes and Expos
  * _*Switches like a Mix Sources*_
  * new source in Mixers and Custom Switches: *_3POS_* (ID0/1/2) which returns -100% / 0 / +100%
  * Simple _*Difference for Ailerons*_
- * *`*` *_*Trims like a slider*_ - trims can be used as source of mix (_*TrmR, TrmE, TrmT, TrmA *_) 
- * *`*` *Trims in mixes can be selected from OFF, ON, Rud, Ele, Thr, Ail - it's possible to _*cross trims between sticks*_
+ * _*Trims like a slider*_ - trims can be used as source of mix (_*TrmR, TrmE, TrmT, TrmA *_) 
+ * Trims in mixes can be selected from OFF, ON, Rud, Ele, Thr, Ail - it's possible to _*cross trims between sticks*_
  * _*Fast Inverting values_* by pressing +- at same time
-
+ * *`*` * Slow and Delay Up/Down from 0 to 7.5 seconds
+ * *`*` * *Bolt source* for active mixes
+ 
  ==LIMITS==
  * _*PPM Center Adjustment_* in limits (compile option)
  * _*PPM Limit Units*_ percent or microseconds (compile option)
@@ -63,11 +72,12 @@
 
  ==CUSTOM SWITCHES== 
  * _*Timers_* and _*Telemetry_* inputs in _*Custom Switches*_
- * *`*` *Trims can be used as source of custom switch, (_*TrmA, TrmT, TrmE, TrmR*_) for V1 and V2 values
-
+ * Trims can be used as source of custom switch, (_*TrmA, TrmT, TrmE, TrmR*_) for V1 and V2 values
+ * *`*` * *Bolt CSx* for active Custom Switches
+ 
  ==FUNCTION SWITCHES== 
- * *`*` *Safety Channels (security switches) with ON/OFF switch
- * *`*` * Graphical _*ON/OFF Check boxes*_
+ * Safety Channels (security switches) with ON/OFF switch
+ * Graphical _*ON/OFF Check boxes*_
  * Trainer switches
  * Instatnt trim
  * Play sounds switches
@@ -76,9 +86,12 @@
  * Vario audio alerts
  * Momentary switches *_SWXm*_ play sound/haptic only once
  * Options not included in compiled FW are displayed in square bracket `[Haptic], [Vario]`
+ * *`*` * *Bolt switch* for active Function Switches
  
  ==TELEMETRY==
  * Support for _*`FrSky` HUB*_ 2.0 sensors
+ * *`*` * FAS100 current sensor support
+ * *`*` * Voltage, Current and Consumption from battery  
  * for easier set up Range and Offset, _*A1/A2*_ displaying _*live value*_ on telemetry setup screen
  * Screen with _*Custom Telemetry*_ view with sensors min/max options
  * Screen with _*Telemetry Bars*_
@@ -88,7 +101,9 @@
  ==Other compile options== 
  * *_Autoswitch*_ - in model setup menus automatically set switch by moving some of them
  * eeprom _*write Progress Bar_*
- * *`*` *Open9x is prepared for _*translations*_ in several languages (done for en, fr, it, se, cz, de)
+ * _*Bolt_* fonts for active FP, DR/Exop, MIX, Custom switches, Function switches in setup menus
+ * _*Nographics_* for disabling graphical sliders and ON/OFF checkboxes in setup menus
+ * Open9x is prepared for _*translations*_ in several languages (done for en, fr, it, se, cz, de)
 
 *[http://9xforums.com/wiki/index.php/Open9x_user_guide 9xforums Wiki User Guide]*
 
