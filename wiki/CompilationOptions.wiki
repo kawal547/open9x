@@ -68,13 +68,19 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>AUDIO</td>
 		<td><b>NO</b></td>
 		<td>YES</td>
-		<td>better Audio feedback (needs TX modification)</td>
+		<td>better Audio feedback (needs audio TX modification)</td>
+	</tr>
+	<tr>
+		<td>VOICE</td>
+		<td><b>NO</b></td>
+		<td>YES</td>
+		<td>play Voice files (needs voice TX modification)</td>
 	</tr>
 	<tr>
 		<td>HAPTIC</td>
 		<td><b>NO</b></td>
 		<td>YES</td>
-		<td>Haptic feedback (needs TX modification)</td>
+		<td>Haptic feedback (needs haptic TX modification)</td>
 	</tr>
 	<tr>
 		<td>SPLASH</td>
@@ -98,7 +104,7 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>THR_TRACE</td>
 		<td><b>YES</b></td>
 		<td>NO</td>
-		<td>THR trace (in STATS screen) </td>
+		<td>disable THR trace (in STATS screen) </td>
 	</tr>
         <tr>
 		<td>PPM_CENTER_ADJUSTABLE</td>
@@ -155,12 +161,6 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>DSM2 protocol (testing in progress...) </td>
 	</tr>
 	<tr>
-		<td>SOMO</td>
-		<td><b>NO</b></td>
-		<td>YES</td>
-		<td>When V4 board used: SOMO-14D board support </td>
-	</tr>
-	<tr>
 		<td>TRANSLATIONS</td>
 		<td><b>EN</b></td>
 		<td>FR, IT, SE, CZ, DE</td>
@@ -189,5 +189,11 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td><b>YES</b></td>
 		<td>NO</td>
 		<td>Flight phases support </td>
+	</tr>
+	<tr>
+		<td>CURVES</td>
+		<td><b>YES</b></td>
+		<td>NO</td>
+		<td>Curves support </td>
 	</tr>
 </table>
