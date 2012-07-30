@@ -23,7 +23,6 @@
  * Graphical _*ON/OFF Check boxes*_
  * *`*` * _*Backlight mode_* respond on Key press, Stick move or both 
 
-
  ==MODELSEL==
  * Select Model with LONG MENU (not EXIT) 
  * Copy Model with MENU press 
@@ -36,7 +35,7 @@
  * A full featured _*Timer2*_
  * Model based *_Throttle warning*_
  * It's possible to switch  _*TX Stick Mode*_ without messing everything in mixes
- * The _*throttle trace*_ in statistics can be dependent on Channels and Pots, not only THR
+ * The _*throttle trace*_ in statistics and THt/s/% can be dependent on Channels and Pots, not only THR
  * THRt means trigger: the timer starts at _*THR trigger*_ and doesn't stop when THR again at idle
  * Model based _*Startup Switches warning*_ 
           # On S-Warning press MENU to toggle ON / OFF
@@ -71,6 +70,10 @@
  * _*Channel*_ value _*2 Offset*_ pressing MENU then LONG MENU on Offset
  * _*Trims 2 Offset_*
 
+ ==CURVES==
+ * *`*` * 8 curves with _*3, 5, 9 or 17 points*_
+ * *`*` * _*Custom Curves*_ with _*custom X*_ values for each point
+
  ==CUSTOM SWITCHES== 
  * _*Timers_* and _*Telemetry_* inputs in _*Custom Switches*_
  * Trims can be used as source of custom switch, (_*TrmA, TrmT, TrmE, TrmR*_) for V1 and V2 values
@@ -102,6 +105,8 @@
  * supports _*Metric or Imperial units_* (compile option)
 
  ==Other compile options== 
+ * *`*` * *_Voice*_ - hardware modification of stock board to play voice tracks
+ * *`*` * *_Curves*_ - disable/enable curves in model setup
  * *_Autoswitch*_ - in model setup menus automatically set switch by moving some of them
  * eeprom _*write Progress Bar_*
  * _*Bolt_* fonts for active FP, DR/Exop, MIX, Custom switches, Function switches in setup menus
@@ -127,11 +132,11 @@
 <br>
 
 || *MODEL SETTINGS* || || ||
-|| _*Flight Phases*_ <br>with *Bolt* active FP1 || _*Switch, selectable Trims, Fade*_ || _*T-Trace*_ for statistics.<br>Changing _*Up/Low case in model name*_<br>by pressing LONG LEFT/RIGHT   ||
+|| _*Flight Phases*_ <br>with *Bolt* active FP1 || _*Switch, selectable Trims, Fade*_ || _*T-Trace*_ for statistics and THt/s/% source<br>Changing _*Up/Low case in model name*_<br>by pressing LONG LEFT/RIGHT   ||
 || https://open9x.googlecode.com/svn/wiki/images3/snapshot_03.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_04.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_32.png ||
 ||_*DR/EXPO*_ for Rud/Ele/Thr/Ail<br>Depends on `FlightPhase`, Switch, Side<br>Applied is Weight, Expo, Curve|| _*Channel value 2 Offset*_ (Trim not cleared) <br>press MENU + LONG MENU on Offset|| _*Trims 2 Offset*_ (Trims are cleared)<br>press MENU on *Trims=>Offsets* ||
 || https://open9x.googlecode.com/svn/wiki/images3/DrExpo.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_05.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_27.png ||
-|| _*Curves with presets*_ || _*Custom Switches*_ with _*Timers1/2,<br>Telemetry, PPM*_ and more sources.<br>*Bolt* active CSx || _*Trainer, Trainer per Stick, Play sounds*_,<br>Channel _*Security*_ with value,<br>Channel _*Instant*_ value to _*Trims*_ ||
+|| _*Curves*_ from 3 to 17 points and<br>_*Custom curves*_ with X and Y values<br>for each point (pt')|| _*Custom Switches*_ with _*Timers1/2,<br>Telemetry, PPM*_ and more sources.<br>*Bolt* active CSx || _*Trainer, Trainer per Stick, Play sounds*_,<br>Channel _*Security*_ with value,<br>Channel _*Instant*_ value to _*Trims*_ ||
 || https://open9x.googlecode.com/svn/wiki/images3/snapshot_06.png || https://open9x.googlecode.com/svn/wiki/images3/CustomSwitches_07.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_09.png ||
 || _*Thr trim*_ like a *_Slider:*_ in Mix select source <br>TrmR/TrmE/TrmT/TrmA || _*Mix Sources*_<br> *_Ail*_ is stick, *_AIL*_ is switch || _*How the FULL was changed*_<br>AIL or other HW/SW switch is 0 or 100 ||
 || https://open9x.googlecode.com/svn/wiki/images3/snapshot_08.png || https://open9x.googlecode.com/svn/wiki/images3/MixesSources_12.png || https://open9x.googlecode.com/svn/wiki/images3/Full-1.png ||
