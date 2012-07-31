@@ -98,7 +98,7 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>BOLD</td>
 		<td><b>YES</b></td>
 		<td>NO</td>
-		<td>In setup menu bolt active FPs, DR/Expos, Mixes and Switches </td>
+		<td>In setup menu bold active FPs, DR/Expos, Mixes and Switches </td>
 	</tr>	
 	<tr>
 		<td>THR_TRACE</td>
