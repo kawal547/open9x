@@ -47,11 +47,11 @@
  ==FLIGHT PHASES== 
  * _*5 Flight Phases*_ with Fade In/Out and elective self trims. 
  * Fade In/Out from 0 to 7.5 seconds
- * *Bolt FPx* for active Flight Phases
+ * *Bold FPx* for active Flight Phases
  
  ==DR/EXPO==
  * _*DR/Expo*_ with Curve and Flight Phase support
- * *Bolt weight* for active DR/EXPO
+ * *Bold weight* for active DR/EXPO
 
  ==MIXER==
  * _*Inverted curves*_ in Mixes and Expos
@@ -62,7 +62,7 @@
  * Trims in mixes can be selected from OFF, ON, Rud, Ele, Thr, Ail - it's possible to _*cross trims between sticks*_
  * _*Fast Inverting values_* by pressing +- at same time
  * Slow and Delay Up/Down from 0 to 7.5 seconds
- * *Bolt source* for active mixes
+ * *Bold source* for active mixes
  
  ==LIMITS==
  * _*PPM Center Adjustment_* in limits (compile option)
@@ -77,7 +77,7 @@
  ==CUSTOM SWITCHES== 
  * _*Timers_* and _*Telemetry_* inputs in _*Custom Switches*_
  * Trims can be used as source of custom switch, (_*TrmA, TrmT, TrmE, TrmR*_) for V1 and V2 values
- * *Bolt CSx* for active Custom Switches
+ * *Bold CSx* for active Custom Switches
  
  ==FUNCTION SWITCHES== 
  * _*Safety Channels_* (security switches) with ON/OFF switch
@@ -91,7 +91,7 @@
  * *`*` * selectable _*Backlight*_ switch
  * Momentary switches *_SWXm*_ play sound/haptic only once
  * Options not included in compiled FW are displayed in square bracket `[Haptic], [Vario]`
- * *Bolt switch* for active Function Switches
+ * *Bold switch* for active Function Switches
  
  ==TELEMETRY==
  * Support for _*`FrSky` HUB*_ 2.0 sensors
@@ -109,7 +109,7 @@
  * *`*` * *_Curves*_ - disable/enable curves in model setup
  * *_Autoswitch*_ - in model setup menus automatically set switch by moving some of them
  * eeprom _*write Progress Bar_*
- * _*Bolt_* fonts for active FP, DR/Exop, MIX, Custom switches, Function switches in setup menus
+ * _*Bold_* fonts for active FP, DR/Exop, MIX, Custom switches, Function switches in setup menus
  * _*Nographics_* for disabling graphical sliders and ON/OFF checkboxes in setup menus
  * Open9x is prepared for _*translations*_ in several languages (done for en, fr, it, se, cz, de)
 
@@ -132,11 +132,11 @@
 <br>
 
 || *MODEL SETTINGS* || || ||
-|| _*Flight Phases*_ <br>with *Bolt* active FP1 || _*Switch, selectable Trims, Fade*_ || _*T-Trace*_ for statistics and THt/s/% source<br>Changing _*Up/Low case in model name*_<br>by pressing LONG LEFT/RIGHT   ||
+|| _*Flight Phases*_ <br>with *Bold* active FP1 || _*Switch, selectable Trims, Fade*_ || _*T-Trace*_ for statistics and THt/s/% source<br>Changing _*Up/Low case in model name*_<br>by pressing LONG LEFT/RIGHT   ||
 || https://open9x.googlecode.com/svn/wiki/images3/snapshot_03.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_04.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_32.png ||
 ||_*DR/EXPO*_ for Rud/Ele/Thr/Ail<br>Depends on `FlightPhase`, Switch, Side<br>Applied is Weight, Expo, Curve|| _*Channel value 2 Offset*_ (Trim not cleared) <br>press MENU + LONG MENU on Offset|| _*Trims 2 Offset*_ (Trims are cleared)<br>press MENU on *Trims=>Offsets* ||
 || https://open9x.googlecode.com/svn/wiki/images3/DrExpo.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_05.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_27.png ||
-|| _*Curves*_ from 3 to 17 points and<br>_*Custom curves*_ with X and Y values<br>for each point (pt')|| _*Custom Switches*_ with _*Timers1/2,<br>Telemetry, PPM*_ and more sources.<br>*Bolt* active CSx || _*Trainer, Trainer per Stick, Play sounds*_,<br>Channel _*Security*_ with value,<br>Channel _*Instant*_ value to _*Trims*_ ||
+|| _*Curves*_ from 3 to 17 points and<br>_*Custom curves*_ with X and Y values<br>for each point (pt')|| _*Custom Switches*_ with _*Timers1/2,<br>Telemetry, PPM*_ and more sources.<br>*Bold* active CSx || _*Trainer, Trainer per Stick, Play sounds*_,<br>Channel _*Security*_ with value,<br>Channel _*Instant*_ value to _*Trims*_ ||
 || https://open9x.googlecode.com/svn/wiki/images3/snapshot_06.png || https://open9x.googlecode.com/svn/wiki/images3/CustomSwitches_07.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_09.png ||
 || _*Thr trim*_ like a *_Slider:*_ in Mix select source <br>TrmR/TrmE/TrmT/TrmA || _*Mix Sources*_<br> *_Ail*_ is stick, *_AIL*_ is switch || _*How the FULL was changed*_<br>AIL or other HW/SW switch is 0 or 100 ||
 || https://open9x.googlecode.com/svn/wiki/images3/snapshot_08.png || https://open9x.googlecode.com/svn/wiki/images3/MixesSources_12.png || https://open9x.googlecode.com/svn/wiki/images3/Full-1.png ||
