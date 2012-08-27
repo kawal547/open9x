@@ -77,6 +77,12 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>play Voice files (needs voice TX modification)</td>
 	</tr>
 	<tr>
+		<td>TTS</td>
+		<td><b>---</b></td>
+		<td>EN, FR, CZ</td>
+		<td>Speech language modification</td>
+	</tr>
+	<tr>
 		<td>HAPTIC</td>
 		<td><b>NO</b></td>
 		<td>YES</td>
