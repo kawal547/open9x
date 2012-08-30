@@ -119,6 +119,12 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>Adjustable PPM center for servos in limits menu</td>
 	</tr>
         <tr>
+		<td>PPM_LIMITS_SYMETRICAL</td>
+		<td><b>NO</b></td>
+		<td>YES</td>
+		<td>Symetrical PPM limits for servos in limits menu</td>
+	</tr>
+        <tr>
 		<td>PPM_LIMITS_UNIT</td>
 		<td><b>PERCENT</b></td>
 		<td>US</td>

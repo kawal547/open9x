@@ -71,6 +71,7 @@
 
  ==LIMITS==
  * _*PPM Center Adjustment_* in limits (compile option)
+ * *`*` * *_Symetrical PPM limits_* (compile option)
  * _*PPM Limit Units*_ percent or microseconds (compile option)
  * _*Channel*_ value _*2 Offset*_ pressing MENU then LONG MENU on Offset
  * _*Trims 2 Offset_*
@@ -83,6 +84,7 @@
  * _*Timers_* and _*Telemetry_* inputs in _*Custom Switches*_
  * Trims can be used as source of custom switch, (_*TrmA, TrmT, TrmE, TrmR*_) for V1 and V2 values
  * *Bold CSx* for active Custom Switches
+ * *`*` * New Custom Switches functions: *_d>=ofs_* (means difference between 2 values >= ofs) and *_|d|>=ofs_*
  
  ==FUNCTION SWITCHES== 
  * _*Safety Channels_* (security switches) with ON/OFF switch
@@ -97,6 +99,7 @@
  * Momentary switches *_SWXm*_ play sound/haptic only once
  * Options not included in compiled FW are displayed in square bracket `[Haptic], [Vario]`
  * *Bold switch* for active Function Switches
+ * *`*` * [MENU long] on a switch *_toggles between normal and momentary switch*_ (THR <=> THRm, !THR <=> !THRm)
  
  ==TELEMETRY==
  * Support for _*`FrSky` HUB*_ 2.0 sensors
@@ -110,7 +113,7 @@
  * supports _*Metric or Imperial units_* (compile option)
 
  ==Other compile options== 
- * *_Voice*_ - hardware modification of stock board to play voice tracks
+ * *_Voice*_ - hardware modification of stock board to play voice tracks. Custom languages.
  * *_Curves*_ - disable/enable curves in model setup
  * *_Autoswitch*_ - in model setup menus automatically set switch by moving some of them
  * eeprom _*write Progress Bar_*
