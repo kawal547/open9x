@@ -9,20 +9,23 @@
  * Calculation _*speed optimizations*_
  * Less Flash, Less RAM used (depending on FW options)
 
- ==Main view==
+ =Main view=
  * _*Virtual Switches Screen*_ for showing Custom Switches CS1-CSC state
  * _*CH1-8 and CH9-16 values and bars *_ screens switchable with LEFT/RIGHT 
  * New *_Warning*_ screens 
  * One Warning screen for *_all switches*_
  * *_LowEEPROM Warning*_ screens with non blocking transmission
-
- ==RADIO SETUP==
+<wiki:comment>
+ =General setup=
+</wiki:comment>
+ =RADIO SETUP=
  * _*Graphical Sliders*_ for Speaker and Haptic length
  * _*Speaker Mode/Lenght*_ separated (compile option)
  * _*Haptic Mode/Lenght*_ separated (compile option)
  * Graphical _*ON/OFF Check boxes*_
- * *`*` * _*Backlight mode_* respond on Key press, Stick move or both 
+ * _*Backlight mode_* respond on Key press, Stick move or both 
 
+ =MODEL SETUP=
  ==MODELSEL==
  * Select Model with LONG MENU (not EXIT) 
  * Copy Model with MENU press 
@@ -52,6 +55,7 @@
  ==DR/EXPO==
  * _*DR/Expo*_ with Curve and Flight Phase support
  * *Bold weight* for active DR/EXPO
+ * *`*` * *_More Flight Phases_* on one DR/EXPO line
 
  ==MIXER==
  * _*Inverted curves*_ in Mixes and Expos
@@ -63,7 +67,8 @@
  * _*Fast Inverting values_* by pressing +- at same time
  * Slow and Delay Up/Down from 0 to 7.5 seconds
  * *Bold source* for active mixes
- 
+ * *`*` * *_More Flight Phases_* on one mix line
+
  ==LIMITS==
  * _*PPM Center Adjustment_* in limits (compile option)
  * _*PPM Limit Units*_ percent or microseconds (compile option)
@@ -71,8 +76,8 @@
  * _*Trims 2 Offset_*
 
  ==CURVES==
- * *`*` * 8 curves with _*3, 5, 9 or 17 points*_
- * *`*` * _*Custom Curves*_ with _*custom X*_ values for each point
+ * 8 curves with _*3, 5, 9 or 17 points*_
+ * _*Custom Curves*_ with _*custom X*_ values for each point
 
  ==CUSTOM SWITCHES== 
  * _*Timers_* and _*Telemetry_* inputs in _*Custom Switches*_
@@ -88,7 +93,7 @@
  * _*Haptic_* switches
  * _*Reset_* timers and/or telemetry values
  * _*Vario_* audio alerts
- * *`*` * selectable _*Backlight*_ switch
+ * selectable _*Backlight*_ switch
  * Momentary switches *_SWXm*_ play sound/haptic only once
  * Options not included in compiled FW are displayed in square bracket `[Haptic], [Vario]`
  * *Bold switch* for active Function Switches
@@ -105,15 +110,22 @@
  * supports _*Metric or Imperial units_* (compile option)
 
  ==Other compile options== 
- * *`*` * *_Voice*_ - hardware modification of stock board to play voice tracks
- * *`*` * *_Curves*_ - disable/enable curves in model setup
+ * *_Voice*_ - hardware modification of stock board to play voice tracks
+ * *_Curves*_ - disable/enable curves in model setup
  * *_Autoswitch*_ - in model setup menus automatically set switch by moving some of them
  * eeprom _*write Progress Bar_*
  * _*Bold_* fonts for active FP, DR/Exop, MIX, Custom switches, Function switches in setup menus
  * _*Nographics_* for disabling graphical sliders and ON/OFF checkboxes in setup menus
+ * *`*` * _*DBLKEYS*_ - while changing values you can *_press two edit keys simultaneously*_
+          # [LEFT+RIGHT] = inverted value
+          # [LEFT+DOWN]  = min value
+          # [UP+RIGHT]   = max value
+          # [UP+DOWN]    = default value
  * Open9x is prepared for _*translations*_ in several languages (done for en, fr, it, se, cz, de)
 
 *[http://9xforums.com/wiki/index.php/Open9x_user_guide 9xforums Wiki User Guide]*
+
+*`*`* *[http://open9x.googlecode.com/files/Open9X%20Manual.pdf English User Guide Download]*
 
 *[http://open9x.googlecode.com/files/open9x%20manual%20francais.pdf French User Guide Download]*
 
@@ -132,8 +144,10 @@
 <br>
 
 || *MODEL SETTINGS* || || ||
-|| _*Flight Phases*_ <br>with *Bold* active FP1 || _*Switch, selectable Trims, Fade*_ || _*T-Trace*_ for statistics and THt/s/% source<br>Changing _*Up/Low case in model name*_<br>by pressing LONG LEFT/RIGHT   ||
-|| https://open9x.googlecode.com/svn/wiki/images3/snapshot_03.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_04.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_32.png ||
+||_*T-Trace*_ for statistics and THt/s/% source<br>Changing _*Up/Low case in model name*_<br>by pressing LONG LEFT/RIGHT  || Thr. and Startup _*Model based warnings*_<br>press LONG MENU on S-Warning<br>to store start-up switches position||  ||
+|| https://open9x.googlecode.com/svn/wiki/images3/ModelWarnings.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_32.png ||  ||
+|| _*Flight Phases*_ <br>with *Bold* active FP1 || _*Switch, selectable Trims, Fade*_ || ||
+|| https://open9x.googlecode.com/svn/wiki/images3/snapshot_03.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_04.png ||  ||
 ||_*DR/EXPO*_ for Rud/Ele/Thr/Ail<br>Depends on `FlightPhase`, Switch, Side<br>Applied is Weight, Expo, Curve|| _*Channel value 2 Offset*_ (Trim not cleared) <br>press MENU + LONG MENU on Offset|| _*Trims 2 Offset*_ (Trims are cleared)<br>press MENU on *Trims=>Offsets* ||
 || https://open9x.googlecode.com/svn/wiki/images3/DrExpo.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_05.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_27.png ||
 || _*Curves*_ from 3 to 17 points and<br>_*Custom curves*_ with X and Y values<br>for each point (pt')|| _*Custom Switches*_ with _*Timers1/2,<br>Telemetry, PPM*_ and more sources.<br>*Bold* active CSx || _*Trainer, Trainer per Stick, Play sounds*_,<br>Channel _*Security*_ with value,<br>Channel _*Instant*_ value to _*Trims*_ ||
