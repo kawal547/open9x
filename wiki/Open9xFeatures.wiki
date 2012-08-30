@@ -99,7 +99,7 @@
  * Momentary switches *_SWXm*_ play sound/haptic only once
  * Options not included in compiled FW are displayed in square bracket `[Haptic], [Vario]`
  * *Bold switch* for active Function Switches
- * *`*` * [MENU long] on a switch *_toggles between normal and momentary switch*_ (THR <=> THRm, !THR <=> !THRm)
+ * *`*` * LONG MENU on a switch *_toggles between normal and momentary switch*_ (THR <=> THRm, !THR <=> !THRm)
  
  ==TELEMETRY==
  * Support for _*`FrSky` HUB*_ 2.0 sensors
