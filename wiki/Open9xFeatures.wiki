@@ -148,7 +148,7 @@
 
 || *MODEL SETTINGS* || || ||
 ||_*T-Trace*_ for statistics and THt/s/% source<br>Changing _*Up/Low case in model name*_<br>by pressing LONG LEFT/RIGHT  || Thr. and Startup _*Model based warnings*_<br>press LONG MENU on S-Warning<br>to store start-up switches position||  ||
-|| https://open9x.googlecode.com/svn/wiki/images3/ModelWarnings.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_32.png ||  ||
+|| https://open9x.googlecode.com/svn/wiki/images3/snapshot_32.png || https://open9x.googlecode.com/svn/wiki/images3/ModelWarnings.png ||  ||
 || _*Flight Phases*_ <br>with *Bold* active FP1 || _*Switch, selectable Trims, Fade*_ || ||
 || https://open9x.googlecode.com/svn/wiki/images3/snapshot_03.png || https://open9x.googlecode.com/svn/wiki/images3/snapshot_04.png ||  ||
 ||_*DR/EXPO*_ for Rud/Ele/Thr/Ail<br>Depends on `FlightPhase`, Switch, Side<br>Applied is Weight, Expo, Curve|| _*Channel value 2 Offset*_ (Trim not cleared) <br>press MENU + LONG MENU on Offset|| _*Trims 2 Offset*_ (Trims are cleared)<br>press MENU on *Trims=>Offsets* ||
