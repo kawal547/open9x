@@ -1,6 +1,5 @@
 ﻿#summary Open9x French manual
 #labels Featured
-#sidebar TableOfContents
 
 = Open9x - Manuel d'utilisation =
 
@@ -17,7 +16,7 @@ Manuel écrit par Franck Aguerre sur la base d'open9x r1568 / Nov. 2012
 
 CE LOGICIEL EST FOURNI « TEL QUEL » SANS GARANTIE D'AUCUNE SORTE, EXPLICITE OU IMPLICITE, Y COMPRIS ET SANS LIMITATION, LES GARANTIES DE VALEUR MARCHANDE OU D'ADAPTATION À UN USAGE PARTICULIER. VOUS PORTEZ LA TOTALITÉ DU RISQUE DE QUALITÉ ET DE PERFORMANCE DU PROGRAMME. VOUS PRENEZ À VOTRE CHARGE LE COÛT DE TOUTE INTERVENTION, RÉPARATION OU CORRECTION AU CAS OÙ LE PROGRAMME S'AVÉRERAIT DÉFECTUEUX.
 
-[WikiSyntax#Table_des_mati%C3%A8res Retour à la table des matières]
+[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour à la table des matières]
 
 == Introduction ==
 
@@ -144,7 +143,7 @@ Le Mixeur est l'articulation majeure d'open9x, sa fonction consistant à mettre 
 
 Les ordres issus du Mixeur ne sont pas directement dirigés vers les servos, mais passent d'abord un formatage de sortie (Limites) qui régule l'ordre envoyé à chaque servo en le décalant (sub-trim), en l'inversant (sens) ou en écrêtant tout dépassement (limite). Puis finalement les voies sont encodées et envoyées aux servos via le couple module HF / récepteur.
 
-[WikiSyntax#Table_des_mati%C3%A8res Retour à la table des matières]
+[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour à la table des matières]
 
 == Écran principal ==
 
@@ -166,7 +165,7 @@ La partie inférieure comporte quatre écrans accessibles par *[**UP]* / *[**DOW
 
 Dans la vue principale, un appui sur *[**EXIT]* réinitialise les compteurs de la vue courante tandis que *[**EXIT LONG]* réinitialise tous les compteurs ainsi que les données de télémétrie.
 
-[WikiSyntax#Table_des_mati%C3%A8res Retour à la table des matières]
+[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour à la table des matières]
 
 == Écrans de statistiques ==
 
@@ -187,7 +186,7 @@ Le second montre des compteurs internes de l'émetteur, « tmain » représent
 
 Tous ces compteurs peuvent être remis à zéro par un appui sur *[**MENU]*.
 
-[WikiSyntax#Table_des_mati%C3%A8res Retour à la table des matières]
+[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour à la table des matières]
 
 == Paramètres généraux ==
 
@@ -721,7 +720,7 @@ Les gabarits disponibles sont les suivants :
 06 : configuration hélicoptère, à utiliser en amont d'ECCPM pour réinitialiser les mixage et les courbes.
 07 : servo test, sur la voie 15. A mettre en entrée des voies à tester, les servos se déplaçant lentement de -100% à +100%.
 
-[WikiSyntax#Table_des_mati%C3%A8res Retour à la table des matières]
+[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour à la table des matières]
 
 == Écrans de télémesure ==
 
@@ -735,7 +734,7 @@ Le défilement des écrans est assuré par les touches *[**UP]* et *[**DOWN]* , 
 
 Sont affichées ici la latitude, la longitude et l'altitude du modèle, ainsi que la distance du modèle au pilote. En réinitialisant les données de télémesure, la première position GPS reçue devient alors la position de départ pour les futurs calculs.
 
-[WikiSyntax#Table_des_mati%C3%A8res Retour à la table des matières]
+[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour à la table des matières]
 
 == Exemples de mixages et bonnes pratiques associées ==
 
@@ -848,7 +847,7 @@ La course mécanique de chaque servo est ainsi répartie d'une manière adaptée
 
 Le calcul des ratios se fait par trigonométrie, en considérant comme débattement de référence celui qui donne le plus petit débattement angulaire du plateau pour un débattement de servo donné (= servo frontal en fonction profondeur).
 
-[WikiSyntax#Table_des_mati%C3%A8res Retour à la table des matières]
+[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour à la table des matières]
 
 == Introduction à companion9x ==
 
@@ -881,7 +880,7 @@ L'écran de simulation de la radio, on peut même naviguer dans le soft comme su
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/c9x_simu.png
 
-[WikiSyntax#Table_des_mati%C3%A8res Retour à la table des matières]
+[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour à la table des matières]
 
 == Pour conclure ==
 
