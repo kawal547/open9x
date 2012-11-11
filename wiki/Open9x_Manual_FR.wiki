@@ -1,5 +1,6 @@
 ﻿#summary Open9x French manual
 #labels Featured
+#sidebar TableOfContents
 
 = Open9x - Manuel d'utilisation =
 
@@ -7,6 +8,7 @@ https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/9x_header.png
 
 Manuel écrit par Franck Aguerre sur la base d'open9x r1568 / Nov. 2012
 
+== Table des matières ==
 
 <wiki:toc max_depth="4" />
 
@@ -14,6 +16,8 @@ Manuel écrit par Franck Aguerre sur la base d'open9x r1568 / Nov. 2012
 == Avertissement ==
 
 CE LOGICIEL EST FOURNI « TEL QUEL » SANS GARANTIE D'AUCUNE SORTE, EXPLICITE OU IMPLICITE, Y COMPRIS ET SANS LIMITATION, LES GARANTIES DE VALEUR MARCHANDE OU D'ADAPTATION À UN USAGE PARTICULIER. VOUS PORTEZ LA TOTALITÉ DU RISQUE DE QUALITÉ ET DE PERFORMANCE DU PROGRAMME. VOUS PRENEZ À VOTRE CHARGE LE COÛT DE TOUTE INTERVENTION, RÉPARATION OU CORRECTION AU CAS OÙ LE PROGRAMME S'AVÉRERAIT DÉFECTUEUX.
+
+[WikiSyntax#Table_des_mati%C3%A8res Retour à la table des matières]
 
 == Introduction ==
 
@@ -140,6 +144,8 @@ Le Mixeur est l'articulation majeure d'open9x, sa fonction consistant à mettre 
 
 Les ordres issus du Mixeur ne sont pas directement dirigés vers les servos, mais passent d'abord un formatage de sortie (Limites) qui régule l'ordre envoyé à chaque servo en le décalant (sub-trim), en l'inversant (sens) ou en écrêtant tout dépassement (limite). Puis finalement les voies sont encodées et envoyées aux servos via le couple module HF / récepteur.
 
+[WikiSyntax#Table_des_mati%C3%A8res Retour à la table des matières]
+
 == Écran principal ==
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_1.png
@@ -160,6 +166,8 @@ La partie inférieure comporte quatre écrans accessibles par *[**UP]* / *[**DOW
 
 Dans la vue principale, un appui sur *[**EXIT]* réinitialise les compteurs de la vue courante tandis que *[**EXIT LONG]* réinitialise tous les compteurs ainsi que les données de télémétrie.
 
+[WikiSyntax#Table_des_mati%C3%A8res Retour à la table des matières]
+
 == Écrans de statistiques ==
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/02_1.png  https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/02_2.png
@@ -178,6 +186,8 @@ Un graphique temporel de la consigne moteur est aussi affiché.
 Le second montre des compteurs internes de l'émetteur, « tmain » représente le temps de calcul. Ce temps augmente avec la complexité des mixages, et peut devenir important (temps de réponse perceptible) suivant la configuration du modèle.
 
 Tous ces compteurs peuvent être remis à zéro par un appui sur *[**MENU]*.
+
+[WikiSyntax#Table_des_mati%C3%A8res Retour à la table des matières]
 
 == Paramètres généraux ==
 
@@ -711,6 +721,8 @@ Les gabarits disponibles sont les suivants :
 06 : configuration hélicoptère, à utiliser en amont d'ECCPM pour réinitialiser les mixage et les courbes.
 07 : servo test, sur la voie 15. A mettre en entrée des voies à tester, les servos se déplaçant lentement de -100% à +100%.
 
+[WikiSyntax#Table_des_mati%C3%A8res Retour à la table des matières]
+
 == Écrans de télémesure ==
 
 Ces écrans sont accessibles  (si l'option FRSKY est activée) en appuyant sur la touche *[**DOWN LONG]* depuis l'écran principal. Leur affichage dépend de la configuration réalisée dans le menu Télémesure 11/12.
@@ -722,6 +734,8 @@ Le défilement des écrans est assuré par les touches *[**UP]* et *[**DOWN]* , 
 || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/03_5.png || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/03_6.png ||
 
 Sont affichées ici la latitude, la longitude et l'altitude du modèle, ainsi que la distance du modèle au pilote. En réinitialisant les données de télémesure, la première position GPS reçue devient alors la position de départ pour les futurs calculs.
+
+[WikiSyntax#Table_des_mati%C3%A8res Retour à la table des matières]
 
 == Exemples de mixages et bonnes pratiques associées ==
 
@@ -834,6 +848,8 @@ La course mécanique de chaque servo est ainsi répartie d'une manière adaptée
 
 Le calcul des ratios se fait par trigonométrie, en considérant comme débattement de référence celui qui donne le plus petit débattement angulaire du plateau pour un débattement de servo donné (= servo frontal en fonction profondeur).
 
+[WikiSyntax#Table_des_mati%C3%A8res Retour à la table des matières]
+
 == Introduction à companion9x ==
 
 Companion9x est le logiciel (sous Windows, Linux ou  Mac) associé à open9x, permettant de :
@@ -865,6 +881,7 @@ L'écran de simulation de la radio, on peut même naviguer dans le soft comme su
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/c9x_simu.png
 
+[WikiSyntax#Table_des_mati%C3%A8res Retour à la table des matières]
 
 == Pour conclure ==
 
