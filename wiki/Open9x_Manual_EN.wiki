@@ -2,7 +2,7 @@
 
 = Open9x - User's manual =
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/9x_header.jpg
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/9x_header.png
 
 Translation from the French manual written by Franck Aguerre, and based on open9x r1568 / Nov. 2012
 
@@ -66,7 +66,7 @@ Dans les deux cas, le logiciel à utiliser pour la reprogrammation (flashage) es
 
 === Vue de l'émetteur et nomenclature ===
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/open9x_identification_organes_CMD_9x.jpg
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/open9x_identification_organes_CMD_9x.jpg
 
 || Entrées proportionnelles: || Entrées digitales (interrupteurs): ||
 || 1. Gaz (Thr) : manche de gaz<br> 2. Prf (Ele) : manche de profondeur<br> 3. Ail (Ail) : manche d'ailerons<br> 4. Dir (Rud) : manche de dérive<br> 5. P1/P2/P3 : potentiomètres<br> 6. Trims de manche (impulsion par impulsion ou continu)|| 1. 1. THR<br> 2. RUD<br> 3. ELE<br> 4. ID0/1/2 (3-POS)<br> 5. AIL<br> 6. GEA<br> 7. TRN ||
@@ -121,13 +121,13 @@ Si l'option *DBLKEYS* est activée, des raccourcis clavier suivants sont disponi
 
 Voici un aperçu de la structuration de navigation des menus d'open9x :
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/open9x_synoptique.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/open9x_synoptique.png
 
 === Comment ça marche ===
 
 Tout d'abord, voici un premier aperçu du fonctionnement d'open9x au travers du diagramme de cheminement des ordres depuis les organes de commande et de commutation jusqu'aux servos.
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/open9x_cheminement_ordres.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/open9x_cheminement_ordres.png
 
 Ce diagramme est volontairement simplifié aux principaux cheminements des ordres, les choses peuvent être plus complexes dans le détail. Par exemple, les fonctions personnalisées, non représentées ici, peuvent interagir avec les variables globales, pour les réglages en vol, ou avec les interrupteurs personnalisés. De même, ces derniers peuvent utiliser des informations issues de la télémesure, ou être conditionnés à des interrupteurs physiques.
 
@@ -141,7 +141,7 @@ Les ordres issus du Mixeur ne sont pas directement dirigés vers les servos, mai
 
 == Écran principal ==
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_1.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/01_1.png
 
 L'écran principal est découpé en 2 parties. La partie supérieure comporte les éléments suivants :
  * Le nom du modèle.
@@ -152,16 +152,16 @@ L'écran principal est découpé en 2 parties. La partie supérieure comporte le
 
 La partie inférieure comporte quatre écrans accessibles par *[**UP]* / *[**DOWN]* :
 
-|| Visualisation des 16 sorties du récepteur sur deux pages<br>(via *[**LEFT]* / *[**RIGHT]*) || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_1.png ||
-|| Valeurs numériques des 16 sorties du récepteur sur deux pages<br>(via *[**LEFT]* / *[**RIGHT]*) || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_2.png ||
-|| Position des manches et état des interrupteurs sur deux pages<br>(via *[**LEFT]* / *[**RIGHT]*): d'abord les entrées physiques (manches, pots, inters)<br>puis les interrupteurs virtuels (SW1..SWC) || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_4.png<br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_5.png ||
-|| Chrono 2 (paramétrage dans « Réglages modèles 2/12 »).<br>*[**EXIT]* le remet à zéro || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_3.png ||
+|| Visualisation des 16 sorties du récepteur sur deux pages<br>(via *[**LEFT]* / *[**RIGHT]*) || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/01_1.png ||
+|| Valeurs numériques des 16 sorties du récepteur sur deux pages<br>(via *[**LEFT]* / *[**RIGHT]*) || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/01_2.png ||
+|| Position des manches et état des interrupteurs sur deux pages<br>(via *[**LEFT]* / *[**RIGHT]*): d'abord les entrées physiques (manches, pots, inters)<br>puis les interrupteurs virtuels (SW1..SWC) || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/01_4.png<br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/01_5.png ||
+|| Chrono 2 (paramétrage dans « Réglages modèles 2/12 »).<br>*[**EXIT]* le remet à zéro || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/01_3.png ||
 
 Dans la vue principale, un appui sur *[**EXIT]* réinitialise les compteurs de la vue courante tandis que *[**EXIT LONG]* réinitialise tous les compteurs ainsi que les données de télémétrie.
 
 == Écrans de statistiques ==
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/02_1.png  https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/02_2.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/02_1.png  https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/02_2.png
 
 Depuis l'écran principal, presser *[**UP LONG]* donne accès aux écrans de statistiques.
 
@@ -192,7 +192,7 @@ Les écrans de ce menu sont les suivants :
 
 === Réglages Radio (1/6) ===
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/04_1.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/04_1.png
 
 Cet écran permet de régler les paramètres généraux de l'émetteur :
  # Son / mode :
@@ -235,7 +235,7 @@ Cet écran permet de régler les paramètres généraux de l'émetteur :
 
 === Ecolage (2/6) ===
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/05_1.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/05_1.png
 
 Cet écran permet d'affecter les voies d'une radio « élève » (signal PPM, via la prise écolage) aux manches de la radio « maître » et de calibrer leur neutre :
  # Mode : 
@@ -255,7 +255,7 @@ L'interrupteur d'activation de l'écolage se définit dans la programmation du m
 
 === Info version (3/6) ===
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/06_1.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/06_1.png
 
 Cet écran affiche la version du FW utilisé :
  * SVN : Le nom SVN du FW.
@@ -265,13 +265,13 @@ Cet écran affiche la version du FW utilisé :
 
 === Diagnostics (4/6) ===
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/07_1.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/07_1.png
 
 Cet écran permet de vérifier le bon fonctionnement des boutons, interrupteurs et trims en affichant leur état (on = passage de 0 à 1 et mise en surbrillance).
 
 === Entrées analogiques (5/6) ===
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/08_1.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/08_1.png
 
 Cet écran affiche les valeurs brutes des entrées analogiques en hexadécimal. Les valeurs vont de 0 à 0x3FF (0..1023), les entrées étant les suivantes :
  * A1..A4 : manches
@@ -281,15 +281,15 @@ Il est aussi possible d'étalonner la mesure de la tension batterie : *[**DOWN]*
 
 === Calibration des entrées analogiques (6/6) ===
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/09_1.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/09_1.png
 
 Cet écran permet de calibrer les entrées analogiques A1 – A7.
 
 Pour effectuer la calibration :
- # Presser *[**MENU]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/09_2.png
+ # Presser *[**MENU]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/09_2.png
 
  # Mettre les manches au neutre.
- # Presser *[**MENU]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/09_3.png
+ # Presser *[**MENU]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/09_3.png
  # Bouger les manches et potentiomètres de butée à butée (sans forcer...).
  # Presser *[**MENU]*, les valeurs sont sauvegardées.
 
@@ -311,7 +311,7 @@ Depuis l'écran principal, presser *[**RIGHT LONG]* donne accès au menu de sél
 
 === Mémoires des modèles (1/12) ===
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/10_1.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/10_1.png
 
 Cet écran liste les modèles déjà existants (jusqu'à 16), et permet de charger, dupliquer, déplacer ou effacer un modèle existant ou d'en créer un nouveau.
 
@@ -324,30 +324,30 @@ Un appui sur *[**MENU LONG]* permet le chargement du modèle sélectionné ou la
 
 ==== Pour créer un modèle : ====
 
- * Se positionner sur la ligne vierge à utiliser avec les touches *[**UP]* / *[**DOWN]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/10_2.png
- * Appuyer sur la touche *[**MENU LONG]* pour demander la création.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/10_3.png
- * Le nouveau modèle est automatiquement chargé, son nom par défaut (modifiable) étant attribué sous la forme « MODELE » + numéro de ligne.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/10_4.png
+ * Se positionner sur la ligne vierge à utiliser avec les touches *[**UP]* / *[**DOWN]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/10_2.png
+ * Appuyer sur la touche *[**MENU LONG]* pour demander la création.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/10_3.png
+ * Le nouveau modèle est automatiquement chargé, son nom par défaut (modifiable) étant attribué sous la forme « MODELE » + numéro de ligne.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/10_4.png
 
 ==== Pour supprimer un modèle : ====
 
  * Se positionner sur la ligne à supprimer avec les touches *[**UP]* / *[**DOWN]*.
- * Appuyer sur la touche *[**MENU]* pour sélectionner la ligne (elle passe en surbrillance).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/13_1.png
- * Appuyer sur la touche *[**EXIT LONG]* pour demander la suppression (non autorisée, par sécurité, sur le modèle en cours).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/13_2.png
+ * Appuyer sur la touche *[**MENU]* pour sélectionner la ligne (elle passe en surbrillance).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/13_1.png
+ * Appuyer sur la touche *[**EXIT LONG]* pour demander la suppression (non autorisée, par sécurité, sur le modèle en cours).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/13_2.png
  * Confirmer avec la touche *[**MENU]* ou annuler avec la touche *[**EXIT]*.
 
 ==== Pour dupliquer un modèle : ====
 
  * Se positionner sur la ligne à copier avec les touches *[**UP]* / *[**DOWN]*.
- * Appuyer sur la touche *[**MENU]* pour sélectionner la ligne (elle passe en surbrillance).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/11_1.png
- * Appuyer sur *[**UP]* ou *[**DOWN]* pour la dupliquer vers le haut ou vers le bas.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/11_2.png
- * Une fois l'emplacement de destination choisi, appuyer sur *[**MENU]* pour confirmer ou *[**EXIT]* pour annuler l'opération.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/11_3.png
+ * Appuyer sur la touche *[**MENU]* pour sélectionner la ligne (elle passe en surbrillance).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/11_1.png
+ * Appuyer sur *[**UP]* ou *[**DOWN]* pour la dupliquer vers le haut ou vers le bas.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/11_2.png
+ * Une fois l'emplacement de destination choisi, appuyer sur *[**MENU]* pour confirmer ou *[**EXIT]* pour annuler l'opération.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/11_3.png
 
 ==== Pour déplacer un modèle : ====
 
  * Se positionner sur la ligne à copier avec les touches *[**UP]* / *[**DOWN]*.
- * Appuyer deux fois sur la touche *[**MENU]* pour sélectionner la ligne (elle passe en surbrillance entourée d'un pointillé).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/12_1.png
- * Appuyer sur *[**UP]* ou *[**DOWN]* la déplacer vers le haut ou vers le bas.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/12_2.png
- * Une fois l'emplacement de destination choisi, appuyer sur *[**MENU]* pour confirmer ou *[**EXIT]* pour annuler l'opération.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/12_3.png
+ * Appuyer deux fois sur la touche *[**MENU]* pour sélectionner la ligne (elle passe en surbrillance entourée d'un pointillé).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/12_1.png
+ * Appuyer sur *[**UP]* ou *[**DOWN]* la déplacer vers le haut ou vers le bas.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/12_2.png
+ * Une fois l'emplacement de destination choisi, appuyer sur *[**MENU]* pour confirmer ou *[**EXIT]* pour annuler l'opération.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/12_3.png
 
 *NOTA*
 
@@ -356,7 +356,7 @@ Une opération de copie ou de déplacement peut être annulée en cours d'exécu
 
 === Configuration du modèle (2/12) ===
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/14_1.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/14_1.png
 
 Voici le détail des options :
  # Nom :  pour l'éditer, presser *[**MENU]*.<br>Après appui sur *[**MENU]* le premier caractère est en surbrillance. *[**UP]* / *[**DOWN]* change le caractère. *[**RIGHT]* / *[**LEFT]* déplacer le curseur. *[**RIGHT LONG]* ou *[**LEFT LONG]* bascule la lettre en majuscule / minuscule. *[**MENU]* / *[**EXIT]* termine l'édition.<br>Nota : le numéro de modèle est indiqué dans la ligne supérieure, à côté de CONF.
@@ -391,7 +391,7 @@ Voici le détail des options :
 
 === Réglages hélicoptères (3/12) ===
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/15_1.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/15_1.png
 
 Cet écran (si l'option *HELI* est activée) est dédié au réglage d'un hélicoptère CCPM (servos de cyclique agissant aussi sur le pas).
 
@@ -410,13 +410,13 @@ Les options sont les suivantes :
 
 === Phases de vol (4/12) ===
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/16_1.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/16_1.png
 
 Cet écran (si l'option *PHASES* est activée) permet de gérer cinq phases de vol dont une par défaut (PV0), chacune pouvant être librement nommée. La phase active est affichée en gras (si l'option *BOLD* est activée).
 
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/16_2.png     
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/16_3.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/16_2.png     
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/16_3.png
 
 Pour modifier les paramètres d'une phase de vol, choisissez-là avec les touches *[**UP]* et *[**DOWN]* et appuyez sur *[**MENU]* :
  # Nom : libellé de la phase (jusqu'à 6 caractères).
@@ -428,7 +428,7 @@ Pour revenir à l'écran précédent, appuyer sur *[**EXIT]*.
 
 === Formatage des manches (DR/EXPO) (5/12) ===
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/17_1.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/17_1.png
 
 Cet écran permet de formater l'ordre de chaque manche (Dérive / Profondeur / Gaz / Ailerons), via un gain (historiquement appelé Dual-Rate, pour double-débattement), une fonction exponentielle ou même une courbe.
 
@@ -447,20 +447,20 @@ Se placer sur la ligne à supprimer avec *[**UP]* / *[**DOWN]*, la sélectionner
 
 ==== Pour dupliquer une ligne : ====
 
- * Se placer sur la ligne à copier avec *[**UP]* / *[**DOWN]*, la sélectionner avec *[**MENU]* (elle passe en surbrillance).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/18_1.png
- * Se positionner sur la ligne de destination avec *[**UP]* / *[**DOWN]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/18_2.png
+ * Se placer sur la ligne à copier avec *[**UP]* / *[**DOWN]*, la sélectionner avec *[**MENU]* (elle passe en surbrillance).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/18_1.png
+ * Se positionner sur la ligne de destination avec *[**UP]* / *[**DOWN]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/18_2.png
 Appuyer sur *[**MENU]* pour effectuer la duplication.
 
 ==== Pour déplacer une ligne : ====
 
- * Se placer sur la ligne à déplacer avec *[**UP]* / *[**DOWN]*, la sélectionner en appuyant deux fois sur *[**MENU]* (elle passe en surbrillance entourée en pointillé).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/19_1.png
- * Se positionner sur la ligne de destination avec *[**UP]* / *[**DOWN]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/19_2.png
+ * Se placer sur la ligne à déplacer avec *[**UP]* / *[**DOWN]*, la sélectionner en appuyant deux fois sur *[**MENU]* (elle passe en surbrillance entourée en pointillé).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/19_1.png
+ * Se positionner sur la ligne de destination avec *[**UP]* / *[**DOWN]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/19_2.png
  * Appuyer sur *[**MENU]* pour effectuer le déplacement.
 Il est possible d'interrompre à tout moment une opération de duplication ou déplacement en appuyant sur la touche *[**EXIT]*.
 
 ==== Pour éditer les valeurs d'une ligne : ====
 
-Se placer sur la ligne à éditer avec *[**UP]* / *[**DOWN]* et appuyer sur *[**MENU LONG]* pour ouvrir l'écran de paramétrage.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/17_2.png
+Se placer sur la ligne à éditer avec *[**UP]* / *[**DOWN]* et appuyer sur *[**MENU LONG]* pour ouvrir l'écran de paramétrage.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/17_2.png
 
 Cet écran est composé de deux parties : à gauche les paramètres et à droite la courbe de sortie avec le curseur graphique (et ses coordonnées) associé à la position du manche. Le graphique affiche toujours l'ordre de sortie final du manche, y compris si la ligne en cours d'édition est inactive.
 
@@ -476,7 +476,7 @@ Les paramètres sont les suivants :
 
 === Mixeur (6/12) ===
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/20_1.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/20_1.png
 
 Le rôle du Mixeur est de relier des entrées (appelées aussi sources : manches, potentiomètres, interrupteurs physique ou virtuel, trims digitaux, valeur statique) aux sorties (= voies = servos), avec la possibilité de croiser / modifier les ordres donnés par ces entrées.
 
@@ -497,7 +497,7 @@ Il y a une contrepartie à cette latitude quasi totale de programmation. En effe
 
 ==== Écran principal ====
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/20_1.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/20_1.png
 
 Chaque ligne du Mixeur correspond à un mixage. Les fonctions d'édition, de suppression, de copie et déplacement des lignes sont exactement les mêmes que pour le formatage des manches (DR/expo), permettant de créer à la carte sa propre structure de mixages.
 La aussi, les lignes actives sont indiquées en gras.
@@ -508,7 +508,7 @@ Les gains sont directement modifiables avec *[**LEFT]* / *[**RIGHT]* après y av
 
 Pour aller plus loin, voici un exemple de programmation un peu plus complexe, en l'occurence un motoplaneur avec un servo par aileron et une fonction snap-flap (entrée ailerons ajoutée sur les deux servos d'ailerons) :
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/22_1.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/22_1.png
 
 A l'image des formatages de manches, plusieurs lignes (jusqu'à 32) peuvent être actives simultanément.
 
@@ -526,7 +526,7 @@ En l'absence d'ordre (pas de mixage ou mixage inactif) sur une voie, sa valeur d
 ==== Edition d'un mixage ====
 
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/21_1.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/21_1.png
 
 Les options disponibles sont les suivantes :
  # Source : ordre utilisé en entrée par le mixage
@@ -562,7 +562,7 @@ Les options disponibles sont les suivantes :
 
 === Formatage des sorties (Limites) (7/12) ===
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/23_1.png    https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/open9x_décalages_subtrim.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/23_1.png    https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/open9x_décalages_subtrim.png
 
 Cet écran permet de définir, pour chaque voie (CH1...CH16), les paramètres suivants (de gauche à droite dans l'écran) :
  # Offset (ou subtrim) : décale le centre de la voie.
@@ -576,7 +576,7 @@ La fonction « Trims => Offsets » transfère la position des trims de manches
 
 Lors de la sélection d'une voie, sa valeur de sortie (en µs si option *PPMCA*, sinon en %) est affichée en haut de l'écran :
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/23_3.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/23_3.png
 
 *NOTA*
 
@@ -584,7 +584,7 @@ Hormis le neutre et le sens de rotation, la fonction principale des limites est 
 
 === Courbes et variables globales (8/12) ===
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/24_1.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/24_1.png
 
 Les courbes (de 3 à 17 points) sont utilisées par les formatages de manches ou les mixages pour définir des réactions personnalisées.
 
@@ -594,11 +594,11 @@ Chaque courbe ou variable globale est utilisable par autant de fonctions que né
 
 ==== Pour éditer une courbe : ====
 
- # Se placer sur la ligne souhaitée avec *[**UP]* / *[**DOWN]*, la courbe correspondante apparaît.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/25_1.png
+ # Se placer sur la ligne souhaitée avec *[**UP]* / *[**DOWN]*, la courbe correspondante apparaît.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/25_1.png
  # Appuyer une fois sur *[**MENU]* pour l'éditer.
- # Appuyer sur *[**EXIT]* pour éditer le nombre de points et le type de la courbe (le signe « ' »indique que l'abscisse de chaque point est modifiable, en plus de l'ordonnée).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/25_2.png
+ # Appuyer sur *[**EXIT]* pour éditer le nombre de points et le type de la courbe (le signe « ' »indique que l'abscisse de chaque point est modifiable, en plus de l'ordonnée).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/25_2.png
  # Appuyer sur *[**MENU]* pour passer en édition des coordonnées du point (Y uniquement ou X et Y avec « ' »).
- # Déplacer le curseur d'un point à l'autre avec *[**LEFT]* / *[**RIGHT]*, et modifier l'ordonnée du point avec *[**UP]* / *[**DOWN]*. Si « ' », appuyer sur *[**MENU]* pour éditer le point et modifier ses coordonnées avec *[**LEFT]* / *[**RIGHT]* et *[**UP]* / *[**DOWN]*. *[**EXIT]* permet de sortir de l'édition pour passer au point suivant.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/25_3.png
+ # Déplacer le curseur d'un point à l'autre avec *[**LEFT]* / *[**RIGHT]*, et modifier l'ordonnée du point avec *[**UP]* / *[**DOWN]*. Si « ' », appuyer sur *[**MENU]* pour éditer le point et modifier ses coordonnées avec *[**LEFT]* / *[**RIGHT]* et *[**UP]* / *[**DOWN]*. *[**EXIT]* permet de sortir de l'édition pour passer au point suivant.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/25_3.png
 
 ==== Pour modifier une variable globale (GV) : ====
 
@@ -609,12 +609,12 @@ Chaque courbe ou variable globale est utilisable par autant de fonctions que né
 
  * Se placer sur le taux (ici un différentiel d'ailerons) à lier à une variable globale.
  * Appuyer une fois sur *[**MENU LONG]* pour basculer en liste de variables globales.
- * Sélectionner la variable globales souhaitées avec *[**LEFT]* / *[**RIGHT]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/21_3.png
+ * Sélectionner la variable globales souhaitées avec *[**LEFT]* / *[**RIGHT]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/21_3.png
  * Pour désactiver l'association du taux avec une variable globale, appuyer une fois sur *[**MENU LONG]*. La valeur réglée est bien entendu conservée.
 
 === Interrupteurs personnalisables (9/12) ===
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/26_1.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/26_1.png
 
 Les interrupteurs personnalisables, au nombre de 12 (IP1...IPC) sont des interrupteurs virtuels utilisant des conditions logiques pour leur activation. Comme pour les mixages, il est possible de réaliser des chaînages entre interrupteurs virtuels.
 
@@ -628,7 +628,7 @@ Pour chaque interrupteur, les paramètres sont les suivants (de gauche à droite
 
 === Fonctions personnalisées (10/12) ===
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/27_1.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/27_1.png
 
 Cet écran permet de créer des fonctions personnalisées et, au besoin, de les associer à un interrupteur (physique, virtuel, activation permanente):
  # Securité : forçage à une valeur prédéfinie de n'importe quelle voie CH1..CH16.
@@ -653,7 +653,7 @@ Les interrupteurs associés sont les suivants :
 === Paramétrage de la télémesure (11/12) ===
 
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/28_1.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/28_1.png
 
 Cet écran (si l'option *FRSKY* est activée) permet le paramétrage de la télémesure !FrSky, ainsi que la configuration des alarmes associées.
 
@@ -685,7 +685,7 @@ Lorsqu'une valeur est modifiée, elle est immédiatement envoyée au module !FrS
 
 ==== Affichage personnalisé des capteurs sur l'écran de télémesure : ====
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/28_4.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/28_4.png
 
 Il est possible d'afficher jusqu'à 8 capteurs sur l'écran de télémesure, avec les paramètres suivants:
  # Source : mesure à afficher.
@@ -696,7 +696,7 @@ Ces sources sont aussi utilisables pour définir des interrupteurs virtuels. Les
 
 === Gabarits (12/12) ===
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/29_1.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/29_1.png
 
 Les gabarits (si option *TEMPLATES*) permettent de mettre en place les mixages de base d'une configuration de modèle donnée. La navigation se fait dans l'écran, comme à l'habitude avec *[**UP]* / *[**DOWN]*, puis *[**MENU LONG]* pour activer le gabarit. Cela ajoutera le gabarit aux mixages existants du modèle courant, ou les remplacera suivant le cas.
 
@@ -716,9 +716,9 @@ Ces écrans sont accessibles  (si l'option FRSKY est activée) en appuyant sur l
 Le défilement des écrans est assuré par les touches *[**UP]* et *[**DOWN]* , tandis que la touche *[**MENU]* réinitialise les données de télémesure. Enfin *[**EXIT]* renvoie au menu principal.
 
 || Les jauges graphiques : || Les tensions d'accu(s) ||
-|| https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/03_3.png || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/03_4.png ||
+|| https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/03_3.png || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/03_4.png ||
 || Les données de l'altimètre, compte-tours... || Les données GPS : ||
-|| https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/03_5.png || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/03_6.png ||
+|| https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/03_5.png || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/03_6.png ||
 
 Sont affichées ici la latitude, la longitude et l'altitude du modèle, ainsi que la distance du modèle au pilote. En réinitialisant les données de télémesure, la première position GPS reçue devient alors la position de départ pour les futurs calculs.
 
@@ -729,7 +729,7 @@ Sont affichées ici la latitude, la longitude et l'altitude du modèle, ainsi qu
  # Presser *[**MENU]* pour sélectionner la ligne, *[**RIGHT LONG]* pour la dupliquer en-dessous, puis éditer le mixage avec *[**MENU LONG]*.
  # Changer la source par « MAX », le ratio par -100 et sélectionner un interrupteur (ou une phase de vol) pour son activation.
  # Mettre “Remplace” dans le champ « Opération ».
- # Sortir de l'édition avec *[**EXIT]*. Le résultat est le suivant :<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/22_2.png
+ # Sortir de l'édition avec *[**EXIT]*. Le résultat est le suivant :<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/22_2.png
 CH3 est maintenant pilotée par deux mixages :
  * le premier transmet la valeur du manche des gaz et est actif tout le temps.
  * le second remplace le premier par la valeur de -100% quand l'interrupteur GAZ est à ON.
@@ -846,23 +846,23 @@ Companion9x est le logiciel (sous Windows, Linux ou  Mac) associé à open9x, pe
  
 Ecran principal :
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/c9x_main_window.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/c9x_main_window.png
 
 Ecran de paramétrage des firmwares, accessible depuis le menu « Fichier » (passer la souris sur les cases permet d'afficher une étiquette explicative de l'option) :
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/c9x_preferences.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/c9x_preferences.png
 
 Ecran de programmation d'un modèle (structure identique à celle d'open9x), accessible en double-cliquant sur le nom du modèle dans la liste de l'eeprom :
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/c9x_mixer_screen.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/c9x_mixer_screen.png
 
 Un très bel écran d'assistant de configuration automatique de modèles (gabarit) :
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/c9x_model_wizard.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/c9x_model_wizard.png
 
 L'écran de simulation de la radio, on peut même naviguer dans le soft comme sur la vraie radio (!) :
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/c9x_simu.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_EN/c9x_simu.png
 
 
 == Pour conclure ==
