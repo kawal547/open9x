@@ -1,10 +1,11 @@
 ﻿#summary Open9x French manual
+#labels Featured
 
 = Open9x - Manuel d'utilisation =
 
 Manuel écrit par Franck Aguerre sur la base d'open9x r1568 / Nov. 2012
 
-<wiki:toc max_depth="3" />
+<wiki:toc max_depth="4" />
 
 == Avertissement ==
 
@@ -246,6 +247,7 @@ Le multiplicateur est un gain global appliqué à tous les ordres issus de l'ém
 Pour la calibration du neutre du PPM envoyé par l'émetteur élève, mettre en surbrillance  « Cal » et presser *[**MENU]*.
 
 *NOTA* 
+
 L'émetteur élève doit être non-programmable ou doté d'une programmation neutre (voie = manche).
 L'interrupteur d'activation de l'écolage se définit dans la programmation du modèle (cf. paragraphe xx.x).
 
@@ -318,34 +320,35 @@ L'étoile « *`*` * » sur la gauche indique le modèle en cours.
 *[**UP]* / *[**DOWN]* permet de se déplacer dans la liste des modèles.
 Un appui sur *[**MENU LONG]* permet le chargement du modèle sélectionné ou la création d'un nouveau modèle si la mémoire sélectionnée est vide.
 
-==== Pour créer un modèle: ====
+==== Pour créer un modèle : ====
 
- # Se positionner sur la ligne vierge à utiliser avec les touches *[**UP]* / *[**DOWN]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/10_2.png
- # Appuyer sur la touche *[**MENU LONG]* pour demander la création.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/10_3.png
- # Le nouveau modèle est automatiquement chargé, son nom par défaut (modifiable) étant attribué sous la forme « MODELE » + numéro de ligne.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/10_4.png
+ * Se positionner sur la ligne vierge à utiliser avec les touches *[**UP]* / *[**DOWN]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/10_2.png
+ * Appuyer sur la touche *[**MENU LONG]* pour demander la création.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/10_3.png
+ * Le nouveau modèle est automatiquement chargé, son nom par défaut (modifiable) étant attribué sous la forme « MODELE » + numéro de ligne.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/10_4.png
 
-==== Pour supprimer un modèle: ====
+==== Pour supprimer un modèle : ====
 
- # Se positionner sur la ligne à supprimer avec les touches *[**UP]* / *[**DOWN]*.
- # Appuyer sur la touche *[**MENU]* pour sélectionner la ligne (elle passe en surbrillance).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/13_1.png
- # Appuyer sur la touche *[**EXIT LONG]* pour demander la suppression (non autorisée, par sécurité, sur le modèle en cours).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/13_2.png
- # Confirmer avec la touche *[**MENU]* ou annuler avec la touche *[**EXIT]*.
+ * Se positionner sur la ligne à supprimer avec les touches *[**UP]* / *[**DOWN]*.
+ * Appuyer sur la touche *[**MENU]* pour sélectionner la ligne (elle passe en surbrillance).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/13_1.png
+ * Appuyer sur la touche *[**EXIT LONG]* pour demander la suppression (non autorisée, par sécurité, sur le modèle en cours).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/13_2.png
+ * Confirmer avec la touche *[**MENU]* ou annuler avec la touche *[**EXIT]*.
 
-==== Pour dupliquer un modèle: ====
+==== Pour dupliquer un modèle : ====
 
- # Se positionner sur la ligne à copier avec les touches *[**UP]* / *[**DOWN]*.
- # Appuyer sur la touche *[**MENU]* pour sélectionner la ligne (elle passe en surbrillance).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/11_1.png
- # Appuyer sur *[**UP]* ou *[**DOWN]* pour la dupliquer vers le haut ou vers le bas.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/11_2.png
- # Une fois l'emplacement de destination choisi, appuyer sur *[**MENU]* pour confirmer ou *[**EXIT]* pour annuler l'opération.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/11_3.png
+ * Se positionner sur la ligne à copier avec les touches *[**UP]* / *[**DOWN]*.
+ * Appuyer sur la touche *[**MENU]* pour sélectionner la ligne (elle passe en surbrillance).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/11_1.png
+ * Appuyer sur *[**UP]* ou *[**DOWN]* pour la dupliquer vers le haut ou vers le bas.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/11_2.png
+ * Une fois l'emplacement de destination choisi, appuyer sur *[**MENU]* pour confirmer ou *[**EXIT]* pour annuler l'opération.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/11_3.png
 
-==== Pour déplacer un modèle: ====
+==== Pour déplacer un modèle : ====
 
- # Se positionner sur la ligne à copier avec les touches *[**UP]* / *[**DOWN]*.
- # Appuyer deux fois sur la touche *[**MENU]* pour sélectionner la ligne (elle passe en surbrillance entourée d'un pointillé).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/12_1.png
- # Appuyer sur *[**UP]* ou *[**DOWN]* la déplacer vers le haut ou vers le bas.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/12_2.png
- # Une fois l'emplacement de destination choisi, appuyer sur *[**MENU]* pour confirmer ou *[**EXIT]* pour annuler l'opération.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/12_3.png
+ * Se positionner sur la ligne à copier avec les touches *[**UP]* / *[**DOWN]*.
+ * Appuyer deux fois sur la touche *[**MENU]* pour sélectionner la ligne (elle passe en surbrillance entourée d'un pointillé).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/12_1.png
+ * Appuyer sur *[**UP]* ou *[**DOWN]* la déplacer vers le haut ou vers le bas.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/12_2.png
+ * Une fois l'emplacement de destination choisi, appuyer sur *[**MENU]* pour confirmer ou *[**EXIT]* pour annuler l'opération.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/12_3.png
 
 *NOTA*
+
 Les fonctions créer / effacer / déplacer / dupliquer des lignes sont particulièrement importantes dans open9x, car elles sont aussi utilisées dans d'autres écrans (« manches » et « mixeurs ») pour gérer à la carte leur fonctionnement.
 Une opération de copie ou de déplacement peut être annulée en cours d'exécution en appuyant sur la touche *[**EXIT]*.
 
@@ -433,24 +436,24 @@ A chaque manche peut correspondre plusieurs lignes de formatage (jusqu'à 14 au 
 
 Le processus de gestion des lignes est identique à celui utilisé pour les mémoires de modèles, le revoici cependant pour bien s'en imprégner.
 
-==== Pour créer une ligne: ====
+==== Pour créer une ligne : ====
 S'il aucune ligne de formatage n'est appliquée au manche, se positionner sur la ligne vide correspondante avec les touches *[**UP]* / *[**DOWN]* et appuyer sur *[**MENU LONG]* pour créer une ligne de formatage et ouvrir son écran de paramétrage.
 Si une ligne de formatage est déjà affectée au manche, se placer sur la ligne juste avant ou après avec *[**UP]* / *[**DOWN]*, la sélectionner avec *[**MENU]* et appuyer sur *[**RIGHT LONG]* ou *[**LEFT LONG]*.
 
-==== Pour supprimer une ligne: ====
+==== Pour supprimer une ligne : ====
 Se placer sur la ligne à supprimer avec *[**UP]* / *[**DOWN]*, la sélectionner avec *[**MENU]* et appuyer sur *[**EXIT LONG]*.
 
-==== Pour dupliquer une ligne: ====
+==== Pour dupliquer une ligne : ====
 
- # Se placer sur la ligne à copier avec *[**UP]* / *[**DOWN]*, la sélectionner avec *[**MENU]* (elle passe en surbrillance).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/18_1.png
- # Se positionner sur la ligne de destination avec *[**UP]* / *[**DOWN]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/18_2.png
+ * Se placer sur la ligne à copier avec *[**UP]* / *[**DOWN]*, la sélectionner avec *[**MENU]* (elle passe en surbrillance).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/18_1.png
+ * Se positionner sur la ligne de destination avec *[**UP]* / *[**DOWN]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/18_2.png
 Appuyer sur *[**MENU]* pour effectuer la duplication.
 
-==== Pour déplacer une ligne: ====
+==== Pour déplacer une ligne : ====
 
- # Se placer sur la ligne à déplacer avec *[**UP]* / *[**DOWN]*, la sélectionner en appuyant deux fois sur *[**MENU]* (elle passe en surbrillance entourée en pointillé).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/19_1.png
- # Se positionner sur la ligne de destination avec *[**UP]* / *[**DOWN]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/19_2.png
- # Appuyer sur *[**MENU]* pour effectuer le déplacement.
+ * Se placer sur la ligne à déplacer avec *[**UP]* / *[**DOWN]*, la sélectionner en appuyant deux fois sur *[**MENU]* (elle passe en surbrillance entourée en pointillé).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/19_1.png
+ * Se positionner sur la ligne de destination avec *[**UP]* / *[**DOWN]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/19_2.png
+ * Appuyer sur *[**MENU]* pour effectuer le déplacement.
 Il est possible d'interrompre à tout moment une opération de duplication ou déplacement en appuyant sur la touche *[**EXIT]*.
 
 ==== Pour éditer les valeurs d'une ligne : ====
@@ -489,3 +492,341 @@ Il y a une contrepartie à cette latitude quasi totale de programmation. En effe
  * Quels sont les ordres que doit recevoir chaque voie ?
  * Avec ou sans phase de vol ?
  * Comment minimiser le nombre de valeurs à programmer / régler et éviter les redondances (par ex., une courbe ou une variable globale peut définir un taux de différentiel global sur toute la voilure d'un planeur quadroflap, ou une voie virtuelle peut définir une fonction, par ex. une courbure de voilure, en groupant plusieurs entrées) ?
+
+==== Écran principal ====
+
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/20_1.png
+
+Chaque ligne du Mixeur correspond à un mixage. Les fonctions d'édition, de suppression, de copie et déplacement des lignes sont exactement les mêmes que pour le formatage des manches (DR/expo), permettant de créer à la carte sa propre structure de mixages.
+La aussi, les lignes actives sont indiquées en gras.
+
+CHx correspond à la voie x du récepteur. Sur cet exemple basique (défini par défaut à la création d'un modèle et entièrement modifiable), le manche de gaz est affecté sur voie 1, avec un taux de mixage de 100% (gain de 1 pour 1), de même pour les manches de profondeur, ailerons et dérive sur respectivement les voies 2, 3 et 4.
+
+Les gains sont directement modifiables avec *[**LEFT]* / *[**RIGHT]* après y avoir accédé avec *[**UP]* / *[**DOWN]*. Sauf besoin spécifique, il est fortement conseillé (pour s'y retrouver...)  de laisser les gains à +/-100%, en considérant qu'ils s'agit plutôt d'une activation et en s'appuyant sur les formatages de manches pour ajuster les débattements par fonction.
+
+Pour aller plus loin, voici un exemple de programmation un peu plus complexe, en l'occurence un motoplaneur avec un servo par aileron et une fonction snap-flap (entrée ailerons ajoutée sur les deux servos d'ailerons) :
+
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/22_1.png
+
+A l'image des formatages de manches, plusieurs lignes (jusqu'à 32) peuvent être actives simultanément.
+
+De même, plusieurs lignes peuvent être affectées à une voie, avec un mode d'application spécifique (sur la voie concernée) :
+ * « += » : la ligne est ajoutée au résultat des lignes précédentes (mode par défaut).
+ * « *`*`*= » : la ligne multiplie le résultat de toutes les lignes précédentes.
+ * « := » : la ligne remplace toutes les lignes précédentes.
+
+Les valeurs « 20 » affichées à droite correspondent au différentiel d'ailerons (cf. ci-après).
+
+*NOTA*
+
+En l'absence d'ordre (pas de mixage ou mixage inactif) sur une voie, sa valeur de sortie est de 0% (position médiane) et non -100% (butée basse).
+
+==== Edition d'un mixage ====
+
+
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/21_1.png
+
+Les options disponibles sont les suivantes :
+ # Source : ordre utilisé en entrée par le mixage
+   * Tout organe physique : manches, potentiomètres, interrupteurs, trims digitaux.
+   * Interrupteurs virtuels : SW1...SWC.
+   * MAX :  entrée statique, la valeur de sortie du mixage est « Ratio » quand le mixage est actif, sinon 0 (transparent).
+   * 3POS : renvoie « -Ratio », 0, « +Ratio » suivant la position de l'interrupteur à 3 positions.
+   * CYC1, CYC2, CYC3: sorties du mixage hélicoptère (menu Héli 3/10). CYC1 correspond à la sortie principale de tangage pour les plateaux classique et à la sortie principale de roulis en plateau 120X.
+   * PPM1..PPM8 : entrées PPM de la prise écolage. Permet par exemple d'ajouter des fonctions de rotation de caméra en FPV.
+   * CH1..CH16 : sorties des autres mixages, utilisable pour réaliser des fonctions complexes par chaînage.
+ # Ratio : gain du mixage qui multiplie la valeur de sortie (de -125% à 125%, défaut = +/-100%).
+ # Décalage : décale la valeur d'entrée (de -125 à 125%, défaut = 0).
+ # Trim : si « ON » la valeur du trim associé au manche en entrée de mixage est prise en compte dans le mixage, si « OFF » le trim est ignoré. Il est aussi possible d'utiliser un trim (Dérive / Profondeur / Gaz / Ailerons) différent de celui par défaut.
+ # DRex : prise en compte du formatage de manche, sinon c'est l'ordre brut issu du manche qui est utilisé.
+ # Courbe : 
+   * Diff : différentiel (0 par défaut).
+   * x>0 : la valeur de la source ne sera prise en compte que si positive (sinon 0),
+   * x<0 : idem mais pour des valeurs négatives.
+   * |x| : la valeur prise en compte sera la valeur absolue.
+   * f>0 : si la source est positive la valeur sera « + Ratio » sinon 0.
+   * f<0 : si la source est négative la valeur sera « - Ratio » sinon 0.
+   * |f| : la sortie sera « + Ratio » ou « -Ratio » suivant le signe de la source.
+   * CB1...CB8 : courbes personnalisables, définies dans le menu « COURBES 8/12 ». Depuis le mixage, presser *[**MENU]* permet d'éditer directement la courbe. Chaque courbe peut être utilisée par plusieurs mixages, soit telle quelle, soit en inverse (« ! »), ce qui est particulièrement utile pour, par exemple, définir un différentiel global d'ailerons et volets.
+ # Inter : permet d'affecter un interrupteur d'activation du mixage. Le mixage est actif en permanence si aucun interrupteur n'est sélectionné.
+ # Phase : phases de vol pour lesquelles le mixage est actif. Par défaut, toutes les phases sont sélectionnées.
+ # Alerte: actionne une alarme sonore (1, 2 ou 3 bips répétés en continu) lorsque le mixage est actif (uniquement valable si un interrupteur est sélectionné).
+ # Opération : définie le mode d'application du mixage sur la voie concernée.
+   * Ajoute : la ligne est ajoutée au résultat des lignes précédentes (mode par défaut).
+   * Multiplie : la ligne multiplie le résultat des lignes précédentes.
+   * Remplace : la ligne remplace toutes les lignes précédentes, à utiliser avec un interrupteur ou une phase de vol.
+ # Retard haut / bas : retarde l'activation / désactivation du mixage (par défaut, instantané).
+ # Ralenti haut / bas : ralenti le changement de valeur du mixage (par défaut, instantané).
+
+=== Formatage des sorties (Limites) (7/12) ===
+
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/23_1.png    https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/open9x_décalages_subtrim.png
+
+Cet écran permet de définir, pour chaque voie (CH1...CH16), les paramètres suivants (de gauche à droite dans l'écran) :
+ # Offset (ou subtrim) : décale le centre de la voie.
+Les manches peuvent être utilisés pour le régler : mettre la valeur en surbrillance, déplacer le manche de manière à mettre le servo à la position voulue, puis presser *[**MENU LONG]*.
+ # Min/Max : butées mini / maxi (-100 / +100% à -125 / +125% si limites étendues) au-delà duquel l'ordre est écrété. Les limites servent aussi de gains de sortie, soit relatifs soit absolus (cf. ci-après).
+ # -> / <- : sens de rotation du servo.
+ # 1500 (si option *PPMCA*) : neutre de servo (en µs). Réglage identique à celui du sub-trim mais sans que cela apparaisse dans l'écran de position des servos.
+ # ^ / =  (si option *SYMLIMITS*) : détermine l'effet du sub-trim, soit décale uniquement le centre de la courbe de réponse du servo (gains relatifs, en rouge sur le graphique ci-dessus) soit décale toute la courbe (gains absolus, en bleu ci-dessus). L'utilisation de « = » est indispensable dès que la voie reçoit plus d'un mixage pour conserver la linéarité de réponse de toutes les fonctions qui pilotent cette voie.
+
+La fonction « Trims => Offsets » transfère la position des trims de manches vers les offsets (avec prise en compte du Mixeur et du formatage de manches), puis remet les trims à zéro.
+
+Lors de la sélection d'une voie, sa valeur de sortie (en µs si option *PPMCA*, sinon en %) est affichée en haut de l'écran :
+
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/23_3.png
+
+*NOTA*
+
+Hormis le neutre et le sens de rotation, la fonction principale des limites est de régler le gain de chaque demi-course de servo pour symétriser lesdites demi-courses (= avoir un débattement identique de part et d'autre du neutre pour une consigne donnée). Cela vaut aussi entre des servos ayant la même fonction (ex. servos d'ailerons). Bien évidemment, il convient de s'assurer sur le modèle que les servos puissent débattre intégralement sans aller en butée mécanique.
+
+=== Courbes et variables globales (8/12) ===
+
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/24_1.png
+
+Les courbes (de 3 à 17 points) sont utilisées par les formatages de manches ou les mixages pour définir des réactions personnalisées.
+
+Les variables globales se substituent à la valeur numérique d'un taux de mixage, de dual-rate ou d'expo. Ces variables peuvent être, au besoin, liées à une fonction associées à un interrupteur (cf. « Fonctions associées à des interrupteurs » 10/12) pour permettre leur modification en vol par un organe de commande (trim électronique ou potentiomètre). De plus, chaque variable peut avoir une valeur différente par phase de vol, ce qui peut substantiellement diminuer le nombre de mixages pour les différenciation de taux (différentiel, courbure de profil, etc.) par phase.
+
+Chaque courbe ou variable globale est utilisable par autant de fonctions que nécessaire.
+
+==== Pour éditer une courbe : ====
+
+ # Se placer sur la ligne souhaitée avec *[**UP]* / *[**DOWN]*, la courbe correspondante apparaît.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/25_1.png
+ # Appuyer une fois sur *[**MENU]* pour l'éditer.
+ # Appuyer sur *[**EXIT]* pour éditer le nombre de points et le type de la courbe (le signe « ' »indique que l'abscisse de chaque point est modifiable, en plus de l'ordonnée).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/25_2.png
+ # Appuyer sur *[**MENU]* pour passer en édition des coordonnées du point (Y uniquement ou X et Y avec « ' »).
+ # Déplacer le curseur d'un point à l'autre avec *[**LEFT]* / *[**RIGHT]*, et modifier l'ordonnée du point avec *[**UP]* / *[**DOWN]*. Si « ' », appuyer sur *[**MENU]* pour éditer le point et modifier ses coordonnées avec *[**LEFT]* / *[**RIGHT]* et *[**UP]* / *[**DOWN]*. *[**EXIT]* permet de sortir de l'édition pour passer au point suivant.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/25_3.png
+
+==== Pour modifier une variable globale (GV) : ====
+
+ * Se placer sur la ligne souhaitée avec *[**UP]* / *[**DOWN]*.
+ * Modifier sa valeur avec *[**LEFT]* / *[**RIGHT]*.
+
+==== Pour utiliser une variable globale à à la place d'un taux: ====
+
+ * Se placer sur le taux (ici un différentiel d'ailerons) à lier à une variable globale.
+ * Appuyer une fois sur *[**MENU LONG]* pour basculer en liste de variables globales.
+ * Sélectionner la variable globales souhaitées avec *[**LEFT]* / *[**RIGHT]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/21_3.png
+ * Pour désactiver l'association du taux avec une variable globale, appuyer une fois sur *[**MENU LONG]*. La valeur réglée est bien entendu conservée.
+
+=== Interrupteurs personnalisables (9/12) ===
+
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/26_1.png
+
+Les interrupteurs personnalisables, au nombre de 12 (IP1...IPC) sont des interrupteurs virtuels utilisant des conditions logiques pour leur activation. Comme pour les mixages, il est possible de réaliser des chaînages entre interrupteurs virtuels.
+
+Pour chaque interrupteur, les paramètres sont les suivants (de gauche à droite) :
+ # Condition logique :
+   * test : v>offset, v<offset, |v|>offset, |v|<offset d>=offset et |d|>=offset.
+   * opérateurs logiques : ET (les deux opérandes doivent être à ON pour activer SW), OU (au moins un des deux opérandes doit à être à ON pour activer SW), OU-exclusif (un seul des deux opérandes doit à être à ON pour activer SW).
+   * comparaison de deux sources (==, !=, >, <, >=, <=).
+ # Entrée testée : premier opérande d'une comparaison logique ou première source à comparer.
+ # Valeur seuil du test : seconde opérande d'une comparaison logique ou seconde source à comparer.
+
+=== Fonctions personnalisées (10/12) ===
+
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/27_1.png
+
+Cet écran permet de créer des fonctions personnalisées et, au besoin, de les associer à un interrupteur (physique, virtuel, activation permanente):
+ # Securité : forçage à une valeur prédéfinie de n'importe quelle voie CH1..CH16.
+ # Ecolage.
+ # Ecolage pour une seule voie (DIR / PRF / GAZ / AIL).
+ # Trim Instant. : pour trimmer instantanément le modèle à partir de la position des manches.
+ # Bip.
+ # Vibreur (option *HAPTIC*).
+ # Remise à 0 : chrono 1 ou 2, les deux chrono à la fois, données de télémesure.
+ # Vario (option *AUDIO*).
+ # Jouer fichier (option *AUDIO* sur carte Sky9x).
+ # Dire valeur (option *VOICE*).
+ # Rétroéclairage.
+ # Modification GV1...5 (option *GVARS*): permet d'associer à une variable globale un organe de réglage (potentiomètre, trim digital, manche, etc.).
+
+Les interrupteurs associés sont les suivants :
+ # ON : toujours actif.
+ # Interrupteurs physiques.
+ # Interrupteurs virtuels.
+ # Interrupteurs momentanés.
+
+=== Paramétrage de la télémesure (11/12) ===
+
+
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/28_1.png
+
+Cet écran (si l'option *FRSKY* est activée) permet le paramétrage de la télémesure !FrSky, ainsi que la configuration des alarmes associées.
+
+==== Entrées analogiques A1 et A2: ====
+Pour chaque entrée, il est possible de régler les paramètres suivants :
+ # Plage : calibre le gain de l'affichage de la tension (à régler avec un voltmètre)
+ # Décalage : fixe le zéro de la mesure.
+ # Deux alarmes, avec:
+   * le niveau de l'alarme (---, jaune, orange, rouge)
+   * le sens de l'alarme à partir du seuil (< ou >)
+   * la valeur du seuil
+Lorsqu'une valeur est modifiée, elle est immédiatement envoyée au module !FrSky.
+
+==== Niveaux de réception (RSSI) Tx et Rx : ====
+Même principe, il est possible de définir deux alarmes pour le niveau de réception :
+ * le niveau de l'alarme (---, jaune, orange, rouge)
+ * la valeur du seuil
+Lorsqu'une valeur est modifiée, elle est immédiatement envoyée au module !FrSky.
+
+==== Autres mesures : ====
+ # Proto : protocole série utilisé par le récepteur de télémétrie. Les options sont : None (non utilisé), le Hub !FrSky, ou le module Winged Shadow How High (il donne seulement l'altitude, mais il est plus précis).
+ # Pales : nombre de pales de l'hélice pour l'affichage du compte tour.
+ # Tension : entrée utilisée pour la mesure de la tension d'une propulsion électrique.
+ # Courant : entrée utilisée pour la mesure de l'intensité d'une propulsion électrique.
+
+==== Vario : ====
+ # Source : type de variomètre utilisé.
+ # Limite : définit une alarme d'altitude avec un seuil de déclenchement.
+
+==== Affichage personnalisé des capteurs sur l'écran de télémesure : ====
+
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/28_4.png
+
+Il est possible d'afficher jusqu'à 8 capteurs sur l'écran de télémesure, avec les paramètres suivants:
+ # Source : mesure à afficher.
+ # Min : valeur mini possible.
+ # Max : valeur maxi possible.
+
+Ces sources sont aussi utilisables pour définir des interrupteurs virtuels. Les jalons affichés sur l'écran de télémétrie sont automatiquement issus des infos venant des alarmes FrSky ou des Inters virtuels. Ainsi, si vous positionnez un inter virtuel lorsque l'altitude est de 400m, vous verrez apparaître une marque à 400m.
+
+=== Gabarits (12/12) ===
+
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/29_1.png
+
+Les gabarits (si option *TEMPLATES*) permettent de mettre en place les mixages de base d'une configuration de modèle donnée. La navigation se fait dans l'écran, comme à l'habitude avec *[**UP]* / *[**DOWN]*, puis *[**MENU LONG]* pour activer le gabarit. Cela ajoutera le gabarit aux mixages existants du modèle courant, ou les remplacera suivant le cas.
+
+Les gabarits disponibles sont les suivants :
+00 : supprime tous les mixages du Mixeur.
+01 : 4 voies simple.
+02 : fonction de coupure de gaz.
+03 : mixages d'empennage en V (dérive / profondeur).
+04 : mixages d'ailes delta ou incidence intégrale (ailerons / profondeur).
+05 : eCCPM : mixages pour pas collectif sur hélicoptère électrique.
+06 : configuration hélicoptère, à utiliser en amont d'ECCPM pour réinitialiser les mixage et les courbes.
+07 : servo test, sur la voie 15. A mettre en entrée des voies à tester, les servos se déplaçant lentement de -100% à +100%.
+
+== Écrans de télémesure ==
+
+Ces écrans sont accessibles  (si l'option FRSKY est activée) en appuyant sur la touche *[**DOWN LONG]* depuis l'écran principal. Leur affichage dépend de la configuration réalisée dans le menu Télémesure 11/12.
+Le défilement des écrans est assuré par les touches *[**UP]* et *[**DOWN]* , tandis que la touche *[**MENU]* réinitialise les données de télémesure. Enfin *[**EXIT]* renvoie au menu principal.
+
+|| Les jauges graphiques : || Les tensions d'accu(s) ||
+|| https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/03_3.png || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/03_4.png ||
+|| Les données de l'altimètre, compte-tours... || Les données GPS : ||
+|| https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/03_5.png || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/03_6.png ||
+
+Sont affichées ici la latitude, la longitude et l'altitude du modèle, ainsi que la distance du modèle au pilote. En réinitialisant les données de télémesure, la première position GPS reçue devient alors la position de départ pour les futurs calculs.
+
+== Exemples de mixages et bonnes pratiques associées ==
+
+=== Fonction coupe-gaz ===
+ # Se positionner sur la ligne du mixage de base utilisant l'entrée « gaz ».
+ # Presser *[**MENU]* pour sélectionner la ligne, *[**RIGHT LONG]* pour la dupliquer en-dessous, puis éditer le mixage avec *[**MENU LONG]*.
+ # Changer la source par « MAX », le ratio par -100 et sélectionner un interrupteur (ou une phase de vol) pour son activation.
+ # Mettre “Remplace” dans le champ « Opération ».
+ # Sortir de l'édition avec *[**EXIT]*. Le résultat est le suivant :<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/22_2.png
+CH3 est maintenant pilotée par deux mixages :
+ * le premier transmet la valeur du manche des gaz et est actif tout le temps.
+ * le second remplace le premier par la valeur de -100% quand l'interrupteur GAZ est à ON.
+
+=== Activation d'un chauffe-bougie lorsque les gaz sont <20% ===
+ # Dans « Interrupteurs personnalisés » :
+   * mettre en surbrillance SW1.
+   * sélectionner la condition v<ofs.
+   * sélectionner Gaz comme source.
+   * choisir un offset de  -80%.
+ # Dans « Mixeur », créer deux mixages sur la voie du chauffe-bougie :
+   * activation : source = MAX, ratio = +100%, interrupteur = SW1.
+   * désactivation :  source = MAX, ratio = -100%, interrupteur = !SW1.
+
+Rappel : ce second mixage est indispensable car, en l'absence d'ordre, la sortie d'une voie est de 0% (position médiane) et non -100% (butée basse).
+
+=== Mixages delta / incidence intégrale (avec différentiel global d'ailerons) ===
+ # Dans la voie de l'aile(ron) gauche :
+   * créer une ligne de mixage avec source = Prof, ratio = +100%.
+   * créer une ligne de mixage avec source = Ail, ratio = +100%, diff = GVx.
+ # Dans la voie de l'aile(ron) droit :
+   * créer une ligne de mixage avec source = Prof, ratio = +100%.
+   * créer une ligne de mixage avec source = Ail, ratio = -100%, diff = GVx.
+
+Rappel : les débattements des fonctions ailerons et profondeur se différencient indépendamment grâce aux dual-rates propres à chaque manche.
+
+=== Différentiel global de voilure (ailerons, volets, dérive, etc.) ===
+ # Avec une courbe 3 points (solution 1) :
+   * dans « Mixeur », créer une ligne de mixage sur la voie de la gouverne 1.
+   * l'éditer, mettre ratio = +100% et activer une courbe à 3 points (pour 20% de différentiel, mettre : -80% (par ex.), 0%, +100%).
+   * créer une ligne de mixage sur la voie de la gouverne 2.
+   * l'éditer, mettre ratio = -100% et activer la courbe précédente en inverse (ex : !CB).
+   * pour modifier le différentiel, éditer la courbe et modifier la valeur de -80%.
+ # Avec une variable globale (solution 2) : 
+   * dans « Mixeur », créer une ligne de mixage sur la voie de la gouverne 1.
+   * l'éditer, mettre ratio = +100% et différentiel = GV1.
+   * créer une ligne de mixage sur la voie de la gouverne 2.
+   * l'éditer, mettre ratio = -100% et différentiel = GV1.
+   * pour modifier le différentiel, éditer la valeur de GV1 ou, encore mieux, lier GV1 à un potentiomètre (via une fonction associées à un interrupteur) pour régler sa valeur directement en vol.
+
+En cas de besoin de différencier par phase de vol le différentiel, dupliquer les mixages (avec une courbe ou un variable dédiée à chaque paire) et les lier chacun à une phase de vol dédiée.
+
+=== Fonction courbure d'aile (dynamique (snap-flap) + statique) + AF pour quadroflap ===
+ # Dans une voie inutilisée (ex. CH10), créer la fonction « courbure » :
+   * créer une ligne de mixage avec source = Prof, ratio = xx% (ou GVx), trim et D/R = OFF.
+   * ajouter une ligne de mixage avec source = MAX, ratio = xx% (ou GVx). Ou, seconde solution très élégante, avec source = Trim de gaz, ratio = 100%.
+   * si besoin, dupliquer ces lignes pour les différencier par phase de vol (inutile avec Trim).
+ # Dans une voie inutilisée (ex. CH11), créer la fonction « courbure + AF » pour volets :
+   * créer une ligne de mixage avec source = CH10, ratio = 100%.
+   * créer une ligne de mixage avec source = Gaz, ratio = xx%.
+ # Dans une voie inutilisée (ex. CH12), créer la fonction « courbure + AF » pour aileron :
+   * créer une ligne de mixage avec source = CH10, ratio = 50% (couplage classique).
+   * créer une ligne de mixage avec source = Gaz, ratio = xx%.
+ # Dans les voies de volets : 
+   * créer une ligne de mixage avec source = Aile, ratio = +/-50%, diff = GVy
+   * créer une ligne de mixage avec source = CH11, ratio = 100%.
+ # Dans les voies d'ailerons : 
+   * créer une ligne de mixage avec source = Aile, ratio = +/-100%, diff = GVy
+   * créer une ligne de mixage avec source = CH12, ratio = 100%.
+
+Le principe est de grouper les entrées par fonction plutôt que de toutes les mettre directement sur les voies de destination. Le bénéfice est double : le nombre de mixage est réduit, tandis que les réglages sont grandement simplifiés (une seule valeur par fonction est plus rapide -et logique- à régler que plusieurs fois la même valeur dupliquée dans différents mixages).
+
+Une autre bonne pratique, qui en découle consiste -à chaque fois que cela est possible- à considérer les taux de mixage comme des activations par défaut, c'est à dire avec des taux de +/-100%. Le réglage des débattements par fonction étant confié aux formatages de manches, via les dual-rate.
+
+Cet exemple complexe peut évidemment être simplifié pour des besoins plus simples, (deux ailerons full-span, pas de courbure statique, etc.), avec potentiellement en conséquence un seul étage de fonction au lieu de deux.
+
+=== Multi-affectation du manche de gaz AF+Gaz sur moto-planeur ===
+ # Dans le mixage de la voie de gaz :
+   * utiliser une courbe 3pts' : (-100%,-100%), (+25%,-100%), (+100%,+100%).
+ # Dans le mixage de la voie/fonction d'AF :
+   * utiliser une courbe 3pts' : (-100%,+100%), (-25%,-100%), (+100%,-100%).
+
+Ainsi, le manche de gaz permet de commander de manière proportionnelle les fonctions gaz et aérofreins, le tout sans avoir à le lâcher pour manoeuvrer un interrupteur ou un potentiomètre, Le découpage se fait en trois tiers :
+ * Tiers inférieur : AF.
+ * Tiers central : zone neutre.
+ * Tiers supérieur : gaz.
+Pour la sécurité d'utilisation, il n'est pas inutile d'ajouter sur chaque voie un mixage (MAX -100%, Remplace) lié à un interrupteur ou une phase de vol. Ou utiliser une fonction de sécurité liée à un interrupteur.
+
+=== Optimiser l'utilisation de la course mécanique d'un servo de volet ou d'aileron utilisé en AF ===
+ # Dans le menu limites :
+   * décentrer volontairement les servos (d'une valeur identique) avec le sub-trim, par ex. de 25% vers le bas pour les volets ou 25% vers le haut pour les ailerons.
+ # Sur le modèle :
+   * décaler le palonnier pour remettre la gouverne au neutre.
+
+La course mécanique de chaque servo est ainsi répartie d'une manière adaptée au besoin en débattement des gouvernes. En effet, les volets se baissent généralement bien plus qu'ils ne se lèvent, et inversement pour les ailerons). Attention, cela ne fonctionne qu'avec l'option « = » utilisée pour chaque servo.
+
+=== Mixages pour plateau cyclique 120° « from scratch » (sans l'option *HELI*) ===
+ # Sur une voie libre, fonction courbe de pas (ex. CH10) :
+   * une ligne de mixage avec source = Gaz, ratio = +100%, courbe.
+ # Sur la voie du servo frontal :
+   * une ligne de mixage avec source = Prof, ratio = +100%.
+   * une ligne de mixage avec source = CH10, ratio = +100%.
+ # Sur la voie du servo latéral 1 :
+   * une ligne de mixage avec source = Prof, ratio = -50%.
+   * une ligne de mixage avec source = Ail, ratio = +86%.
+   * une ligne de mixage avec source = CH10, ratio = -100%.
+ # Sur la voie du servo latéral 2 :
+   * une ligne de mixage avec source = Prof, ratio = -50%.
+   * une ligne de mixage avec source = Ail, ratio = -86%.
+   * une ligne de mixage avec source = CH10, ratio = -100%.
+
+Le calcul des ratios se fait par trigonométrie, en considérant comme débattement de référence celui qui donne le plus petit débattement angulaire du plateau pour un débattement de servo donné (= servo frontal en fonction profondeur).
