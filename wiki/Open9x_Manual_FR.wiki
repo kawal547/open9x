@@ -24,7 +24,7 @@ Tous ces projets sont hébergés ici :
  * er9x : http://code.google.com/p/er9x/
  * gruvin9x : http://code.google.com/p/gruvin9x/
  * ersky9x : http://code.google.com/p/ersky9x/
-Il y a aussi, avec une logique différente, RadioClone de Rafal Tomczak : http://radioclone.org/
+Il y a aussi, avec une logique différente, Radioclone de Rafal Tomczak : http://radioclone.org/
 
 open9x (http://code.google.com/p/open9x/) représente la dernière évolution et aussi, à mon sens, l'arrivée à maturité de ces projets en offrant plus de fonctionnalités et de souplesse de programmation qu'aucune radio commerciale n'est en mesure d'offrir, indépendamment de sa gratuité ou du faible coût d'achat de l'émetteur.
 open9x est épaulé par le logiciel companion9x (http://code.google.com/p/companion9x/, pour Windows, Linux et Mac) qui permet de mettre à jour le FW, mais aussi de sauvegarder, programmer et même simuler les programmes de modèles sur, raffinement s'il en est, une radio virtuelle.
@@ -38,7 +38,7 @@ Outre des capacités mémoire et une puissance de calcul nettement plus élevée
 
 === Le principe Open Source ===
 
-open9x et companion9x sont des projets OpenSource sous licence GNU v2. Malgré la somme de travail qu'ils représentent, ils sont donc libres de téléchargement, consultation, redistribution, modification (aux risques et périls de l'utilisateur...) et d'utilisation, sous réserve de respecter les termes de la licence GNU v2 notamment en cas de réutilisation du code.
+open9x et companion9x sont des projets Open Source sous licence GNU v2. Malgré la somme de travail qu'ils représentent, ils sont donc libres de téléchargement, consultation, redistribution, modification (aux risques et périls de l'utilisateur...) et d'utilisation, sous réserve de respecter les termes de la licence GNU v2 notamment en cas de réutilisation du code.
 
 Il est possible de contribuer au développement de ces projets en remontant des bugs ou des propositions de nouvelles fonctionnalités sur la page ad-hoc du projet, en ouvrant un « issue » :
  * http://code.google.com/p/open9x/issues/list
@@ -76,45 +76,45 @@ Une désignation d'interrupteur finissant par « m » (ex : TRNm) indique un 
 
 === Interface de dialogue utilisateur ===
 
-Elle est assurée par un clavier à six boutons situés de part et d'autre de l'écran : un bouton « menu », un bouton « exit » et quatre flèches de navigations. Ces boutons seront identifiés dans ce manuel en gras et entre crochets, par exemple : *[[MENU]]*.
-Certaines fonctions demandent d'appuyer sur le bouton pendant quelques secondes, c'est à dire un appui long qui sera noté ainsi : *[[MENU]* *[LONG]]*.
+Elle est assurée par un clavier à six boutons situés de part et d'autre de l'écran : un bouton « menu », un bouton « exit » et quatre flèches de navigations. Ces boutons seront identifiés dans ce manuel en gras et entre crochets, par exemple : *[**MENU]*.
+Certaines fonctions demandent d'appuyer sur le bouton pendant quelques secondes, c'est à dire un appui long qui sera noté ainsi : *[**MENU LONG]*.
 
-Concernant les flèches de navigation, il faut faire abstraction des indications gravées sur le clavier, notamment les « + » et  « - » positionnés à l'inverse de ce qu'il serait logique. Pour les plus bricoleurs, il est possible d'intervertir ces boutons. Pour éviter toute confusion, ces boutons seront identifiés dans cette notice en tant que *[[LEFT]]* (gauche) et *[[RIGHT]]* (droite).
+Concernant les flèches de navigation, il faut faire abstraction des indications gravées sur le clavier, notamment les « + » et  « - » positionnés à l'inverse de ce qu'il serait logique. Pour les plus bricoleurs, il est possible d'intervertir ces boutons. Pour éviter toute confusion, ces boutons seront identifiés dans cette notice en tant que *[**LEFT]* (gauche) et *[**RIGHT]* (droite).
 
 === Navigation ===
 
 
 D'une manière générale :
- * *[[UP]]* / *[[DOWN]]* / *[[LEFT]]* / *[[RIGHT]]* déplacent le curseur haut / bas / gauche / droite.
- * Le bouton *[[MENU]]* est utilisé pour sélectionner, éditer, changer un état.
- * Le bouton *[[EXIT]]* est utilisé pour sortir, comme on peut le deviner. Une pression amène généralement le curseur en haut de l'écran, une pression supplémentaire ramène à l'écran principal. 
+ * *[**UP]* / *[**DOWN]* / *[**LEFT]* / *[**RIGHT]* déplacent le curseur haut / bas / gauche / droite.
+ * Le bouton *[**MENU]* est utilisé pour sélectionner, éditer, changer un état.
+ * Le bouton *[**EXIT]* est utilisé pour sortir, comme on peut le deviner. Une pression amène généralement le curseur en haut de l'écran, une pression supplémentaire ramène à l'écran principal. 
 
 Depuis le menu principal :
- * *[[RIGHT]* *[LONG]]* ouvre le menu « modèle ».
- * *[[LEFT]* *[LONG]]* ouvre le menu « paramètres généraux ».
- * *[[MENU]* *[LONG]]* ouvre le dernier écran utilisé.
- * *[[UP]* *[LONG]]* ouvre le menu « statistiques ».
- * *[[DOWN]* *[LONG]]* ouvre le menu « télémesure ».
+ * *[**RIGHT LONG]* ouvre le menu « modèle ».
+ * *[**LEFT LONG]* ouvre le menu « paramètres généraux ».
+ * *[**MENU LONG]* ouvre le dernier écran utilisé.
+ * *[**UP LONG]* ouvre le menu « statistiques ».
+ * *[**DOWN LONG]* ouvre le menu « télémesure ».
 
 
-Depuis un écran, *[[EXIT]* *[LONG]]* ramène directement à l'écran principal.
+Depuis un écran, *[**EXIT LONG]* ramène directement à l'écran principal.
 
-Une fois dans un menu, tant que le curseur est situé dans le coin supérieur droit de l'écran, les différents écrans sont parcourus en utilisant *[[LEFT]]* / *[[RIGHT]]*.
+Une fois dans un menu, tant que le curseur est situé dans le coin supérieur droit de l'écran, les différents écrans sont parcourus en utilisant *[**LEFT]* / *[**RIGHT]*.
 
 === Edition / Sauvegarde ===
 
 De manière générale, il n'y a pas de fonction « annuler », toute modification est instantanément enregistrée sur l'EEPROM du micro-contrôleur. Un petit délai (une ou deux secondes) est cependant conseillé avant d'éteindre la radiocommande après une modification pour garantir sa sauvegarde à coup sûr.
 
-La modification d'une valeur se fait en deux temps : *[[MENU]]* pour l'éditer en la mettant en surbrillance, puis *[[RIGHT]]* / *[[LEFT]]* pour la modifier.
-Dans le cas d'une zone à deux états (case à cocher, flèche de sens, etc.), c'est le bouton *[[MENU]]* qui assure la modification de l'état.
-Pour certaines valeurs (gains et valeur de différentiel notamment), *[MENU LONG]* permet d'affecter une variable globale (cf. menu « Courbes 8/12 ») à la place d'une valeur numérique.
-Pour sortir du mode édition, presser *[[MENU]]* ou *[[EXIT]]*.
+La modification d'une valeur se fait en deux temps : *[**MENU]* pour l'éditer en la mettant en surbrillance, puis *[**RIGHT]* / *[**LEFT]* pour la modifier.
+Dans le cas d'une zone à deux états (case à cocher, flèche de sens, etc.), c'est le bouton *[**MENU]* qui assure la modification de l'état.
+Pour certaines valeurs (gains et valeur de différentiel notamment), *[**MENU LONG]* permet d'affecter une variable globale (cf. menu « Courbes 8/12 ») à la place d'une valeur numérique.
+Pour sortir du mode édition, presser *[**MENU]* ou *[**EXIT]*.
 
 Si l'option *DBLKEYS* est activée, des raccourcis clavier suivants sont disponibles lors de l'édition d'une valeur :
-*[[LEFT]]* + *[[RIGHT]]* : inverse le signe de la valeur.
-*[[UP]]* + *[[RIGHT]]* : met la valeur au maxi par défaut (généralement +100%).
-*[[DOWN]]* + *[[LEFT]]* : met la valeur au mini par défaut (généralement -100%).
-*[[UP]]* + *[[DOWN]]*: met la valeur au nominal par défaut (généralement 0).
+*[**LEFT]* + *[**RIGHT]* : inverse le signe de la valeur.
+*[**UP]* + *[**RIGHT]* : met la valeur au maxi par défaut (généralement +100%).
+*[**DOWN]* + *[**LEFT]* : met la valeur au mini par défaut (généralement -100%).
+*[**UP]* + *[**DOWN]*: met la valeur au nominal par défaut (généralement 0).
 
 Voici un aperçu de la structuration de navigation des menus d'open9x :
 
@@ -147,20 +147,20 @@ L'écran principal est découpé en 2 parties. La partie supérieure comporte le
  * La position des trims.
  * Le chrono 1 et son mode de fonctionnement (paramétrage dans « Réglages modèles 2/12 »).
 
-La partie inférieure comporte quatre écrans accessibles par *[[UP]]* / *[[DOWN]]* :
+La partie inférieure comporte quatre écrans accessibles par *[**UP]* / *[**DOWN]* :
 
-|| Visualisation des 16 sorties du récepteur sur deux pages<br>(via *[[LEFT]]* / *[[RIGHT]]*) || https://open9x.googlecode.com/svn/wiki/images_manual/01_1.png ||
-|| Valeurs numériques des 16 sorties du récepteur sur deux pages<br>(via *[[LEFT]]* / *[[RIGHT]]*) || https://open9x.googlecode.com/svn/wiki/images_manual/01_2.png ||
-|| Position des manches et état des interrupteurs sur deux pages<br>(via *[[LEFT]]* / *[[RIGHT]]*): d'abord les entrées physiques (manches, pots, inters)<br>puis les interrupteurs virtuels (SW1..SWC) || https://open9x.googlecode.com/svn/wiki/images_manual/01_4.png<br>https://open9x.googlecode.com/svn/wiki/images_manual/01_5.png ||
-|| Chrono 2 (paramétrage dans « Réglages modèles 2/12 »).<br>*[[EXIT]]* le remet à zéro || https://open9x.googlecode.com/svn/wiki/images_manual/01_3.png ||
+|| Visualisation des 16 sorties du récepteur sur deux pages<br>(via *[**LEFT]* / *[**RIGHT]*) || https://open9x.googlecode.com/svn/wiki/images_manual/01_1.png ||
+|| Valeurs numériques des 16 sorties du récepteur sur deux pages<br>(via *[**LEFT]* / *[**RIGHT]*) || https://open9x.googlecode.com/svn/wiki/images_manual/01_2.png ||
+|| Position des manches et état des interrupteurs sur deux pages<br>(via *[**LEFT]* / *[**RIGHT]*): d'abord les entrées physiques (manches, pots, inters)<br>puis les interrupteurs virtuels (SW1..SWC) || https://open9x.googlecode.com/svn/wiki/images_manual/01_4.png<br>https://open9x.googlecode.com/svn/wiki/images_manual/01_5.png ||
+|| Chrono 2 (paramétrage dans « Réglages modèles 2/12 »).<br>*[**EXIT]* le remet à zéro || https://open9x.googlecode.com/svn/wiki/images_manual/01_3.png ||
 
-Dans la vue principale, un appui sur *[[EXIT]]* réinitialise les compteurs de la vue courante tandis que *[[EXIT]* *[LONG]]* réinitialise tous les compteurs ainsi que les données de télémétrie.
+Dans la vue principale, un appui sur *[**EXIT]* réinitialise les compteurs de la vue courante tandis que *[**EXIT LONG]* réinitialise tous les compteurs ainsi que les données de télémétrie.
 
 == Écrans de statistiques ==
 
 https://open9x.googlecode.com/svn/wiki/images_manual/02_1.png  https://open9x.googlecode.com/svn/wiki/images_manual/02_2.png
 
-Depuis l'écran principal, presser *[[UP]* *[LONG]] donne accès aux écrans de statistiques.
+Depuis l'écran principal, presser *[**UP LONG]* donne accès aux écrans de statistiques.
 
 Le premier affiche les différents compteurs :
  * Temps total d'allumage de la radio
@@ -173,11 +173,11 @@ Un graphique temporel de la consigne moteur est aussi affiché.
 
 Le second montre des compteurs internes de l'émetteur, « tmain » représente le temps de calcul. Ce temps augmente avec la complexité des mixages, et peut devenir important (temps de réponse perceptible) suivant la configuration du modèle.
 
-Tous ces compteurs peuvent être remis à zéro par un appui sur *[[MENU]]*.
+Tous ces compteurs peuvent être remis à zéro par un appui sur *[**MENU]*.
 
 == Paramètres généraux ==
 
-Depuis l'écran principal, [LEFT LONG] donne accès aux paramètres de la radiocommande. Ces réglages sont indépendants du modèle sélectionné.
+Depuis l'écran principal, *[**LEFT LONG]* donne accès aux paramètres de la radiocommande. Ces réglages sont indépendants du modèle sélectionné.
 
 Les écrans de ce menu sont les suivants :
  # Configuration radio
@@ -198,13 +198,13 @@ Cet écran permet de régler les paramètres généraux de l'émetteur :
    * NoKey : bips normaux mais pas sur les touches d'édition.
    * Tout : tous les bips activés.
  # Son / durée :  5 durées de bips possibles.
- # Speaker Pitch : ajustement de la fréquence des bips (si l'option AUDIO est activée).
- # Haptic Mode : réglage du mode du vibreur (si l'option HAPTIC est activée).
+ # Speaker Pitch : ajustement de la fréquence des bips (si l'option *AUDIO* est activée).
+ # Haptic Mode : réglage du mode du vibreur (si l'option *HAPTIC* est activée).
    * Aucun : pas d'alarme sonore (attention, y compris si la batterie est vide).
    * Alarm: uniquement les alarmes (batterie vide, radio inactive).
    * NoKey : bips normaux mais pas sur les touches d'édition.
    * Tout : tous les bips activés.
- # Haptic Force : force du vibreur (de 0 à 5) (si l'option HAPTIC est activée).
+ # Haptic Force : force du vibreur (de 0 à 5) (si l'option *HAPTIC* est activée).
  # Contraste : contraste de l'afficheur LCD, de 20 (le plus clair) à 45 (le plus sombre).
  # Alarme / batterie faible : seuil de tension de batterie vide.
  # Alarme /  inactivité : délai de non-utilisation des manches à partir duquel la radio alerte l'utilisateur, de 1 à 250 min (0 pour désactiver la fonction).
