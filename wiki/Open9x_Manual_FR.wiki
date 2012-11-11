@@ -2,7 +2,7 @@
 
 = Open9x - Manuel d'utilisation =
 
-Manuel écrit par Franck Aguerre sur la base d'open9x r1568
+Manuel écrit par Franck Aguerre sur la base d'open9x r1568 / Nov. 2012
 
 <wiki:toc max_depth="3" />
 
@@ -189,20 +189,20 @@ Les écrans de ce menu sont les suivants :
 
 === Réglages Radio (1/6) ===
 
-https://open9x.googlecode.com/svn/wiki/images_manual/04.png
+https://open9x.googlecode.com/svn/wiki/images_manual/04_1.png
 
 Cet écran permet de régler les paramètres généraux de l'émetteur :
  # Son / mode :
    * Aucun : pas d'alarme sonore (attention, y compris si la batterie est vide).
    * Alarm: uniquement les alarmes (batterie vide, radio inactive).
-   * NoKey : bips normaux mais pas sur les touches d'édition.
+   * !NoKey : bips normaux mais pas sur les touches d'édition.
    * Tout : tous les bips activés.
  # Son / durée :  5 durées de bips possibles.
  # Speaker Pitch : ajustement de la fréquence des bips (si l'option *AUDIO* est activée).
  # Haptic Mode : réglage du mode du vibreur (si l'option *HAPTIC* est activée).
    * Aucun : pas d'alarme sonore (attention, y compris si la batterie est vide).
    * Alarm: uniquement les alarmes (batterie vide, radio inactive).
-   * NoKey : bips normaux mais pas sur les touches d'édition.
+   * !NoKey : bips normaux mais pas sur les touches d'édition.
    * Tout : tous les bips activés.
  # Haptic Force : force du vibreur (de 0 à 5) (si l'option *HAPTIC* est activée).
  # Contraste : contraste de l'afficheur LCD, de 20 (le plus clair) à 45 (le plus sombre).
@@ -229,3 +229,62 @@ Cet écran permet de régler les paramètres généraux de l'émetteur :
  # Coordonnées GPS : type d'affichage des coordonnées.
  # Ordre des voies RX : définit l'ordre des mixages de base (G = Gaz, P = Profondeur, A = Ailerons, D = Dérive) générés sur les quatre premières voies à la création d'un modèle.
  # Mode : attribution des manches de l'émetteur aux fonctions principales (gaz, tangage, roulis, lacet).
+
+=== Ecolage (2/6) ===
+
+https://open9x.googlecode.com/svn/wiki/images_manual/05_1.png
+
+Cet écran permet d'affecter les voies d'une radio « élève » (signal PPM, via la prise écolage) aux manches de la radio « maître » et de calibrer leur neutre :
+ # Mode : 
+  * OFF.
+  * += : ajoute la valeur du manche élève à celle du maître.
+  * := : remplace la valeur du manche maître par celle de l'élève.
+ # % : taux de proportionnalité (gain) appliqué aux ordres de l'élève.
+ # Source : entrée élève à affecter au manche maître.
+
+Le multiplicateur est un gain global appliqué à tous les ordres issus de l'émetteur élève.
+Pour la calibration du neutre du PPM envoyé par l'émetteur élève, mettre en surbrillance  « Cal » et presser *[**MENU]*.
+
+*NOTA* 
+L'émetteur élève doit être non-programmable ou doté d'une programmation neutre (voie = manche).
+L'interrupteur d'activation de l'écolage se définit dans la programmation du modèle (cf. paragraphe xx.x).
+
+=== Info version (3/6) ===
+
+https://open9x.googlecode.com/svn/wiki/images_manual/06_1.png
+
+Cet écran affiche la version du FW utilisé :
+ * SVN : Le nom SVN du FW.
+ * DATE : Date de compilation du FW.
+ * TIME : Heure de compilation du FW.
+ * EEPR : La version de l'EEPROM et sa variante (FrSky, GVARS, etc.).
+
+=== Diagnostics (4/6) ===
+
+https://open9x.googlecode.com/svn/wiki/images_manual/07_1.png
+
+Cet écran permet de vérifier le bon fonctionnement des boutons, interrupteurs et trims en affichant leur état (on = passage de 0 à 1 et mise en surbrillance).
+
+=== Entrées analogiques (5/6) ===
+
+https://open9x.googlecode.com/svn/wiki/images_manual/08_1.png
+
+Cet écran affiche les valeurs brutes des entrées analogiques en hexadécimal. Les valeurs vont de 0 à 0x3FF (0..1023), les entrées étant les suivantes :
+ * A1..A4 : manches
+ * A5..A7 : potentiomètres
+
+Il est aussi possible d'étalonner la mesure de la tension batterie : *[**DOWN]* pour mettre la valeur en surbrillance, puis *[**LEFT]* / *[**RIGHT]* pour la diminuer / augmenter afin de la caler sur une mesure au voltmètre.
+
+=== Calibration des entrées analogiques (6/6) ===
+
+https://open9x.googlecode.com/svn/wiki/images_manual/09_1.png
+
+Cet écran permet de calibrer les entrées analogiques A1 – A7.
+
+Pour effectuer la calibration :
+ # Presser *[**MENU]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_manual/09_2.png
+
+ # Mettre les manches au neutre.
+ # Presser *[**MENU]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_manual/09_3.png
+ # Bouger les manches et potentiomètres de butée à butée (sans forcer...).
+ # Presser *[**MENU]*, les valeurs sont sauvegardées.
