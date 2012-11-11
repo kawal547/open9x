@@ -1,66 +1,132 @@
-#summary Open9x French manual
+﻿#summary Open9x French manual
 
 = Open9x - Manuel d'utilisation =
 
-Manuel �crit par Franck Aguerre sur la base d'open9x r1568
+Manuel écrit par Franck Aguerre sur la base d'open9x r1568
 
 <wiki:toc max_depth="3" />
 
 == Avertissement ==
 
-CE LOGICIEL EST FOURNI � TEL QUEL � SANS GARANTIE D'AUCUNE SORTE, EXPLICITE OU IMPLICITE, Y COMPRIS ET SANS LIMITATION, LES GARANTIES DE VALEUR MARCHANDE OU D'ADAPTATION � UN USAGE PARTICULIER. VOUS PORTEZ LA TOTALIT� DU RISQUE DE QUALIT� ET DE PERFORMANCE DU PROGRAMME. VOUS PRENEZ � VOTRE CHARGE LE CO�T DE TOUTE INTERVENTION, R�PARATION OU CORRECTION AU CAS O� LE PROGRAMME S'AV�RERAIT D�FECTUEUX.
+CE LOGICIEL EST FOURNI « TEL QUEL » SANS GARANTIE D'AUCUNE SORTE, EXPLICITE OU IMPLICITE, Y COMPRIS ET SANS LIMITATION, LES GARANTIES DE VALEUR MARCHANDE OU D'ADAPTATION À UN USAGE PARTICULIER. VOUS PORTEZ LA TOTALITÉ DU RISQUE DE QUALITÉ ET DE PERFORMANCE DU PROGRAMME. VOUS PRENEZ À VOTRE CHARGE LE COÛT DE TOUTE INTERVENTION, RÉPARATION OU CORRECTION AU CAS OÙ LE PROGRAMME S'AVÉRERAIT DÉFECTUEUX.
 
 
 == Introduction ==
 
-La radio IMAX/FLYSKY/TURNIGY/EURGLE 9x est un ensemble d'origine chinoise � micro-contr�leur. L'�metteur comporte un �cran LCD de 128*64 pixels, 2 manches 2 axes, 3 potentiom�tres, 6 interrupteurs 2 positions, un interrupteur 3 positions et 4 trims digitaux.
+La radio IMAX/FLYSKY/TURNIGY/EURGLE 9x est un ensemble d'origine chinoise à micro-contrôleur. L'émetteur comporte un écran LCD de 128*64 pixels, 2 manches 2 axes, 3 potentiomètres, 6 interrupteurs 2 positions, un interrupteur 3 positions et 4 trims digitaux.
 
-Hormis une qualit� de r�alisation plus qu'honorable et un tarif particuli�rement abordable, moins d'une centaine d'euros, sa particularit� est d'utiliser une architecture �lectronique suffisamment simple pour permettre sa r�tro-conception. De plus, le micro-contr�leur utilis� (Atmega64A) est flashable (re-programmable), ce qui rend possible le remplacement du logiciel (le firmware, ou FW) d'origine, peu r�ussi. Il ne restait plus qu'� attendre qu'une personne ayant les comp�tences n�cessaires fasse ce constat pour que naisse le premier firmware alternatif pour 9x.
+Hormis une qualité de réalisation plus qu'honorable et un tarif particulièrement abordable, moins d'une centaine d'euros, sa particularité est d'utiliser une architecture électronique suffisamment simple pour permettre sa rétro-conception. De plus, le micro-contrôleur utilisé (Atmega64A) est flashable (re-programmable), ce qui rend possible le remplacement du logiciel (le firmware, ou FW) d'origine, peu réussi. Il ne restait plus qu'à attendre qu'une personne ayant les compétences nécessaires fasse ce constat pour que naisse le premier firmware alternatif pour 9x.
 
-C'est Thomas Husterer qui fit ce premier pas en avril 2010 avec son logiciel th9x en open-source. Autrement plus �l�gant, souple et puissant que le logiciel d'origine, celui-ci a entra�n� de nouveaux d�veloppeurs dans son sillage, toujours dans le principe open-source, avec � chaque fois des am�liorations notables (dans l'ordre : er9x par Erez Raviv, gruvin9x par Bryan Rentoul, ersky9x par Mike Blandford, open9x par Bertrand Songis) y compris au niveau mat�riel : cartes de programmation, cartes m�res plus puissantes, vibreur ou sortie audio, adaptateur SD, encodeurs pour navigation � la Multiplex, t�l�mesure, etc.
+C'est Thomas Husterer qui fit ce premier pas en avril 2010 avec son logiciel th9x en open-source. Autrement plus élégant, souple et puissant que le logiciel d'origine, celui-ci a entraîné de nouveaux développeurs dans son sillage, toujours dans le principe open-source, avec à chaque fois des améliorations notables (dans l'ordre : er9x par Erez Raviv, gruvin9x par Bryan Rentoul, ersky9x par Mike Blandford, open9x par Bertrand Songis) y compris au niveau matériel : cartes de programmation, cartes mères plus puissantes, vibreur ou sortie audio, adaptateur SD, encodeurs pour navigation à la Multiplex, télémesure, etc.
 
-Tous ces projets sont h�berg�s ici :
+Tous ces projets sont hébergés ici :
  * th9x : http://code.google.com/p/th9x/
  * er9x : http://code.google.com/p/er9x/
  * gruvin9x : http://code.google.com/p/gruvin9x/
  * ersky9x : http://code.google.com/p/ersky9x/
-Il y a aussi, avec une logique diff�rente, RadioClone de Rafal Tomczak : http://radioclone.org/
+Il y a aussi, avec une logique différente, RadioClone de Rafal Tomczak : http://radioclone.org/
 
-open9x (http://code.google.com/p/open9x/) repr�sente la derni�re �volution et aussi, � mon sens, l'arriv�e � maturit� de ces projets en offrant plus de fonctionnalit�s et de souplesse de programmation qu'aucune radio commerciale n'est en mesure d'offrir, ind�pendamment de sa gratuit� ou du faible co�t d'achat de l'�metteur.
-open9x est �paul� par le logiciel companion9x (http://code.google.com/p/companion9x/, pour Windows, Linux et Mac) qui permet de mettre � jour le FW, mais aussi de sauvegarder, programmer et m�me simuler les programmes de mod�les sur, raffinement s'il en est, une radio virtuelle.
+open9x (http://code.google.com/p/open9x/) représente la dernière évolution et aussi, à mon sens, l'arrivée à maturité de ces projets en offrant plus de fonctionnalités et de souplesse de programmation qu'aucune radio commerciale n'est en mesure d'offrir, indépendamment de sa gratuité ou du faible coût d'achat de l'émetteur.
+open9x est épaulé par le logiciel companion9x (http://code.google.com/p/companion9x/, pour Windows, Linux et Mac) qui permet de mettre à jour le FW, mais aussi de sauvegarder, programmer et même simuler les programmes de modèles sur, raffinement s'il en est, une radio virtuelle.
 
-A noter aussi que, �tant donn�e la simplicit� de l'architecture �lectronique de la 9x, il est tout � fait envisageable de r�aliser sa propre carte m�re... et m�me sa radio autour !
-Le sch�ma d'origine : http://9xforums.com/forum/viewtopic.php?f=44&t=199
+A noter aussi que, étant donnée la simplicité de l'architecture électronique de la 9x, il est tout à fait envisageable de réaliser sa propre carte mère... et même sa radio autour !
+Le schéma d'origine : http://9xforums.com/forum/viewtopic.php?f=44&t=199
 Un exemple de circuit perso : http://www.rcgroups.com/forums/showthread.php?t=1631369
 
-Il existe aussi deux cartes m�res d'upgrade, adaptables sur la 9x ou sur un �metteur perso : http://gruvin9x.com/shop/ et http://www.ersky9x.net/
-Outre des capacit�s m�moire et une puissance de calcul nettement plus �lev�es que celles de la carte m�re d'origine, ces cartes m�re offrent de nouvelles possibilit�s : gestion de carte SD, encodeurs rotatifs, enregistrement des chronos � l'extinction, etc.
+Il existe aussi deux cartes mères d'upgrade, adaptables sur la 9x ou sur un émetteur perso : http://gruvin9x.com/shop/ et http://www.ersky9x.net/
+Outre des capacités mémoire et une puissance de calcul nettement plus élevées que celles de la carte mère d'origine, ces cartes mère offrent de nouvelles possibilités : gestion de carte SD, encodeurs rotatifs, enregistrement des chronos à l'extinction, etc.
 
 === Le principe Open Source ===
 
-open9x et companion9x sont des projets OpenSource sous licence GNU v2. Malgr� la somme de travail qu'ils repr�sentent, ils sont donc libres de t�l�chargement, consultation, redistribution, modification (aux risques et p�rils de l'utilisateur...) et d'utilisation, sous r�serve de respecter les termes de la licence GNU v2 notamment en cas de r�utilisation du code.
+open9x et companion9x sont des projets OpenSource sous licence GNU v2. Malgré la somme de travail qu'ils représentent, ils sont donc libres de téléchargement, consultation, redistribution, modification (aux risques et périls de l'utilisateur...) et d'utilisation, sous réserve de respecter les termes de la licence GNU v2 notamment en cas de réutilisation du code.
 
-Il est possible de contribuer au d�veloppement de ces projets en remontant des bugs ou des propositions de nouvelles fonctionnalit�s sur la page ad-hoc du projet, en ouvrant un � issue � :
+Il est possible de contribuer au développement de ces projets en remontant des bugs ou des propositions de nouvelles fonctionnalités sur la page ad-hoc du projet, en ouvrant un « issue » :
  * http://code.google.com/p/open9x/issues/list
  * http://code.google.com/p/companion9x/issues/list
 
 A cet effet, il est important de :
- * bien caract�riser, au pr�alable, le bug ou, pour la proposition, son int�r�t et sa coh�rence
- * le d�crire (en anglais... pas le choix!) de mani�re pr�cise et synth�tique
- * pour un bug, ne pas oublier de donner le n� de version du firmware / logiciel
+ * bien caractériser, au préalable, le bug ou, pour la proposition, son intérêt et sa cohérence
+ * le décrire (en anglais... pas le choix!) de manière précise et synthétique
+ * pour un bug, ne pas oublier de donner le n° de version du firmware / logiciel
 
-Un forum d�di� permet aussi d'�changer sur le sujet :
+Un forum dédié permet aussi d'échanger sur le sujet :
 http://9xforums.com/forum/viewforum.php?f=45
 
 === Modifier la 9x pour open9x ===
 
-Un document d�crivant les diff�rentes �tapes de modification de la 9x est propos� dans la rubrique t�l�chargement d'open9x :
+Un document décrivant les différentes étapes de modification de la 9x est proposé dans la rubrique téléchargement d'open9x :
 http://code.google.com/p/open9x/downloads/list
 
-Celui-ci n'est valable que pour la carte m�re d'origine, les cartes d'upgrade ayant d�j� leur propre interfaces de reprogrammation.
+Celui-ci n'est valable que pour la carte mère d'origine, les cartes d'upgrade ayant déjà leur propre interfaces de reprogrammation.
 
-Dans les deux cas, le logiciel � utiliser pour la reprogrammation (flashage) est companion9x.
+Dans les deux cas, le logiciel à utiliser pour la reprogrammation (flashage) est companion9x.
 
-=== Vue de l'�metteur et nomenclature ===
+=== Vue de l'émetteur et nomenclature ===
 
 
+#summary Open9x French manual
+
+= Open9x - Manuel d'utilisation =
+
+Manuel écrit par Franck Aguerre sur la base d'open9x r1568
+
+<wiki:toc max_depth="3" />
+
+== Avertissement ==
+
+CE LOGICIEL EST FOURNI « TEL QUEL » SANS GARANTIE D'AUCUNE SORTE, EXPLICITE OU IMPLICITE, Y COMPRIS ET SANS LIMITATION, LES GARANTIES DE VALEUR MARCHANDE OU D'ADAPTATION À UN USAGE PARTICULIER. VOUS PORTEZ LA TOTALITÉ DU RISQUE DE QUALITÉ ET DE PERFORMANCE DU PROGRAMME. VOUS PRENEZ À VOTRE CHARGE LE COÛT DE TOUTE INTERVENTION, RÉPARATION OU CORRECTION AU CAS OÙ LE PROGRAMME S'AVÉRERAIT DÉFECTUEUX.
+
+
+== Introduction ==
+
+La radio IMAX/FLYSKY/TURNIGY/EURGLE 9x est un ensemble d'origine chinoise à micro-contrôleur. L'émetteur comporte un écran LCD de 128*64 pixels, 2 manches 2 axes, 3 potentiomètres, 6 interrupteurs 2 positions, un interrupteur 3 positions et 4 trims digitaux.
+
+Hormis une qualité de réalisation plus qu'honorable et un tarif particulièrement abordable, moins d'une centaine d'euros, sa particularité est d'utiliser une architecture électronique suffisamment simple pour permettre sa rétro-conception. De plus, le micro-contrôleur utilisé (Atmega64A) est flashable (re-programmable), ce qui rend possible le remplacement du logiciel (le firmware, ou FW) d'origine, peu réussi. Il ne restait plus qu'à attendre qu'une personne ayant les compétences nécessaires fasse ce constat pour que naisse le premier firmware alternatif pour 9x.
+
+C'est Thomas Husterer qui fit ce premier pas en avril 2010 avec son logiciel th9x en open-source. Autrement plus élégant, souple et puissant que le logiciel d'origine, celui-ci a entraîné de nouveaux développeurs dans son sillage, toujours dans le principe open-source, avec à chaque fois des améliorations notables (dans l'ordre : er9x par Erez Raviv, gruvin9x par Bryan Rentoul, ersky9x par Mike Blandford, open9x par Bertrand Songis) y compris au niveau matériel : cartes de programmation, cartes mères plus puissantes, vibreur ou sortie audio, adaptateur SD, encodeurs pour navigation à la Multiplex, télémesure, etc.
+
+Tous ces projets sont hébergés ici :
+ * th9x : http://code.google.com/p/th9x/
+ * er9x : http://code.google.com/p/er9x/
+ * gruvin9x : http://code.google.com/p/gruvin9x/
+ * ersky9x : http://code.google.com/p/ersky9x/
+Il y a aussi, avec une logique différente, RadioClone de Rafal Tomczak : http://radioclone.org/
+
+open9x (http://code.google.com/p/open9x/) représente la dernière évolution et aussi, à mon sens, l'arrivée à maturité de ces projets en offrant plus de fonctionnalités et de souplesse de programmation qu'aucune radio commerciale n'est en mesure d'offrir, indépendamment de sa gratuité ou du faible coût d'achat de l'émetteur.
+open9x est épaulé par le logiciel companion9x (http://code.google.com/p/companion9x/, pour Windows, Linux et Mac) qui permet de mettre à jour le FW, mais aussi de sauvegarder, programmer et même simuler les programmes de modèles sur, raffinement s'il en est, une radio virtuelle.
+
+A noter aussi que, étant donnée la simplicité de l'architecture électronique de la 9x, il est tout à fait envisageable de réaliser sa propre carte mère... et même sa radio autour !
+Le schéma d'origine : http://9xforums.com/forum/viewtopic.php?f=44&t=199
+Un exemple de circuit perso : http://www.rcgroups.com/forums/showthread.php?t=1631369
+
+Il existe aussi deux cartes mères d'upgrade, adaptables sur la 9x ou sur un émetteur perso : http://gruvin9x.com/shop/ et http://www.ersky9x.net/
+Outre des capacités mémoire et une puissance de calcul nettement plus élevées que celles de la carte mère d'origine, ces cartes mère offrent de nouvelles possibilités : gestion de carte SD, encodeurs rotatifs, enregistrement des chronos à l'extinction, etc.
+
+=== Le principe Open Source ===
+
+open9x et companion9x sont des projets OpenSource sous licence GNU v2. Malgré la somme de travail qu'ils représentent, ils sont donc libres de téléchargement, consultation, redistribution, modification (aux risques et périls de l'utilisateur...) et d'utilisation, sous réserve de respecter les termes de la licence GNU v2 notamment en cas de réutilisation du code.
+
+Il est possible de contribuer au développement de ces projets en remontant des bugs ou des propositions de nouvelles fonctionnalités sur la page ad-hoc du projet, en ouvrant un « issue » :
+ * http://code.google.com/p/open9x/issues/list
+ * http://code.google.com/p/companion9x/issues/list
+
+A cet effet, il est important de :
+ * bien caractériser, au préalable, le bug ou, pour la proposition, son intérêt et sa cohérence
+ * le décrire (en anglais... pas le choix!) de manière précise et synthétique
+ * pour un bug, ne pas oublier de donner le n° de version du firmware / logiciel
+
+Un forum dédié permet aussi d'échanger sur le sujet :
+http://9xforums.com/forum/viewforum.php?f=45
+
+=== Modifier la 9x pour open9x ===
+
+Un document décrivant les différentes étapes de modification de la 9x est proposé dans la rubrique téléchargement d'open9x :
+http://code.google.com/p/open9x/downloads/list
+
+Celui-ci n'est valable que pour la carte mère d'origine, les cartes d'upgrade ayant déjà leur propre interfaces de reprogrammation.
+
+Dans les deux cas, le logiciel à utiliser pour la reprogrammation (flashage) est companion9x.
+
+=== Vue de l'émetteur et nomenclature ===
+
+https://open9x.googlecode.com/svn/wiki/images_manual/open9x_identification_organes_CMD_9x.jpg
