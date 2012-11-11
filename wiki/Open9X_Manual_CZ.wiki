@@ -1,4 +1,4 @@
-#Open9x Czech Manual (Draft, to be filled) 
+#summary Open9x Czech Manual (Draft, to be filled)
 
 = Introduction =
 
