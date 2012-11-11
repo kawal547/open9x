@@ -130,3 +130,113 @@ Dans les deux cas, le logiciel à utiliser pour la reprogrammation (flashage) es
 === Vue de l'émetteur et nomenclature ===
 
 https://open9x.googlecode.com/svn/wiki/images_manual/open9x_identification_organes_CMD_9x.jpg
+
+|| Entrées proportionnelles: || Entrées digitales (interrupteurs): ||
+|| 1. Gaz (Thr) : manche de gaz<br> 2. Prf (Ele) : manche de profondeur<br> 3. Ail (Ail) : manche d'ailerons<br> 4. Dir (Rud) : manche de dérive<br> 5. P1/P2/P3 : potentiomètres<br> 6. Trims de manche (impulsion par impulsion ou continu)|| 1. 1. THR<br> 2. RUD<br> 3. ELE<br> 4. ID0/1/2 (3-POS)<br> 5. AIL<br> 6. GEA<br> 7. TRN ||
+
+Tous ces organes sont librement affectables dans open9x, y compris les trims digitaux qui peuvent être utilisés indépendamment des manches auxquels ils se rapportent. 
+
+Pour tous les interrupteurs, la position « 0 » (inactif, par opposition à actif = 1) est « poussé vers l'avant ». Ils peuvent être utilisés en inverse (activation en position 0) quand leur désignation est précédée du symbole « ! », ce qui signifie dans open9x un « non » logique. Ainsi lorsque l’on choisit l'interrupteur ELE, « ELE » indique le fonctionnement normal et « !ELE » indique un fonctionnement inversé. L'option de compilation *AUTOSWITCH* en simplifie l'utilisation, avec une reconnaissance automatique des interrupteurs lors de sa manipulation en phase d'affectation.
+
+Une désignation d'interrupteur finissant par « m » (ex : TRNm) indique un interrupteur momentané (à « bascule »), associé à l'interrupteur physique du même nom : quand ce dernier est actionné, le premier s'active pendant un court instant.
+
+=== Interface de dialogue utilisateur ===
+
+Elle est assurée par un clavier à six boutons situés de part et d'autre de l'écran : un bouton « menu », un bouton « exit » et quatre flèches de navigations. Ces boutons seront identifiés dans ce manuel en gras et entre crochets, par exemple : *[[MENU]]*.
+Certaines fonctions demandent d'appuyer sur le bouton pendant quelques secondes, c'est à dire un appui long qui sera noté ainsi : *[[MENU]* *[LONG]]*.
+
+Concernant les flèches de navigation, il faut faire abstraction des indications gravées sur le clavier, notamment les « + » et  « - » positionnés à l'inverse de ce qu'il serait logique. Pour les plus bricoleurs, il est possible d'intervertir ces boutons. Pour éviter toute confusion, ces boutons seront identifiés dans cette notice en tant que *[[LEFT]]* (gauche) et *[[RIGHT]]* (droite).
+
+=== Navigation ===
+
+
+D'une manière générale :
+ * *[[UP]]* / *[[DOWN]]* / *[[LEFT]]* / *[[RIGHT]]* déplacent le curseur haut / bas / gauche / droite.
+ * Le bouton *[[MENU]]* est utilisé pour sélectionner, éditer, changer un état.
+ * Le bouton *[[EXIT]]* est utilisé pour sortir, comme on peut le deviner. Une pression amène généralement le curseur en haut de l'écran, une pression supplémentaire ramène à l'écran principal. 
+
+Depuis le menu principal :
+ * *[[RIGHT]* *[LONG]]* ouvre le menu « modèle ».
+ * *[[LEFT]* *[LONG]]* ouvre le menu « paramètres généraux ».
+ * *[[MENU]* *[LONG]]* ouvre le dernier écran utilisé.
+ * *[[UP]* *[LONG]]* ouvre le menu « statistiques ».
+ * *[[DOWN]* *[LONG]]* ouvre le menu « télémesure ».
+
+
+Depuis un écran, *[[EXIT]* *[LONG]]* ramène directement à l'écran principal.
+
+Une fois dans un menu, tant que le curseur est situé dans le coin supérieur droit de l'écran, les différents écrans sont parcourus en utilisant *[[LEFT]]* / *[[RIGHT]]*.
+
+=== Edition / Sauvegarde ===
+
+De manière générale, il n'y a pas de fonction « annuler », toute modification est instantanément enregistrée sur l'EEPROM du micro-contrôleur. Un petit délai (une ou deux secondes) est cependant conseillé avant d'éteindre la radiocommande après une modification pour garantir sa sauvegarde à coup sûr.
+
+La modification d'une valeur se fait en deux temps : *[[MENU]]* pour l'éditer en la mettant en surbrillance, puis *[[RIGHT]]* / *[[LEFT]]* pour la modifier.
+Dans le cas d'une zone à deux états (case à cocher, flèche de sens, etc.), c'est le bouton *[[MENU]]* qui assure la modification de l'état.
+Pour certaines valeurs (gains et valeur de différentiel notamment), *[MENU LONG]* permet d'affecter une variable globale (cf. menu « Courbes 8/12 ») à la place d'une valeur numérique.
+Pour sortir du mode édition, presser *[[MENU]]* ou *[[EXIT]]*.
+
+Si l'option *DBLKEYS* est activée, des raccourcis clavier suivants sont disponibles lors de l'édition d'une valeur :
+*[[LEFT]]* + *[[RIGHT]]* : inverse le signe de la valeur.
+*[[UP]]* + *[[RIGHT]]* : met la valeur au maxi par défaut (généralement +100%).
+*[[DOWN]]* + *[[LEFT]]* : met la valeur au mini par défaut (généralement -100%).
+*[[UP]]* + *[[DOWN]]*: met la valeur au nominal par défaut (généralement 0).
+
+Voici un aperçu de la structuration de navigation des menus d'open9x :
+
+https://open9x.googlecode.com/svn/wiki/images_manual/open9x_synoptique.png
+
+=== Comment ça marche ===
+
+Tout d'abord, voici un premier aperçu du fonctionnement d'open9x au travers du diagramme de cheminement des ordres depuis les organes de commande et de commutation jusqu'aux servos.
+
+https://open9x.googlecode.com/svn/wiki/images_manual/open9x_cheminement_ordres.png
+
+Ce diagramme est volontairement simplifié aux principaux cheminements des ordres, les choses peuvent être plus complexes dans le détail. Par exemple, les fonctions personnalisées, non représentées ici, peuvent interagir avec les variables globales, pour les réglages en vol, ou avec les interrupteurs personnalisés. De même, ces derniers peuvent utiliser des informations issues de la télémesure, ou être conditionnés à des interrupteurs physiques.
+
+Les entrées analogiques (manches et potentiomètres) ne sont pas utilisées telles quelles, mais après un filtre de calibration garantissant des courses de -100% à +100% de butée à butée (avec 0% pour point milieu). Pour les manches, ces entrées calibrées peuvent ensuite être directement utilisées dans le mixeur ou bien après application d'un formatage (dual-rate, expo, mais aussi courbe).
+
+Les trims digitaux fonctionnent indépendamment des manches auxquels ils se rapportent, ce qui permet au besoin de les différencier par phase de vol (si activées) ou même de les utiliser comme entrée de mixeur.
+
+Le Mixeur est l'articulation majeure d'open9x, sa fonction consistant à mettre en relation les différents organes de commande ou de commutation (= entrées) avec les sorties (= voies =  servos). Cette mise en relation peut être tout aussi bien basique (un manche = une voie) que complexe (plusieurs entrées sur une voie donnée, avec différenciation par phase de vol), suivant le besoin.
+
+Les ordres issus du Mixeur ne sont pas directement dirigés vers les servos, mais passent d'abord un formatage de sortie (Limites) qui régule l'ordre envoyé à chaque servo en le décalant (sub-trim), en l'inversant (sens) ou en écrêtant tout dépassement (limite). Puis finalement les voies sont encodées et envoyées aux servos via le couple module HF / récepteur.
+
+== Écran principal ==
+
+https://open9x.googlecode.com/svn/wiki/images_manual/01_1.png
+
+L'écran principal est découpé en 2 parties. La partie supérieure comporte les éléments suivants :
+ * Le nom du modèle.
+ * Le nom de la phase de vol (si l'option *PHASES* est activées).
+ * La tension de la batterie de l'émetteur/
+ * La position des trims.
+ * Le chrono 1 et son mode de fonctionnement (paramétrage dans « Réglages modèles 2/12 »).
+
+La partie inférieure comporte quatre écrans accessibles par *[[UP]]* / *[[DOWN]]* :
+
+|| Visualisation des 16 sorties du récepteur sur deux pages<br>(via *[[LEFT]]* / *[[RIGHT]]*) || https://open9x.googlecode.com/svn/wiki/images_manual/01_1.png ||
+|| Valeurs numériques des 16 sorties du récepteur sur deux pages<br>(via *[[LEFT]]* / *[[RIGHT]]*) || https://open9x.googlecode.com/svn/wiki/images_manual/01_2.png ||
+|| Position des manches et état des interrupteurs sur deux pages<br>(via *[[LEFT]]* / *[[RIGHT]]*): d'abord les entrées physiques (manches, pots, inters)<br>puis les interrupteurs virtuels (SW1..SWC) || https://open9x.googlecode.com/svn/wiki/images_manual/01_4.png<br>https://open9x.googlecode.com/svn/wiki/images_manual/01_5.png ||
+|| Chrono 2 (paramétrage dans « Réglages modèles 2/12 »).<br>*[[EXIT]]* le remet à zéro || https://open9x.googlecode.com/svn/wiki/images_manual/01_3.png ||
+
+Dans la vue principale, un appui sur *[[EXIT]]* réinitialise les compteurs de la vue courante tandis que *[[EXIT]* *[LONG]]* réinitialise tous les compteurs ainsi que les données de télémétrie.
+
+== Écrans de statistiques ==
+
+https://open9x.googlecode.com/svn/wiki/images_manual/02_1.png  https://open9x.googlecode.com/svn/wiki/images_manual/02_2.png
+
+Depuis l'écran principal, presser *[[UP]* *[LONG]] donne accès aux écrans de statistiques.
+
+Le premier affiche les différents compteurs :
+ * Temps total d'allumage de la radio
+ * Chrono 1 (paramétrage dans « Réglages modèles 2/12 »)
+ * Chrono 2 (paramétrage dans « Réglages modèles 2/12 »)
+ * Durée d'utilisation moteur absolue (en minutes / secondes)
+ * Durée d'utilisation moteur relativement à la durée totale d'allumage de la radio (en %)
+
+Un graphique temporel de la consigne moteur est aussi affiché.
+
+Le second montre des compteurs internes de l'émetteur, « tmain » représente le temps de calcul. Ce temps augmente avec la complexité des mixages, et peut devenir important (temps de réponse perceptible) suivant la configuration du modèle.
+
+Tous ces compteurs peuvent être remis à zéro par un appui sur *[[MENU]]*.
