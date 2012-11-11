@@ -288,3 +288,63 @@ Pour effectuer la calibration :
  # Presser *[**MENU]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_manual/09_3.png
  # Bouger les manches et potentiomètres de butée à butée (sans forcer...).
  # Presser *[**MENU]*, les valeurs sont sauvegardées.
+
+== Réglages des modèles ==
+
+Depuis l'écran principal, presser *[**RIGHT LONG]* donne accès au menu de sélection/édition des modèles. Il permet de régler les paramètres propres au modèle en cours, au travers des écrans suivants (déplacement entre écrans par *[**RIGHT]* et *[**LEFT]* sur la ligne supérieure) :
+ # Mémoires des modèles.
+ # Réglages du modèle.
+ # Réglages hélicoptères (si l'option *HELI* est activée).
+ # Phases de vol (si l'option *PHASES* est activée).
+ # Manches (DR/Expo).
+ # Mixeurs.
+ # Servos (Limites).
+ # Courbes  (si l'option *COURBES* est activée).
+ # Interrupteurs personnalisables.
+ # Fonctions associées aux inters.
+ # Télémesures (si l'option *FRSKY* est activée)
+ # Assistant de création de Mixeurs (si l'option *TEMPLATES* est activée)
+
+=== Mémoires des modèles (1/12) ===
+
+https://open9x.googlecode.com/svn/wiki/images_manual/10_1.png
+
+Cet écran liste les modèles déjà existants (jusqu'à 16), et permet de charger, dupliquer, déplacer ou effacer un modèle existant ou d'en créer un nouveau.
+
+La gestion de la mémoire est dynamique, avec un affichage de l'espace libre (en octets, en haut de l'écran) et de l'espace utilisé par chaque modèle (à sa droite), ce dernier étant proportionnel à sa complexité (mixages, courbes, options, etc.).
+
+L'étoile « *`*` * » sur la gauche indique le modèle en cours.
+
+*[**UP]* / *[**DOWN]* permet de se déplacer dans la liste des modèles.
+Un appui sur *[**MENU LONG]* permet le chargement du modèle sélectionné ou la création d'un nouveau modèle si la mémoire sélectionnée est vide.
+
+==== Pour créer un modèle: ====
+
+ # Se positionner sur la ligne vierge à utiliser avec les touches *[**UP]* / *[**DOWN]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_manual/10_2.png
+ # Appuyer sur la touche *[**MENU LONG]* pour demander la création.<br><br>https://open9x.googlecode.com/svn/wiki/images_manual/10_3.png
+ # Le nouveau modèle est automatiquement chargé, son nom par défaut (modifiable) étant attribué sous la forme « MODELE » + numéro de ligne.<br><br>https://open9x.googlecode.com/svn/wiki/images_manual/10_4.png
+
+==== Pour supprimer un modèle: ====
+
+ # Se positionner sur la ligne à supprimer avec les touches *[**UP]* / *[**DOWN]*.
+ # Appuyer sur la touche *[**MENU]* pour sélectionner la ligne (elle passe en surbrillance).<br><br>https://open9x.googlecode.com/svn/wiki/images_manual/13_1.png
+ # Appuyer sur la touche *[**EXIT LONG]* pour demander la suppression (non autorisée, par sécurité, sur le modèle en cours).<br><br>https://open9x.googlecode.com/svn/wiki/images_manual/13_2.png
+ # Confirmer avec la touche *[**MENU]* ou annuler avec la touche *[**EXIT]*.
+
+==== Pour dupliquer un modèle: ====
+
+ # Se positionner sur la ligne à copier avec les touches *[**UP]* / *[**DOWN]*.
+ # Appuyer sur la touche *[**MENU]* pour sélectionner la ligne (elle passe en surbrillance).<br><br>https://open9x.googlecode.com/svn/wiki/images_manual/11_1.png
+ # Appuyer sur *[**UP]* ou *[**DOWN]* pour la dupliquer vers le haut ou vers le bas.<br><br>https://open9x.googlecode.com/svn/wiki/images_manual/11_2.png
+ # Une fois l'emplacement de destination choisi, appuyer sur *[**MENU]* pour confirmer ou *[**EXIT]* pour annuler l'opération.<br><br>https://open9x.googlecode.com/svn/wiki/images_manual/11_3.png
+
+==== Pour déplacer un modèle: ====
+
+ # Se positionner sur la ligne à copier avec les touches *[**UP]* / *[**DOWN]*.
+ # Appuyer deux fois sur la touche *[**MENU]* pour sélectionner la ligne (elle passe en surbrillance entourée d'un pointillé).<br><br>https://open9x.googlecode.com/svn/wiki/images_manual/12_1.png
+ # Appuyer sur *[**UP]* ou *[**DOWN]* la déplacer vers le haut ou vers le bas.<br><br>https://open9x.googlecode.com/svn/wiki/images_manual/12_2.png
+ # Une fois l'emplacement de destination choisi, appuyer sur *[**MENU]* pour confirmer ou *[**EXIT]* pour annuler l'opération.<br><br>https://open9x.googlecode.com/svn/wiki/images_manual/12_3.png
+
+*NOTA*
+Les fonctions créer / effacer / déplacer / dupliquer des lignes sont particulièrement importantes dans open9x, car elles sont aussi utilisées dans d'autres écrans (« manches » et « mixeurs ») pour gérer à la carte leur fonctionnement.
+Une opération de copie ou de déplacement peut être annulée en cours d'exécution en appuyant sur la touche *[**EXIT]*.
