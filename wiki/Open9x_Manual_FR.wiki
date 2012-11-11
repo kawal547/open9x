@@ -63,72 +63,6 @@ Dans les deux cas, le logiciel à utiliser pour la reprogrammation (flashage) es
 
 === Vue de l'émetteur et nomenclature ===
 
-
-#summary Open9x French manual
-
-= Open9x - Manuel d'utilisation =
-
-Manuel écrit par Franck Aguerre sur la base d'open9x r1568
-
-<wiki:toc max_depth="3" />
-
-== Avertissement ==
-
-CE LOGICIEL EST FOURNI « TEL QUEL » SANS GARANTIE D'AUCUNE SORTE, EXPLICITE OU IMPLICITE, Y COMPRIS ET SANS LIMITATION, LES GARANTIES DE VALEUR MARCHANDE OU D'ADAPTATION À UN USAGE PARTICULIER. VOUS PORTEZ LA TOTALITÉ DU RISQUE DE QUALITÉ ET DE PERFORMANCE DU PROGRAMME. VOUS PRENEZ À VOTRE CHARGE LE COÛT DE TOUTE INTERVENTION, RÉPARATION OU CORRECTION AU CAS OÙ LE PROGRAMME S'AVÉRERAIT DÉFECTUEUX.
-
-
-== Introduction ==
-
-La radio IMAX/FLYSKY/TURNIGY/EURGLE 9x est un ensemble d'origine chinoise à micro-contrôleur. L'émetteur comporte un écran LCD de 128*64 pixels, 2 manches 2 axes, 3 potentiomètres, 6 interrupteurs 2 positions, un interrupteur 3 positions et 4 trims digitaux.
-
-Hormis une qualité de réalisation plus qu'honorable et un tarif particulièrement abordable, moins d'une centaine d'euros, sa particularité est d'utiliser une architecture électronique suffisamment simple pour permettre sa rétro-conception. De plus, le micro-contrôleur utilisé (Atmega64A) est flashable (re-programmable), ce qui rend possible le remplacement du logiciel (le firmware, ou FW) d'origine, peu réussi. Il ne restait plus qu'à attendre qu'une personne ayant les compétences nécessaires fasse ce constat pour que naisse le premier firmware alternatif pour 9x.
-
-C'est Thomas Husterer qui fit ce premier pas en avril 2010 avec son logiciel th9x en open-source. Autrement plus élégant, souple et puissant que le logiciel d'origine, celui-ci a entraîné de nouveaux développeurs dans son sillage, toujours dans le principe open-source, avec à chaque fois des améliorations notables (dans l'ordre : er9x par Erez Raviv, gruvin9x par Bryan Rentoul, ersky9x par Mike Blandford, open9x par Bertrand Songis) y compris au niveau matériel : cartes de programmation, cartes mères plus puissantes, vibreur ou sortie audio, adaptateur SD, encodeurs pour navigation à la Multiplex, télémesure, etc.
-
-Tous ces projets sont hébergés ici :
- * th9x : http://code.google.com/p/th9x/
- * er9x : http://code.google.com/p/er9x/
- * gruvin9x : http://code.google.com/p/gruvin9x/
- * ersky9x : http://code.google.com/p/ersky9x/
-Il y a aussi, avec une logique différente, RadioClone de Rafal Tomczak : http://radioclone.org/
-
-open9x (http://code.google.com/p/open9x/) représente la dernière évolution et aussi, à mon sens, l'arrivée à maturité de ces projets en offrant plus de fonctionnalités et de souplesse de programmation qu'aucune radio commerciale n'est en mesure d'offrir, indépendamment de sa gratuité ou du faible coût d'achat de l'émetteur.
-open9x est épaulé par le logiciel companion9x (http://code.google.com/p/companion9x/, pour Windows, Linux et Mac) qui permet de mettre à jour le FW, mais aussi de sauvegarder, programmer et même simuler les programmes de modèles sur, raffinement s'il en est, une radio virtuelle.
-
-A noter aussi que, étant donnée la simplicité de l'architecture électronique de la 9x, il est tout à fait envisageable de réaliser sa propre carte mère... et même sa radio autour !
-Le schéma d'origine : http://9xforums.com/forum/viewtopic.php?f=44&t=199
-Un exemple de circuit perso : http://www.rcgroups.com/forums/showthread.php?t=1631369
-
-Il existe aussi deux cartes mères d'upgrade, adaptables sur la 9x ou sur un émetteur perso : http://gruvin9x.com/shop/ et http://www.ersky9x.net/
-Outre des capacités mémoire et une puissance de calcul nettement plus élevées que celles de la carte mère d'origine, ces cartes mère offrent de nouvelles possibilités : gestion de carte SD, encodeurs rotatifs, enregistrement des chronos à l'extinction, etc.
-
-=== Le principe Open Source ===
-
-open9x et companion9x sont des projets OpenSource sous licence GNU v2. Malgré la somme de travail qu'ils représentent, ils sont donc libres de téléchargement, consultation, redistribution, modification (aux risques et périls de l'utilisateur...) et d'utilisation, sous réserve de respecter les termes de la licence GNU v2 notamment en cas de réutilisation du code.
-
-Il est possible de contribuer au développement de ces projets en remontant des bugs ou des propositions de nouvelles fonctionnalités sur la page ad-hoc du projet, en ouvrant un « issue » :
- * http://code.google.com/p/open9x/issues/list
- * http://code.google.com/p/companion9x/issues/list
-
-A cet effet, il est important de :
- * bien caractériser, au préalable, le bug ou, pour la proposition, son intérêt et sa cohérence
- * le décrire (en anglais... pas le choix!) de manière précise et synthétique
- * pour un bug, ne pas oublier de donner le n° de version du firmware / logiciel
-
-Un forum dédié permet aussi d'échanger sur le sujet :
-http://9xforums.com/forum/viewforum.php?f=45
-
-=== Modifier la 9x pour open9x ===
-
-Un document décrivant les différentes étapes de modification de la 9x est proposé dans la rubrique téléchargement d'open9x :
-http://code.google.com/p/open9x/downloads/list
-
-Celui-ci n'est valable que pour la carte mère d'origine, les cartes d'upgrade ayant déjà leur propre interfaces de reprogrammation.
-
-Dans les deux cas, le logiciel à utiliser pour la reprogrammation (flashage) est companion9x.
-
-=== Vue de l'émetteur et nomenclature ===
-
 https://open9x.googlecode.com/svn/wiki/images_manual/open9x_identification_organes_CMD_9x.jpg
 
 || Entrées proportionnelles: || Entrées digitales (interrupteurs): ||
@@ -240,3 +174,58 @@ Un graphique temporel de la consigne moteur est aussi affiché.
 Le second montre des compteurs internes de l'émetteur, « tmain » représente le temps de calcul. Ce temps augmente avec la complexité des mixages, et peut devenir important (temps de réponse perceptible) suivant la configuration du modèle.
 
 Tous ces compteurs peuvent être remis à zéro par un appui sur *[[MENU]]*.
+
+== Paramètres généraux ==
+
+Depuis l'écran principal, [LEFT LONG] donne accès aux paramètres de la radiocommande. Ces réglages sont indépendants du modèle sélectionné.
+
+Les écrans de ce menu sont les suivants :
+ # Configuration radio
+ # Ecolage
+ # Info. version
+ # Diagnostics
+ # Entrées analogiques
+ # Calibration
+
+=== Réglages Radio (1/6) ===
+
+https://open9x.googlecode.com/svn/wiki/images_manual/04_1.png<br>https://open9x.googlecode.com/svn/wiki/images_manual/04_2.png<br>https://open9x.googlecode.com/svn/wiki/images_manual/04_3.png<br>https://open9x.googlecode.com/svn/wiki/images_manual/04_4.png
+
+Cet écran permet de régler les paramètres généraux de l'émetteur :
+ # Son / mode :
+   * Aucun : pas d'alarme sonore (attention, y compris si la batterie est vide).
+   * Alarm: uniquement les alarmes (batterie vide, radio inactive).
+   * NoKey : bips normaux mais pas sur les touches d'édition.
+   * Tout : tous les bips activés.
+ # Son / durée :  5 durées de bips possibles.
+ # Speaker Pitch : ajustement de la fréquence des bips (si l'option AUDIO est activée).
+ # Haptic Mode : réglage du mode du vibreur (si l'option HAPTIC est activée).
+   * Aucun : pas d'alarme sonore (attention, y compris si la batterie est vide).
+   * Alarm: uniquement les alarmes (batterie vide, radio inactive).
+   * NoKey : bips normaux mais pas sur les touches d'édition.
+   * Tout : tous les bips activés.
+ # Haptic Force : force du vibreur (de 0 à 5) (si l'option HAPTIC est activée).
+ # Contraste : contraste de l'afficheur LCD, de 20 (le plus clair) à 45 (le plus sombre).
+ # Alarme / batterie faible : seuil de tension de batterie vide.
+ # Alarme /  inactivité : délai de non-utilisation des manches à partir duquel la radio alerte l'utilisateur, de 1 à 250 min (0 pour désactiver la fonction).
+ # Alarme / mémoire faible : affiche une alerte si l'eeprom dispose de moins de 200 octets de libres lors de l'allumage de l'émetteur, inactif tant que l'alerte n'est pas invalidée.
+ # Alarme / sons désactivés : affiche au démarrage une alerte si le BIP est sur « Aucun ». 
+ # Filtre ADC: filtre de Conversion Analogique Numérique de la position des manches.
+   * SIMP : 1024 pas, temps de calcul (et donc latence) très réduit.
+   * OSMP : 2048 pas, légèrement plus lent que SIMP.
+   * FILT : filtrage en cas de bruit excessif sur la conversion (servo qui frétillent). Attention, temps de latence de 30 ms.
+ # Inversion gaz : position inversée du ralenti de manche des gaz.
+ # Bip chrono / minutes : bip à chaque minute quand le compteur tourne.
+ # Bip chrono / compte à rebours : 30, 20, 10, 3, 2 et 1 s avant la fin du compteur.
+ # Rétroéclairage / alame : activation du rétro-éclairage lors d'un bip de compteur.
+ # Rétroéclairage / mode : mode d'activation du rétro-éclairage.
+   * Toujours ON.
+   * Toujours OFF.
+   * Activation par clavier.
+   * Activation par clavier + manches.
+ # Rétroéclairage / durée : par pas de 5 s.
+ # Ecran d'accueil : affiche l'écran d'accueil au démarrage (se passe par un appui sur n'importe quel manche/touche).
+ # Fuseau horaire : pour l'heure affichée par le GPS de télémesure.
+ # Coordonnées GPS : type d'affichage des coordonnées.
+ # Ordre des voies RX : définit l'ordre des mixages de base (G = Gaz, P = Profondeur, A = Ailerons, D = Dérive) générés sur les quatre premières voies à la création d'un modèle.
+ # Mode : attribution des manches de l'émetteur aux fonctions principales (gaz, tangage, roulis, lacet).
