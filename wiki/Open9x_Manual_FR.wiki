@@ -189,7 +189,7 @@ Les écrans de ce menu sont les suivants :
 
 === Réglages Radio (1/6) ===
 
-https://open9x.googlecode.com/svn/wiki/images_manual/04_1.png<br>https://open9x.googlecode.com/svn/wiki/images_manual/04_2.png<br>https://open9x.googlecode.com/svn/wiki/images_manual/04_3.png<br>https://open9x.googlecode.com/svn/wiki/images_manual/04_4.png
+https://open9x.googlecode.com/svn/wiki/images_manual/04.png
 
 Cet écran permet de régler les paramètres généraux de l'émetteur :
  # Son / mode :
