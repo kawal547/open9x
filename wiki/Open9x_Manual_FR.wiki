@@ -348,3 +348,144 @@ Un appui sur *[**MENU LONG]* permet le chargement du modèle sélectionné ou la
 *NOTA*
 Les fonctions créer / effacer / déplacer / dupliquer des lignes sont particulièrement importantes dans open9x, car elles sont aussi utilisées dans d'autres écrans (« manches » et « mixeurs ») pour gérer à la carte leur fonctionnement.
 Une opération de copie ou de déplacement peut être annulée en cours d'exécution en appuyant sur la touche *[**EXIT]*.
+
+=== Configuration du modèle (2/12) ===
+
+https://open9x.googlecode.com/svn/wiki/images_manual/14_1.png
+
+Voici le détail des options :
+ # Nom :  pour l'éditer, presser *[**MENU]*.<br>Après appui sur *[**MENU]* le premier caractère est en surbrillance. *[**UP]* / *[**DOWN]* change le caractère. *[**RIGHT]* / *[**LEFT]* déplacer le curseur. *[**RIGHT LONG]* ou *[**LEFT LONG]* bascule la lettre en majuscule / minuscule. *[**MENU]* / *[**EXIT]* termine l'édition.<br>Nota : le numéro de modèle est indiqué dans la ligne supérieure, à côté de CONF.
+ # Chronos 1 et 2 :<br>Réglage de la valeur de départ de ce compteur : si 00:00, le chrono est croissant, sinon il est décompteur à partir de la valeur de départ. *[**RIGHT]* / *[**LEFT]* bascule en secondes ou minutes. *[**MENU]* édite la valeur (le curseur clignote), *[**UP]* / *[**DOWN]* / *[**RIGHT]* / *[**LEFT]* la modifie. *[**MENU]* / *[**EXIT]* termine l'édition.<br>Trigger :  choix du mode de déclenchement du compteur (ne pas oublier l'option « ! » si besoin d'inverser le sens de déclenchement) :
+   * OFF : inutilisé.
+   * ABS : actif en permanence.
+   * GZ%/GZs/GZt : actif en fonction du régime moteur (voir plus loin pour sa configuration). GZ% indique que la vitesse de défilement est proportionnelle à la consigne de gaz. GZt indique que le chrono démarre dès que la consigne moteur est supérieure à -100% (moteur stoppé) mais ne s'arrête pas alors que GZs s'arrête quand le manche des gaz revient -100%.
+   * Interrupteur : chaque chrono peut être déclanché / arrêté par un interrupteur.
+ # Limites Et. (étendues) : autorise des débattements jusqu'à 125% au lieu de 100%. A réserver à des besoins spécifiques, car un débattement de 100% sur open9x correspond au débattement maxi de la plupart des radiocommandes commerciales (de part la gestion différente des fins de courses).
+ # Trims Et. (étendus) : étend la course des trims de 25% de la course du manche à 100%. A noter que si le réglage du trim dépasse +/-25%, il clignotera sur l'écran principal pour notifier au pilote qu'un réglage mécanique est fortement conseillé.
+ # Pas trim : mode de fonctionnement des trims digitaux.
+   * Expo : exponentiel, réglage fin autour du neutre puis avec des pas de + en + élevés.
+   * !ExFin : extra fin 1 pas par clic.
+   * Fin : 2 pas par clic.
+   * Moyen  : 4 pas par clic.
+   * Gros : 8 pas par clic.
+ # Source gaz : identification de la source de la fonction gaz.
+   * Gaz : manche de gaz.
+   * P1..P3 : potentiomètres.
+   * CH1..CH16 : voie physiques ou virtuelles.
+ # Trim Gaz : active la liaison du trim au manche de gaz (modèles thermiques). Si désactivée (modèles électriques), ce trim peut être utilisé pour une autre fonction, comme par exemple le réglage en vol de volets de courbure par phase.
+ # Alerte Gaz : active une alarme au démarrage de l'émetteur si le manche ou la voie de gaz (cf. ci -avant) n'est pas complètement réduit (= -100%).
+ # Alerte Int (Interrupteurs) : vérifie l'état des interrupteurs au démarrage et alerte en cas d'écart avec l'état par défaut. TRE0GA correspond à THR, RUD, etc. Pour définir l'état par défaut des interrupteurs, les positionner puis presser *[**MENU LONG]*.
+ # Bips Centre : signale le passage au neutre des manches et potentiomètres. DPGA123 correspond à Dérive, Profondeur, Gaz, Ailerons, P1, P2 et P3 (utiliser *[**RIGHT]* / *[**LEFT]* pour sélectionner la voie et *[**MENU]* pour activer/désactiver).<br>Le bip est activé quand le caractère correspondant est en surbrillance. Utile notamment pour retrouver le centre des potentiomètre en plein vol.
+ # Proto : protocole d'encodage des ordres.
+   * PPM : le standard classique, avec un nombre de voies émises de 4 à 16 (les voies inutilisées peuvent servir à d'éventuelles fonctions créées par mixeur)
+   * PPM16 : les 8 premières voies sont envoyées au module d'émission tandis que les 8 autres sont envoyées sur le port écolage.
+   * PPMsim : aucun signal n'est envoyé au module d'émission tandis que le port écolage est forcé en sortie pour une utilisation avec simulateur.
+   * PXX : !FrSky PCM.
+   * DSM2 : JR/Spektrum.
+ # Trame PPM : affinage des réglages spécifiques en fonction du protocole choisi.
+
+=== Réglages hélicoptères (3/12) ===
+
+https://open9x.googlecode.com/svn/wiki/images_manual/15_1.png
+
+Cet écran (si l'option *HELI* est activée) est dédié au réglage d'un hélicoptère CCPM (servos de cyclique agissant aussi sur le pas).
+
+Les options sont les suivantes :
+ # Type de plateau cyclique: permet de définir le type de tête rotor.
+   * 120 : tête standard à 120°, avec le servo central à l'avant ou à l'arrière.
+   * 120X : comme 120° mais tourné de 90° (le servo central est sur un côté).
+   * 140 : tête à 140°, avec le servo central à l'avant ou à l'arrière.
+   * 90 : tête à 90°, un servo de tangage à l'avant ou à l'arrière et 2 servos de roulis à 180° l'un de l'autre.
+ # Collectif : définit la source du pas collectif, soit directement le manche de gaz soit une voie (non utilisée par un servo) permettant ainsi de bénéficier d'une ou plusieurs courbe(s) de pas (via un ou plusieurs ligne(s) de mixage associée(s) à cette voie). Il est aussi possible d'utiliser une entrée PPM sur le port d'écolage, ou un potentiomètre.
+ # Limite Cyclique : limitations de l'amplitude de mouvement du plateau cyclique en tangage et roulis.
+ # Direction PRF / AIL / COL : permet d'inverser le sens d'actions des fonctions tangage / roulis / pas collectif. A utiliser de concert avec les sens de rotation des servos et le signe des mixeurs pour obtenir les bons sens de déplacement des servos pour chaque fonction.<br>La méthodologie de réglage est la suivante :
+   * Attribuer à chaque voie un mixeur (cf. paragraphe xx.x) avec comme entrée CYC1, 2 et 3.
+   * Régler le sens des servos dans le menu Servos (ou Limites) pour que le manche de pas actionne tous les servos dans le même sens.
+   * Régler le sens des fonctions dans le menu décrit ici.
+
+=== Phases de vol (4/12) ===
+
+https://open9x.googlecode.com/svn/wiki/images_manual/16_1.png
+
+Cet écran (si l'option *PHASES* est activée) permet de gérer cinq phases de vol dont une par défaut (PV0), chacune pouvant être librement nommée. La phase active est affichée en gras (si l'option *BOLD* est activée).
+
+
+https://open9x.googlecode.com/svn/wiki/images_manual/16_2.png     
+https://open9x.googlecode.com/svn/wiki/images_manual/16_3.png
+
+Pour modifier les paramètres d'une phase de vol, choisissez-là avec les touches *[**UP]* et *[**DOWN]* et appuyez sur *[**MENU]* :
+ # Nom : libellé de la phase (jusqu'à 6 caractères).
+ # Interrupteur : sélectionner l'interrupteur (physique ou virtuel) d'activation de la phase.
+ # Trims : chaque trim (Dérive / Profondeur / Gaz / Ailerons) peut avoir une valeur propre dans cette phase ou une valeur commune avec d'autres phases (0 à 4).
+ # Fondu ON : permet une transition en douceur en entrant dans cette phase, sur une durée de 0 à 7,5 secondes pas pas de 0,5 s.
+ # Fondu OFF : même chose en sortie de cette phase de vol.
+Pour revenir à l'écran précédent, appuyer sur *[**EXIT]*.
+
+=== Formatage des manches (DR/EXPO) (5/12) ===
+
+https://open9x.googlecode.com/svn/wiki/images_manual/17_1.png
+
+Cet écran permet de formater l'ordre de chaque manche (Dérive / Profondeur / Gaz / Ailerons), via un gain (historiquement appelé Dual-Rate, pour double-débattement), une fonction exponentielle ou même une courbe.
+
+En règle générale, un gain de 75% donne un débattement équivalent à celui de 100% sur la majorité des radio commerciale. Il est aussi préférable d'utiliser une valeur inférieure à 100% pour laisser de la latitude au trim avant l'écrêtage des limites en fin de course. Il est aussi important de noter que c'est ici que se définit le débattement de chaque fonction, et non dans le menu limite comme cela est souvent (et à tort) pratiqué, ce dernier servant à ajuster la réponse de chaque servo, quelle que soit la ou les fonction(s) qui le pilote(nt).
+
+A chaque manche peut correspondre plusieurs lignes de formatage (jusqu'à 14 au total, avec un compteur en haut de l'écran), de manière à différencier les réglages pour certains phases de vol ou simplement via un interrupteur. Comme pour les phases de vol, les formatages actifs sont affichés en gras. Par défaut (pas de ligne créée pour le manche), le gain est de 100% et aucune courbe ni différenciation par phase ou autre n'est appliquée.
+
+Le processus de gestion des lignes est identique à celui utilisé pour les mémoires de modèles, le revoici cependant pour bien s'en imprégner.
+
+==== Pour créer une ligne: ====
+S'il aucune ligne de formatage n'est appliquée au manche, se positionner sur la ligne vide correspondante avec les touches *[**UP]* / *[**DOWN]* et appuyer sur *[**MENU LONG]* pour créer une ligne de formatage et ouvrir son écran de paramétrage.
+Si une ligne de formatage est déjà affectée au manche, se placer sur la ligne juste avant ou après avec *[**UP]* / *[**DOWN]*, la sélectionner avec *[**MENU]* et appuyer sur *[**RIGHT LONG]* ou *[**LEFT LONG]*.
+
+==== Pour supprimer une ligne: ====
+Se placer sur la ligne à supprimer avec *[**UP]* / *[**DOWN]*, la sélectionner avec *[**MENU]* et appuyer sur *[**EXIT LONG]*.
+
+==== Pour dupliquer une ligne: ====
+
+ # Se placer sur la ligne à copier avec *[**UP]* / *[**DOWN]*, la sélectionner avec *[**MENU]* (elle passe en surbrillance).<br><br>https://open9x.googlecode.com/svn/wiki/images_manual/18_1.png
+ # Se positionner sur la ligne de destination avec *[**UP]* / *[**DOWN]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_manual/18_2.png
+Appuyer sur *[**MENU]* pour effectuer la duplication.
+
+==== Pour déplacer une ligne: ====
+
+ # Se placer sur la ligne à déplacer avec *[**UP]* / *[**DOWN]*, la sélectionner en appuyant deux fois sur *[**MENU]* (elle passe en surbrillance entourée en pointillé).<br><br>https://open9x.googlecode.com/svn/wiki/images_manual/19_1.png
+ # Se positionner sur la ligne de destination avec *[**UP]* / *[**DOWN]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_manual/19_2.png
+ # Appuyer sur *[**MENU]* pour effectuer le déplacement.
+Il est possible d'interrompre à tout moment une opération de duplication ou déplacement en appuyant sur la touche *[**EXIT]*.
+
+==== Pour éditer les valeurs d'une ligne : ====
+
+Se placer sur la ligne à éditer avec *[**UP]* / *[**DOWN]* et appuyer sur *[**MENU LONG]* pour ouvrir l'écran de paramétrage.<br><br>https://open9x.googlecode.com/svn/wiki/images_manual/17_2.png
+
+Cet écran est composé de deux parties : à gauche les paramètres et à droite la courbe de sortie avec le curseur graphique (et ses coordonnées) associé à la position du manche. Le graphique affiche toujours l'ordre de sortie final du manche, y compris si la ligne en cours d'édition est inactive.
+
+Les paramètres sont les suivants :
+ # Ratio : gain appliqué à l'ordre (0 à +100%).
+ # Expo: taux d'exponentiel (-100% à +100%).
+ # Courbe : remplace l'exponentiel par une courbe
+   * soit prédéfinie : x>0, x<0, |x|, f>0, f<0, |f|.
+   * soit personnalisée CB1..CB8 (3 à 17 points, détails ci-après), à éditer avec *[**MENU]*.
+ # Phase : phase(s) pour laquelle la ligne est active (actif = en surbrillance).
+ # Interrupteur : activation spécifique de la ligne (en complément de la phase).
+ # Côté : plage sur laquelle la ligne est active (partout, lorsque l'entrée est négative ou lorsqu'elle est positive), indiqué par une flèche sur la ligne de formatage correspondante. Cela permet, via deux lignes de formatage, de différencier par côté la réponse du manche.
+
+=== Mixeur (6/12) ===
+
+https://open9x.googlecode.com/svn/wiki/images_manual/20_1.png
+
+Le rôle du Mixeur est de relier des entrées (appelées aussi sources : manches, potentiomètres, interrupteurs physique ou virtuel, trims digitaux, valeur statique) aux sorties (= voies = servos), avec la possibilité de croiser / modifier les ordres donnés par ces entrées.
+
+Pour bien situer le fonctionnement d'open9x :
+ * La majorité des radiocommandes commerciales, excepté Multiplex dont la logique est similaire à celle d'open9x, proposent un panel de mixages pré-définis et à la structure figée (delta, etc.). Ces mixages sont activés au besoin et épaulés par quelques mixages libres, généralement basiques et souvent peu pratiques à cause de l'ambigüité souvent présente entre voies et fonctions (ailerons par ex.). Le tout part généralement des organes de commande avec une réaffectation éventuelles des voies.
+ * A contrario, open9x autorise un routage totalement libre, partant de la finalité (les gouvernes, via les voies) et offrant la possibilité de chaîner ou d'intriquer les mixages pour créer des fonctions complexes. Par exemple, la sortie d'un mixage peut ne pas être affectée physiquement à un servo mais servir comme entrée à un ou plusieurs autres mixages (par ex. pour gérer la courbure d'une aile). Ou bien, un mixage peut influencer son voisin en le multipliant ou le remplaçant suivant le contexte. De plus, open9x permet la différenciation des mixages par phase de vol, ce que très peu de radiocommandes commerciales, même très haut de gamme, offrent.
+
+Le bénéfice de cette approche est triple :
+ * La structure de mixage est univoque, un seul coup d'oeil dans le menu Mixeur permet de déterminer exhaustivement la provenance des ordres reçus par chaque servo.
+ * La puissance de programmation est, objectivement, sans équivalence...
+ * La souplesse, l'efficacité et la rapidité de programmation (aussi complexe soit-elle) sont elles aussi sans équivalence.
+
+Il y a une contrepartie à cette latitude quasi totale de programmation. En effet, la construction et la structuration des mixages nécessitent un minimum de réflexion de la part de l'utilisateur, qui doit a minima se poser les questions suivantes :
+ * Quels sont les servos à actionner et quelles voies leur attribuer ?
+ * Quels sont les ordres que doit recevoir chaque voie ?
+ * Avec ou sans phase de vol ?
+ * Comment minimiser le nombre de valeurs à programmer / régler et éviter les redondances (par ex., une courbe ou une variable globale peut définir un taux de différentiel global sur toute la voilure d'un planeur quadroflap, ou une voie virtuelle peut définir une fonction, par ex. une courbure de voilure, en groupant plusieurs entrées) ?
