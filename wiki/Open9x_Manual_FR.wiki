@@ -3,7 +3,7 @@
 
 = Open9x - Manuel d'utilisation =
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/9x_header.jpg
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/9x_header.png
 
 Manuel écrit par Franck Aguerre sur la base d'open9x r1568 / Nov. 2012
 
