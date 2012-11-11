@@ -3,14 +3,17 @@
 
 = Open9x - Manuel d'utilisation =
 
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/9x_header.jpg
+
 Manuel écrit par Franck Aguerre sur la base d'open9x r1568 / Nov. 2012
 
+
 <wiki:toc max_depth="4" />
+
 
 == Avertissement ==
 
 CE LOGICIEL EST FOURNI « TEL QUEL » SANS GARANTIE D'AUCUNE SORTE, EXPLICITE OU IMPLICITE, Y COMPRIS ET SANS LIMITATION, LES GARANTIES DE VALEUR MARCHANDE OU D'ADAPTATION À UN USAGE PARTICULIER. VOUS PORTEZ LA TOTALITÉ DU RISQUE DE QUALITÉ ET DE PERFORMANCE DU PROGRAMME. VOUS PRENEZ À VOTRE CHARGE LE COÛT DE TOUTE INTERVENTION, RÉPARATION OU CORRECTION AU CAS OÙ LE PROGRAMME S'AVÉRERAIT DÉFECTUEUX.
-
 
 == Introduction ==
 
@@ -830,3 +833,41 @@ La course mécanique de chaque servo est ainsi répartie d'une manière adaptée
    * une ligne de mixage avec source = CH10, ratio = -100%.
 
 Le calcul des ratios se fait par trigonométrie, en considérant comme débattement de référence celui qui donne le plus petit débattement angulaire du plateau pour un débattement de servo donné (= servo frontal en fonction profondeur).
+
+== Introduction à companion9x ==
+
+Companion9x est le logiciel (sous Windows, Linux ou  Mac) associé à open9x, permettant de :
+ * télécharger les firmwares open9x avec les options de compilation souhaitées
+ * lire / écrire la mémoire flash de la radio (firmware)
+ * lire / écrire la mémoire eeprom de la radio (mémoires modèles)
+ * créer / modifier des fichiers eeprom (effacer, ajouter, glisser / déposer depuis un autre fichier)
+ * créer / modifier des mémoires de modèles dans des fichiers eeprom
+ * comparer deux programmations de modèles
+ * simuler le fonctionnement de la radio et de la programmation d'un modèle
+ 
+Ecran principal :
+
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/c9x_main_window.png
+
+Ecran de paramétrage des firmwares, accessible depuis le menu « Fichier » (passer la souris sur les cases permet d'afficher une étiquette explicative de l'option) :
+
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/c9x_preferences.png
+
+Ecran de programmation d'un modèle (structure identique à celle d'open9x), accessible en double-cliquant sur le nom du modèle dans la liste de l'eeprom :
+
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/c9x_mixer_screen.png
+
+Un très bel écran d'assistant de configuration automatique de modèles (gabarit) :
+
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/c9x_model_wizard.png
+
+L'écran de simulation de la radio, on peut même naviguer dans le soft comme sur la vraie radio (!) :
+
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/c9x_simu.png
+
+
+== Pour conclure ==
+
+Si ce travail vous plaît et vous rend service, n'hésitez surtout pas à en parler autour de vous. A défaut de posséder la radio la plus chère ou la plus belle du marché, vous pourrez sans complexe revendiquer d'être l'heureux utilisateur d'une radio économique, fiable, et permettant de programmer tout ce qu'il est possible d'imaginer. Le tout avec une rigueur, une efficacité et une simplicité sans concurrence.
+
+Et, justement, une programmation aussi simple et logique que puissante ne devrait-elle pas être le premier objectif d'une radiocommande... programmable ? A méditer...
