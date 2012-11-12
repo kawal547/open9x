@@ -646,9 +646,9 @@ Cet écran permet de définir, pour chaque voie (CH1...CH16), les paramètres su
  # Min/Max : butées mini / maxi (-100 / +100% à -125 / +125% si limites étendues) au-delà duquel l'ordre est écrété. Les limites servent aussi de gains de sortie, soit relatifs soit absolus (cf. ci-après).
  # -> / <- : sens de rotation du servo (si option *PPMCA*, sinon représenté comme "---" ou "INV").
  # 1500 (si option *PPMCA*) : neutre de servo (en µs). Décale la course entière du servo pour corriger par exemple un mauvais centrage de palonnier. Contrairement au subtrim l'amplitude de la course n'est pas modifiée, et le décalage n'apparaît pas sur l'écran de position des servos.
- # ^ / =  (si option *SYMLIMITS*) : détermine l'effet du sub-trim.
+ # ^ / =  (si option *SYMLIMITS*) : détermine l'effet du subtrim.
    * ^ (par défaut) : décale uniquement le centre de la courbe de réponse du servo, sans déplacer les limites ni jamais écrêter la course (gains relatifs, en rouge sur le graphique ci-dessous).
-   * = : Décale toute la courbe (gains absolus, en bleu ci-dessous) Les limites ne pouvant pas être dépassées, la course est écrêtée si la somme de la sortie du mixeur et du subtrim dépasse la limite.<br>L'utilisation de « = » est indispensable dès que la voie reçoit plus d'un mixage si la linéarité de réponse de toutes les fonctions qui pilotent cette voie doit être conservée.<br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/open9x_décalages_subtrim.png
+   * = : Décale toute la courbe (gains absolus, en bleu ci-dessous) Les limites ne pouvant pas être dépassées, la course est écrêtée si la somme de la sortie du mixeur et du subtrim dépasse la limite.<br>L'utilisation de « = » est indispensable dès que la voie reçoit plus d'un mixage si la linéarité de réponse de toutes les fonctions qui pilotent cette voie doit être conservée.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/open9x_décalages_subtrim.png
 
 La fonction « Trims => Offsets » transfère la position des trims de manches vers les offsets (avec prise en compte du mixeur et du formatage de manches), puis remet les trims à zéro.
 
