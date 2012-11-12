@@ -11,7 +11,7 @@
  * GVARS new feature! (phases dependant on all boards except stock)
  * Telemetry Screens now dynamic (2 bars / 2 displays / 1bar+1display)
  * Telemetry Bars increased precision
- * [voice] Only 1 digit precision when playing telemetry values
+ * [**voice] Only 1 digit precision when playing telemetry values
  * General Menu reorganized
  * Throttle Trace resetted when the model is changed
 

@@ -11,7 +11,7 @@
  * Nouvelle fonction GVARS, variables globales pouvant être attribuées à la place d'une ou plusieurs valeurs numériques et ajustables en vol. Différenciées par phase de vol sauf pour carte et processeur d'origine.
  * Affichages de télémesure plus flexibles, les 2 écrans peuvent maintenant afficher au choix des valeurs numériques ou une visualisation par barres.
  * Les barres en question sont affichées avec une merillerue précision
- * [voix] 1 seule décimale énoncée au lieu de 2
+ * [**voix] 1 seule décimale énoncée au lieu de 2
  * Réorganisation du menu de configuration radio
  * Graphique des gaz remis à zéro au changement de modèle
 
@@ -25,7 +25,7 @@
 === [**gruvin9x] ===
  * DSM2=PPM corrigé
 
-=== [sky9x] ===
+=== [**sky9x] ===
  * Conversion automatique de l'EEPROM de la version précédente à l'actuelle (212->213)
  * Jusqu'à 3 affichages de télémesure
  * Lecture de musique de fond
