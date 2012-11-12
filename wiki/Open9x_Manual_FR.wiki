@@ -112,7 +112,7 @@ Les points importants pour le choix initial d'un firmware sont les suivants:
  * *DSM2*: A choisir si l'on prévoit d'utiliser la 9x pour commander des modèles équipés de récepteurs Spektrum, et de construire le module approprié. 
  * *PPMCA*, *SYMLIMITS*, *GVARS*: Utiles principalement pour des modèles complexes. Les modélistes débutants peuvent les laissées désactivées au début pour éviter trop de confusion. 
  * *DBLKEYS*, *AUTOSWITCH*: Pratique, recommandé.
- * *NOBOLD*: A laissé désactivé, la mise en gras aide vraiment à la compréhension!
+ * *NOBOLD*: A laisser désactivé, la mise en gras aide vraiment à la compréhension!
  * *NOGRAPHICS*, *PGBAR*, *IMPERIAL*: Cosmétique uniquement, selon préférence.
 
 Choisir également la langue, cliquer sur OK pour sauvegarder les changements, réouvrir les préférences et cliquer sur télécharger. 
