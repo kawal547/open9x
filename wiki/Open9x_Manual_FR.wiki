@@ -1,4 +1,4 @@
-﻿#summary Open9x French manual
+﻿#summary Manuel d'Open9x en français
 #labels Featured
 
 = Open9x - Manuel d'utilisation =
@@ -20,7 +20,7 @@ CE LOGICIEL EST FOURNI « TEL QUEL » SANS GARANTIE D'AUCUNE SORTE, EXPLICITE OU
 
 == Introduction ==
 
-La radio IMAX/FLYSKY/TURNIGY/EURGLE 9x est un ensemble d'origine chinoise à micro-contrôleur. L'émetteur comporte un écran LCD de 128*64 pixels, 2 manches 2 axes, 3 potentiomètres, 6 interrupteurs 2 positions, un interrupteur 3 positions et 4 trims digitaux.
+La radio IMAX/FLYSKY/TURNIGY/EURGLE 9x est un ensemble d'origine chinoise à micro-contrôleur. L'émetteur comporte un écran LCD de 128*64 pixels, 2 manches 2 axes, 3 potentiomètres, 5 interrupteurs 2 positions, un interrupteur 3 positions, un interrupteur momentané et 4 trims digitaux.
 
 Hormis une qualité de réalisation plus qu'honorable et un tarif particulièrement abordable, moins d'une centaine d'euros, sa particularité est d'utiliser une architecture électronique suffisamment simple pour permettre sa rétro-conception. De plus, le micro-contrôleur utilisé (Atmega64A) est flashable (re-programmable), ce qui rend possible le remplacement du logiciel (le firmware, ou FW) d'origine, peu réussi. Il ne restait plus qu'à attendre qu'une personne ayant les compétences nécessaires fasse ce constat pour que naisse le premier firmware alternatif pour 9x.
 
@@ -36,7 +36,7 @@ Il y a aussi, avec une logique différente, Radioclone de Rafal Tomczak : http:/
 open9x (http://code.google.com/p/open9x/) représente la dernière évolution et aussi, à mon sens, l'arrivée à maturité de ces projets en offrant plus de fonctionnalités et de souplesse de programmation qu'aucune radio commerciale n'est en mesure d'offrir, indépendamment de sa gratuité ou du faible coût d'achat de l'émetteur.
 open9x est épaulé par le logiciel companion9x (http://code.google.com/p/companion9x/, pour Windows, Linux et Mac) qui permet de mettre à jour le FW, mais aussi de sauvegarder, programmer et même simuler les programmes de modèles sur, raffinement s'il en est, une radio virtuelle.
 
-A noter aussi que, étant donnée la simplicité de l'architecture électronique de la 9x, il est tout à fait envisageable de réaliser sa propre carte mère... et même sa radio autour !
+A noter aussi qu'étant donnée la simplicité de l'architecture électronique de la 9x, il est tout à fait envisageable de réaliser sa propre carte mère... et même sa radio autour !
 Le schéma d'origine : http://9xforums.com/forum/viewtopic.php?f=44&t=199
 Un exemple de circuit perso : http://www.rcgroups.com/forums/showthread.php?t=1631369
 
@@ -68,12 +68,62 @@ Celui-ci n'est valable que pour la carte mère d'origine, les cartes d'upgrade a
 
 Dans les deux cas, le logiciel à utiliser pour la reprogrammation (flashage) est companion9x.
 
+=== Choisir sa "version" d'open9x ===
+
+Une fois sa radio modifiée et prête à recevoir un nouveau firmware, il est temps de se procurer une copie d'open9x. 
+Pour ce faire, télécharger [http://code.google.com/p/companion9x/ companion9x], le logiciel multiplateformes Windows / Mac / Linux qui complémente open9x. Après l'installation, ouvrir la boîte de dialogue des préférences. C'est là qu'on trouvera le choix des différents firmwares supportés (companion9x permet également la gestion des autres firwares alternatifs courants pour la 9x), et lorsque le firmware sélectionné est open9x, une liste de case à cocher pour différentes options. 
+
+En effet, pour des raisons techniques (la mémoire disponible dans le processeur de la 9x étant limitée), il n'est plus possible sur la carte d'origine d'inclure à la fois toutes les nouvelles fonctionnalités développées récemment. Un système d'options a ainsi été mis en place, permettant à chacun de générer sa propre version de firmware en fonction des fonctionnalités qui lui seront utiles.
+
+Il est un peu prématuré de parler de ces options en détail à ce stade, mais étant donné que le choix est présenté au nouvel utilisateur avant même le flashage du firmware, et certains des écrans présentés plus tard dépendant de leur choix, nous allons les décrire brièvement ici avant de les détailler plus tard. Le manuel s'y référera en *GRAS*.
+
+|| frsky || A utiliser si l'on a modifié sa radio pour afficher les données de télémesure frsky selon le guide.<br>Ne s'applique *pas* si l'on utilise un module d'émission frsky sans pour autant avoir fait la modification en question. ||
+|| jeti || Permet à la 9x d'émuler une jetibox pour l'affichage de données er la configuration de matériel Jeti.<br>Nécessite également une modification matérielle pour raccorder le module Jeti à la radio ||
+|| ardupilot || Implémente une communication sérielle avec un aéronef équipé d'ardupilot.<br>Nécessite également la modification matérielle pour la connexion du modem radio. ||
+|| nmea || Permet l'affichage de données GPS sur l'écran de la radio<br>Nécessite également la modification matérielle pour la réception des données. ||
+|| heli || Inclut l'écran et les fonctionnalités de mixage CCPM èpur faciliter la configuration de modèles d'hélicoptères. ||
+|| templates || Inclut un écran offrant quelques gabarits de configuration standards pouvant être appliqués lors de la création<br>d'un nouveau modèle Ceux-ci sont également disponibles dans companion9x. ||
+|| nosplash || Désactive l'écran d'accueil affiché au démarrage de la radio et le supprime de la mémoire pour faire de la place<br>pour d'autres fonctionnalités. ||
+|| nofp || Désactive la fontionnalité des phases de vol. ||
+|| nocurves || Désactive les courbes personnalisables. ||
+|| audio || A utiliser si l'on souhaite remplacer le buzzer de la radio par un haut-parleur piezo ou à bobine.<br>Permet des sons différenciés pour les touches, les trims, différents choix de tonalités d'alarme, et en cas<br>d'utilisation de la télémesure *FRSKY* un variomètre audio. ||
+|| voice || Ajoute le support des alarmes vocales et de l'énoncé des paramètres de télémesure<br>Nécessite une modification matérielle pour l'ajout d'un module vocal. ||
+|| haptic || Support du retour haptique, nécessite l'installation matérielle d'un vibreur. ||
+|| PXX || Support du protocole PCM !FrSky (expérimental) ||
+|| DSM2 || Support des protocoles DSM / DSMX Spektrum. Nécessite l'installation d'un module d'émission Spektrum. ||
+|| ppmca || Ajoute un réglage permettant l'ajustage des neutres de servos sans influer sur leurs courses. ||
+|| gvars || Ajoute le support de variables globales, qui peuvent être ensuite utilisées en remplacement des réglages<br>individuels des paramètres numériques. ||
+|| symlimits || Permet de changer le comportement par défaut des subtrims, les rendant plus adaptés aux modèles<br>complexes où plusieurs voies sont mélangées. ||
+|| potscroll || Permet la navigation dans les menus et l'édition de valeurs à l'aide des potentiomètres P1, P2 et P3 de la radio. ||
+|| sp22 || A cocher en cas d'utilisation d'un programmeur SmartieParts version 2.2 ou plus récente, le contrôle du<br>rétroéclairage étant autrement inversé. ||
+|| autoswitch || Permet la sélection simplifiée des interrupteurs dans les champs y relatifs.<br>Au lieu de défiler la liste avec les touches, il suffit de basculer l'interrupteur souhaité. ||
+|| dblkeys || Permet d'accélérer l'entrée de paramètres numériques avec des combinaisons de 2 touches. ||
+|| nographics || Désactive les cases à cocher, les remplaçant par un simple ON/OFF. ||
+|| nobold || Désactive la mise en gras des mixeurs, inters et autres éléments actifs. ||
+|| nottrace || Désactive l'affichage graphique de l'historique des gaz dans l'écran des statistiques .||
+|| pgbar || Affiche une petite barre de progression montrant la sauvegarde des paramètres en mémoire. ||
+|| imperial || Affichage des données de télémesure en unités impériales. ||
+
+Les points importants pour le choix initial d'un firmware sont les suivants:
+ * *HELI*: Bienvenu si l'on prévoit d'utiliser la radio pour commander des modèles d'hélicoptère.
+ * *FRSKY*: A choisir en fonction des modifications matérielles effectuées. Si les inters THR et AIL apparaissent toujours actifs sur l'écran de la radio, c'est que cette option ne correspond pas au matériel.
+ * *TEMPLATES*: Utile pour les débutants qui souhaitent des exemples de programmation sur la radio. Cette option occupant un espace mémoire considérable, et les mêmes gabarits étant disponibles dans companion9x, elle peut être désactivée avec peu de désagrément.
+ * *AUDIO*, *VOICE*, *HAPTIC*, *SP22*, *JETI*, *ARDUPILOT*, *NMEA*: Egalement à choisir en fonction des modifications matérielles.
+ * *DSM2*: A choisir si l'on prévoit d'utiliser la 9x pour commander des modèles équipés de récepteurs Spektrum, et de construire le module approprié. 
+ * *PPMCA*, *SYMLIMITS*, *GVARS*: Utiles principalement pour des modèles complexes. Peuvent être laissés désactivés au début pour éviter trop de confusion. 
+ * *DBLKEYS*: Pratique, recommandé.
+ * *NOBOLD*: A laissé désactivé, la mise en gras aide vraiment à la compréhension!
+ * *NOGRAPHICS*, *POTSCROLL*, *PGBAR*, *IMPERIAL*: Cosmétique uniquement, selon préférence.
+
+Choisir également la langue, cliquer sur OK pour sauvegarder les changements, réouvrir les préférences et cliquer sur télécharger. 
+Le firmware peut ensuite être flashé en utilisant Flasher->Ecrire la mémoire flash, et en sélectionnant le fichier téléchargé. Une fois le flashage effectué avec succès, la radio affichera une alerte d'EEPROM invalide qui est normale (l'installation est "fraîche", aucun réglage en mémoire) et qui peut être quittancée. La mémoire sera formattée, et la radio prête à l'emploi. 
+
 === Vue de l'émetteur et nomenclature ===
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/open9x_identification_organes_CMD_9x.jpg
 
 || Entrées proportionnelles: || Entrées digitales (interrupteurs): ||
-|| 1. Gaz (Thr) : manche de gaz<br> 2. Prf (Ele) : manche de profondeur<br> 3. Ail (Ail) : manche d'ailerons<br> 4. Dir (Rud) : manche de dérive<br> 5. P1/P2/P3 : potentiomètres<br> 6. Trims de manche (impulsion par impulsion ou continu)|| 1. 1. THR<br> 2. RUD<br> 3. ELE<br> 4. ID0/1/2 (3-POS)<br> 5. AIL<br> 6. GEA<br> 7. TRN ||
+|| 1. Gaz (Thr) : manche de gaz<br> 2. Prf (Ele) : manche de profondeur<br> 3. Ail (Ail) : manche d'ailerons<br> 4. Dir (Rud) : manche de dérive<br> 5. P1/P2/P3 : potentiomètres<br> 6. Trims de manche (impulsion par impulsion ou continu)|| 1. THR<br> 2. RUD<br> 3. ELE<br> 4. ID0/1/2 (3-POS)<br> 5. AIL<br> 6. GEA<br> 7. TRN ||
 
 Tous ces organes sont librement affectables dans open9x, y compris les trims digitaux qui peuvent être utilisés indépendamment des manches auxquels ils se rapportent. 
 
@@ -90,10 +140,10 @@ Concernant les flèches de navigation, il faut faire abstraction des indications
 
 === Navigation ===
 
-
 D'une manière générale :
  * *[**UP]* / *[**DOWN]* / *[**LEFT]* / *[**RIGHT]* déplacent le curseur haut / bas / gauche / droite.
  * Le bouton *[**MENU]* est utilisé pour sélectionner, éditer, changer un état.
+ * Une fois un paramètre sélectionné, *[**LEFT]* / *[**RIGHT]* permettent de le modifier.
  * Le bouton *[**EXIT]* est utilisé pour sortir, comme on peut le deviner. Une pression amène généralement le curseur en haut de l'écran, une pression supplémentaire ramène à l'écran principal. 
 
 Depuis le menu principal :
@@ -102,7 +152,6 @@ Depuis le menu principal :
  * *[**MENU LONG]* ouvre le dernier écran utilisé.
  * *[**UP LONG]* ouvre le menu « statistiques ».
  * *[**DOWN LONG]* ouvre le menu « télémesure ».
-
 
 Depuis un écran, *[**EXIT LONG]* ramène directement à l'écran principal.
 
@@ -118,10 +167,12 @@ Pour certaines valeurs (gains et valeur de différentiel notamment), *[**MENU LO
 Pour sortir du mode édition, presser *[**MENU]* ou *[**EXIT]*.
 
 Si l'option *DBLKEYS* est activée, des raccourcis clavier suivants sont disponibles lors de l'édition d'une valeur :
-*[**LEFT]* + *[**RIGHT]* : inverse le signe de la valeur.
-*[**UP]* + *[**RIGHT]* : met la valeur au maxi par défaut (généralement +100%).
-*[**DOWN]* + *[**LEFT]* : met la valeur au mini par défaut (généralement -100%).
-*[**UP]* + *[**DOWN]*: met la valeur au nominal par défaut (généralement 0).
+* *[**LEFT]* + *[**RIGHT]* : inverse le signe de la valeur.
+* *[**UP]* + *[**RIGHT]* : met la valeur à 100%.
+* *[**DOWN]* + *[**LEFT]* : met la valeur à -100%.
+* *[**UP]* + *[**DOWN]*: met la valeur à 0.
+
+=== Les écrans d'open9x ===
 
 Voici un aperçu de la structuration de navigation des menus d'open9x :
 
