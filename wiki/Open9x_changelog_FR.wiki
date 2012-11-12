@@ -4,9 +4,9 @@
 
 <wiki:toc max_depth="2" />
 
-== r1563 / 9 Nov 2012 ==
+== 1563 / 9 Nov 2012 ==
 
-=== [Pour tous] ===
+=== [**Pour tous] ===
  * *Nouveau format d'EEPROM (212), mise à jour par companion9x nécessaire*
  * Nouvelle fonction GVARS, variables globales pouvant être attribuées à la place d'une ou plusieurs valeurs numériques et ajustables en vol. Différenciées par phase de vol sauf pour carte et processeur d'origine.
  * Affichages de télémesure plus flexibles, les 2 écrans peuvent maintenant afficher au choix des valeurs numériques ou une visualisation par barres.
@@ -15,14 +15,14 @@
  * Réorganisation du menu de configuration radio
  * Graphique des gaz remis à zéro au changement de modèle
 
-=== [stock] ===
+=== [**stock] ===
  * Optimisations mémoire
 
-=== [atmega 128 sur carte d'origine] ===
+=== [**atmega 128 sur carte d'origine] ===
  * Support officiel ajouté!
  * 4k (le double) de mémoire de modèles, 128k (le double aussi) de mémoire flash, toutes les options sont ainsi utilisables simultanément, quelques graphiques sympas, et support des GVARs par phase avec nom
 
-=== [gruvin9x] ===
+=== [**gruvin9x] ===
  * DSM2=PPM corrigé
 
 === [sky9x] ===
@@ -34,24 +34,24 @@
  
 ----
 
-== r1439 / 29 Sep 2012 ==
+== 1439 / 29 Sep 2012 ==
 
-=== [Pour tous] ===
+=== [**Pour tous] ===
  * WSHH disponible comme source pour le variomètre audio
  * Bug de l'alarme d'inactivité > 10min corrigé
  
-=== [stock] ===
+=== [**stock] ===
  * Corrections pour la gesion de la voix
  * Optimisations mémoire
  
-=== [gruvin9x] ===
+=== [**gruvin9x] ===
  * DBLKEYS corrigées
  * Améliorations du logging sur carte SD
  * Fonction de formatage de la carte SD ajoutée ([**MENU LONG] sur le titre)
  * Tri alphabétique des fichiers sur la carte SD
  * Les timers sont mémorisés à l'extinction
  
-=== [sky9x] ===
+=== [**sky9x] ===
  * Lecture / écriture de la carte SD comme disque amovible par USB!
  * Améliorations du logging sur carte SD
  * Fonction de formatage de la carte SD ajoutée ([**MENU LONG] sur le titre)
