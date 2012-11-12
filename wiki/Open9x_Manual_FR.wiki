@@ -37,8 +37,8 @@ open9x (http://code.google.com/p/open9x/) représente la dernière évolution et
 open9x est épaulé par le logiciel companion9x (http://code.google.com/p/companion9x/, pour Windows, Linux et Mac) qui permet de mettre à jour le FW, mais aussi de sauvegarder, programmer et même simuler les programmes de modèles sur, raffinement s'il en est, une radio virtuelle.
 
 A noter aussi qu'étant donnée la simplicité de l'architecture électronique de la 9x, il est tout à fait envisageable de réaliser sa propre carte mère... et même sa radio autour !
-Le schéma d'origine : http://9xforums.com/forum/viewtopic.php?f=44&t=199
-Un exemple de circuit perso : http://www.rcgroups.com/forums/showthread.php?t=1631369
+ * Le schéma d'origine : http://9xforums.com/forum/viewtopic.php?f=44&t=199
+ * Un exemple de circuit perso : http://www.rcgroups.com/forums/showthread.php?t=1631369
 
 Il existe aussi deux cartes mères d'upgrade, adaptables sur la 9x ou sur un émetteur perso : http://gruvin9x.com/shop/ et http://www.ersky9x.net/
 Outre des capacités mémoire et une puissance de calcul nettement plus élevées que celles de la carte mère d'origine, ces cartes mère offrent de nouvelles possibilités : gestion de carte SD, encodeurs rotatifs, enregistrement des chronos à l'extinction, etc.
@@ -54,7 +54,7 @@ Il est possible de contribuer au développement de ces projets en remontant des 
 A cet effet, il est important de :
  * bien caractériser, au préalable, le bug ou, pour la proposition, son intérêt et sa cohérence
  * le décrire (en anglais... pas le choix!) de manière précise et synthétique
- * pour un bug, ne pas oublier de donner le n° de version du firmware / logiciel
+ * pour un bug, ne pas oublier de donner le n° de version du firmware / logiciel et les options sélectionnées.
 
 Un forum dédié permet aussi d'échanger sur le sujet :
 http://9xforums.com/forum/viewforum.php?f=45
@@ -65,8 +65,6 @@ Un document décrivant les différentes étapes de modification de la 9x est pro
 http://code.google.com/p/open9x/downloads/list
 
 Celui-ci n'est valable que pour la carte mère d'origine, les cartes d'upgrade ayant déjà leur propre interfaces de reprogrammation.
-
-Dans les deux cas, le logiciel à utiliser pour la reprogrammation (flashage) est companion9x.
 
 === Choisir sa "version" d'open9x ===
 
@@ -90,7 +88,7 @@ Il est un peu prématuré de parler de ces options en détail à ce stade, mais 
 || voice || Ajoute le support des alarmes vocales et de l'énoncé des paramètres de télémesure.<br>Nécessite une modification matérielle pour l'ajout d'un module vocal. ||
 || haptic || Support du retour haptique, nécessite l'installation matérielle d'un vibreur. ||
 || PXX || Support du protocole PCM !FrSky (expérimental) ||
-|| DSM2 || Support des protocoles DSM / DSMX Spektrum. Nécessite l'installation d'un module d'émission Spektrum. ||
+|| DSM2 || Support des protocoles DSM2 / DSMX Spektrum. Nécessite l'installation d'un module d'émission Spektrum. ||
 || ppmca || Ajoute un réglage permettant l'ajustage des neutres de servos sans influer sur leurs courses. ||
 || gvars || Ajoute le support de variables globales, qui peuvent être ensuite utilisées en remplacement des réglages<br>individuels des paramètres numériques. ||
 || symlimits || Permet de changer le comportement par défaut des subtrims, les rendant plus adaptés aux modèles<br>complexes où plusieurs fonctions influent sur le même servo. ||
@@ -105,9 +103,9 @@ Il est un peu prématuré de parler de ces options en détail à ce stade, mais 
 || imperial || Affichage des données de télémesure en unités impériales. ||
 
 Les points importants pour le choix initial d'un firmware sont les suivants:
- * *HELI*: Bienvenu si l'on prévoit d'utiliser la radio pour commander des modèles d'hélicoptère.
- * *FRSKY*: A choisir en fonction des modifications matérielles effectuées. Si les inters THR et AIL apparaissent toujours actifs sur l'écran de la radio, c'est que cette option ne correspond pas au matériel.
- * *TEMPLATES*: Utile pour les débutants qui souhaitent des exemples de programmation sur la radio. Cette option occupant un espace mémoire considérable, et les mêmes gabarits étant disponibles dans companion9x, elle peut être désactivée avec peu de désagrément.
+ * *HELI*: Bienvenu si l'on prévoit d'utiliser la radio pour commander des modèles d'hélicoptères.
+ * *FRSKY*: A choisir en fonction des modifications matérielles effectuées. Si les inters THR et AIL apparaissent toujours actifs sur l'écran de la radio, c'est en général que cette option ne correspond pas au matériel.
+ * *TEMPLATES*: Utile pour les débutants qui souhaitent des exemples de programmation sur la radio. Cette option occupant un espace mémoire considérable, et les mêmes gabarits étant disponibles dans companion9x, elle peut être désactivée avec peu de désagrément une fois qu'on a compris le fonctionnement d'open9x.
  * *AUDIO*, *VOICE*, *HAPTIC*, *SP22*, *JETI*, *ARDUPILOT*, *NMEA*: Egalement à choisir en fonction des modifications matérielles.
  * *DSM2*: A choisir si l'on prévoit d'utiliser la 9x pour commander des modèles équipés de récepteurs Spektrum, et de construire le module approprié. 
  * *PPMCA*, *SYMLIMITS*, *GVARS*: Utiles principalement pour des modèles complexes. Les modélistes débutants peuvent les laissées désactivées au début pour éviter trop de confusion. 
@@ -133,17 +131,16 @@ Une désignation d'interrupteur finissant par « m » (ex : TRNm) indique un 
 
 === Interface de dialogue utilisateur ===
 
-Elle est assurée par un clavier à six boutons situés de part et d'autre de l'écran : un bouton « menu », un bouton « exit » et quatre flèches de navigations. Ces boutons seront identifiés dans ce manuel en gras et entre crochets, par exemple : *[**MENU]*.
-Certaines fonctions demandent d'appuyer sur le bouton pendant quelques secondes, c'est à dire un appui long qui sera noté ainsi : *[**MENU LONG]*.
+Elle est assurée par un clavier à six boutons situés de part et d'autre de l'écran : un bouton « menu », un bouton « exit » et quatre flèches de navigation. Ces boutons seront identifiés dans ce manuel en gras et entre crochets, par exemple : *[**MENU]*.
+Certaines fonctions demandent d'appuyer sur le bouton pendant plus d'une seconde, c'est à dire un appui long qui sera noté ainsi : *[**MENU LONG]*.
 
-Concernant les flèches de navigation, il faut faire abstraction des indications gravées sur le clavier, notamment les « + » et  « - » positionnés à l'inverse de ce qu'il serait logique. Pour les plus bricoleurs, il est possible d'intervertir ces boutons. Pour éviter toute confusion, ces boutons seront identifiés dans cette notice en tant que *[**LEFT]* (gauche) et *[**RIGHT]* (droite).
+Concernant les flèches de navigation, il faut faire abstraction des indications gravées sur le clavier, notamment les « + » et  « - » positionnés à l'inverse de ce qui serait logique. Pour les plus bricoleurs, il est possible d'intervertir ces boutons. Pour éviter toute confusion, ces boutons seront identifiés dans cette notice en tant que *[**LEFT]* (gauche) et *[**RIGHT]* (droite).
 
 === Navigation ===
 
 D'une manière générale :
  * *[**UP]* / *[**DOWN]* / *[**LEFT]* / *[**RIGHT]* déplacent le curseur haut / bas / gauche / droite.
  * Le bouton *[**MENU]* est utilisé pour sélectionner, éditer, changer un état.
- * Une fois un paramètre sélectionné, *[**LEFT]* / *[**RIGHT]* permettent de le modifier.
  * Le bouton *[**EXIT]* est utilisé pour sortir, comme on peut le deviner. Une pression amène généralement le curseur en haut de l'écran, une pression supplémentaire ramène à l'écran principal. 
 
 Depuis le menu principal :
@@ -166,7 +163,7 @@ Dans le cas d'une zone à deux états (case à cocher, flèche de sens, etc.), c
 Pour certaines valeurs (gains et valeur de différentiel notamment), *[**MENU LONG]* permet d'affecter une variable globale (cf. menu « Courbes 8/12 ») à la place d'une valeur numérique.
 Pour sortir du mode édition, presser *[**MENU]* ou *[**EXIT]*.
 
-Si l'option *DBLKEYS* est activée, des raccourcis clavier suivants sont disponibles lors de l'édition d'une valeur :
+Si l'option *DBLKEYS* est activée, les raccourcis clavier suivants sont disponibles lors de l'édition d'une valeur :
 * *[**LEFT]* + *[**RIGHT]* : inverse le signe de la valeur.
 * *[**UP]* + *[**RIGHT]* : met la valeur à 100%.
 * *[**DOWN]* + *[**LEFT]* : met la valeur à -100%.
@@ -174,9 +171,17 @@ Si l'option *DBLKEYS* est activée, des raccourcis clavier suivants sont disponi
 
 === Les écrans d'open9x ===
 
-Voici un aperçu de la structuration de navigation des menus d'open9x :
+Voici un aperçu de la structuration de navigation des menus d'open9x. A noter que les numéros d'écran (en haut à droite) peuvent changer en fonction des options choisies. 
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/open9x_synoptique.png
+
+ * L'écran CONF. HELI n'apparaîtra que si l'option *HELI* est activée. 
+ * L'écran PHASES DE VOL n'apparaîtra pas si l'option *NOFP* est sélectionnée.
+ * L'écran DR/EXPO est nommé MANCHES en cas d'utilisation des options *PPMCA* et/ou *SYMLIMITS*
+ * L'écran LIMITES est nommé SORTIES en cas d'utilisation des options *PPMCA* et/ou *SYMLIMITS*
+ * L'écran COURBES n'apparaîtra pas si l'option *NOCURVES* est sélectionnée.
+ * L'écran TELEMESURE est lié à l'option *FRSKY*
+ * L'écran GABARITS n'apparaîtra que si l'option *TEMPLATES* est activée. 
 
 === Comment ça marche ===
 
@@ -202,19 +207,19 @@ https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_1.png
 
 L'écran principal est découpé en 2 parties. La partie supérieure comporte les éléments suivants :
  * Le nom du modèle.
- * Le nom de la phase de vol (si l'option *PHASES* est activées).
- * La tension de la batterie de l'émetteur/
+ * Le nom de la phase de vol (si l'option *PHASES* est activée).
+ * La tension de la batterie de l'émetteur.
  * La position des trims.
  * Le chrono 1 et son mode de fonctionnement (paramétrage dans « Réglages modèles 2/12 »).
 
 La partie inférieure comporte quatre écrans accessibles par *[**UP]* / *[**DOWN]* :
 
 || Visualisation des 16 sorties du récepteur sur deux pages<br>(via *[**LEFT]* / *[**RIGHT]*) || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_1.png ||
-|| Valeurs numériques des 16 sorties du récepteur sur deux pages<br>(via *[**LEFT]* / *[**RIGHT]*) || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_2.png ||
+|| Valeurs numériques en % des 16 sorties du récepteur sur deux pages<br>(via *[**LEFT]* / *[**RIGHT]*) || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_2.png ||
 || Position des manches et état des interrupteurs sur deux pages<br>(via *[**LEFT]* / *[**RIGHT]*): d'abord les entrées physiques (manches, pots, inters)<br>puis les interrupteurs virtuels (SW1..SWC) || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_4.png<br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_5.png ||
-|| Chrono 2 (paramétrage dans « Réglages modèles 2/12 »).<br>*[**EXIT]* le remet à zéro || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_3.png ||
+|| Chrono 2 (paramétrage dans « Réglages modèle 2/12 »).<br>*[**EXIT]* le remet à zéro || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_3.png ||
 
-Dans la vue principale, un appui sur *[**EXIT]* réinitialise les compteurs de la vue courante tandis que *[**EXIT LONG]* réinitialise tous les compteurs ainsi que les données de télémétrie.
+Dans la vue principale, un appui sur *[**EXIT]* réinitialise les compteurs de la vue courante tandis que *[**EXIT LONG]* réinitialise tous les compteurs ainsi que les données de télémesure.
 
 [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour à la table des matières]
 
@@ -226,12 +231,12 @@ Depuis l'écran principal, presser *[**UP LONG]* donne accès aux écrans de sta
 
 Le premier affiche les différents compteurs :
  * Temps total d'allumage de la radio
- * Chrono 1 (paramétrage dans « Réglages modèles 2/12 »)
- * Chrono 2 (paramétrage dans « Réglages modèles 2/12 »)
+ * Chrono 1 (paramétrage dans « Réglages modèle 2/12 »)
+ * Chrono 2 (paramétrage dans « Réglages modèle 2/12 »)
  * Durée d'utilisation moteur absolue (en minutes / secondes)
  * Durée d'utilisation moteur relativement à la durée totale d'allumage de la radio (en %)
 
-Un graphique temporel de la consigne moteur est aussi affiché.
+Un graphique temporel de la consigne moteur est aussi affiché, à moins que l'option *NOTTRACE* ait été choisie.
 
 Le second montre des compteurs internes de l'émetteur, « tmain » représente le temps de calcul. Ce temps augmente avec la complexité des mixages, et peut devenir important (temps de réponse perceptible) suivant la configuration du modèle.
 
@@ -262,36 +267,36 @@ Cet écran permet de régler les paramètres généraux de l'émetteur :
    * !NoKey : bips normaux mais pas sur les touches d'édition.
    * Tout : tous les bips activés.
  # Son / durée :  5 durées de bips possibles.
- # Speaker Pitch : ajustement de la fréquence des bips (si l'option *AUDIO* est activée).
- # Haptic Mode : réglage du mode du vibreur (si l'option *HAPTIC* est activée).
-   * Aucun : pas d'alarme sonore (attention, y compris si la batterie est vide).
+ # Tonalité : ajustement de la fréquence des bips (si l'option *AUDIO* est activée).
+ # Vibreur / mode : réglage du mode du vibreur (si l'option *HAPTIC* est activée).
+   * Aucun : Vibreur désactivé.
    * Alarm: uniquement les alarmes (batterie vide, radio inactive).
-   * !NoKey : bips normaux mais pas sur les touches d'édition.
-   * Tout : tous les bips activés.
- # Haptic Force : force du vibreur (de 0 à 5) (si l'option *HAPTIC* est activée).
+   * !NoKey : Vibrations normales mais pas sur les touches d'édition.
+   * Tout : Vibration à chaque opération.
+ # Vibreur / force : force du vibreur (de 0 à 5) (si l'option *HAPTIC* est activée).
  # Contraste : contraste de l'afficheur LCD, de 20 (le plus clair) à 45 (le plus sombre).
- # Alarme / batterie faible : seuil de tension de batterie vide.
- # Alarme /  inactivité : délai de non-utilisation des manches à partir duquel la radio alerte l'utilisateur, de 1 à 250 min (0 pour désactiver la fonction).
- # Alarme / mémoire faible : affiche une alerte si l'eeprom dispose de moins de 200 octets de libres lors de l'allumage de l'émetteur, inactif tant que l'alerte n'est pas invalidée.
- # Alarme / sons désactivés : affiche au démarrage une alerte si le BIP est sur « Aucun ». 
+ # Alarme / batterie faible : seuil de tension de batterie vide. 
+ # Alarme / inactivité : délai de non-utilisation des manches à partir duquel la radio alerte l'utilisateur, de 1 à 250 min (0 pour désactiver la fonction).
+ # Alarme / mémoire faible : affiche une alerte si l'eeprom dispose de moins de 200 octets de libres lors de l'allumage de l'émetteur.
+ # Alarme / sons désactivés : affiche une alerte au démarrage si "Son / mode" est sur « Aucun ». 
  # Filtre ADC: filtre de Conversion Analogique Numérique de la position des manches.
    * SIMP : 1024 pas, temps de calcul (et donc latence) très réduit.
    * OSMP : 2048 pas, légèrement plus lent que SIMP.
-   * FILT : filtrage en cas de bruit excessif sur la conversion (servo qui frétillent). Attention, temps de latence de 30 ms.
+   * FILT : filtrage en cas de bruit excessif sur la conversion (servos qui frétillent). Attention, temps de latence supplémentaire de 30 ms.
  # Inversion gaz : position inversée du ralenti de manche des gaz.
- # Bip chrono / minutes : bip à chaque minute quand le compteur tourne.
- # Bip chrono / compte à rebours : 30, 20, 10, 3, 2 et 1 s avant la fin du compteur.
- # Rétroéclairage / alame : activation du rétro-éclairage lors d'un bip de compteur.
+ # Bips chrono / minutes : bip à chaque minute quand le compteur tourne.
+ # Bips chrono / compte à rebours : 30, 20, 10, 3, 2 et 1 s avant la fin du compteur, puis en continu après dépassement (ce dernier peut être rendu silencieux en vol par une courte pression sur *[**EXIT]*. 
+ # Rétroéclairage / alame : activation du rétro-éclairage lors d'une alarme.
  # Rétroéclairage / mode : mode d'activation du rétro-éclairage.
    * Toujours ON.
    * Toujours OFF.
    * Activation par clavier.
    * Activation par clavier + manches.
  # Rétroéclairage / durée : par pas de 5 s.
- # Ecran d'accueil : affiche l'écran d'accueil au démarrage (se passe par un appui sur n'importe quel manche/touche).
- # Fuseau horaire : pour l'heure affichée par le GPS de télémesure.
- # Coordonnées GPS : type d'affichage des coordonnées.
- # Ordre des voies RX : définit l'ordre des mixages de base (G = Gaz, P = Profondeur, A = Ailerons, D = Dérive) générés sur les quatre premières voies à la création d'un modèle.
+ # Ecran d'accueil : affiche l'écran d'accueil au démarrage (se passe par un appui sur n'importe quel manche/touche). Cette ligne n'existe pas si l'option *NOSPLASH* est choisie.
+ # Fuseau horaire : pour l'heure affichée par le GPS de télémesure (option *FRSKY* uniquement).
+ # Coordonnées GPS : type d'affichage des coordonnées (option *FRSKY* uniquement).
+ # Ordre des voies RX : définit l'ordre des mixages de base (G = Gaz, P = Profondeur, A = Ailerons, D = Dérive) générés automatiquement sur les quatre premières voies à la création d'un modèle.
  # Mode : attribution des manches de l'émetteur aux fonctions principales (gaz, tangage, roulis, lacet).
 
 === Ecolage (2/6) ===
@@ -306,23 +311,24 @@ Cet écran permet d'affecter les voies d'une radio « élève » (signal PPM, 
  # % : taux de proportionnalité (gain) appliqué aux ordres de l'élève.
  # Source : entrée élève à affecter au manche maître.
 
-Le multiplicateur est un gain global appliqué à tous les ordres issus de l'émetteur élève.
 Pour la calibration du neutre du PPM envoyé par l'émetteur élève, mettre en surbrillance  « Cal » et presser *[**MENU]*.
+Le multiplicateur est un gain global appliqué à tous les ordres issus de l'émetteur élève. Celui-ci est à  régler après calibration des neutres pour arriver à 100% quand le manche de l'élève est en butée.
 
 *NOTA* 
-
-L'émetteur élève doit être non-programmable ou doté d'une programmation neutre (voie = manche).
-L'interrupteur d'activation de l'écolage se définit dans la programmation du modèle (cf. paragraphe xx.x).
+ * L'émetteur élève doit être non-programmable ou doté d'une programmation neutre (voie = manche).
+ * Cet écran ne s'applique qu'aux 4 voies de commande principales. Les autres voies provenant de l'émetteur élève (jusqu'à 8) sont toutefois disponibles, et peuvent être utilisées au travers des mixeurs.
+ * L'interrupteur d'activation de l'écolage se définit dans la programmation du modèle (cf. paragraphe [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR?ts=1352728638&updated=Open9x_Manual_FR#Configuration_du_mod%C3%A8le_(2/12) Configuration du modèle (2/12)]).
+ * Le fonctionnement de la prise d'écolage est identique aux radios JR / Graupner / Spektrum, c'est-à-dire que la prise est une entrée (maître) lorsque linterrupteur de la radio est sur ON, et en sortie (élève) lorsque l'interrupteur est sur OFF. Dans ce deuxième cas, la radio s'allume toute seule à l'insertion du connecteur, et l'écran ci-dessus affiche "Elève".
 
 === Info version (3/6) ===
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/06_1.png
 
 Cet écran affiche la version du FW utilisé :
- * SVN : Le nom SVN du FW.
+ * SVN : La révision SVN du FW. C'est cette ligne qui représente la version utilisée, à mentionner en cas de questions ou de rapport de bug.
  * DATE : Date de compilation du FW.
  * TIME : Heure de compilation du FW.
- * EEPR : La version de l'EEPROM et sa variante (FrSky, GVARS, etc.).
+ * EEPR : La version de l'EEPROM et sa variante (!FrSky, GVARS, etc.).
 
 === Diagnostics (4/6) ===
 
@@ -334,7 +340,7 @@ Cet écran permet de vérifier le bon fonctionnement des boutons, interrupteurs 
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/08_1.png
 
-Cet écran affiche les valeurs brutes des entrées analogiques en hexadécimal. Les valeurs vont de 0 à 0x3FF (0..1023), les entrées étant les suivantes :
+Cet écran affiche les valeurs brutes des entrées analogiques en hexadécimal, de 0 à 0x3FF (0..1023), ainsi que la valeur en % après calibration. Les entrées sont les suivantes :
  * A1..A4 : manches
  * A5..A7 : potentiomètres
 
@@ -348,26 +354,27 @@ Cet écran permet de calibrer les entrées analogiques A1 – A7.
 
 Pour effectuer la calibration :
  # Presser *[**MENU]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/09_2.png
-
- # Mettre les manches au neutre.
+ # Mettre les manches et les potentiomètres au neutre.
  # Presser *[**MENU]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/09_3.png
- # Bouger les manches et potentiomètres de butée à butée (sans forcer...).
+ # Bouger les manches et les potentiomètres de butée à butée (sans forcer...).
  # Presser *[**MENU]*, les valeurs sont sauvegardées.
+
+[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour à la table des matières]
 
 == Réglages des modèles ==
 
-Depuis l'écran principal, presser *[**RIGHT LONG]* donne accès au menu de sélection/édition des modèles. Il permet de régler les paramètres propres au modèle en cours, au travers des écrans suivants (déplacement entre écrans par *[**RIGHT]* et *[**LEFT]* sur la ligne supérieure) :
+Depuis l'écran principal, presser *[**RIGHT LONG]* donne accès au menu de sélection/édition des modèles. Il permet de régler les paramètres propres au modèle en cours, au travers des écrans suivants (déplacement entre écrans par *[**RIGHT]* et *[**LEFT]* sur le numéro de page) :
  # Mémoires des modèles.
  # Réglages du modèle.
  # Réglages hélicoptères (si l'option *HELI* est activée).
  # Phases de vol (si l'option *PHASES* est activée).
  # Manches (DR/Expo).
  # Mixeurs.
- # Servos (Limites).
+ # Sorties (Limites).
  # Courbes  (si l'option *COURBES* est activée).
  # Interrupteurs personnalisables.
  # Fonctions associées aux inters.
- # Télémesures (si l'option *FRSKY* est activée)
+ # Télémesure (si l'option *FRSKY* est activée)
  # Assistant de création de Mixeurs (si l'option *TEMPLATES* est activée)
 
 === Mémoires des modèles (1/12) ===
@@ -424,9 +431,9 @@ Voici le détail des options :
  # Chronos 1 et 2 :<br>Réglage de la valeur de départ de ce compteur : si 00:00, le chrono est croissant, sinon il est décompteur à partir de la valeur de départ. *[**RIGHT]* / *[**LEFT]* bascule en secondes ou minutes. *[**MENU]* édite la valeur (le curseur clignote), *[**UP]* / *[**DOWN]* / *[**RIGHT]* / *[**LEFT]* la modifie. *[**MENU]* / *[**EXIT]* termine l'édition.<br>Trigger :  choix du mode de déclenchement du compteur (ne pas oublier l'option « ! » si besoin d'inverser le sens de déclenchement) :
    * OFF : inutilisé.
    * ABS : actif en permanence.
-   * GZ%/GZs/GZt : actif en fonction du régime moteur (voir plus loin pour sa configuration). GZ% indique que la vitesse de défilement est proportionnelle à la consigne de gaz. GZt indique que le chrono démarre dès que la consigne moteur est supérieure à -100% (moteur stoppé) mais ne s'arrête pas alors que GZs s'arrête quand le manche des gaz revient -100%.
-   * Interrupteur : chaque chrono peut être déclanché / arrêté par un interrupteur.
- # Limites Et. (étendues) : autorise des débattements jusqu'à 125% au lieu de 100%. A réserver à des besoins spécifiques, car un débattement de 100% sur open9x correspond au débattement maxi de la plupart des radiocommandes commerciales (de part la gestion différente des fins de courses).
+   * GZ%/GZs/GZt : actif en fonction du régime moteur (voir plus loin pour sa configuration). GZ% indique que la vitesse de défilement est proportionnelle à la consigne de gaz. GZt indique que le chrono démarre dès que la consigne moteur est supérieure à -100% (moteur stoppé) et ne s'arrête plus, alors que GZs s'arrête quand le manche des gaz revient à -100%.
+   * Interrupteur : chaque chrono peut être déclenché / arrêté par un interrupteur.
+ # Limites Et. (étendues) : autorise des débattements jusqu'à 125% au lieu de 100%. A réserver à des besoins spécifiques, car un débattement de 100% sur open9x correspond déjà au débattement maxi de la plupart des radiocommandes commerciales (de par la gestion différente des fins de courses).
  # Trims Et. (étendus) : étend la course des trims de 25% de la course du manche à 100%. A noter que si le réglage du trim dépasse +/-25%, il clignotera sur l'écran principal pour notifier au pilote qu'un réglage mécanique est fortement conseillé.
  # Pas trim : mode de fonctionnement des trims digitaux.
    * Expo : exponentiel, réglage fin autour du neutre puis avec des pas de + en + élevés.
@@ -438,19 +445,27 @@ Voici le détail des options :
    * Gaz : manche de gaz.
    * P1..P3 : potentiomètres.
    * CH1..CH16 : voie physiques ou virtuelles.
- # Trim Gaz : active la liaison du trim au manche de gaz (modèles thermiques). Si désactivée (modèles électriques), ce trim peut être utilisé pour une autre fonction, comme par exemple le réglage en vol de volets de courbure par phase.
- # Alerte Gaz : active une alarme au démarrage de l'émetteur si le manche ou la voie de gaz (cf. ci -avant) n'est pas complètement réduit (= -100%).
- # Alerte Int (Interrupteurs) : vérifie l'état des interrupteurs au démarrage et alerte en cas d'écart avec l'état par défaut. TRE0GA correspond à THR, RUD, etc. Pour définir l'état par défaut des interrupteurs, les positionner puis presser *[**MENU LONG]*.
+ # Trim Gaz : adapte le trim de gaz à l'utilisation avec un moteur thermique, en ajustant le ralenti sans pour autant modifier le plein régime.
+ # Alerte Gaz : active une alarme au démarrage de l'émetteur si le manche ou la voie de gaz (cf. ci-avant) n'est pas complètement réduit (= -100%).
+ # Alerte Int (Interrupteurs) : vérifie l'état des interrupteurs au démarrage et alerte en cas d'écart avec l'état programmé. TRE0GA correspond à THR, RUD, etc. Pour définir l'état par défaut des interrupteurs, les positionner puis presser *[**MENU LONG]*.
  # Bips Centre : signale le passage au neutre des manches et potentiomètres. DPGA123 correspond à Dérive, Profondeur, Gaz, Ailerons, P1, P2 et P3 (utiliser *[**RIGHT]* / *[**LEFT]* pour sélectionner la voie et *[**MENU]* pour activer/désactiver).<br>Le bip est activé quand le caractère correspondant est en surbrillance. Utile notamment pour retrouver le centre des potentiomètre en plein vol.
  # Proto : protocole d'encodage des ordres.
-   * PPM : le standard classique, avec un nombre de voies émises de 4 à 16 (les voies inutilisées peuvent servir à d'éventuelles fonctions créées par mixeur)
-   * PPM16 : les 8 premières voies sont envoyées au module d'émission tandis que les 8 autres sont envoyées sur le port écolage.
-   * PPMsim : aucun signal n'est envoyé au module d'émission tandis que le port écolage est forcé en sortie pour une utilisation avec simulateur.
-   * PXX : !FrSky PCM.
-   * DSM2 : JR/Spektrum.
- # Trame PPM : affinage des réglages spécifiques en fonction du protocole choisi.
+   # PPM : le standard classique.  
+     * PPM : fontionnement normal, un nombre de voies de 4 à 16 (xxCH) est transmis au module d'émission, la prise d'écolage est disponible en entrée. Les voies inutilisées peuvent servir à d'éventuelles fonctions virtuelles créées par mixeur.
+     * PPM16 : le nombre de voies configuré est transmis au module d'émission, les 8 suivantes sont envoyées sur le port écolage.
+     * PPMsim : aucun signal n'est envoyé au module d'émission, tandis que le port écolage est forcé en sortie pour une utilisation avec simulateur ou en écolage avec le module HF d'origine (avec inter de la radio sur ON).
+     * Trame PPM : Paramètres du protocole PPM (longueur de trame, polarité, durée de l'impulsion de séparation).
+   # PXX : Protocole !FrSky PCM, en développement (option *PXX*).
+     * NumRX : Numéro de récepteur pour la fonction Model Match.
+     * Sync : définition du failsafe.
+   # DSM2 : Protocole Spektrum (Option *DSM2*). Le binding se fait en maintenant l'inter TRN actif lors de la mise sous tension de la radio. *L'écran d'accueil doit être désactivé, et aucune alarme ne doit apparaître*, sinon le binding ne s'effectuera pas.
+   	 * LP2/LP4 : Pour module "courte portée" récupéré d'une radio LP4DSM.
+   	 * DSMseu : Modulation DSM2 uniquement.
+   	 * DSMX : Modulation auto DSMX/DSM2.
+     * NumRX : Numéro de récepteur pour la fonction Model Match.
+     * RANGE : Sélectionner et presser *[**MENU]* pour activer le test de portée. L'indicateur devient "range" et la radio bipe jusqu'à la fin du test par *[**MENU]* ou *[**EXIT]*.
 
-=== Réglages hélicoptères (3/12) ===
+=== Réglages hélicoptère (3/12) ===
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/15_1.png
 
@@ -462,10 +477,10 @@ Les options sont les suivantes :
    * 120X : comme 120° mais tourné de 90° (le servo central est sur un côté).
    * 140 : tête à 140°, avec le servo central à l'avant ou à l'arrière.
    * 90 : tête à 90°, un servo de tangage à l'avant ou à l'arrière et 2 servos de roulis à 180° l'un de l'autre.
- # Collectif : définit la source du pas collectif, soit directement le manche de gaz soit une voie (non utilisée par un servo) permettant ainsi de bénéficier d'une ou plusieurs courbe(s) de pas (via un ou plusieurs ligne(s) de mixage associée(s) à cette voie). Il est aussi possible d'utiliser une entrée PPM sur le port d'écolage, ou un potentiomètre.
+ # Collectif : définit la source du pas collectif, soit directement le manche de gaz soit une voie (non utilisée par un servo) permettant ainsi de bénéficier d'une ou plusieurs courbe(s) de pas (via un ou plusieurs ligne(s) de mixage associée(s) à cette voie).
  # Limite Cyclique : limitations de l'amplitude de mouvement du plateau cyclique en tangage et roulis.
- # Direction PRF / AIL / COL : permet d'inverser le sens d'actions des fonctions tangage / roulis / pas collectif. A utiliser de concert avec les sens de rotation des servos et le signe des mixeurs pour obtenir les bons sens de déplacement des servos pour chaque fonction.<br>La méthodologie de réglage est la suivante :
-   * Attribuer à chaque voie un mixeur (cf. paragraphe xx.x) avec comme entrée CYC1, 2 et 3.
+ # Direction PRF / AIL / COL : permet d'inverser le sens d'action des fonctions tangage / roulis / pas collectif. A utiliser de concert avec les sens de rotation des servos et le signe des mixeurs pour obtenir les bons sens de déplacement des servos pour chaque fonction.<br>La méthodologie de réglage est la suivante :
+   * Attribuer à chaque voie un mixeur (cf. paragraphe [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR?ts=1352728638&updated=Open9x_Manual_FR#Mixeur_(6/12) Mixeur (6/12)]) avec comme entrée CYC1, 2 et 3.
    * Régler le sens des servos dans le menu Servos (ou Limites) pour que le manche de pas actionne tous les servos dans le même sens.
    * Régler le sens des fonctions dans le menu décrit ici.
 
@@ -473,13 +488,12 @@ Les options sont les suivantes :
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/16_1.png
 
-Cet écran (si l'option *PHASES* est activée) permet de gérer cinq phases de vol dont une par défaut (PV0), chacune pouvant être librement nommée. La phase active est affichée en gras (si l'option *BOLD* est activée).
-
+Cet écran (si l'option *PHASES* est activée) permet de gérer cinq phases de vol dont une par défaut (PV0), chacune pouvant être librement nommée. La phase active est affichée en gras (sauf si l'option *NOBOLD* est activée).
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/16_2.png     
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/16_3.png
 
-Pour modifier les paramètres d'une phase de vol, choisissez-là avec les touches *[**UP]* et *[**DOWN]* et appuyez sur *[**MENU]* :
+Pour modifier les paramètres d'une phase de vol, choisissez-la avec les touches *[**UP]* et *[**DOWN]* et appuyez sur *[**MENU]* :
  # Nom : libellé de la phase (jusqu'à 6 caractères).
  # Interrupteur : sélectionner l'interrupteur (physique ou virtuel) d'activation de la phase.
  # Trims : chaque trim (Dérive / Profondeur / Gaz / Ailerons) peut avoir une valeur propre dans cette phase ou une valeur commune avec d'autres phases (0 à 4).
@@ -495,13 +509,13 @@ Cet écran permet de formater l'ordre de chaque manche (Dérive / Profondeur / G
 
 En règle générale, un gain de 75% donne un débattement équivalent à celui de 100% sur la majorité des radio commerciale. Il est aussi préférable d'utiliser une valeur inférieure à 100% pour laisser de la latitude au trim avant l'écrêtage des limites en fin de course. Il est aussi important de noter que c'est ici que se définit le débattement de chaque fonction, et non dans le menu limite comme cela est souvent (et à tort) pratiqué, ce dernier servant à ajuster la réponse de chaque servo, quelle que soit la ou les fonction(s) qui le pilote(nt).
 
-A chaque manche peut correspondre plusieurs lignes de formatage (jusqu'à 14 au total, avec un compteur en haut de l'écran), de manière à différencier les réglages pour certains phases de vol ou simplement via un interrupteur. Comme pour les phases de vol, les formatages actifs sont affichés en gras. Par défaut (pas de ligne créée pour le manche), le gain est de 100% et aucune courbe ni différenciation par phase ou autre n'est appliquée.
+A chaque manche peut correspondre plusieurs lignes de formatage (jusqu'à 14 au total, avec un compteur en haut de l'écran), de manière à différencier les réglages pour certaines phases de vol ou simplement via un interrupteur. Comme pour les phases de vol, les formatages actifs sont affichés en gras. Par défaut (pas de ligne créée pour le manche), le gain est de 100% et aucune courbe ni différenciation par phase ou autre n'est appliquée.
 
 Le processus de gestion des lignes est identique à celui utilisé pour les mémoires de modèles, le revoici cependant pour bien s'en imprégner.
 
 ==== Pour créer une ligne : ====
 S'il aucune ligne de formatage n'est appliquée au manche, se positionner sur la ligne vide correspondante avec les touches *[**UP]* / *[**DOWN]* et appuyer sur *[**MENU LONG]* pour créer une ligne de formatage et ouvrir son écran de paramétrage.
-Si une ligne de formatage est déjà affectée au manche, se placer sur la ligne juste avant ou après avec *[**UP]* / *[**DOWN]*, la sélectionner avec *[**MENU]* et appuyer sur *[**RIGHT LONG]* ou *[**LEFT LONG]*.
+Si une ligne de formatage est déjà affectée au manche, se placer dessus avec *[**UP]* / *[**DOWN]*, la sélectionner avec *[**MENU]* et appuyer sur *[**RIGHT LONG]* ou *[**LEFT LONG]* pour créer la nouvelle ligne respectivement au-dessus ou au-dessous.
 
 ==== Pour supprimer une ligne : ====
 Se placer sur la ligne à supprimer avec *[**UP]* / *[**DOWN]*, la sélectionner avec *[**MENU]* et appuyer sur *[**EXIT LONG]*.
@@ -735,7 +749,7 @@ Même principe, il est possible de définir deux alarmes pour le niveau de réce
 Lorsqu'une valeur est modifiée, elle est immédiatement envoyée au module !FrSky.
 
 ==== Autres mesures : ====
- # Proto : protocole série utilisé par le récepteur de télémétrie. Les options sont : None (non utilisé), le Hub !FrSky, ou le module Winged Shadow How High (il donne seulement l'altitude, mais il est plus précis).
+ # Proto : protocole série utilisé par le récepteur de télémesure. Les options sont : None (non utilisé), le Hub !FrSky, ou le module Winged Shadow How High (il donne seulement l'altitude, mais il est plus précis).
  # Pales : nombre de pales de l'hélice pour l'affichage du compte tour.
  # Tension : entrée utilisée pour la mesure de la tension d'une propulsion électrique.
  # Courant : entrée utilisée pour la mesure de l'intensité d'une propulsion électrique.
@@ -753,7 +767,7 @@ Il est possible d'afficher jusqu'à 8 capteurs sur l'écran de télémesure, ave
  # Min : valeur mini possible.
  # Max : valeur maxi possible.
 
-Ces sources sont aussi utilisables pour définir des interrupteurs virtuels. Les jalons affichés sur l'écran de télémétrie sont automatiquement issus des infos venant des alarmes FrSky ou des Inters virtuels. Ainsi, si vous positionnez un inter virtuel lorsque l'altitude est de 400m, vous verrez apparaître une marque à 400m.
+Ces sources sont aussi utilisables pour définir des interrupteurs virtuels. Les jalons affichés sur l'écran de télémesure sont automatiquement issus des infos venant des alarmes FrSky ou des Inters virtuels. Ainsi, si vous positionnez un inter virtuel lorsque l'altitude est de 400m, vous verrez apparaître une marque à 400m.
 
 === Gabarits (12/12) ===
 
