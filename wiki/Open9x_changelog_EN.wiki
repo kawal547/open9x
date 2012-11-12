@@ -1,0 +1,62 @@
+﻿#summary open9x English changelog
+
+= open9x version history =
+
+<wiki:toc max_depth="2" />
+
+== r1563 / Nov 9 2012 ==
+
+=== [all] ===
+ * *New EEPROM format (212), upgrade via C9X required*
+ * GVARS new feature! (phases dependant on all boards except stock)
+ * Telemetry Screens now dynamic (2 bars / 2 displays / 1bar+1display)
+ * Telemetry Bars increased precision
+ * [voice] Only 1 digit precision when playing telemetry values
+ * General Menu reorganized
+ * Throttle Trace resetted when the model is changed
+
+=== [stock] ===
+ * Flash saving again!
+
+=== [atmega 128 on stock board] ===
+ * Now supported!
+ * 4k useable eeprom, extra graphics and flight-phase specific GVARS!
+
+=== [gruvin9x] ===
+ * DSM2=PPM now ok
+
+=== [sky9x] ===
+ * Automatic EEPROM conversion from previous version (212=>213)
+ * Up to 3 Telemetry Screens
+ * Background Music
+ * Coprocessor now supported
+ * Lists within Function Switches / Model archive - restore are now sorted alphabetically
+ 
+----
+
+== r1439 / Sep 29 2012 ==
+
+=== [Pour tous] ===
+ * WSHH can be used as a vario (waiting for tests)
+ * Inactivity alarm bug fix (when > 10 minutes) 
+ 
+=== [stock] ===
+ * Voice Mod bugs fixes
+ * Flash savings
+ 
+=== [gruvin9x] ===
+ * DBLKEYS option now ok
+ * SD Card Logs improvements
+ * SD Card Format function (in SD Manager, pressing [MENU Long] on the title)
+ * SD File Manager sorts files in alphabetical order
+ * Remanent Timers
+ 
+=== [sky9x] ===
+ * Mass Storage !!!
+ * SD Card Logs
+ * SD Card Format function (in SD Manager, pressing [MENU Long] on the title)
+ * SD Card Information (type, sectors, speed, size)
+ * SD File Manager sorts files in alphabetical order
+ * Rotary encoder support
+ * When an alarm raises (consumption, temperature), it's displayed on the main screen in place of the Batt Voltage
+ * Remanent Timers
