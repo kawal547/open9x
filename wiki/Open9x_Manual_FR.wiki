@@ -37,7 +37,7 @@ open9x (http://code.google.com/p/open9x/) représente la dernière évolution et
 open9x est épaulé par le logiciel companion9x (http://code.google.com/p/companion9x/, pour Windows, Linux et Mac) qui permet de mettre à jour le FW, mais aussi de sauvegarder, programmer et même simuler les programmes de modèles sur, raffinement s'il en est, une radio virtuelle.
 
 A noter aussi qu'étant donnée la simplicité de l'architecture électronique de la 9x, il est tout à fait envisageable de réaliser sa propre carte mère... et même sa radio autour !
- * Le schéma d'origine : http://9xforums.com/forum/viewtopic.php?f=44&t=199
+ * Le schéma d'origine (attention, il s'agit de la V1, quelque peu différente de la V2 actuelle) : http://9xforums.com/forum/viewtopic.php?f=44&t=199
  * Un exemple de circuit perso : http://www.rcgroups.com/forums/showthread.php?t=1631369
 
 Il existe aussi deux cartes mères d'upgrade, adaptables sur la 9x ou sur un émetteur perso : http://gruvin9x.com/shop/ et http://www.ersky9x.net/
@@ -164,10 +164,10 @@ Pour certaines valeurs (gains et valeur de différentiel notamment), *[**MENU LO
 Pour sortir du mode édition, presser *[**MENU]* ou *[**EXIT]*.
 
 Si l'option *DBLKEYS* est activée, les raccourcis clavier suivants sont disponibles lors de l'édition d'une valeur :
-* *[**LEFT]* + *[**RIGHT]* : inverse le signe de la valeur.
-* *[**UP]* + *[**RIGHT]* : met la valeur à 100%.
-* *[**DOWN]* + *[**LEFT]* : met la valeur à -100%.
-* *[**UP]* + *[**DOWN]*: met la valeur à 0.
+ * *[**LEFT]* + *[**RIGHT]* : inverse le signe de la valeur.
+ * *[**UP]* + *[**RIGHT]* : met la valeur à 100%.
+ * *[**DOWN]* + *[**LEFT]* : met la valeur à -100%.
+ * *[**UP]* + *[**DOWN]*: met la valeur à 0.
 
 === Les écrans d'open9x ===
 
@@ -217,7 +217,7 @@ La partie inférieure comporte quatre écrans accessibles par *[**UP]* / *[**DOW
 || Visualisation des 16 sorties du récepteur sur deux pages<br>(via *[**LEFT]* / *[**RIGHT]*) || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_1.png ||
 || Valeurs numériques en % des 16 sorties du récepteur sur deux pages<br>(via *[**LEFT]* / *[**RIGHT]*) || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_2.png ||
 || Position des manches et état des interrupteurs sur deux pages<br>(via *[**LEFT]* / *[**RIGHT]*): d'abord les entrées physiques (manches, pots, inters)<br>puis les interrupteurs virtuels (SW1..SWC) || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_4.png<br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_5.png ||
-|| Chrono 2 (paramétrage dans « Réglages modèle 2/12 »).<br>*[**EXIT]* le remet à zéro || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_3.png ||
+|| Chrono 2 (paramétrage dans [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR?ts=1352728638&updated=Open9x_Manual_FR#Configuration_du_mod%C3%A8le_(2/12) Configuration du modèle (2/12)]).<br>*[**EXIT]* le remet à zéro || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_3.png ||
 
 Dans la vue principale, un appui sur *[**EXIT]* réinitialise les compteurs de la vue courante tandis que *[**EXIT LONG]* réinitialise tous les compteurs ainsi que les données de télémesure.
 
@@ -231,8 +231,8 @@ Depuis l'écran principal, presser *[**UP LONG]* donne accès aux écrans de sta
 
 Le premier affiche les différents compteurs :
  * Temps total d'allumage de la radio
- * Chrono 1 (paramétrage dans « Réglages modèle 2/12 »)
- * Chrono 2 (paramétrage dans « Réglages modèle 2/12 »)
+ * Chrono 1 (paramétrage dans [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR?ts=1352728638&updated=Open9x_Manual_FR#Configuration_du_mod%C3%A8le_(2/12) Configuration du modèle (2/12)])
+ * Chrono 2 (paramétrage dans [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR?ts=1352728638&updated=Open9x_Manual_FR#Configuration_du_mod%C3%A8le_(2/12) Configuration du modèle (2/12)])
  * Durée d'utilisation moteur absolue (en minutes / secondes)
  * Durée d'utilisation moteur relativement à la durée totale d'allumage de la radio (en %)
 
@@ -263,14 +263,14 @@ https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/04_1.png
 Cet écran permet de régler les paramètres généraux de l'émetteur :
  # Son / mode :
    * Aucun : pas d'alarme sonore (attention, y compris si la batterie est vide).
-   * Alarm: uniquement les alarmes (batterie vide, radio inactive).
+   * Alarm : uniquement les alarmes (batterie vide, radio inactive).
    * !NoKey : bips normaux mais pas sur les touches d'édition.
    * Tout : tous les bips activés.
  # Son / durée :  5 durées de bips possibles.
  # Tonalité : ajustement de la fréquence des bips (si l'option *AUDIO* est activée).
  # Vibreur / mode : réglage du mode du vibreur (si l'option *HAPTIC* est activée).
    * Aucun : Vibreur désactivé.
-   * Alarm: uniquement les alarmes (batterie vide, radio inactive).
+   * Alarm : uniquement les alarmes (batterie vide, radio inactive).
    * !NoKey : Vibrations normales mais pas sur les touches d'édition.
    * Tout : Vibration à chaque opération.
  # Vibreur / force : force du vibreur (de 0 à 5) (si l'option *HAPTIC* est activée).
@@ -279,7 +279,7 @@ Cet écran permet de régler les paramètres généraux de l'émetteur :
  # Alarme / inactivité : délai de non-utilisation des manches à partir duquel la radio alerte l'utilisateur, de 1 à 250 min (0 pour désactiver la fonction).
  # Alarme / mémoire faible : affiche une alerte si l'eeprom dispose de moins de 200 octets de libres lors de l'allumage de l'émetteur.
  # Alarme / sons désactivés : affiche une alerte au démarrage si "Son / mode" est sur « Aucun ». 
- # Filtre ADC: filtre de Conversion Analogique Numérique de la position des manches.
+ # Filtre ADC : filtre de Conversion Analogique Numérique de la position des manches.
    * SIMP : 1024 pas, temps de calcul (et donc latence) très réduit.
    * OSMP : 2048 pas, légèrement plus lent que SIMP.
    * FILT : filtrage en cas de bruit excessif sur la conversion (servos qui frétillent). Attention, temps de latence supplémentaire de 30 ms.
@@ -290,8 +290,9 @@ Cet écran permet de régler les paramètres généraux de l'émetteur :
  # Rétroéclairage / mode : mode d'activation du rétro-éclairage.
    * Toujours ON.
    * Toujours OFF.
-   * Activation par clavier.
-   * Activation par clavier + manches.
+   * Btns : Activation par clavier.
+   * Stks : Activation par manches.
+   * Tout : Activation par clavier + manches.
  # Rétroéclairage / durée : par pas de 5 s.
  # Ecran d'accueil : affiche l'écran d'accueil au démarrage (se passe par un appui sur n'importe quel manche/touche). Cette ligne n'existe pas si l'option *NOSPLASH* est choisie.
  # Fuseau horaire : pour l'heure affichée par le GPS de télémesure (option *FRSKY* uniquement).
@@ -303,7 +304,7 @@ Cet écran permet de régler les paramètres généraux de l'émetteur :
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/05_1.png
 
-Cet écran permet d'affecter les voies d'une radio « élève » (signal PPM, via la prise écolage) aux manches de la radio « maître » et de calibrer leur neutre :
+Cet écran permet d'affecter les voies d'une radio « élève » (signal PPM, via la prise écolage) aux manches de la radio « maître » et de calibrer leur neutre.
  # Mode : 
   * OFF.
   * += : ajoute la valeur du manche élève à celle du maître.
@@ -312,22 +313,23 @@ Cet écran permet d'affecter les voies d'une radio « élève » (signal PPM, 
  # Source : entrée élève à affecter au manche maître.
 
 Pour la calibration du neutre du PPM envoyé par l'émetteur élève, mettre en surbrillance  « Cal » et presser *[**MENU]*.
+
 Le multiplicateur est un gain global appliqué à tous les ordres issus de l'émetteur élève. Celui-ci est à  régler après calibration des neutres pour arriver à 100% quand le manche de l'élève est en butée.
 
 *NOTA* 
  * L'émetteur élève doit être non-programmable ou doté d'une programmation neutre (voie = manche).
  * Cet écran ne s'applique qu'aux 4 voies de commande principales. Les autres voies provenant de l'émetteur élève (jusqu'à 8) sont toutefois disponibles, et peuvent être utilisées au travers des mixeurs.
- * L'interrupteur d'activation de l'écolage se définit dans la programmation du modèle (cf. paragraphe [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR?ts=1352728638&updated=Open9x_Manual_FR#Configuration_du_mod%C3%A8le_(2/12) Configuration du modèle (2/12)]).
- * Le fonctionnement de la prise d'écolage est identique aux radios JR / Graupner / Spektrum, c'est-à-dire que la prise est une entrée (maître) lorsque linterrupteur de la radio est sur ON, et en sortie (élève) lorsque l'interrupteur est sur OFF. Dans ce deuxième cas, la radio s'allume toute seule à l'insertion du connecteur, et l'écran ci-dessus affiche "Elève".
+ * L'interrupteur d'activation de l'écolage se définit dans la programmation du modèle (cf. paragraphe [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Fonctions_personnalis%C3%A9es_(10/12) Fonctions personnalisées (10/12)]).
+ * Le fonctionnement général de la prise d'écolage est identique aux radios JR / Graupner / Spektrum, c'est-à-dire que la prise est une entrée (maître) lorsque linterrupteur de la radio est sur ON, et en sortie (élève) lorsque l'interrupteur est sur OFF. Dans ce deuxième cas, la radio s'allume toute seule à l'insertion du connecteur, et l'écran ci-dessus affiche "Elève". Des exceptions sont néanmoins possibles lors du choix de protocoles spéciaux (cf. paragraphe [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Configuration_du_mod%C3%A8le_(2/12) Configuration du modèle (2/12)]).
 
 === Info version (3/6) ===
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/06_1.png
 
-Cet écran affiche la version du FW utilisé :
- * SVN : La révision SVN du FW. C'est cette ligne qui représente la version utilisée, à mentionner en cas de questions ou de rapport de bug.
- * DATE : Date de compilation du FW.
- * TIME : Heure de compilation du FW.
+Cet écran affiche la version du firmware utilisé :
+ * SVN : La révision SVN du firmware. C'est cette ligne qui représente la version utilisée, à mentionner en cas de questions ou de rapport de bug.
+ * DATE : Date de compilation du firmware.
+ * TIME : Heure de compilation du firmware.
  * EEPR : La version de l'EEPROM et sa variante (!FrSky, GVARS, etc.).
 
 === Diagnostics (4/6) ===
@@ -340,7 +342,7 @@ Cet écran permet de vérifier le bon fonctionnement des boutons, interrupteurs 
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/08_1.png
 
-Cet écran affiche les valeurs brutes des entrées analogiques en hexadécimal, de 0 à 0x3FF (0..1023), ainsi que la valeur en % après calibration. Les entrées sont les suivantes :
+Cet écran affiche les valeurs brutes des entrées analogiques en hexadécimal, de 0 à 0x03FF (0..1023), ainsi que la valeur en % après calibration. Les entrées sont les suivantes :
  * A1..A4 : manches
  * A5..A7 : potentiomètres
 
@@ -373,9 +375,9 @@ Depuis l'écran principal, presser *[**RIGHT LONG]* donne accès au menu de sél
  # Sorties (Limites).
  # Courbes  (si l'option *COURBES* est activée).
  # Interrupteurs personnalisables.
- # Fonctions associées aux inters.
+ # Fonctions spéciales.
  # Télémesure (si l'option *FRSKY* est activée)
- # Assistant de création de Mixeurs (si l'option *TEMPLATES* est activée)
+ # Assistant de création de mixeurs (si l'option *TEMPLATES* est activée)
 
 === Mémoires des modèles (1/12) ===
 
@@ -543,8 +545,8 @@ Les paramètres sont les suivants :
  # Ratio : gain appliqué à l'ordre (0 à +100%).
  # Expo: taux d'exponentiel (-100% à +100%).
  # Courbe : remplace l'exponentiel par une courbe
-   * soit prédéfinie : x>0, x<0, |x|, f>0, f<0, |f|.
-   * soit personnalisée CB1..CB8 (3 à 17 points, détails ci-après), à éditer avec *[**MENU]*.
+   * soit prédéfinie : x>0, x<0, |x|, f>0, f<0, |f| (voir [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Edition_d%27un_mixage Edition d'un mixage] pour la signification des différents choix).
+   * soit personnalisée : CB1..CB8 (3 à 17 points, détails ci-après), à éditer avec *[**MENU]*.
  # Phase : phase(s) pour laquelle la ligne est active (actif = en surbrillance).
  # Interrupteur : activation spécifique de la ligne (en complément de la phase).
  # Côté : plage sur laquelle la ligne est active (partout, lorsque l'entrée est négative ou lorsqu'elle est positive), indiqué par une flèche sur la ligne de formatage correspondante. Cela permet, via deux lignes de formatage, de différencier par côté la réponse du manche.
@@ -553,7 +555,7 @@ Les paramètres sont les suivants :
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/20_1.png
 
-Le rôle du Mixeur est de relier des entrées (appelées aussi sources : manches, potentiomètres, interrupteurs physique ou virtuel, trims digitaux, valeur statique) aux sorties (= voies = servos), avec la possibilité de croiser / modifier les ordres donnés par ces entrées.
+Le rôle du mixeur est de relier des entrées (appelées aussi sources : manches, potentiomètres, interrupteurs physique ou virtuel, trims digitaux, valeur statique) aux sorties (= voies = servos), avec la possibilité de croiser / modifier les ordres donnés par ces entrées.
 
 Pour bien situer le fonctionnement d'open9x :
  * La majorité des radiocommandes commerciales, excepté Multiplex dont la logique est similaire à celle d'open9x, proposent un panel de mixages pré-définis et à la structure figée (delta, etc.). Ces mixages sont activés au besoin et épaulés par quelques mixages libres, généralement basiques et souvent peu pratiques à cause de l'ambigüité souvent présente entre voies et fonctions (ailerons par ex.). Le tout part généralement des organes de commande avec une réaffectation éventuelles des voies.
@@ -574,14 +576,14 @@ Il y a une contrepartie à cette latitude quasi totale de programmation. En effe
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/20_1.png
 
-Chaque ligne du Mixeur correspond à un mixage. Les fonctions d'édition, de suppression, de copie et déplacement des lignes sont exactement les mêmes que pour le formatage des manches (DR/expo), permettant de créer à la carte sa propre structure de mixages.
+Chaque ligne du mixeur correspond à un mixage. Les fonctions d'édition, de suppression, de copie et déplacement des lignes sont exactement les mêmes que pour le formatage des manches (DR/expo), permettant de créer à la carte sa propre structure de mixages.
 La aussi, les lignes actives sont indiquées en gras.
 
 CHx correspond à la voie x du récepteur. Sur cet exemple basique (défini par défaut à la création d'un modèle et entièrement modifiable), le manche de gaz est affecté sur voie 1, avec un taux de mixage de 100% (gain de 1 pour 1), de même pour les manches de profondeur, ailerons et dérive sur respectivement les voies 2, 3 et 4.
 
 Les gains sont directement modifiables avec *[**LEFT]* / *[**RIGHT]* après y avoir accédé avec *[**UP]* / *[**DOWN]*. Sauf besoin spécifique, il est fortement conseillé (pour s'y retrouver...)  de laisser les gains à +/-100%, en considérant qu'ils s'agit plutôt d'une activation et en s'appuyant sur les formatages de manches pour ajuster les débattements par fonction.
 
-Pour aller plus loin, voici un exemple de programmation un peu plus complexe, en l'occurence un motoplaneur avec un servo par aileron et une fonction snap-flap (entrée ailerons ajoutée sur les deux servos d'ailerons) :
+Pour aller plus loin, voici un exemple de programmation un peu plus complexe, en l'occurence un motoplaneur avec un servo par aileron et une fonction snap-flap (entrée profondeur ajoutée sur les deux servos d'ailerons) :
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/22_1.png
 
@@ -632,22 +634,23 @@ Les options disponibles sont les suivantes :
    * Ajoute : la ligne est ajoutée au résultat des lignes précédentes (mode par défaut).
    * Multiplie : la ligne multiplie le résultat des lignes précédentes.
    * Remplace : la ligne remplace toutes les lignes précédentes, à utiliser avec un interrupteur ou une phase de vol.
- # Retard haut / bas : retarde l'activation / désactivation du mixage (par défaut, instantané).
- # Ralenti haut / bas : ralenti le changement de valeur du mixage (par défaut, instantané).
+ # Retard haut / bas : retarde l'activation / désactivation du mixage (en secondes, par défaut instantané).
+ # Ralenti haut / bas : ralentit le changement de valeur du mixage (en secondes, par défaut instantané). Une valeur de 2 secondes signifie que la sortie du mixage mettra 2 secondes à passer de -100% à +100%.
 
 === Formatage des sorties (Limites) (7/12) ===
 
-https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/23_1.png    https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/open9x_décalages_subtrim.png
+https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/23_1.png  
 
 Cet écran permet de définir, pour chaque voie (CH1...CH16), les paramètres suivants (de gauche à droite dans l'écran) :
- # Offset (ou subtrim) : décale le centre de la voie.
-Les manches peuvent être utilisés pour le régler : mettre la valeur en surbrillance, déplacer le manche de manière à mettre le servo à la position voulue, puis presser *[**MENU LONG]*.
+ # Offset (ou subtrim) : décale le centre de la voie.<br>Les manches peuvent être utilisés pour le régler : mettre la valeur en surbrillance, déplacer le manche de manière à mettre le servo à la position voulue, puis presser *[**MENU LONG]*.
  # Min/Max : butées mini / maxi (-100 / +100% à -125 / +125% si limites étendues) au-delà duquel l'ordre est écrété. Les limites servent aussi de gains de sortie, soit relatifs soit absolus (cf. ci-après).
- # -> / <- : sens de rotation du servo.
- # 1500 (si option *PPMCA*) : neutre de servo (en µs). Réglage identique à celui du sub-trim mais sans que cela apparaisse dans l'écran de position des servos.
- # ^ / =  (si option *SYMLIMITS*) : détermine l'effet du sub-trim, soit décale uniquement le centre de la courbe de réponse du servo (gains relatifs, en rouge sur le graphique ci-dessus) soit décale toute la courbe (gains absolus, en bleu ci-dessus). L'utilisation de « = » est indispensable dès que la voie reçoit plus d'un mixage pour conserver la linéarité de réponse de toutes les fonctions qui pilotent cette voie.
+ # -> / <- : sens de rotation du servo (si option *PPMCA*, sinon représenté comme "---" ou "INV").
+ # 1500 (si option *PPMCA*) : neutre de servo (en µs). Décale la course entière du servo pour corriger par exemple un mauvais centrage de palonnier. Contrairement au subtrim l'amplitude de la course n'est pas modifiée, et le décalage n'apparaît pas sur l'écran de position des servos.
+ # ^ / =  (si option *SYMLIMITS*) : détermine l'effet du sub-trim.
+   * ^ (par défaut) : décale uniquement le centre de la courbe de réponse du servo, sans déplacer les limites ni jamais écrêter la course (gains relatifs, en rouge sur le graphique ci-dessous).
+   * = : Décale toute la courbe (gains absolus, en bleu ci-dessous) Les limites ne pouvant pas être dépassées, la course est écrêtée si la somme de la sortie du mixeur et du subtrim dépasse la limite.<br>L'utilisation de « = » est indispensable dès que la voie reçoit plus d'un mixage si la linéarité de réponse de toutes les fonctions qui pilotent cette voie doit être conservée.<br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/open9x_décalages_subtrim.png
 
-La fonction « Trims => Offsets » transfère la position des trims de manches vers les offsets (avec prise en compte du Mixeur et du formatage de manches), puis remet les trims à zéro.
+La fonction « Trims => Offsets » transfère la position des trims de manches vers les offsets (avec prise en compte du mixeur et du formatage de manches), puis remet les trims à zéro.
 
 Lors de la sélection d'une voie, sa valeur de sortie (en µs si option *PPMCA*, sinon en %) est affichée en haut de l'écran :
 
