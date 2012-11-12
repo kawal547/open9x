@@ -71,7 +71,7 @@ Dans les deux cas, le logiciel à utiliser pour la reprogrammation (flashage) es
 === Choisir sa "version" d'open9x ===
 
 Une fois sa radio modifiée et prête à recevoir un nouveau firmware, il est temps de se procurer une copie d'open9x. 
-Pour ce faire, télécharger [http://code.google.com/p/companion9x/ companion9x], le logiciel multiplateformes Windows / Mac / Linux qui complémente open9x. Après l'installation, ouvrir la boîte de dialogue des préférences. C'est là qu'on trouvera le choix des différents firmwares supportés (companion9x permet également la gestion des autres firwares alternatifs courants pour la 9x), et lorsque le firmware sélectionné est open9x, une liste de case à cocher pour différentes options. 
+Pour ce faire, télécharger [http://code.google.com/p/companion9x/ companion9x], le logiciel multiplateformes Windows / Mac / Linux qui complémente open9x. Après l'installation, ouvrir la boîte de dialogue des préférences. On y trouvera une liste déroulante contenant les différents firmwares supportés (companion9x permet également la gestion des autres firmwares alternatifs courants pour la 9x), et lorsque le firmware sélectionné est open9x, une liste de cases à cocher pour différentes options. 
 
 En effet, pour des raisons techniques (la mémoire disponible dans le processeur de la 9x étant limitée), il n'est plus possible sur la carte d'origine d'inclure à la fois toutes les nouvelles fonctionnalités développées récemment. Un système d'options a ainsi été mis en place, permettant à chacun de générer sa propre version de firmware en fonction des fonctionnalités qui lui seront utiles.
 
