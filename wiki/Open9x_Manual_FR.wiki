@@ -78,22 +78,22 @@ En effet, pour des raisons techniques (la mémoire disponible dans le processeur
 Il est un peu prématuré de parler de ces options en détail à ce stade, mais étant donné que le choix est présenté au nouvel utilisateur avant même le flashage du firmware, et certains des écrans présentés plus tard dépendant de leur choix, nous allons les décrire brièvement ici avant de les détailler plus tard. Le manuel s'y référera en *GRAS*.
 
 || frsky || A utiliser si l'on a modifié sa radio pour afficher les données de télémesure frsky selon le guide.<br>Ne s'applique *pas* si l'on utilise un module d'émission frsky sans pour autant avoir fait la modification en question. ||
-|| jeti || Permet à la 9x d'émuler une jetibox pour l'affichage de données er la configuration de matériel Jeti.<br>Nécessite également une modification matérielle pour raccorder le module Jeti à la radio ||
-|| ardupilot || Implémente une communication sérielle avec un aéronef équipé d'ardupilot.<br>Nécessite également la modification matérielle pour la connexion du modem radio. ||
-|| nmea || Permet l'affichage de données GPS sur l'écran de la radio<br>Nécessite également la modification matérielle pour la réception des données. ||
-|| heli || Inclut l'écran et les fonctionnalités de mixage CCPM èpur faciliter la configuration de modèles d'hélicoptères. ||
-|| templates || Inclut un écran offrant quelques gabarits de configuration standards pouvant être appliqués lors de la création<br>d'un nouveau modèle Ceux-ci sont également disponibles dans companion9x. ||
-|| nosplash || Désactive l'écran d'accueil affiché au démarrage de la radio et le supprime de la mémoire pour faire de la place<br>pour d'autres fonctionnalités. ||
+|| jeti || Permet à la 9x d'émuler une jetibox pour l'affichage de données et la configuration de matériel Jeti.<br>Nécessite également une modification matérielle pour raccorder le module Jeti à la radio. ||
+|| ardupilot || Implémente l'affichage des données de télémesure d'un aéronef équipé d'ardupilot.<br>Nécessite également la modification matérielle pour la connexion du modem radio. ||
+|| nmea || Permet l'affichage de données GPS sur l'écran de la radio.<br>Nécessite également la modification matérielle pour la réception des données. ||
+|| heli || Inclut l'écran et les fonctionnalités de mixage CCPM pour faciliter la configuration de modèles d'hélicoptères. ||
+|| templates || Inclut un écran offrant quelques gabarits de configuration standards pouvant être appliqués lors de la création<br>d'un nouveau modèle. Ceux-ci sont également disponibles dans companion9x. ||
+|| nosplash || Désactive l'écran d'accueil affiché au démarrage de la radio et le supprime de la mémoire, pour faire de la place<br>pour d'autres fonctionnalités. ||
 || nofp || Désactive la fontionnalité des phases de vol. ||
 || nocurves || Désactive les courbes personnalisables. ||
 || audio || A utiliser si l'on souhaite remplacer le buzzer de la radio par un haut-parleur piezo ou à bobine.<br>Permet des sons différenciés pour les touches, les trims, différents choix de tonalités d'alarme, et en cas<br>d'utilisation de la télémesure *FRSKY* un variomètre audio. ||
-|| voice || Ajoute le support des alarmes vocales et de l'énoncé des paramètres de télémesure<br>Nécessite une modification matérielle pour l'ajout d'un module vocal. ||
+|| voice || Ajoute le support des alarmes vocales et de l'énoncé des paramètres de télémesure.<br>Nécessite une modification matérielle pour l'ajout d'un module vocal. ||
 || haptic || Support du retour haptique, nécessite l'installation matérielle d'un vibreur. ||
 || PXX || Support du protocole PCM !FrSky (expérimental) ||
 || DSM2 || Support des protocoles DSM / DSMX Spektrum. Nécessite l'installation d'un module d'émission Spektrum. ||
 || ppmca || Ajoute un réglage permettant l'ajustage des neutres de servos sans influer sur leurs courses. ||
 || gvars || Ajoute le support de variables globales, qui peuvent être ensuite utilisées en remplacement des réglages<br>individuels des paramètres numériques. ||
-|| symlimits || Permet de changer le comportement par défaut des subtrims, les rendant plus adaptés aux modèles<br>complexes où plusieurs voies sont mélangées. ||
+|| symlimits || Permet de changer le comportement par défaut des subtrims, les rendant plus adaptés aux modèles<br>complexes où plusieurs fonctions influent sur le même servo. ||
 || potscroll || Permet la navigation dans les menus et l'édition de valeurs à l'aide des potentiomètres P1, P2 et P3 de la radio. ||
 || sp22 || A cocher en cas d'utilisation d'un programmeur SmartieParts version 2.2 ou plus récente, le contrôle du<br>rétroéclairage étant autrement inversé. ||
 || autoswitch || Permet la sélection simplifiée des interrupteurs dans les champs y relatifs.<br>Au lieu de défiler la liste avec les touches, il suffit de basculer l'interrupteur souhaité. ||
@@ -110,10 +110,10 @@ Les points importants pour le choix initial d'un firmware sont les suivants:
  * *TEMPLATES*: Utile pour les débutants qui souhaitent des exemples de programmation sur la radio. Cette option occupant un espace mémoire considérable, et les mêmes gabarits étant disponibles dans companion9x, elle peut être désactivée avec peu de désagrément.
  * *AUDIO*, *VOICE*, *HAPTIC*, *SP22*, *JETI*, *ARDUPILOT*, *NMEA*: Egalement à choisir en fonction des modifications matérielles.
  * *DSM2*: A choisir si l'on prévoit d'utiliser la 9x pour commander des modèles équipés de récepteurs Spektrum, et de construire le module approprié. 
- * *PPMCA*, *SYMLIMITS*, *GVARS*: Utiles principalement pour des modèles complexes. Peuvent être laissés désactivés au début pour éviter trop de confusion. 
- * *DBLKEYS*: Pratique, recommandé.
+ * *PPMCA*, *SYMLIMITS*, *GVARS*: Utiles principalement pour des modèles complexes. Les modélistes débutants peuvent les laissées désactivées au début pour éviter trop de confusion. 
+ * *DBLKEYS*, *AUTOSWITCH*: Pratique, recommandé.
  * *NOBOLD*: A laissé désactivé, la mise en gras aide vraiment à la compréhension!
- * *NOGRAPHICS*, *POTSCROLL*, *PGBAR*, *IMPERIAL*: Cosmétique uniquement, selon préférence.
+ * *NOGRAPHICS*, *PGBAR*, *IMPERIAL*: Cosmétique uniquement, selon préférence.
 
 Choisir également la langue, cliquer sur OK pour sauvegarder les changements, réouvrir les préférences et cliquer sur télécharger. 
 Le firmware peut ensuite être flashé en utilisant Flasher->Ecrire la mémoire flash, et en sélectionnant le fichier téléchargé. Une fois le flashage effectué avec succès, la radio affichera une alerte d'EEPROM invalide qui est normale (l'installation est "fraîche", aucun réglage en mémoire) et qui peut être quittancée. La mémoire sera formattée, et la radio prête à l'emploi. 
