@@ -60,3 +60,86 @@
  * Support des encodeurs rotatifs
  * Les alarmes de consommation de batterie et température remplacent maintenant la tension sur l'écran principal
  * Les timers sont mémorisés à l'extinction
+
+---- 
+
+== 1361 / 04 Sep 2012 ==
+ 
+=== [**Pour tous] ===
+ * Annonces vocales anglaises améliorées
+ * Touches / trims affichés correctement sur l'écran DIAG
+ * DBLKEYS plus réactifs
+ * L'Alarme d'inactivité fonctionne maintenant aussi sur les écrans d'alerte au démarrage
+ * 3 nouveaux sons courts disponibles dans les inters de fonction: Beep1 .. Beep3
+ * Gabarit de coupure de gaz remplacé par coupure de gaz avec maintien
+ * Avertissement sur l'écran d'accueil en cas de redémarrage intempestif du soft
+ 
+=== [**sky9x] ===
+ * Alarme de température
+ * Alarme de consommation (mAh)
+ * Support pour plus de 32000 fichiers dans l'explorateur de fichiers pour carte SD
+ 
+----
+
+== 1335 / 30 Aoû 2012 == 
+
+=== [**Pour tous] ===
+ * Choix libre des phases de vols pour lesquelles chaque expo et mixeur doit être activé
+ * Limites symétriques (option SYMLIMITS). Voir manuel.
+ * Amélioration du support des annonces vocales. Langues EN, FR, IT, CZ
+ * Possibilité d'utiliser l'ordre brut du manche dans les mixeurs (sans tenir compte du DR/expo)
+ * Test de portée pour le protocole DSM
+ * Nouvelles fonctions pour les interrupteurs personnalisés: d>ofs (différence entre 2 valeurs > valeur fixe), |d|>ofs<br>Exemple d'utilisation: Avertissement lors d'un changement de tension batterie de 0.1V, ou lorsque l'altitude change de plus de 10m
+ * Les inters de fonction Ecolage et Trim instantané peuvent maintenant être activés/désactivés par case à cocher
+ * L'inversion du canal de gaz sur l'écran LIMITES demande confirmation
+ * Alarme d'inactivité plus fréquente (5 sec)
+ * Affichage de la polarité PPM corrigé
+ * Comptage de l'EEPROM libre corrigé
+ * Correction de la fonction vibreur
+ * [**MENU long] sur un inter dans les inter de fonctions bascule entre le switch et son équivalent momentané (THR <=> THRm, !THR <=> !THRm)
+ * Pas de 1% dans le différentiel au lieu de 2%
+ * Nouvelle option DBLKEYS, lors de l'édition de paramètres numériques:
+   * right/left => inverser la valeur
+   * up/down => remise à 0
+   * up/right => +100
+   * down/left => -100
+ * Les trims ne s'arrêtent plus définitivement au passage à 0, mais marquent une courte pause
+ * Correction du calcul de puissance quand Courant = A1 ou A2
+ * Correction des gabarits pour tenir compte du nouveau système de courbes
+ * RSSI TX et RX déplacés avant A1 et A2 dans la liste des éléments de télémesure. *Nécessite un ajsutage manuel des modèlss existants!*
+ * Les inters personnalisés dépendants des valeurs de télémesure sont désactivés si aucune donnée n'est reçue
+ * Correction du fonctionnement des trims dans les mixages utilisant des courbes et du différentiel
+ * L'option AUTOSWITCH correspond maintenant à la position physique des inters
+ * Les Expos/DR permettent maintenant de choisir une courbe à la place de l'expo
+ 
+=== [**stock] ===
+ * Réglage du volume pour la voix
+ 
+=== [**gruvin9x] ===
+ * DSM2 corrigé
+ * PPM16 corrigé
+ * Bips de l'encodeur rotatif corrigés
+ 
+=== [**sky9x] ===
+ * Le bootloader USB n'est lancé que si la radio est éteinte à la connexion du câble
+ * Corrections pour l'audio
+ * Corrections pour la carte SD
+ 
+----
+
+== 1195 / 1 Aoû 2012 ==
+=== [**Pour tous] ===
+ * Nouveau système de courbes, les courbes peuvent chacune avoir à choix 3, 5, 9 ou 17 points, soit avec une abscisse fixe (ex. 5pt), soit avec une abscisse personnalisable (ex. 5pt')
+ * Les courbes peuvent être complêtement désactivées (option NOCURVES)
+ 
+=== [**stock] ===
+ * Support du rétroéclairage de la carte SmartieParts 2.2 (option SP22)
+ * Support de la voix (expérimental)
+ 
+=== [**gruvin9x] ===
+ * Support de la voix 
+ 
+=== [**sky9x] ===
+ * Log des données de télémesure sur carte SD
+ 
+ 
