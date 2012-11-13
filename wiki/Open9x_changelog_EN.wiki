@@ -36,7 +36,7 @@
 
 == 1439 / Sep 29 2012 ==
 
-=== [**Pour tous] ===
+=== [**all] ===
  * WSHH can be used as a vario (waiting for tests)
  * Inactivity alarm bug fix (when > 10 minutes) 
  
@@ -47,16 +47,98 @@
 === [**gruvin9x] ===
  * DBLKEYS option now ok
  * SD Card Logs improvements
- * SD Card Format function (in SD Manager, pressing [MENU Long] on the title)
+ * SD Card Format function (in SD Manager, pressing [**MENU Long] on the title)
  * SD File Manager sorts files in alphabetical order
  * Remanent Timers
  
 === [**sky9x] ===
  * Mass Storage !!!
  * SD Card Logs
- * SD Card Format function (in SD Manager, pressing [MENU Long] on the title)
+ * SD Card Format function (in SD Manager, pressing [**MENU Long] on the title)
  * SD Card Information (type, sectors, speed, size)
  * SD File Manager sorts files in alphabetical order
  * Rotary encoder support
  * When an alarm raises (consumption, temperature), it's displayed on the main screen in place of the Batt Voltage
  * Remanent Timers
+ 
+ ----
+ 
+ == 1361 / Sep 04 2012 ==
+ 
+ === [**all] ===
+ * English TTS prompts have been improved (thanks Martin for that!)
+ * Trim / Keys correctly displayed in DIAG screen (with a 18bytes flash saving on stock)
+ * DBLKEYS far more reactive (with a 120bytes flash saving on stock)
+ * Inactivity alarm enabled during first Warning Screens (THR / Switches / Alerts)
+ * 3 new sounds: Beep1 .. Beep3 with short simple sounds
+ * T-Cut template replaced by the Sticky T-Cut
+ * An asterisk on a black background will appear on the main screen in case of a reboot of the Tx (should never appear of course, but... better to know if your Tx rebooted during a flight so you can file a bug report)
+ 
+=== [**sky9x] ===
+ * Temperature alarm
+ * Consumption alarm (port from ersky9x)
+ * 32000+ files may be displayed in the SD file manager ... for those who have many models 
+ 
+----
+
+== 1335 / Aug 30 2012 ==
+
+=== [**all] ===
+ * Expos and Mixes may belong to a list of Flight Phases (not only FPx and !FPx)
+ * Limits may be "symetrical". I let Kilrah explain ;)
+ * Many voice improvements (on all platforms). We now have en, it, fr and cz TTS voices
+ * Mixer may use as sources "raw" inputs (sticks without any DR/Expos applied). I let Kilrah explain ...
+ * DSM Range Check (thanks to Bryan from gruvin9x)
+ * New Custom Switches functions: d>=ofs (means difference between 2 values >= ofs) and |d|>=ofs<br>Typical usage: you want to know the Batt value each time it decreases by 0.1V or the Altitude each time it changes by 10meters.
+ * Trainer functions / Instant Trim now have a checkbox to easily enable / disable them
+ * Inverting the throttle channel on limits screen now shows a popup warning for confirmation
+ * Inactivity alarm more frequent again (every 5 secs)
+ * PPM polarity display corrected, was inverted
+ * Free EEPROM count corrected
+ * Haptic feedback fixes
+ * [**MENU long] on a switch in Function Switches screen toggles between normal and momentary switch (THR <=> THRm, !THR <=> !THRm)
+ * Differential now have 1% steps instead of 2% steps
+ * New DBLKEYS option, when editing parameters:
+   * right/left => invert
+   * up/down => reset
+   * up/right => +100
+   * down/left => -100
+ * Trims don't stop for good when reaching the middle anymore, but just pause half a second
+ * Power reading fixed when current source is A1 or A2
+ * Templates fixed to take account of the new curve system
+ * RSSI Tx and Rx before A1 and A2 in telemetry item list - *this is not update automatically, PLEASE CHECK YOUR SETTINGS!*
+ * Telemetry-based custom switches do not trigger anymore when no data is received
+ * Trim handling fixed on mixes using curves and differential
+ * AUTOSWITCH option now reflects switches' physical positions
+ * Expo / DRs now allows for EITHER a curve OR an expo value, not both (saves memory, and expo can be replicated on the curve if needed).
+ 
+=== [**stock] ===
+ * Volume with Voice Mod
+
+=== [**gruvin9x] ===
+ * DSM2 fixed
+ * PPM16 fixed
+ * Rotary encoder beeps fixed
+ 
+=== [**sky9x] ===
+ * USB bootloader launched only if Tx is OFF
+ * Audio fixes
+ * SD card fixes
+ 
+----
+
+== 1195 / Aug 1 2012 ==
+=== [**all] ===
+ * New curves system, all curves can now have 3, 5, 9 or 17 points, both with fixed, even-spaced X coordinates (e.g. 5pt), or user-defined X coordinates (e.g. 5pt')
+ * Curves can be completely disabled (NOCURVES option) to save flash if not needed
+
+=== [**stock] ===
+ * Smartieparts V2.2 backlight support (SP22 option)
+ * Voice support (experimental)
+
+=== [**gruvin9x] ===
+ * Voice support 
+ 
+=== [**sky9x] ===
+ * SD card logging of telemetry data
+ 
