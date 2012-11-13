@@ -61,7 +61,7 @@
  * Les alarmes de consommation de batterie et température remplacent maintenant la tension sur l'écran principal
  * Les timers sont mémorisés à l'extinction
 
----- 
+----
 
 == 1361 / 04 Sep 2012 ==
  
