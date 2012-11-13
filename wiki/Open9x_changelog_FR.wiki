@@ -133,7 +133,7 @@
  * Les courbes peuvent être complêtement désactivées (option NOCURVES)
  
 === [**stock] ===
- * Support du rétroéclairage de la carte SmartieParts 2.2 (option SP22)
+ * Support du rétroéclairage de la carte !SmartieParts 2.2 (option SP22)
  * Support de la voix (expérimental)
  
 === [**gruvin9x] ===
