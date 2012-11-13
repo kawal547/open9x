@@ -106,7 +106,7 @@
  * Trims don't stop for good when reaching the middle anymore, but just pause half a second
  * Power reading fixed when current source is A1 or A2
  * Templates fixed to take account of the new curve system
- * RSSI Tx and Rx before A1 and A2 in telemetry item list - *this is not update automatically, PLEASE CHECK YOUR SETTINGS!*
+ * RSSI Tx and Rx before A1 and A2 in telemetry item list - *this is not updated automatically, PLEASE CHECK YOUR SETTINGS!*
  * Telemetry-based custom switches do not trigger anymore when no data is received
  * Trim handling fixed on mixes using curves and differential
  * AUTOSWITCH option now reflects switches' physical positions
@@ -133,7 +133,7 @@
  * Curves can be completely disabled (NOCURVES option) to save flash if not needed
 
 === [**stock] ===
- * Smartieparts V2.2 backlight support (SP22 option)
+ * !SmartieParts V2.2 backlight support (SP22 option)
  * Voice support (experimental)
 
 === [**gruvin9x] ===
