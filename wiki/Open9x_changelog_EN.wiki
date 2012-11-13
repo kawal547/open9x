@@ -60,9 +60,9 @@
  * Rotary encoder support
  * When an alarm raises (consumption, temperature), it's displayed on the main screen in place of the Batt Voltage
  * Remanent Timers
- 
- ----
- 
+
+----
+
  == 1361 / Sep 04 2012 ==
  
  === [**all] ===
