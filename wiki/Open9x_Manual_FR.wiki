@@ -896,7 +896,7 @@ Pour la sécurité d'utilisation, il n'est pas inutile d'ajouter sur chaque voie u
  # Sur le modèle :
    * décaler le palonnier pour remettre la gouverne au neutre.
 
-La course mécanique de chaque servo est ainsi répartie d'une manière adaptée au besoin en débattement des gouvernes. En effet, les volets se baissent généralement bien plus qu'ils ne se lèvent, et inversement pour les ailerons). Attention, cela ne fonctionne qu'avec l'option « = » utilisée pour chaque servo.
+La course mécanique de chaque servo est ainsi répartie d'une manière adaptée au besoin en débattement des gouvernes. En effet, les volets se baissent généralement bien plus qu'ils ne se lèvent, et inversement pour les ailerons). Attention, cela ne fonctionne qu'avec l'option « = » (utilisée pour chaque servo).
 
 === Mixages pour plateau cyclique 120° « from scratch » (sans l'option *HELI*) ===
  # Sur une voie libre, fonction courbe de pas (ex. CH10) :
