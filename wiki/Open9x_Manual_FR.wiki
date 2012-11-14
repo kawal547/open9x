@@ -1,604 +1,604 @@
-#summary Manuel d'Open9x en français
+#summary Manuel d'Open9x en franÃ§ais
 #labels Featured
 
 = Open9x - Manuel d'utilisation =
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/9x_header.png
 
-Manuel écrit par Franck Aguerre sur la base d'open9x r1568 / Nov. 2012
+Manuel Ã©crit par Franck Aguerre sur la base d'open9x r1568 / Nov. 2012
 
-== Table des matières ==
+== Table des matiÃ¨res ==
 
 <wiki:toc max_depth="4" />
 
 
 == Avertissement ==
 
-CE LOGICIEL EST FOURNI « TEL QUEL » SANS GARANTIE D'AUCUNE SORTE, EXPLICITE OU IMPLICITE, Y COMPRIS ET SANS LIMITATION, LES GARANTIES DE VALEUR MARCHANDE OU D'ADAPTATION À UN USAGE PARTICULIER. VOUS PORTEZ LA TOTALITÉ DU RISQUE DE QUALITÉ ET DE PERFORMANCE DU PROGRAMME. VOUS PRENEZ À VOTRE CHARGE LE COÛT DE TOUTE INTERVENTION, RÉPARATION OU CORRECTION AU CAS OÙ LE PROGRAMME S'AVÉRERAIT DÉFECTUEUX.
+CE LOGICIEL EST FOURNI Â« TEL QUEL Â» SANS GARANTIE D'AUCUNE SORTE, EXPLICITE OU IMPLICITE, Y COMPRIS ET SANS LIMITATION, LES GARANTIES DE VALEUR MARCHANDE OU D'ADAPTATION Ã€ UN USAGE PARTICULIER. VOUS PORTEZ LA TOTALITÃ‰ DU RISQUE DE QUALITÃ‰ ET DE PERFORMANCE DU PROGRAMME. VOUS PRENEZ Ã€ VOTRE CHARGE LE COÃ›T DE TOUTE INTERVENTION, RÃ‰PARATION OU CORRECTION AU CAS OÃ™ LE PROGRAMME S'AVÃ‰RERAIT DÃ‰FECTUEUX.
 
-[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour à la table des matières]
+[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour Ã  la table des matiÃ¨res]
 
 == Introduction ==
 
-La radio IMAX/FLYSKY/TURNIGY/EURGLE 9x est un ensemble d'origine chinoise à micro-contrôleur. L'émetteur comporte un écran LCD de 128*64 pixels, 2 manches 2 axes, 3 potentiomètres, 5 interrupteurs 2 positions, un interrupteur 3 positions, un interrupteur momentané et 4 trims digitaux.
+La radio IMAX/FLYSKY/TURNIGY/EURGLE 9x est un ensemble d'origine chinoise Ã  micro-contrÃ´leur. L'Ã©metteur comporte un Ã©cran LCD de 128*64 pixels, 2 manches 2 axes, 3 potentiomÃ¨tres, 5 interrupteurs 2 positions, un interrupteur 3 positions, un interrupteur momentanÃ© et 4 trims digitaux.
 
-Hormis une qualité de réalisation plus qu'honorable et un tarif particulièrement abordable, moins d'une centaine d'euros, sa particularité est d'utiliser une architecture électronique suffisamment simple pour permettre sa rétro-conception. De plus, le micro-contrôleur utilisé (Atmega64A) est flashable (re-programmable), ce qui rend possible le remplacement du logiciel (le firmware, ou FW) d'origine, peu réussi. Il ne restait plus qu'à attendre qu'une personne ayant les compétences nécessaires fasse ce constat pour que naisse le premier firmware alternatif pour 9x.
+Hormis une qualitÃ© de rÃ©alisation plus qu'honorable et un tarif particuliÃ¨rement abordable, moins d'une centaine d'euros, sa particularitÃ© est d'utiliser une architecture Ã©lectronique suffisamment simple pour permettre sa rÃ©tro-conception. De plus, le micro-contrÃ´leur utilisÃ© (Atmega64A) est flashable (re-programmable), ce qui rend possible le remplacement du logiciel (le firmware, ou FW) d'origine, peu rÃ©ussi. Il ne restait plus qu'Ã  attendre qu'une personne ayant les compÃ©tences nÃ©cessaires fasse ce constat pour que naisse le premier firmware alternatif pour 9x.
 
-C'est Thomas Husterer qui fit ce premier pas en avril 2010 avec son logiciel th9x en open-source. Autrement plus élégant, souple et puissant que le logiciel d'origine, celui-ci a entraîné de nouveaux développeurs dans son sillage, toujours dans le principe open-source, avec à chaque fois des améliorations notables (dans l'ordre : er9x par Erez Raviv, gruvin9x par Bryan Rentoul, ersky9x par Mike Blandford, open9x par Bertrand Songis) y compris au niveau matériel : cartes de programmation, cartes mères plus puissantes, vibreur ou sortie audio, adaptateur SD, encodeurs pour navigation à la Multiplex, télémesure, etc.
+C'est Thomas Husterer qui fit ce premier pas en avril 2010 avec son logiciel th9x en open-source. Autrement plus Ã©lÃ©gant, souple et puissant que le logiciel d'origine, celui-ci a entraÃ®nÃ© de nouveaux dÃ©veloppeurs dans son sillage, toujours dans le principe open-source, avec Ã  chaque fois des amÃ©liorations notables (dans l'ordre : er9x par Erez Raviv, gruvin9x par Bryan Rentoul, ersky9x par Mike Blandford, open9x par Bertrand Songis) y compris au niveau matÃ©riel : cartes de programmation, cartes mÃ¨res plus puissantes, vibreur ou sortie audio, adaptateur SD, encodeurs pour navigation Ã  la Multiplex, tÃ©lÃ©mesure, etc.
 
-Tous ces projets sont hébergés ici :
+Tous ces projets sont hÃ©bergÃ©s ici :
  * th9x : http://code.google.com/p/th9x/
  * er9x : http://code.google.com/p/er9x/
  * gruvin9x : http://code.google.com/p/gruvin9x/
  * ersky9x : http://code.google.com/p/ersky9x/
-Il y a aussi, avec une logique différente, Radioclone de Rafal Tomczak : http://radioclone.org/
+Il y a aussi, avec une logique diffÃ©rente, Radioclone de Rafal Tomczak : http://radioclone.org/
 
-open9x (http://code.google.com/p/open9x/) représente la dernière évolution et aussi, à mon sens, l'arrivée à maturité de ces projets en offrant plus de fonctionnalités et de souplesse de programmation qu'aucune radio commerciale n'est en mesure d'offrir, indépendamment de sa gratuité ou du faible coût d'achat de l'émetteur.
-open9x est épaulé par le logiciel companion9x (http://code.google.com/p/companion9x/, pour Windows, Linux et Mac) qui permet de mettre à jour le FW, mais aussi de sauvegarder, programmer et même simuler les programmes de modèles sur, raffinement s'il en est, une radio virtuelle.
+open9x (http://code.google.com/p/open9x/) reprÃ©sente la derniÃ¨re Ã©volution et aussi, Ã  mon sens, l'arrivÃ©e Ã  maturitÃ© de ces projets en offrant plus de fonctionnalitÃ©s et de souplesse de programmation qu'aucune radio commerciale n'est en mesure d'offrir, indÃ©pendamment de sa gratuitÃ© ou du faible coÃ»t d'achat de l'Ã©metteur.
+open9x est Ã©paulÃ© par le logiciel companion9x (http://code.google.com/p/companion9x/, pour Windows, Linux et Mac) qui permet de mettre Ã  jour le FW, mais aussi de sauvegarder, programmer et mÃªme simuler les programmes de modÃ¨les sur, raffinement s'il en est, une radio virtuelle.
 
-A noter aussi qu'étant donnée la simplicité de l'architecture électronique de la 9x, il est tout à fait envisageable de réaliser sa propre carte mère... et même sa radio autour !
- * Le schéma d'origine (attention, il s'agit de la V1, quelque peu différente de la V2 actuelle) : http://9xforums.com/forum/viewtopic.php?f=44&t=199
+A noter aussi qu'Ã©tant donnÃ©e la simplicitÃ© de l'architecture Ã©lectronique de la 9x, il est tout Ã  fait envisageable de rÃ©aliser sa propre carte mÃ¨re... et mÃªme sa radio autour !
+ * Le schÃ©ma d'origine (attention, il s'agit de la V1, quelque peu diffÃ©rente de la V2 actuelle) : http://9xforums.com/forum/viewtopic.php?f=44&t=199
  * Un exemple de circuit perso : http://www.rcgroups.com/forums/showthread.php?t=1631369
 
-Il existe aussi deux cartes mères d'upgrade, adaptables sur la 9x ou sur un émetteur perso : http://gruvin9x.com/shop/ et http://www.ersky9x.net/
-Outre des capacités mémoire et une puissance de calcul nettement plus élevées que celles de la carte mère d'origine, ces cartes mère offrent de nouvelles possibilités : gestion de carte SD, encodeurs rotatifs, enregistrement des chronos à l'extinction, etc.
+Il existe aussi deux cartes mÃ¨res d'upgrade, adaptables sur la 9x ou sur un Ã©metteur perso : http://gruvin9x.com/shop/ et http://www.ersky9x.net/
+Outre des capacitÃ©s mÃ©moire et une puissance de calcul nettement plus Ã©levÃ©es que celles de la carte mÃ¨re d'origine, ces cartes mÃ¨re offrent de nouvelles possibilitÃ©s : gestion de carte SD, encodeurs rotatifs, enregistrement des chronos Ã  l'extinction, etc.
 
 === Le principe Open Source ===
 
-open9x et companion9x sont des projets Open Source sous licence GNU v2. Malgré la somme de travail qu'ils représentent, ils sont donc libres de téléchargement, consultation, redistribution, modification (aux risques et périls de l'utilisateur...) et d'utilisation, sous réserve de respecter les termes de la licence GNU v2 notamment en cas de réutilisation du code.
+open9x et companion9x sont des projets Open Source sous licence GNU v2. MalgrÃ© la somme de travail qu'ils reprÃ©sentent, ils sont donc libres de tÃ©lÃ©chargement, consultation, redistribution, modification (aux risques et pÃ©rils de l'utilisateur...) et d'utilisation, sous rÃ©serve de respecter les termes de la licence GNU v2 notamment en cas de rÃ©utilisation du code.
 
-Il est possible de contribuer au développement de ces projets en remontant des bugs ou des propositions de nouvelles fonctionnalités sur la page ad-hoc du projet, en ouvrant un « issue » :
+Il est possible de contribuer au dÃ©veloppement de ces projets en remontant des bugs ou des propositions de nouvelles fonctionnalitÃ©s sur la page ad-hoc du projet, en ouvrant un Â« issue Â» :
  * http://code.google.com/p/open9x/issues/list
  * http://code.google.com/p/companion9x/issues/list
 
 A cet effet, il est important de :
- * bien caractériser, au préalable, le bug ou, pour la proposition, son intérêt et sa cohérence
- * le décrire (en anglais... pas le choix!) de manière précise et synthétique
- * pour un bug, ne pas oublier de donner le n° de version du firmware / logiciel et les options sélectionnées.
+ * bien caractÃ©riser, au prÃ©alable, le bug ou, pour la proposition, son intÃ©rÃªt et sa cohÃ©rence
+ * le dÃ©crire (en anglais... pas le choix!) de maniÃ¨re prÃ©cise et synthÃ©tique
+ * pour un bug, ne pas oublier de donner le nÂ° de version du firmware / logiciel et les options sÃ©lectionnÃ©es.
 
-Un forum dédié permet aussi d'échanger sur le sujet :
+Un forum dÃ©diÃ© permet aussi d'Ã©changer sur le sujet :
 http://9xforums.com/forum/viewforum.php?f=45
 
 === Modifier la 9x pour open9x ===
 
-Un document décrivant les différentes étapes de modification de la 9x est proposé dans la rubrique téléchargement d'open9x :
+Un document dÃ©crivant les diffÃ©rentes Ã©tapes de modification de la 9x est proposÃ© dans la rubrique tÃ©lÃ©chargement d'open9x :
 http://code.google.com/p/open9x/downloads/list
 
-Celui-ci n'est valable que pour la carte mère d'origine, les cartes d'upgrade ayant déjà leur propre interfaces de reprogrammation.
+Celui-ci n'est valable que pour la carte mÃ¨re d'origine, les cartes d'upgrade ayant dÃ©jÃ  leur propre interfaces de reprogrammation.
 
 === Choisir sa "version" d'open9x ===
 
-Une fois sa radio modifiée et prête à recevoir un nouveau firmware, il est temps de se procurer une copie d'open9x. 
-Pour ce faire, télécharger [http://code.google.com/p/companion9x/ companion9x], le logiciel multiplateformes Windows / Mac / Linux qui complémente open9x. Après l'installation, ouvrir la boîte de dialogue des préférences. On y trouvera une liste déroulante contenant les différents firmwares supportés (companion9x permet également la gestion des autres firmwares alternatifs courants pour la 9x), et lorsque le firmware sélectionné est open9x, une liste de cases à cocher pour différentes options. 
+Une fois sa radio modifiÃ©e et prÃªte Ã  recevoir un nouveau firmware, il est temps de se procurer une copie d'open9x. 
+Pour ce faire, tÃ©lÃ©charger [http://code.google.com/p/companion9x/ companion9x], le logiciel multiplateformes Windows / Mac / Linux qui complÃ©mente open9x. AprÃ¨s l'installation, ouvrir la boÃ®te de dialogue des prÃ©fÃ©rences. On y trouvera une liste dÃ©roulante contenant les diffÃ©rents firmwares supportÃ©s (companion9x permet Ã©galement la gestion des autres firmwares alternatifs courants pour la 9x), et lorsque le firmware sÃ©lectionnÃ© est open9x, une liste de cases Ã  cocher pour diffÃ©rentes options. 
 
-En effet, pour des raisons techniques (la mémoire disponible dans le processeur de la 9x étant limitée), il n'est plus possible sur la carte d'origine d'inclure à la fois toutes les nouvelles fonctionnalités développées récemment. Un système d'options a ainsi été mis en place, permettant à chacun de générer sa propre version de firmware en fonction des fonctionnalités qui lui seront utiles.
+En effet, pour des raisons techniques (la mÃ©moire disponible dans le processeur de la 9x Ã©tant limitÃ©e), il n'est plus possible sur la carte d'origine d'inclure Ã  la fois toutes les nouvelles fonctionnalitÃ©s dÃ©veloppÃ©es rÃ©cemment. Un systÃ¨me d'options a ainsi Ã©tÃ© mis en place, permettant Ã  chacun de gÃ©nÃ©rer sa propre version de firmware en fonction des fonctionnalitÃ©s qui lui seront utiles.
 
-Il est un peu prématuré de parler de ces options en détail à ce stade, mais étant donné que le choix est présenté au nouvel utilisateur avant même le flashage du firmware, et certains des écrans présentés plus tard dépendant de leur choix, nous allons les décrire brièvement ici avant de les détailler plus tard. Le manuel s'y référera en *GRAS*.
+Il est un peu prÃ©maturÃ© de parler de ces options en dÃ©tail Ã  ce stade, mais Ã©tant donnÃ© que le choix est prÃ©sentÃ© au nouvel utilisateur avant mÃªme le flashage du firmware, et certains des Ã©crans prÃ©sentÃ©s plus tard dÃ©pendant de leur choix, nous allons les dÃ©crire briÃ¨vement ici avant de les dÃ©tailler plus tard. Le manuel s'y rÃ©fÃ©rera en *GRAS*.
 
-|| frsky || A utiliser si l'on a modifié sa radio pour afficher les données de télémesure frsky selon le guide.<br>Ne s'applique *pas* si l'on utilise un module d'émission frsky sans pour autant avoir fait la modification en question. ||
-|| jeti || Permet à la 9x d'émuler une jetibox pour l'affichage de données et la configuration de matériel Jeti.<br>Nécessite également une modification matérielle pour raccorder le module Jeti à la radio. ||
-|| ardupilot || Implémente l'affichage des données de télémesure d'un aéronef équipé d'ardupilot.<br>Nécessite également la modification matérielle pour la connexion du modem radio. ||
-|| nmea || Permet l'affichage de données GPS sur l'écran de la radio.<br>Nécessite également la modification matérielle pour la réception des données. ||
-|| heli || Inclut l'écran et les fonctionnalités de mixage CCPM pour faciliter la configuration de modèles d'hélicoptères. ||
-|| templates || Inclut un écran offrant quelques gabarits de configuration standards pouvant être appliqués lors de la création<br>d'un nouveau modèle. Ceux-ci sont également disponibles dans companion9x. ||
-|| nosplash || Désactive l'écran d'accueil affiché au démarrage de la radio et le supprime de la mémoire, pour faire de la place<br>pour d'autres fonctionnalités. ||
-|| nofp || Désactive la fontionnalité des phases de vol. ||
-|| nocurves || Désactive les courbes personnalisables. ||
-|| audio || A utiliser si l'on souhaite remplacer le buzzer de la radio par un haut-parleur piezo ou à bobine.<br>Permet des sons différenciés pour les touches, les trims, différents choix de tonalités d'alarme, et en cas<br>d'utilisation de la télémesure *FRSKY* un variomètre audio. ||
-|| voice || Ajoute le support des alarmes vocales et de l'énoncé des paramètres de télémesure.<br>Nécessite une modification matérielle pour l'ajout d'un module vocal. ||
-|| haptic || Support du retour haptique, nécessite l'installation matérielle d'un vibreur. ||
-|| PXX || Support du protocole PCM !FrSky (expérimental) ||
-|| DSM2 || Support des protocoles DSM2 / DSMX Spektrum. Nécessite l'installation d'un module d'émission Spektrum. ||
-|| ppmca || Ajoute un réglage permettant l'ajustage des neutres de servos sans influer sur leurs courses. ||
-|| gvars || Ajoute le support de variables globales, qui peuvent être ensuite utilisées en remplacement des réglages<br>individuels des paramètres numériques. ||
-|| symlimits || Permet de changer le comportement par défaut des subtrims, les rendant plus adaptés aux modèles<br>complexes où plusieurs fonctions influent sur le même servo. ||
-|| potscroll || Permet la navigation dans les menus et l'édition de valeurs à l'aide des potentiomètres P1, P2 et P3 de la radio. ||
-|| sp22 || A cocher en cas d'utilisation d'un programmeur SmartieParts version 2.2 ou plus récente, le contrôle du<br>rétroéclairage étant autrement inversé. ||
-|| autoswitch || Permet la sélection simplifiée des interrupteurs dans les champs y relatifs.<br>Au lieu de défiler la liste avec les touches, il suffit de basculer l'interrupteur souhaité. ||
-|| dblkeys || Permet d'accélérer l'entrée de paramètres numériques avec des combinaisons de 2 touches. ||
-|| nographics || Désactive les cases à cocher, les remplaçant par un simple ON/OFF. ||
-|| nobold || Désactive la mise en gras des mixeurs, inters et autres éléments actifs. ||
-|| nottrace || Désactive l'affichage graphique de l'historique des gaz dans l'écran des statistiques .||
-|| pgbar || Affiche une petite barre de progression montrant la sauvegarde des paramètres en mémoire. ||
-|| imperial || Affichage des données de télémesure en unités impériales. ||
+|| frsky || A utiliser si l'on a modifiÃ© sa radio pour afficher les donnÃ©es de tÃ©lÃ©mesure frsky selon le guide.<br>Ne s'applique *pas* si l'on utilise un module d'Ã©mission frsky sans pour autant avoir fait la modification en question. ||
+|| jeti || Permet Ã  la 9x d'Ã©muler une jetibox pour l'affichage de donnÃ©es et la configuration de matÃ©riel Jeti.<br>NÃ©cessite Ã©galement une modification matÃ©rielle pour raccorder le module Jeti Ã  la radio. ||
+|| ardupilot || ImplÃ©mente l'affichage des donnÃ©es de tÃ©lÃ©mesure d'un aÃ©ronef Ã©quipÃ© d'ardupilot.<br>NÃ©cessite Ã©galement la modification matÃ©rielle pour la connexion du modem radio. ||
+|| nmea || Permet l'affichage de donnÃ©es GPS sur l'Ã©cran de la radio.<br>NÃ©cessite Ã©galement la modification matÃ©rielle pour la rÃ©ception des donnÃ©es. ||
+|| heli || Inclut l'Ã©cran et les fonctionnalitÃ©s de mixage CCPM pour faciliter la configuration de modÃ¨les d'hÃ©licoptÃ¨res. ||
+|| templates || Inclut un Ã©cran offrant quelques gabarits de configuration standards pouvant Ãªtre appliquÃ©s lors de la crÃ©ation<br>d'un nouveau modÃ¨le. Ceux-ci sont Ã©galement disponibles dans companion9x. ||
+|| nosplash || DÃ©sactive l'Ã©cran d'accueil affichÃ© au dÃ©marrage de la radio et le supprime de la mÃ©moire, pour faire de la place<br>pour d'autres fonctionnalitÃ©s. ||
+|| nofp || DÃ©sactive la fontionnalitÃ© des phases de vol. ||
+|| nocurves || DÃ©sactive les courbes personnalisables. ||
+|| audio || A utiliser si l'on souhaite remplacer le buzzer de la radio par un haut-parleur piezo ou Ã  bobine.<br>Permet des sons diffÃ©renciÃ©s pour les touches, les trims, diffÃ©rents choix de tonalitÃ©s d'alarme, et en cas<br>d'utilisation de la tÃ©lÃ©mesure *FRSKY* un variomÃ¨tre audio. ||
+|| voice || Ajoute le support des alarmes vocales et de l'Ã©noncÃ© des paramÃ¨tres de tÃ©lÃ©mesure.<br>NÃ©cessite une modification matÃ©rielle pour l'ajout d'un module vocal. ||
+|| haptic || Support du retour haptique, nÃ©cessite l'installation matÃ©rielle d'un vibreur. ||
+|| PXX || Support du protocole PCM !FrSky (expÃ©rimental) ||
+|| DSM2 || Support des protocoles DSM2 / DSMX Spektrum. NÃ©cessite l'installation d'un module d'Ã©mission Spektrum. ||
+|| ppmca || Ajoute un rÃ©glage permettant l'ajustage des neutres de servos sans influer sur leurs courses. ||
+|| gvars || Ajoute le support de variables globales, qui peuvent Ãªtre ensuite utilisÃ©es en remplacement des rÃ©glages<br>individuels des paramÃ¨tres numÃ©riques. ||
+|| symlimits || Permet de changer le comportement par dÃ©faut des subtrims, les rendant plus adaptÃ©s aux modÃ¨les<br>complexes oÃ¹ plusieurs fonctions influent sur le mÃªme servo. ||
+|| potscroll || Permet la navigation dans les menus et l'Ã©dition de valeurs Ã  l'aide des potentiomÃ¨tres P1, P2 et P3 de la radio. ||
+|| sp22 || A cocher en cas d'utilisation d'un programmeur SmartieParts version 2.2 ou plus rÃ©cente, le contrÃ´le du<br>rÃ©troÃ©clairage Ã©tant autrement inversÃ©. ||
+|| autoswitch || Permet la sÃ©lection simplifiÃ©e des interrupteurs dans les champs y relatifs.<br>Au lieu de dÃ©filer la liste avec les touches, il suffit de basculer l'interrupteur souhaitÃ©. ||
+|| dblkeys || Permet d'accÃ©lÃ©rer l'entrÃ©e de paramÃ¨tres numÃ©riques avec des combinaisons de 2 touches. ||
+|| nographics || DÃ©sactive les cases Ã  cocher, les remplaÃ§ant par un simple ON/OFF. ||
+|| nobold || DÃ©sactive la mise en gras des mixeurs, inters et autres Ã©lÃ©ments actifs. ||
+|| nottrace || DÃ©sactive l'affichage graphique de l'historique des gaz dans l'Ã©cran des statistiques .||
+|| pgbar || Affiche une petite barre de progression montrant la sauvegarde des paramÃ¨tres en mÃ©moire. ||
+|| imperial || Affichage des donnÃ©es de tÃ©lÃ©mesure en unitÃ©s impÃ©riales. ||
 
 Les points importants pour le choix initial d'un firmware sont les suivants:
- * *HELI*: Bienvenu si l'on prévoit d'utiliser la radio pour commander des modèles d'hélicoptères.
- * *FRSKY*: A choisir en fonction des modifications matérielles effectuées. Si les inters THR et AIL apparaissent toujours actifs sur l'écran de la radio, c'est en général que cette option ne correspond pas au matériel.
- * *TEMPLATES*: Utile pour les débutants qui souhaitent des exemples de programmation sur la radio. Cette option occupant un espace mémoire considérable, et les mêmes gabarits étant disponibles dans companion9x, elle peut être désactivée avec peu de désagrément une fois qu'on a compris le fonctionnement d'open9x.
- * *AUDIO*, *VOICE*, *HAPTIC*, *SP22*, *JETI*, *ARDUPILOT*, *NMEA*: Egalement à choisir en fonction des modifications matérielles.
- * *DSM2*: A choisir si l'on prévoit d'utiliser la 9x pour commander des modèles équipés de récepteurs Spektrum, et de construire le module approprié. 
- * *PPMCA*, *SYMLIMITS*, *GVARS*: Utiles principalement pour des modèles complexes. Les modélistes débutants peuvent les laissées désactivées au début pour éviter trop de confusion. 
- * *DBLKEYS*, *AUTOSWITCH*: Pratique, recommandé.
- * *NOBOLD*: A laisser désactivé, la mise en gras aide vraiment à la compréhension!
- * *NOGRAPHICS*, *PGBAR*, *IMPERIAL*: Cosmétique uniquement, selon préférence.
+ * *HELI*: Bienvenu si l'on prÃ©voit d'utiliser la radio pour commander des modÃ¨les d'hÃ©licoptÃ¨res.
+ * *FRSKY*: A choisir en fonction des modifications matÃ©rielles effectuÃ©es. Si les inters THR et AIL apparaissent toujours actifs sur l'Ã©cran de la radio, c'est en gÃ©nÃ©ral que cette option ne correspond pas au matÃ©riel.
+ * *TEMPLATES*: Utile pour les dÃ©butants qui souhaitent des exemples de programmation sur la radio. Cette option occupant un espace mÃ©moire considÃ©rable, et les mÃªmes gabarits Ã©tant disponibles dans companion9x, elle peut Ãªtre dÃ©sactivÃ©e avec peu de dÃ©sagrÃ©ment une fois qu'on a compris le fonctionnement d'open9x.
+ * *AUDIO*, *VOICE*, *HAPTIC*, *SP22*, *JETI*, *ARDUPILOT*, *NMEA*: Egalement Ã  choisir en fonction des modifications matÃ©rielles.
+ * *DSM2*: A choisir si l'on prÃ©voit d'utiliser la 9x pour commander des modÃ¨les Ã©quipÃ©s de rÃ©cepteurs Spektrum, et de construire le module appropriÃ©. 
+ * *PPMCA*, *SYMLIMITS*, *GVARS*: Utiles principalement pour des modÃ¨les complexes. Les modÃ©listes dÃ©butants peuvent les laissÃ©es dÃ©sactivÃ©es au dÃ©but pour Ã©viter trop de confusion. 
+ * *DBLKEYS*, *AUTOSWITCH*: Pratique, recommandÃ©.
+ * *NOBOLD*: A laisser dÃ©sactivÃ©, la mise en gras aide vraiment Ã  la comprÃ©hension!
+ * *NOGRAPHICS*, *PGBAR*, *IMPERIAL*: CosmÃ©tique uniquement, selon prÃ©fÃ©rence.
 
-Choisir également la langue, cliquer sur OK pour sauvegarder les changements, réouvrir les préférences et cliquer sur télécharger. 
-Le firmware peut ensuite être flashé en utilisant Flasher->Ecrire la mémoire flash, et en sélectionnant le fichier téléchargé. Une fois le flashage effectué avec succès, la radio affichera une alerte d'EEPROM invalide qui est normale (l'installation est "fraîche", aucun réglage en mémoire) et qui peut être quittancée. La mémoire sera formattée, et la radio prête à l'emploi. 
+Choisir Ã©galement la langue, cliquer sur OK pour sauvegarder les changements, rÃ©ouvrir les prÃ©fÃ©rences et cliquer sur tÃ©lÃ©charger. 
+Le firmware peut ensuite Ãªtre flashÃ© en utilisant Flasher->Ecrire la mÃ©moire flash, et en sÃ©lectionnant le fichier tÃ©lÃ©chargÃ©. Une fois le flashage effectuÃ© avec succÃ¨s, la radio affichera une alerte d'EEPROM invalide qui est normale (l'installation est "fraÃ®che", aucun rÃ©glage en mÃ©moire) et qui peut Ãªtre quittancÃ©e. La mÃ©moire sera formattÃ©e, et la radio prÃªte Ã  l'emploi. 
 
-=== Vue de l'émetteur et nomenclature ===
+=== Vue de l'Ã©metteur et nomenclature ===
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/open9x_identification_organes_CMD_9x.jpg
 
-|| Entrées proportionnelles: || Entrées digitales (interrupteurs): ||
-|| 1. Gaz (Thr) : manche de gaz<br> 2. Prf (Ele) : manche de profondeur<br> 3. Ail (Ail) : manche d'ailerons<br> 4. Dir (Rud) : manche de dérive<br> 5. P1/P2/P3 : potentiomètres<br> 6. Trims de manche (impulsion par impulsion ou continu)|| 1. THR<br> 2. RUD<br> 3. ELE<br> 4. ID0/1/2 (3-POS)<br> 5. AIL<br> 6. GEA<br> 7. TRN ||
+|| EntrÃ©es proportionnelles: || EntrÃ©es digitales (interrupteurs): ||
+|| 1. Gaz (Thr) : manche de gaz<br> 2. Prf (Ele) : manche de profondeur<br> 3. Ail (Ail) : manche d'ailerons<br> 4. Dir (Rud) : manche de dÃ©rive<br> 5. P1/P2/P3 : potentiomÃ¨tres<br> 6. Trims de manche (impulsion par impulsion ou continu)|| 1. THR<br> 2. RUD<br> 3. ELE<br> 4. ID0/1/2 (3-POS)<br> 5. AIL<br> 6. GEA<br> 7. TRN ||
 
-Tous ces organes sont librement affectables dans open9x, y compris les trims digitaux qui peuvent être utilisés indépendamment des manches auxquels ils se rapportent. 
+Tous ces organes sont librement affectables dans open9x, y compris les trims digitaux qui peuvent Ãªtre utilisÃ©s indÃ©pendamment des manches auxquels ils se rapportent. 
 
-Pour tous les interrupteurs, la position « 0 » (inactif, par opposition à actif = 1) est « poussé vers l'avant ». Ils peuvent être utilisés en inverse (activation en position 0) quand leur désignation est précédée du symbole « ! », ce qui signifie dans open9x un « non » logique. Ainsi lorsque l’on choisit l'interrupteur ELE, « ELE » indique le fonctionnement normal et « !ELE » indique un fonctionnement inversé. L'option de compilation *AUTOSWITCH* en simplifie l'utilisation, avec une reconnaissance automatique des interrupteurs lors de sa manipulation en phase d'affectation.
+Pour tous les interrupteurs, la position Â«Â 0Â Â» (inactif, par opposition Ã  actif = 1) est Â«Â poussÃ© vers l'avantÂ Â». Ils peuvent Ãªtre utilisÃ©s en inverse (activation en position 0) quand leur dÃ©signation est prÃ©cÃ©dÃ©e du symbole Â«Â !Â Â», ce qui signifie dans open9x un Â«Â nonÂ Â» logique. Ainsi lorsque lÂ’on choisit l'interrupteur ELE, Â«Â ELEÂ Â» indique le fonctionnement normal et Â« !ELEÂ Â» indique un fonctionnement inversÃ©. L'option de compilation *AUTOSWITCH* en simplifie l'utilisation, avec une reconnaissance automatique des interrupteurs lors de sa manipulation en phase d'affectation.
 
-Une désignation d'interrupteur finissant par « m » (ex : TRNm) indique un interrupteur momentané (à « bascule »), associé à l'interrupteur physique du même nom : quand ce dernier est actionné, le premier s'active pendant un court instant.
+Une dÃ©signation d'interrupteur finissant par Â«Â mÂ Â» (exÂ : TRNm) indique un interrupteur momentanÃ© (Ã  Â«Â basculeÂ Â»), associÃ© Ã  l'interrupteur physique du mÃªme nom : quand ce dernier est actionnÃ©, le premier s'active pendant un court instant.
 
 === Interface de dialogue utilisateur ===
 
-Elle est assurée par un clavier à six boutons situés de part et d'autre de l'écran : un bouton « menu », un bouton « exit » et quatre flèches de navigation. Ces boutons seront identifiés dans ce manuel en gras et entre crochets, par exemple : *[**MENU]*.
-Certaines fonctions demandent d'appuyer sur le bouton pendant plus d'une seconde, c'est à dire un appui long qui sera noté ainsi : *[**MENU LONG]*.
+Elle est assurÃ©e par un clavier Ã  six boutons situÃ©s de part et d'autre de l'Ã©cranÂ : un bouton Â«Â menuÂ Â», un bouton Â«Â exitÂ Â» et quatre flÃ¨ches de navigation. Ces boutons seront identifiÃ©s dans ce manuel en gras et entre crochets, par exemple : *[**MENU]*.
+Certaines fonctions demandent d'appuyer sur le bouton pendant plus d'une seconde, c'est Ã  dire un appui long qui sera notÃ© ainsi : *[**MENU LONG]*.
 
-Concernant les flèches de navigation, il faut faire abstraction des indications gravées sur le clavier, notamment les « + » et  « - » positionnés à l'inverse de ce qui serait logique. Pour les plus bricoleurs, il est possible d'intervertir ces boutons. Pour éviter toute confusion, ces boutons seront identifiés dans cette notice en tant que *[**LEFT]* (gauche) et *[**RIGHT]* (droite).
+Concernant les flÃ¨ches de navigation, il faut faire abstraction des indications gravÃ©es sur le clavier, notamment les Â«Â +Â Â» etÂ  Â«Â -Â Â» positionnÃ©s Ã  l'inverse de ce qui serait logique. Pour les plus bricoleurs, il est possible d'intervertir ces boutons. Pour Ã©viter toute confusion, ces boutons seront identifiÃ©s dans cette notice en tant que *[**LEFT]* (gauche) et *[**RIGHT]* (droite).
 
 === Navigation ===
 
-D'une manière générale :
- * *[**UP]* / *[**DOWN]* / *[**LEFT]* / *[**RIGHT]* déplacent le curseur haut / bas / gauche / droite.
- * Le bouton *[**MENU]* est utilisé pour sélectionner, éditer, changer un état.
- * Le bouton *[**EXIT]* est utilisé pour sortir, comme on peut le deviner. Une pression amène généralement le curseur en haut de l'écran, une pression supplémentaire ramène à l'écran principal. 
+D'une maniÃ¨re gÃ©nÃ©rale :
+ * *[**UP]* / *[**DOWN]* / *[**LEFT]* / *[**RIGHT]* dÃ©placent le curseur haut / bas / gauche / droite.
+ * Le bouton *[**MENU]* est utilisÃ© pour sÃ©lectionner, Ã©diter, changer un Ã©tat.
+ * Le bouton *[**EXIT]* est utilisÃ© pour sortir, comme on peut le deviner. Une pression amÃ¨ne gÃ©nÃ©ralement le curseur en haut de l'Ã©cran, une pression supplÃ©mentaire ramÃ¨ne Ã  l'Ã©cran principal. 
 
 Depuis le menu principal :
- * *[**RIGHT LONG]* ouvre le menu « modèle ».
- * *[**LEFT LONG]* ouvre le menu « paramètres généraux ».
- * *[**MENU LONG]* ouvre le dernier écran utilisé.
- * *[**UP LONG]* ouvre le menu « statistiques ».
- * *[**DOWN LONG]* ouvre le menu « télémesure ».
+ * *[**RIGHT LONG]* ouvre le menu Â«Â modÃ¨leÂ Â».
+ * *[**LEFT LONG]* ouvre le menu Â«Â paramÃ¨tres gÃ©nÃ©rauxÂ Â».
+ * *[**MENU LONG]* ouvre le dernier Ã©cran utilisÃ©.
+ * *[**UP LONG]* ouvre le menu Â«Â statistiquesÂ Â».
+ * *[**DOWN LONG]* ouvre le menu Â«Â tÃ©lÃ©mesureÂ Â».
 
-Depuis un écran, *[**EXIT LONG]* ramène directement à l'écran principal.
+Depuis un Ã©cran, *[**EXIT LONG]* ramÃ¨ne directement Ã  l'Ã©cran principal.
 
-Une fois dans un menu, tant que le curseur est situé dans le coin supérieur droit de l'écran, les différents écrans sont parcourus en utilisant *[**LEFT]* / *[**RIGHT]*.
+Une fois dans un menu, tant que le curseur est situÃ© dans le coin supÃ©rieur droit de l'Ã©cran, les diffÃ©rents Ã©crans sont parcourus en utilisant *[**LEFT]* / *[**RIGHT]*.
 
 === Edition / Sauvegarde ===
 
-De manière générale, il n'y a pas de fonction « annuler », toute modification est instantanément enregistrée sur l'EEPROM du micro-contrôleur. Un petit délai (une ou deux secondes) est cependant conseillé avant d'éteindre la radiocommande après une modification pour garantir sa sauvegarde à coup sûr.
+De maniÃ¨re gÃ©nÃ©rale, il n'y a pas de fonction Â«Â annulerÂ Â», toute modification est instantanÃ©ment enregistrÃ©e sur l'EEPROM du micro-contrÃ´leur. Un petit dÃ©lai (une ou deux secondes) est cependant conseillÃ© avant d'Ã©teindre la radiocommande aprÃ¨s une modification pour garantir sa sauvegarde Ã  coup sÃ»r.
 
-La modification d'une valeur se fait en deux temps : *[**MENU]* pour l'éditer en la mettant en surbrillance, puis *[**RIGHT]* / *[**LEFT]* pour la modifier.
-Dans le cas d'une zone à deux états (case à cocher, flèche de sens, etc.), c'est le bouton *[**MENU]* qui assure la modification de l'état.
-Pour certaines valeurs (gains et valeur de différentiel notamment), *[**MENU LONG]* permet d'affecter une variable globale (cf. menu « Courbes 8/12 ») à la place d'une valeur numérique.
-Pour sortir du mode édition, presser *[**MENU]* ou *[**EXIT]*.
+La modification d'une valeur se fait en deux temps : *[**MENU]* pour l'Ã©diter en la mettant en surbrillance, puis *[**RIGHT]* / *[**LEFT]* pour la modifier.
+Dans le cas d'une zone Ã  deux Ã©tats (case Ã  cocher, flÃ¨che de sens, etc.), c'est le bouton *[**MENU]* qui assure la modification de l'Ã©tat.
+Pour certaines valeurs (gains et valeur de diffÃ©rentiel notamment), *[**MENU LONG]* permet d'affecter une variable globale (cf. menu Â«Â Courbes 8/12Â Â») Ã  la place d'une valeur numÃ©rique.
+Pour sortir du mode Ã©dition, presser *[**MENU]* ou *[**EXIT]*.
 
-Si l'option *DBLKEYS* est activée, les raccourcis clavier suivants sont disponibles lors de l'édition d'une valeur :
+Si l'option *DBLKEYS* est activÃ©e, les raccourcis clavier suivants sont disponibles lors de l'Ã©dition d'une valeur :
  * *[**LEFT]* + *[**RIGHT]* : inverse le signe de la valeur.
- * *[**UP]* + *[**RIGHT]* : met la valeur à 100%.
- * *[**DOWN]* + *[**LEFT]* : met la valeur à -100%.
- * *[**UP]* + *[**DOWN]*: met la valeur à 0.
+ * *[**UP]* + *[**RIGHT]* : met la valeur Ã  100%.
+ * *[**DOWN]* + *[**LEFT]* : met la valeur Ã  -100%.
+ * *[**UP]* + *[**DOWN]*: met la valeur Ã  0.
 
-=== Les écrans d'open9x ===
+=== Les Ã©crans d'open9x ===
 
-Voici un aperçu de la structuration de navigation des menus d'open9x. A noter que les numéros d'écran (en haut à droite) peuvent changer en fonction des options choisies. 
+Voici un aperÃ§u de la structuration de navigation des menus d'open9x. A noter que les numÃ©ros d'Ã©cran (en haut Ã  droite) peuvent changer en fonction des options choisies. 
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/open9x_synoptique.png
 
- * L'écran CONF. HELI n'apparaîtra que si l'option *HELI* est activée. 
- * L'écran PHASES DE VOL n'apparaîtra pas si l'option *NOFP* est sélectionnée.
- * L'écran DR/EXPO est nommé MANCHES en cas d'utilisation des options *PPMCA* et/ou *SYMLIMITS*
- * L'écran LIMITES est nommé SORTIES en cas d'utilisation des options *PPMCA* et/ou *SYMLIMITS*
- * L'écran COURBES n'apparaîtra pas si l'option *NOCURVES* est sélectionnée.
- * L'écran TELEMESURE est lié à l'option *FRSKY*
- * L'écran GABARITS n'apparaîtra que si l'option *TEMPLATES* est activée. 
+ * L'Ã©cran CONF. HELI n'apparaÃ®tra que si l'option *HELI* est activÃ©e. 
+ * L'Ã©cran PHASES DE VOL n'apparaÃ®tra pas si l'option *NOFP* est sÃ©lectionnÃ©e.
+ * L'Ã©cran DR/EXPO est nommÃ© MANCHES en cas d'utilisation des options *PPMCA* et/ou *SYMLIMITS*
+ * L'Ã©cran LIMITES est nommÃ© SORTIES en cas d'utilisation des options *PPMCA* et/ou *SYMLIMITS*
+ * L'Ã©cran COURBES n'apparaÃ®tra pas si l'option *NOCURVES* est sÃ©lectionnÃ©e.
+ * L'Ã©cran TELEMESURE est liÃ© Ã  l'option *FRSKY*
+ * L'Ã©cran GABARITS n'apparaÃ®tra que si l'option *TEMPLATES* est activÃ©e. 
 
-=== Comment ça marche ===
+=== Comment Ã§a marche ===
 
-Tout d'abord, voici un premier aperçu du fonctionnement d'open9x au travers du diagramme de cheminement des ordres depuis les organes de commande et de commutation jusqu'aux servos.
+Tout d'abord, voici un premier aperÃ§u du fonctionnement d'open9x au travers du diagramme de cheminement des ordres depuis les organes de commande et de commutation jusqu'aux servos.
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/open9x_cheminement_ordres.png
 
-Ce diagramme est volontairement simplifié aux principaux cheminements des ordres, les choses peuvent être plus complexes dans le détail. Par exemple, les fonctions personnalisées, non représentées ici, peuvent interagir avec les variables globales, pour les réglages en vol, ou avec les interrupteurs personnalisés. De même, ces derniers peuvent utiliser des informations issues de la télémesure, ou être conditionnés à des interrupteurs physiques.
+Ce diagramme est volontairement simplifiÃ© aux principaux cheminements des ordres, les choses peuvent Ãªtre plus complexes dans le dÃ©tail. Par exemple, les fonctions personnalisÃ©es, non reprÃ©sentÃ©es ici, peuvent interagir avec les variables globales, pour les rÃ©glages en vol, ou avec les interrupteurs personnalisÃ©s. De mÃªme, ces derniers peuvent utiliser des informations issues de la tÃ©lÃ©mesure, ou Ãªtre conditionnÃ©s Ã  des interrupteurs physiques.
 
-Les entrées analogiques (manches et potentiomètres) ne sont pas utilisées telles quelles, mais après un filtre de calibration garantissant des courses de -100% à +100% de butée à butée (avec 0% pour point milieu). Pour les manches, ces entrées calibrées peuvent ensuite être directement utilisées dans le mixeur ou bien après application d'un formatage (dual-rate, expo, mais aussi courbe).
+Les entrÃ©es analogiques (manches et potentiomÃ¨tres) ne sont pas utilisÃ©es telles quelles, mais aprÃ¨s un filtre de calibration garantissant des courses de -100% Ã  +100% de butÃ©e Ã  butÃ©e (avec 0% pour point milieu). Pour les manches, ces entrÃ©es calibrÃ©es peuvent ensuite Ãªtre directement utilisÃ©es dans le mixeur ou bien aprÃ¨s application d'un formatage (dual-rate, expo, mais aussi courbe).
 
-Les trims digitaux fonctionnent indépendamment des manches auxquels ils se rapportent, ce qui permet au besoin de les différencier par phase de vol (si activées) ou même de les utiliser comme entrée de mixeur.
+Les trims digitaux fonctionnent indÃ©pendamment des manches auxquels ils se rapportent, ce qui permet au besoin de les diffÃ©rencier par phase de vol (si activÃ©es) ou mÃªme de les utiliser comme entrÃ©e de mixeur.
 
-Le Mixeur est l'articulation majeure d'open9x, sa fonction consistant à mettre en relation les différents organes de commande ou de commutation (= entrées) avec les sorties (= voies =  servos). Cette mise en relation peut être tout aussi bien basique (un manche = une voie) que complexe (plusieurs entrées sur une voie donnée, avec différenciation par phase de vol), suivant le besoin.
+Le Mixeur est l'articulation majeure d'open9x, sa fonction consistant Ã  mettre en relation les diffÃ©rents organes de commande ou de commutation (= entrÃ©es) avec les sorties (= voies =  servos). Cette mise en relation peut Ãªtre tout aussi bien basique (un manche = une voie) que complexe (plusieurs entrÃ©es sur une voie donnÃ©e, avec diffÃ©renciation par phase de vol), suivant le besoin.
 
-Les ordres issus du Mixeur ne sont pas directement dirigés vers les servos, mais passent d'abord un formatage de sortie (Limites) qui régule l'ordre envoyé à chaque servo en le décalant (sub-trim), en l'inversant (sens) ou en écrêtant tout dépassement (limite). Puis finalement les voies sont encodées et envoyées aux servos via le couple module HF / récepteur.
+Les ordres issus du Mixeur ne sont pas directement dirigÃ©s vers les servos, mais passent d'abord un formatage de sortie (Limites) qui rÃ©gule l'ordre envoyÃ© Ã  chaque servo en le dÃ©calant (sub-trim), en l'inversant (sens) ou en Ã©crÃªtant tout dÃ©passement (limite). Puis finalement les voies sont encodÃ©es et envoyÃ©es aux servos via le couple module HF / rÃ©cepteur.
 
-[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour à la table des matières]
+[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour Ã  la table des matiÃ¨res]
 
-== Écran principal ==
+== Ã‰cran principal ==
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_1.png
 
-L'écran principal est découpé en 2 parties. La partie supérieure comporte les éléments suivants :
- * Le nom du modèle.
- * Le nom de la phase de vol (si l'option *PHASES* est activée).
- * La tension de la batterie de l'émetteur.
+L'Ã©cran principal est dÃ©coupÃ© en 2 parties. La partie supÃ©rieure comporte les Ã©lÃ©ments suivants :
+ * Le nom du modÃ¨le.
+ * Le nom de la phase de vol (si l'option *PHASES* est activÃ©e).
+ * La tension de la batterie de l'Ã©metteur.
  * La position des trims.
- * Le chrono 1 et son mode de fonctionnement (paramétrage dans « Réglages modèles 2/12 »).
+ * Le chrono 1 et son mode de fonctionnement (paramÃ©trage dans Â«Â RÃ©glages modÃ¨les 2/12Â Â»).
 
-La partie inférieure comporte quatre écrans accessibles par *[**UP]* / *[**DOWN]* :
+La partie infÃ©rieure comporte quatre Ã©crans accessibles par *[**UP]* / *[**DOWN]* :
 
-|| Visualisation des 16 sorties du récepteur sur deux pages<br>(via *[**LEFT]* / *[**RIGHT]*) || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_1.png ||
-|| Valeurs numériques en % des 16 sorties du récepteur sur deux pages<br>(via *[**LEFT]* / *[**RIGHT]*) || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_2.png ||
-|| Position des manches et état des interrupteurs sur deux pages<br>(via *[**LEFT]* / *[**RIGHT]*): d'abord les entrées physiques (manches, pots, inters)<br>puis les interrupteurs virtuels (SW1..SWC) || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_4.png<br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_5.png ||
-|| Chrono 2 (paramétrage dans [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR?ts=1352728638&updated=Open9x_Manual_FR#Configuration_du_mod%C3%A8le_(2/12) Configuration du modèle (2/12)]).<br>*[**EXIT]* le remet à zéro || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_3.png ||
+|| Visualisation des 16 sorties du rÃ©cepteur sur deux pages<br>(via *[**LEFT]* / *[**RIGHT]*) || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_1.png ||
+|| Valeurs numÃ©riques en % des 16 sorties du rÃ©cepteur sur deux pages<br>(via *[**LEFT]* / *[**RIGHT]*) || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_2.png ||
+|| Position des manches et Ã©tat des interrupteurs sur deux pages<br>(via *[**LEFT]* / *[**RIGHT]*): d'abord les entrÃ©es physiques (manches, pots, inters)<br>puis les interrupteurs virtuels (SW1..SWC) || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_4.png<br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_5.png ||
+|| Chrono 2 (paramÃ©trage dans [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR?ts=1352728638&updated=Open9x_Manual_FR#Configuration_du_mod%C3%A8le_(2/12) Configuration du modÃ¨le (2/12)]).<br>*[**EXIT]* le remet Ã  zÃ©ro || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/01_3.png ||
 
-Dans la vue principale, un appui sur *[**EXIT]* réinitialise les compteurs de la vue courante tandis que *[**EXIT LONG]* réinitialise tous les compteurs ainsi que les données de télémesure.
+Dans la vue principale, un appui sur *[**EXIT]* rÃ©initialise les compteurs de la vue courante tandis que *[**EXIT LONG]* rÃ©initialise tous les compteurs ainsi que les donnÃ©es de tÃ©lÃ©mesure.
 
-[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour à la table des matières]
+[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour Ã  la table des matiÃ¨res]
 
-== Écrans de statistiques ==
+== Ã‰crans de statistiques ==
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/02_1.png  https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/02_2.png
 
-Depuis l'écran principal, presser *[**UP LONG]* donne accès aux écrans de statistiques.
+Depuis l'Ã©cran principal, presser *[**UP LONG]* donne accÃ¨s aux Ã©crans de statistiques.
 
-Le premier affiche les différents compteurs :
+Le premier affiche les diffÃ©rents compteurs :
  * Temps total d'allumage de la radio
- * Chrono 1 (paramétrage dans [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR?ts=1352728638&updated=Open9x_Manual_FR#Configuration_du_mod%C3%A8le_(2/12) Configuration du modèle (2/12)])
- * Chrono 2 (paramétrage dans [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR?ts=1352728638&updated=Open9x_Manual_FR#Configuration_du_mod%C3%A8le_(2/12) Configuration du modèle (2/12)])
- * Durée d'utilisation moteur absolue (en minutes / secondes)
- * Durée d'utilisation moteur relativement à la durée totale d'allumage de la radio (en %)
+ * Chrono 1 (paramÃ©trage dans [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR?ts=1352728638&updated=Open9x_Manual_FR#Configuration_du_mod%C3%A8le_(2/12) Configuration du modÃ¨le (2/12)])
+ * Chrono 2 (paramÃ©trage dans [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR?ts=1352728638&updated=Open9x_Manual_FR#Configuration_du_mod%C3%A8le_(2/12) Configuration du modÃ¨le (2/12)])
+ * DurÃ©e d'utilisation moteur absolue (en minutes / secondes)
+ * DurÃ©e d'utilisation moteur relativement Ã  la durÃ©e totale d'allumage de la radio (en %)
 
-Un graphique temporel de la consigne moteur est aussi affiché, à moins que l'option *NOTTRACE* ait été choisie.
+Un graphique temporel de la consigne moteur est aussi affichÃ©, Ã  moins que l'option *NOTTRACE* ait Ã©tÃ© choisie.
 
-Le second montre des compteurs internes de l'émetteur, « tmain » représente le temps de calcul. Ce temps augmente avec la complexité des mixages, et peut devenir important (temps de réponse perceptible) suivant la configuration du modèle.
+Le second montre des compteurs internes de l'Ã©metteur, Â«Â tmainÂ Â» reprÃ©sente le temps de calcul. Ce temps augmente avec la complexitÃ© des mixages, et peut devenir important (temps de rÃ©ponse perceptible) suivant la configuration du modÃ¨le.
 
-Tous ces compteurs peuvent être remis à zéro par un appui sur *[**MENU]*.
+Tous ces compteurs peuvent Ãªtre remis Ã  zÃ©ro par un appui sur *[**MENU]*.
 
-[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour à la table des matières]
+[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour Ã  la table des matiÃ¨res]
 
-== Paramètres généraux ==
+== ParamÃ¨tres gÃ©nÃ©raux ==
 
-Depuis l'écran principal, *[**LEFT LONG]* donne accès aux paramètres de la radiocommande. Ces réglages sont indépendants du modèle sélectionné.
+Depuis l'Ã©cran principal, *[**LEFT LONG]* donne accÃ¨s aux paramÃ¨tres de la radiocommande. Ces rÃ©glages sont indÃ©pendants du modÃ¨le sÃ©lectionnÃ©.
 
-Les écrans de ce menu sont les suivants :
+Les Ã©crans de ce menu sont les suivants :
  # Configuration radio
  # Ecolage
  # Info. version
  # Diagnostics
- # Entrées analogiques
+ # EntrÃ©es analogiques
  # Calibration
 
-=== Réglages Radio (1/6) ===
+=== RÃ©glages Radio (1/6) ===
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/04_1.png
 
-Cet écran permet de régler les paramètres généraux de l'émetteur :
+Cet Ã©cran permet de rÃ©gler les paramÃ¨tres gÃ©nÃ©raux de l'Ã©metteur :
  # Son / mode :
    * Aucun : pas d'alarme sonore (attention, y compris si la batterie est vide).
    * Alarm : uniquement les alarmes (batterie vide, radio inactive).
-   * !NoKey : bips normaux mais pas sur les touches d'édition.
-   * Tout : tous les bips activés.
- # Son / durée :  5 durées de bips possibles.
- # Tonalité : ajustement de la fréquence des bips (si l'option *AUDIO* est activée).
- # Vibreur / mode : réglage du mode du vibreur (si l'option *HAPTIC* est activée).
-   * Aucun : Vibreur désactivé.
+   * !NoKey : bips normaux mais pas sur les touches d'Ã©dition.
+   * Tout : tous les bips activÃ©s.
+ # Son / durÃ©e :  5 durÃ©es de bips possibles.
+ # TonalitÃ©Â : ajustement de la frÃ©quence des bips (si l'option *AUDIO* est activÃ©e).
+ # Vibreur / modeÂ : rÃ©glage du mode du vibreur (si l'option *HAPTIC* est activÃ©e).
+   * Aucun : Vibreur dÃ©sactivÃ©.
    * Alarm : uniquement les alarmes (batterie vide, radio inactive).
-   * !NoKey : Vibrations normales mais pas sur les touches d'édition.
-   * Tout : Vibration à chaque opération.
- # Vibreur / force : force du vibreur (de 0 à 5) (si l'option *HAPTIC* est activée).
- # Contraste : contraste de l'afficheur LCD, de 20 (le plus clair) à 45 (le plus sombre).
+   * !NoKey : Vibrations normales mais pas sur les touches d'Ã©dition.
+   * Tout : Vibration Ã  chaque opÃ©ration.
+ # Vibreur / force : force du vibreur (de 0 Ã  5) (si l'option *HAPTIC* est activÃ©e).
+ # Contraste : contraste de l'afficheur LCD, de 20 (le plus clair) Ã  45 (le plus sombre).
  # Alarme / batterie faible : seuil de tension de batterie vide. 
- # Alarme / inactivité : délai de non-utilisation des manches à partir duquel la radio alerte l'utilisateur, de 1 à 250 min (0 pour désactiver la fonction).
- # Alarme / mémoire faible : affiche une alerte si l'eeprom dispose de moins de 200 octets de libres lors de l'allumage de l'émetteur.
- # Alarme / sons désactivés : affiche une alerte au démarrage si "Son / mode" est sur « Aucun ». 
- # Filtre ADC : filtre de Conversion Analogique Numérique de la position des manches.
-   * SIMP : 1024 pas, temps de calcul (et donc latence) très réduit.
-   * OSMP : 2048 pas, légèrement plus lent que SIMP.
-   * FILT : filtrage en cas de bruit excessif sur la conversion (servos qui frétillent). Attention, temps de latence supplémentaire de 30 ms.
- # Inversion gaz : position inversée du ralenti de manche des gaz.
- # Bips chrono / minutes : bip à chaque minute quand le compteur tourne.
- # Bips chrono / compte à rebours : 30, 20, 10, 3, 2 et 1 s avant la fin du compteur, puis en continu après dépassement (ce dernier peut être rendu silencieux en vol par une courte pression sur *[**EXIT]*. 
- # Rétroéclairage / alame : activation du rétro-éclairage lors d'une alarme.
- # Rétroéclairage / mode : mode d'activation du rétro-éclairage.
+ # Alarme / inactivitÃ© : dÃ©lai de non-utilisation des manches Ã  partir duquel la radio alerte l'utilisateur, de 1 Ã  250 min (0 pour dÃ©sactiver la fonction).
+ # Alarme / mÃ©moire faible : affiche une alerte si l'eeprom dispose de moins de 200 octets de libres lors de l'allumage de l'Ã©metteur.
+ # Alarme / sons dÃ©sactivÃ©s : affiche une alerte au dÃ©marrage si "Son / mode" est sur Â«Â AucunÂ Â». 
+ # Filtre ADC : filtre de Conversion Analogique NumÃ©rique de la position des manches.
+   * SIMP : 1024 pas, temps de calcul (et donc latence) trÃ¨s rÃ©duit.
+   * OSMP : 2048 pas, lÃ©gÃ¨rement plus lent que SIMP.
+   * FILT : filtrage en cas de bruit excessif sur la conversion (servos qui frÃ©tillent). Attention, temps de latence supplÃ©mentaire de 30 ms.
+ # Inversion gaz : position inversÃ©e du ralenti de manche des gaz.
+ # Bips chrono / minutes : bip Ã  chaque minute quand le compteur tourne.
+ # Bips chrono / compte Ã  rebours : 30, 20, 10, 3, 2 et 1 s avant la fin du compteur, puis en continu aprÃ¨s dÃ©passement (ce dernier peut Ãªtre rendu silencieux en vol par une courte pression sur *[**EXIT]*. 
+ # RÃ©troÃ©clairage / alame : activation du rÃ©tro-Ã©clairage lors d'une alarme.
+ # RÃ©troÃ©clairage / modeÂ : mode d'activation du rÃ©tro-Ã©clairage.
    * Toujours ON.
    * Toujours OFF.
    * Btns : Activation par clavier.
    * Stks : Activation par manches.
    * Tout : Activation par clavier + manches.
- # Rétroéclairage / durée : par pas de 5 s.
- # Ecran d'accueil : affiche l'écran d'accueil au démarrage (se passe par un appui sur n'importe quel manche/touche). Cette ligne n'existe pas si l'option *NOSPLASH* est choisie.
- # Fuseau horaire : pour l'heure affichée par le GPS de télémesure (option *FRSKY* uniquement).
- # Coordonnées GPS : type d'affichage des coordonnées (option *FRSKY* uniquement).
- # Ordre des voies RX : définit l'ordre des mixages de base (G = Gaz, P = Profondeur, A = Ailerons, D = Dérive) générés automatiquement sur les quatre premières voies à la création d'un modèle.
- # Mode : attribution des manches de l'émetteur aux fonctions principales (gaz, tangage, roulis, lacet).
+ # RÃ©troÃ©clairage / durÃ©eÂ : par pas de 5 s.
+ # Ecran d'accueil : affiche l'Ã©cran d'accueil au dÃ©marrage (se passe par un appui sur n'importe quel manche/touche). Cette ligne n'existe pas si l'option *NOSPLASH* est choisie.
+ # Fuseau horaire : pour l'heure affichÃ©e par le GPS de tÃ©lÃ©mesure (option *FRSKY* uniquement).
+ # CoordonnÃ©es GPS : type d'affichage des coordonnÃ©es (option *FRSKY* uniquement).
+ # Ordre des voies RX : dÃ©finit l'ordre des mixages de base (G = Gaz, P = Profondeur, A = Ailerons, D = DÃ©rive) gÃ©nÃ©rÃ©s automatiquement sur les quatre premiÃ¨res voies Ã  la crÃ©ation d'un modÃ¨le.
+ # Mode : attribution des manches de l'Ã©metteur aux fonctions principales (gaz, tangage, roulis, lacet).
 
 === Ecolage (2/6) ===
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/05_1.png
 
-Cet écran permet d'affecter les voies d'une radio « élève » (signal PPM, via la prise écolage) aux manches de la radio « maître » et de calibrer leur neutre.
+Cet Ã©cran permet d'affecter les voies d'une radio Â«Â Ã©lÃ¨veÂ Â» (signal PPM, via la prise Ã©colage) aux manches de la radio Â«Â maÃ®treÂ Â» et de calibrer leur neutre.
  # Mode : 
   * OFF.
-  * += : ajoute la valeur du manche élève à celle du maître.
-  * := : remplace la valeur du manche maître par celle de l'élève.
- # % : taux de proportionnalité (gain) appliqué aux ordres de l'élève.
- # Source : entrée élève à affecter au manche maître.
+  * += : ajoute la valeur du manche Ã©lÃ¨ve Ã  celle du maÃ®tre.
+  * := : remplace la valeur du manche maÃ®tre par celle de l'Ã©lÃ¨ve.
+ # % : taux de proportionnalitÃ© (gain) appliquÃ© aux ordres de l'Ã©lÃ¨ve.
+ # Source : entrÃ©e Ã©lÃ¨ve Ã  affecter au manche maÃ®tre.
 
-Pour la calibration du neutre du PPM envoyé par l'émetteur élève, mettre en surbrillance  « Cal » et presser *[**MENU]*.
+Pour la calibration du neutre du PPM envoyÃ© par l'Ã©metteur Ã©lÃ¨ve, mettre en surbrillance  Â«Â CalÂ Â» et presser *[**MENU]*.
 
-Le multiplicateur est un gain global appliqué à tous les ordres issus de l'émetteur élève. Celui-ci est à  régler après calibration des neutres pour arriver à 100% quand le manche de l'élève est en butée.
+Le multiplicateur est un gain global appliquÃ© Ã  tous les ordres issus de l'Ã©metteur Ã©lÃ¨ve. Celui-ci est Ã   rÃ©gler aprÃ¨s calibration des neutres pour arriver Ã  100% quand le manche de l'Ã©lÃ¨ve est en butÃ©e.
 
 *NOTA* 
- * L'émetteur élève doit être non-programmable ou doté d'une programmation neutre (voie = manche).
- * Cet écran ne s'applique qu'aux 4 voies de commande principales. Les autres voies provenant de l'émetteur élève (jusqu'à 8) sont toutefois disponibles, et peuvent être utilisées au travers des mixeurs.
- * L'interrupteur d'activation de l'écolage se définit dans la programmation du modèle (cf. paragraphe [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Fonctions_personnalis%C3%A9es_(10/12) Fonctions personnalisées (10/12)]).
- * Le fonctionnement général de la prise d'écolage est identique aux radios JR / Graupner / Spektrum, c'est-à-dire que la prise est une entrée (maître) lorsque linterrupteur de la radio est sur ON, et en sortie (élève) lorsque l'interrupteur est sur OFF. Dans ce deuxième cas, la radio s'allume toute seule à l'insertion du connecteur, et l'écran ci-dessus affiche "Elève". Des exceptions sont néanmoins possibles lors du choix de protocoles spéciaux (cf. paragraphe [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Configuration_du_mod%C3%A8le_(2/12) Configuration du modèle (2/12)]).
+ * L'Ã©metteur Ã©lÃ¨ve doit Ãªtre non-programmable ou dotÃ© d'une programmation neutre (voie = manche).
+ * Cet Ã©cran ne s'applique qu'aux 4 voies de commande principales. Les autres voies provenant de l'Ã©metteur Ã©lÃ¨ve (jusqu'Ã  8) sont toutefois disponibles, et peuvent Ãªtre utilisÃ©es au travers des mixeurs.
+ * L'interrupteur d'activation de l'Ã©colage se dÃ©finit dans la programmation du modÃ¨le (cf. paragraphe [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Fonctions_personnalis%C3%A9es_(10/12) Fonctions personnalisÃ©es (10/12)]).
+ * Le fonctionnement gÃ©nÃ©ral de la prise d'Ã©colage est identique aux radios JR / Graupner / Spektrum, c'est-Ã -dire que la prise est une entrÃ©e (maÃ®tre) lorsque linterrupteur de la radio est sur ON, et en sortie (Ã©lÃ¨ve) lorsque l'interrupteur est sur OFF. Dans ce deuxiÃ¨me cas, la radio s'allume toute seule Ã  l'insertion du connecteur, et l'Ã©cran ci-dessus affiche "ElÃ¨ve". Des exceptions sont nÃ©anmoins possibles lors du choix de protocoles spÃ©ciaux (cf. paragraphe [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Configuration_du_mod%C3%A8le_(2/12) Configuration du modÃ¨le (2/12)]).
 
 === Info version (3/6) ===
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/06_1.png
 
-Cet écran affiche la version du firmware utilisé :
- * SVN : La révision SVN du firmware. C'est cette ligne qui représente la version utilisée, à mentionner en cas de questions ou de rapport de bug.
+Cet Ã©cran affiche la version du firmware utilisÃ© :
+ * SVN : La rÃ©vision SVN du firmware. C'est cette ligne qui reprÃ©sente la version utilisÃ©e, Ã  mentionner en cas de questions ou de rapport de bug.
  * DATE : Date de compilation du firmware.
  * TIME : Heure de compilation du firmware.
- * EEPR : La version de l'EEPROM et sa variante (!FrSky, GVARS, etc.).
+ * EEPRÂ : La version de l'EEPROM et sa variante (!FrSky, GVARS, etc.).
 
 === Diagnostics (4/6) ===
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/07_1.png
 
-Cet écran permet de vérifier le bon fonctionnement des boutons, interrupteurs et trims en affichant leur état (on = passage de 0 à 1 et mise en surbrillance).
+Cet Ã©cran permet de vÃ©rifier le bon fonctionnement des boutons, interrupteurs et trims en affichant leur Ã©tat (on = passage de 0 Ã  1 et mise en surbrillance).
 
-=== Entrées analogiques (5/6) ===
+=== EntrÃ©es analogiques (5/6) ===
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/08_1.png
 
-Cet écran affiche les valeurs brutes des entrées analogiques en hexadécimal, de 0 à 0x03FF (0..1023), ainsi que la valeur en % après calibration. Les entrées sont les suivantes :
+Cet Ã©cran affiche les valeurs brutes des entrÃ©es analogiques en hexadÃ©cimal, de 0 Ã  0x03FF (0..1023), ainsi que la valeur en % aprÃ¨s calibration. Les entrÃ©es sont les suivantes :
  * A1..A4 : manches
- * A5..A7 : potentiomètres
+ * A5..A7 : potentiomÃ¨tres
 
-Il est aussi possible d'étalonner la mesure de la tension batterie : *[**DOWN]* pour mettre la valeur en surbrillance, puis *[**LEFT]* / *[**RIGHT]* pour la diminuer / augmenter afin de la caler sur une mesure au voltmètre.
+Il est aussi possible d'Ã©talonner la mesure de la tension batterie : *[**DOWN]* pour mettre la valeur en surbrillance, puis *[**LEFT]* / *[**RIGHT]* pour la diminuer / augmenter afin de la caler sur une mesure au voltmÃ¨tre.
 
-=== Calibration des entrées analogiques (6/6) ===
+=== Calibration des entrÃ©es analogiques (6/6) ===
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/09_1.png
 
-Cet écran permet de calibrer les entrées analogiques A1 – A7.
+Cet Ã©cran permet de calibrer les entrÃ©es analogiques A1 Â– A7.
 
 Pour effectuer la calibration :
  # Presser *[**MENU]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/09_2.png
- # Mettre les manches et les potentiomètres au neutre.
+ # Mettre les manches et les potentiomÃ¨tres au neutre.
  # Presser *[**MENU]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/09_3.png
- # Bouger les manches et les potentiomètres de butée à butée (sans forcer...).
- # Presser *[**MENU]*, les valeurs sont sauvegardées.
+ # Bouger les manches et les potentiomÃ¨tres de butÃ©e Ã  butÃ©e (sans forcer...).
+ # Presser *[**MENU]*, les valeurs sont sauvegardÃ©es.
 
-[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour à la table des matières]
+[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour Ã  la table des matiÃ¨res]
 
-== Réglages des modèles ==
+== RÃ©glages des modÃ¨les ==
 
-Depuis l'écran principal, presser *[**RIGHT LONG]* donne accès au menu de sélection/édition des modèles. Il permet de régler les paramètres propres au modèle en cours, au travers des écrans suivants (déplacement entre écrans par *[**RIGHT]* et *[**LEFT]* sur le numéro de page) :
- # Mémoires des modèles.
- # Réglages du modèle.
- # Réglages hélicoptères (si l'option *HELI* est activée).
- # Phases de vol (si l'option *PHASES* est activée).
+Depuis l'Ã©cran principal, presser *[**RIGHT LONG]* donne accÃ¨s au menu de sÃ©lection/Ã©dition des modÃ¨les. Il permet de rÃ©gler les paramÃ¨tres propres au modÃ¨le en cours, au travers des Ã©crans suivants (dÃ©placement entre Ã©crans par *[**RIGHT]* et *[**LEFT]* sur le numÃ©ro de page) :
+ # MÃ©moires des modÃ¨les.
+ # RÃ©glages du modÃ¨le.
+ # RÃ©glages hÃ©licoptÃ¨res (si l'option *HELI* est activÃ©e).
+ # Phases de vol (si l'option *PHASES* est activÃ©e).
  # Manches (DR/Expo).
  # Mixeurs.
  # Sorties (Limites).
- # Courbes  (si l'option *COURBES* est activée).
+ # Courbes  (si l'option *COURBES* est activÃ©e).
  # Interrupteurs personnalisables.
- # Fonctions spéciales.
- # Télémesure (si l'option *FRSKY* est activée)
- # Assistant de création de mixeurs (si l'option *TEMPLATES* est activée)
+ # Fonctions spÃ©ciales.
+ # TÃ©lÃ©mesure (si l'option *FRSKY* est activÃ©e)
+ # Assistant de crÃ©ation de mixeurs (si l'option *TEMPLATES* est activÃ©e)
 
-=== Mémoires des modèles (1/12) ===
+=== MÃ©moires des modÃ¨les (1/12) ===
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/10_1.png
 
-Cet écran liste les modèles déjà existants (jusqu'à 16), et permet de charger, dupliquer, déplacer ou effacer un modèle existant ou d'en créer un nouveau.
+Cet Ã©cran liste les modÃ¨les dÃ©jÃ  existants (jusqu'Ã  16), et permet de charger, dupliquer, dÃ©placer ou effacer un modÃ¨le existant ou d'en crÃ©er un nouveau.
 
-La gestion de la mémoire est dynamique, avec un affichage de l'espace libre (en octets, en haut de l'écran) et de l'espace utilisé par chaque modèle (à sa droite), ce dernier étant proportionnel à sa complexité (mixages, courbes, options, etc.).
+La gestion de la mÃ©moire est dynamique, avec un affichage de l'espace libre (en octets, en haut de l'Ã©cran) et de l'espace utilisÃ© par chaque modÃ¨le (Ã  sa droite), ce dernier Ã©tant proportionnel Ã  sa complexitÃ© (mixages, courbes, options, etc.).
 
-L'étoile « *`*` * » sur la gauche indique le modèle en cours.
+L'Ã©toile Â«Â *`*` * Â» sur la gauche indique le modÃ¨le en cours.
 
-*[**UP]* / *[**DOWN]* permet de se déplacer dans la liste des modèles.
-Un appui sur *[**MENU LONG]* permet le chargement du modèle sélectionné ou la création d'un nouveau modèle si la mémoire sélectionnée est vide.
+*[**UP]* / *[**DOWN]* permet de se dÃ©placer dans la liste des modÃ¨les.
+Un appui sur *[**MENU LONG]* permet le chargement du modÃ¨le sÃ©lectionnÃ© ou la crÃ©ation d'un nouveau modÃ¨le si la mÃ©moire sÃ©lectionnÃ©e est vide.
 
-==== Pour créer un modèle : ====
+==== Pour crÃ©er un modÃ¨le : ====
 
- * Se positionner sur la ligne vierge à utiliser avec les touches *[**UP]* / *[**DOWN]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/10_2.png
- * Appuyer sur la touche *[**MENU LONG]* pour demander la création.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/10_3.png
- * Le nouveau modèle est automatiquement chargé, son nom par défaut (modifiable) étant attribué sous la forme « MODELE » + numéro de ligne.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/10_4.png
+ * Se positionner sur la ligne vierge Ã  utiliser avec les touches *[**UP]* / *[**DOWN]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/10_2.png
+ * Appuyer sur la touche *[**MENU LONG]* pour demander la crÃ©ation.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/10_3.png
+ * Le nouveau modÃ¨le est automatiquement chargÃ©, son nom par dÃ©faut (modifiable) Ã©tant attribuÃ© sous la forme Â«Â MODELEÂ Â» + numÃ©ro de ligne.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/10_4.png
 
-==== Pour supprimer un modèle : ====
+==== Pour supprimer un modÃ¨le : ====
 
- * Se positionner sur la ligne à supprimer avec les touches *[**UP]* / *[**DOWN]*.
- * Appuyer sur la touche *[**MENU]* pour sélectionner la ligne (elle passe en surbrillance).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/13_1.png
- * Appuyer sur la touche *[**EXIT LONG]* pour demander la suppression (non autorisée, par sécurité, sur le modèle en cours).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/13_2.png
+ * Se positionner sur la ligne Ã  supprimer avec les touches *[**UP]* / *[**DOWN]*.
+ * Appuyer sur la touche *[**MENU]* pour sÃ©lectionner la ligne (elle passe en surbrillance).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/13_1.png
+ * Appuyer sur la touche *[**EXIT LONG]* pour demander la suppression (non autorisÃ©e, par sÃ©curitÃ©, sur le modÃ¨le en cours).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/13_2.png
  * Confirmer avec la touche *[**MENU]* ou annuler avec la touche *[**EXIT]*.
 
-==== Pour dupliquer un modèle : ====
+==== Pour dupliquer un modÃ¨le : ====
 
- * Se positionner sur la ligne à copier avec les touches *[**UP]* / *[**DOWN]*.
- * Appuyer sur la touche *[**MENU]* pour sélectionner la ligne (elle passe en surbrillance).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/11_1.png
+ * Se positionner sur la ligne Ã  copier avec les touches *[**UP]* / *[**DOWN]*.
+ * Appuyer sur la touche *[**MENU]* pour sÃ©lectionner la ligne (elle passe en surbrillance).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/11_1.png
  * Appuyer sur *[**UP]* ou *[**DOWN]* pour la dupliquer vers le haut ou vers le bas.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/11_2.png
- * Une fois l'emplacement de destination choisi, appuyer sur *[**MENU]* pour confirmer ou *[**EXIT]* pour annuler l'opération.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/11_3.png
+ * Une fois l'emplacement de destination choisi, appuyer sur *[**MENU]* pour confirmer ou *[**EXIT]* pour annuler l'opÃ©ration.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/11_3.png
 
-==== Pour déplacer un modèle : ====
+==== Pour dÃ©placer un modÃ¨le : ====
 
- * Se positionner sur la ligne à copier avec les touches *[**UP]* / *[**DOWN]*.
- * Appuyer deux fois sur la touche *[**MENU]* pour sélectionner la ligne (elle passe en surbrillance entourée d'un pointillé).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/12_1.png
- * Appuyer sur *[**UP]* ou *[**DOWN]* la déplacer vers le haut ou vers le bas.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/12_2.png
- * Une fois l'emplacement de destination choisi, appuyer sur *[**MENU]* pour confirmer ou *[**EXIT]* pour annuler l'opération.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/12_3.png
+ * Se positionner sur la ligne Ã  copier avec les touches *[**UP]* / *[**DOWN]*.
+ * Appuyer deux fois sur la touche *[**MENU]* pour sÃ©lectionner la ligne (elle passe en surbrillance entourÃ©e d'un pointillÃ©).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/12_1.png
+ * Appuyer sur *[**UP]* ou *[**DOWN]* la dÃ©placer vers le haut ou vers le bas.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/12_2.png
+ * Une fois l'emplacement de destination choisi, appuyer sur *[**MENU]* pour confirmer ou *[**EXIT]* pour annuler l'opÃ©ration.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/12_3.png
 
 *NOTA*
 
-Les fonctions créer / effacer / déplacer / dupliquer des lignes sont particulièrement importantes dans open9x, car elles sont aussi utilisées dans d'autres écrans (« manches » et « mixeurs ») pour gérer à la carte leur fonctionnement.
-Une opération de copie ou de déplacement peut être annulée en cours d'exécution en appuyant sur la touche *[**EXIT]*.
+Les fonctions crÃ©er / effacer / dÃ©placer / dupliquer des lignes sont particuliÃ¨rement importantes dans open9x, car elles sont aussi utilisÃ©es dans d'autres Ã©crans (Â«Â manchesÂ Â» et Â«Â mixeursÂ Â») pour gÃ©rer Ã  la carte leur fonctionnement.
+Une opÃ©ration de copie ou de dÃ©placement peut Ãªtre annulÃ©e en cours d'exÃ©cution en appuyant sur la touche *[**EXIT]*.
 
-=== Configuration du modèle (2/12) ===
+=== Configuration du modÃ¨le (2/12) ===
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/14_1.png
 
-Voici le détail des options :
- # Nom :  pour l'éditer, presser *[**MENU]*.<br>Après appui sur *[**MENU]* le premier caractère est en surbrillance. *[**UP]* / *[**DOWN]* change le caractère. *[**RIGHT]* / *[**LEFT]* déplacer le curseur. *[**RIGHT LONG]* ou *[**LEFT LONG]* bascule la lettre en majuscule / minuscule. *[**MENU]* / *[**EXIT]* termine l'édition.<br>Nota : le numéro de modèle est indiqué dans la ligne supérieure, à côté de CONF.
- # Chronos 1 et 2 :<br>Réglage de la valeur de départ de ce compteur : si 00:00, le chrono est croissant, sinon il est décompteur à partir de la valeur de départ. *[**RIGHT]* / *[**LEFT]* bascule en secondes ou minutes. *[**MENU]* édite la valeur (le curseur clignote), *[**UP]* / *[**DOWN]* / *[**RIGHT]* / *[**LEFT]* la modifie. *[**MENU]* / *[**EXIT]* termine l'édition.<br>Trigger :  choix du mode de déclenchement du compteur (ne pas oublier l'option « ! » si besoin d'inverser le sens de déclenchement) :
-   * OFF : inutilisé.
+Voici le dÃ©tail des options :
+ # Nom :  pour l'Ã©diter, presser *[**MENU]*.<br>AprÃ¨s appui sur *[**MENU]* le premier caractÃ¨re est en surbrillance. *[**UP]* / *[**DOWN]* change le caractÃ¨re. *[**RIGHT]* / *[**LEFT]* dÃ©placer le curseur. *[**RIGHT LONG]* ou *[**LEFT LONG]* bascule la lettre en majuscule / minuscule. *[**MENU]* / *[**EXIT]* termine l'Ã©dition.<br>NotaÂ : le numÃ©ro de modÃ¨le est indiquÃ© dans la ligne supÃ©rieure, Ã  cÃ´tÃ© de CONF.
+ # Chronos 1 et 2 :<br>RÃ©glage de la valeur de dÃ©part de ce compteur : si 00:00, le chrono est croissant, sinon il est dÃ©compteur Ã  partir de la valeur de dÃ©part. *[**RIGHT]* / *[**LEFT]* bascule en secondes ou minutes. *[**MENU]* Ã©dite la valeur (le curseur clignote), *[**UP]* / *[**DOWN]* / *[**RIGHT]* / *[**LEFT]* la modifie. *[**MENU]* / *[**EXIT]* termine l'Ã©dition.<br>Trigger :  choix du mode de dÃ©clenchement du compteur (ne pas oublier l'option Â«Â !Â Â» si besoin d'inverser le sens de dÃ©clenchement) :
+   * OFF : inutilisÃ©.
    * ABS : actif en permanence.
-   * GZ%/GZs/GZt : actif en fonction du régime moteur (voir plus loin pour sa configuration). GZ% indique que la vitesse de défilement est proportionnelle à la consigne de gaz. GZt indique que le chrono démarre dès que la consigne moteur est supérieure à -100% (moteur stoppé) et ne s'arrête plus, alors que GZs s'arrête quand le manche des gaz revient à -100%.
-   * Interrupteur : chaque chrono peut être déclenché / arrêté par un interrupteur.
- # Limites Et. (étendues) : autorise des débattements jusqu'à 125% au lieu de 100%. A réserver à des besoins spécifiques, car un débattement de 100% sur open9x correspond déjà au débattement maxi de la plupart des radiocommandes commerciales (de par la gestion différente des fins de courses).
- # Trims Et. (étendus) : étend la course des trims de 25% de la course du manche à 100%. A noter que si le réglage du trim dépasse +/-25%, il clignotera sur l'écran principal pour notifier au pilote qu'un réglage mécanique est fortement conseillé.
+   * GZ%/GZs/GZt : actif en fonction du rÃ©gime moteur (voir plus loin pour sa configuration). GZ% indique que la vitesse de dÃ©filement est proportionnelle Ã  la consigne de gaz. GZt indique que le chrono dÃ©marre dÃ¨s que la consigne moteur est supÃ©rieure Ã  -100% (moteur stoppÃ©) et ne s'arrÃªte plus, alors que GZs s'arrÃªte quand le manche des gaz revient Ã  -100%.
+   * Interrupteur : chaque chrono peut Ãªtre dÃ©clenchÃ© / arrÃªtÃ© par un interrupteur.
+ # Limites Et. (Ã©tendues) : autorise des dÃ©battements jusqu'Ã  125% au lieu de 100%. A rÃ©server Ã  des besoins spÃ©cifiques, car un dÃ©battement de 100% sur open9x correspond dÃ©jÃ  au dÃ©battement maxi de la plupart des radiocommandes commerciales (de par la gestion diffÃ©rente des fins de courses).
+ # Trims Et. (Ã©tendus) : Ã©tend la course des trims de 25% de la course du manche Ã  100%. A noter que si le rÃ©glage du trim dÃ©passe +/-25%, il clignotera sur l'Ã©cran principal pour notifier au pilote qu'un rÃ©glage mÃ©canique est fortement conseillÃ©.
  # Pas trim : mode de fonctionnement des trims digitaux.
-   * Expo : exponentiel, réglage fin autour du neutre puis avec des pas de + en + élevés.
+   * Expo : exponentiel, rÃ©glage fin autour du neutre puis avec des pas de + en + Ã©levÃ©s.
    * !ExFin : extra fin 1 pas par clic.
    * Fin : 2 pas par clic.
    * Moyen  : 4 pas par clic.
    * Gros : 8 pas par clic.
- # Source gaz : identification de la source de la fonction gaz.
+ # Source gazÂ : identification de la source de la fonction gaz.
    * Gaz : manche de gaz.
-   * P1..P3 : potentiomètres.
+   * P1..P3 : potentiomÃ¨tres.
    * CH1..CH16 : voie physiques ou virtuelles.
- # Trim Gaz : adapte le trim de gaz à l'utilisation avec un moteur thermique, en ajustant le ralenti sans pour autant modifier le plein régime.
- # Alerte Gaz : active une alarme au démarrage de l'émetteur si le manche ou la voie de gaz (cf. ci-avant) n'est pas complètement réduit (= -100%).
- # Alerte Int (Interrupteurs) : vérifie l'état des interrupteurs au démarrage et alerte en cas d'écart avec l'état programmé. TRE0GA correspond à THR, RUD, etc. Pour définir l'état par défaut des interrupteurs, les positionner puis presser *[**MENU LONG]*.
- # Bips Centre : signale le passage au neutre des manches et potentiomètres. DPGA123 correspond à Dérive, Profondeur, Gaz, Ailerons, P1, P2 et P3 (utiliser *[**RIGHT]* / *[**LEFT]* pour sélectionner la voie et *[**MENU]* pour activer/désactiver).<br>Le bip est activé quand le caractère correspondant est en surbrillance. Utile notamment pour retrouver le centre des potentiomètre en plein vol.
+ # Trim Gaz : adapte le trim de gaz Ã  l'utilisation avec un moteur thermique, en ajustant le ralenti sans pour autant modifier le plein rÃ©gime.
+ # Alerte Gaz : active une alarme au dÃ©marrage de l'Ã©metteur si le manche ou la voie de gaz (cf. ci-avant) n'est pas complÃ¨tement rÃ©duit (= -100%).
+ # Alerte Int (Interrupteurs) : vÃ©rifie l'Ã©tat des interrupteurs au dÃ©marrage et alerte en cas d'Ã©cart avec l'Ã©tat programmÃ©. TRE0GA correspond Ã  THR, RUD, etc. Pour dÃ©finir l'Ã©tat par dÃ©faut des interrupteurs, les positionner puis presser *[**MENU LONG]*.
+ # Bips Centre : signale le passage au neutre des manches et potentiomÃ¨tres. DPGA123 correspond Ã  DÃ©rive, Profondeur, Gaz, Ailerons, P1, P2 et P3 (utiliser *[**RIGHT]* / *[**LEFT]* pour sÃ©lectionner la voie et *[**MENU]* pour activer/dÃ©sactiver).<br>Le bip est activÃ© quand le caractÃ¨re correspondant est en surbrillance. Utile notamment pour retrouver le centre des potentiomÃ¨tre en plein vol.
  # Proto : protocole d'encodage des ordres.
    # PPM : le standard classique.  
-     * PPM : fontionnement normal, un nombre de voies de 4 à 16 (xxCH) est transmis au module d'émission, la prise d'écolage est disponible en entrée. Les voies inutilisées peuvent servir à d'éventuelles fonctions virtuelles créées par mixeur.
-     * PPM16 : le nombre de voies configuré est transmis au module d'émission, les 8 suivantes sont envoyées sur le port écolage.
-     * PPMsim : aucun signal n'est envoyé au module d'émission, tandis que le port écolage est forcé en sortie pour une utilisation avec simulateur ou en écolage avec le module HF d'origine (avec inter de la radio sur ON).
-     * Trame PPM : Paramètres du protocole PPM (longueur de trame, polarité, durée de l'impulsion de séparation).
-   # PXX : Protocole !FrSky PCM, en développement (option *PXX*).
-     * NumRX : Numéro de récepteur pour la fonction Model Match.
-     * Sync : définition du failsafe.
-   # DSM2 : Protocole Spektrum (Option *DSM2*). Le binding se fait en maintenant l'inter TRN actif lors de la mise sous tension de la radio. *L'écran d'accueil doit être désactivé, et aucune alarme ne doit apparaître*, sinon le binding ne s'effectuera pas.
-   	 * LP2/LP4 : Pour module "courte portée" récupéré d'une radio LP4DSM.
+     * PPM : fontionnement normal, un nombre de voies de 4 Ã  16 (xxCH) est transmis au module d'Ã©mission, la prise d'Ã©colage est disponible en entrÃ©e. Les voies inutilisÃ©es peuvent servir Ã  d'Ã©ventuelles fonctions virtuelles crÃ©Ã©es par mixeur.
+     * PPM16 : le nombre de voies configurÃ© est transmis au module d'Ã©mission, les 8 suivantes sont envoyÃ©es sur le port Ã©colage.
+     * PPMsim : aucun signal n'est envoyÃ© au module d'Ã©mission, tandis que le port Ã©colage est forcÃ© en sortie pour une utilisation avec simulateur ou en Ã©colage avec le module HF d'origine (avec inter de la radio sur ON).
+     * Trame PPM : ParamÃ¨tres du protocole PPM (longueur de trame, polaritÃ©, durÃ©e de l'impulsion de sÃ©paration).
+   # PXX : Protocole !FrSky PCM, en dÃ©veloppement (option *PXX*).
+     * NumRX : NumÃ©ro de rÃ©cepteur pour la fonction Model Match.
+     * Sync : dÃ©finition du failsafe.
+   # DSM2 : Protocole Spektrum (Option *DSM2*). Le binding se fait en maintenant l'inter TRN actif lors de la mise sous tension de la radio. *L'Ã©cran d'accueil doit Ãªtre dÃ©sactivÃ©, et aucune alarme ne doit apparaÃ®tre*, sinon le binding ne s'effectuera pas.
+   	 * LP2/LP4 : Pour module "courte portÃ©e" rÃ©cupÃ©rÃ© d'une radio LP4DSM.
    	 * DSMseu : Modulation DSM2 uniquement.
    	 * DSMX : Modulation auto DSMX/DSM2.
-     * NumRX : Numéro de récepteur pour la fonction Model Match.
-     * RANGE : Sélectionner et presser *[**MENU]* pour activer le test de portée. L'indicateur devient "range" et la radio bipe jusqu'à la fin du test par *[**MENU]* ou *[**EXIT]*.
+     * NumRX : NumÃ©ro de rÃ©cepteur pour la fonction Model Match.
+     * RANGE : SÃ©lectionner et presser *[**MENU]* pour activer le test de portÃ©e. L'indicateur devient "range" et la radio bipe jusqu'Ã  la fin du test par *[**MENU]* ou *[**EXIT]*.
 
-=== Réglages hélicoptère (3/12) ===
+=== RÃ©glages hÃ©licoptÃ¨re (3/12) ===
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/15_1.png
 
-Cet écran (si l'option *HELI* est activée) est dédié au réglage d'un hélicoptère CCPM (servos de cyclique agissant aussi sur le pas).
+Cet Ã©cran (si l'option *HELI* est activÃ©e) est dÃ©diÃ© au rÃ©glage d'un hÃ©licoptÃ¨re CCPM (servos de cyclique agissant aussi sur le pas).
 
-Les options sont les suivantes :
- # Type de plateau cyclique: permet de définir le type de tête rotor.
-   * 120 : tête standard à 120°, avec le servo central à l'avant ou à l'arrière.
-   * 120X : comme 120° mais tourné de 90° (le servo central est sur un côté).
-   * 140 : tête à 140°, avec le servo central à l'avant ou à l'arrière.
-   * 90 : tête à 90°, un servo de tangage à l'avant ou à l'arrière et 2 servos de roulis à 180° l'un de l'autre.
- # Collectif : définit la source du pas collectif, soit directement le manche de gaz soit une voie (non utilisée par un servo) permettant ainsi de bénéficier d'une ou plusieurs courbe(s) de pas (via un ou plusieurs ligne(s) de mixage associée(s) à cette voie).
+Les options sont les suivantesÂ :
+ # Type de plateau cyclique: permet de dÃ©finir le type de tÃªte rotor.
+   * 120 : tÃªte standard Ã  120Â°, avec le servo central Ã  l'avant ou Ã  l'arriÃ¨re.
+   * 120X : comme 120Â° mais tournÃ© de 90Â° (le servo central est sur un cÃ´tÃ©).
+   * 140 : tÃªte Ã  140Â°, avec le servo central Ã  l'avant ou Ã  l'arriÃ¨re.
+   * 90 : tÃªte Ã  90Â°, un servo de tangage Ã  l'avant ou Ã  l'arriÃ¨re et 2 servos de roulis Ã  180Â° l'un de l'autre.
+ # Collectif : dÃ©finit la source du pas collectif, soit directement le manche de gaz soit une voie (non utilisÃ©e par un servo) permettant ainsi de bÃ©nÃ©ficier d'une ou plusieurs courbe(s) de pas (via un ou plusieurs ligne(s) de mixage associÃ©e(s) Ã  cette voie).
  # Limite Cyclique : limitations de l'amplitude de mouvement du plateau cyclique en tangage et roulis.
- # Direction PRF / AIL / COL : permet d'inverser le sens d'action des fonctions tangage / roulis / pas collectif. A utiliser de concert avec les sens de rotation des servos et le signe des mixeurs pour obtenir les bons sens de déplacement des servos pour chaque fonction.<br>La méthodologie de réglage est la suivante :
-   * Attribuer à chaque voie un mixeur (cf. paragraphe [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR?ts=1352728638&updated=Open9x_Manual_FR#Mixeur_(6/12) Mixeur (6/12)]) avec comme entrée CYC1, 2 et 3.
-   * Régler le sens des servos dans le menu Servos (ou Limites) pour que le manche de pas actionne tous les servos dans le même sens.
-   * Régler le sens des fonctions dans le menu décrit ici.
+ # Direction PRF / AIL / COL : permet d'inverser le sens d'action des fonctions tangage / roulis / pas collectif. A utiliser de concert avec les sens de rotation des servos et le signe des mixeurs pour obtenir les bons sens de dÃ©placement des servos pour chaque fonction.<br>La mÃ©thodologie de rÃ©glage est la suivante :
+   * Attribuer Ã  chaque voie un mixeur (cf. paragraphe [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR?ts=1352728638&updated=Open9x_Manual_FR#Mixeur_(6/12) Mixeur (6/12)]) avec comme entrÃ©e CYC1, 2 et 3.
+   * RÃ©gler le sens des servos dans le menu Servos (ou Limites) pour que le manche de pas actionne tous les servos dans le mÃªme sens.
+   * RÃ©gler le sens des fonctions dans le menu dÃ©crit ici.
 
 === Phases de vol (4/12) ===
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/16_1.png
 
-Cet écran (si l'option *PHASES* est activée) permet de gérer cinq phases de vol dont une par défaut (PV0), chacune pouvant être librement nommée. La phase active est affichée en gras (sauf si l'option *NOBOLD* est activée).
+Cet Ã©cran (si l'option *PHASES* est activÃ©e) permet de gÃ©rer cinq phases de vol dont une par dÃ©faut (PV0), chacune pouvant Ãªtre librement nommÃ©e. La phase active est affichÃ©e en gras (sauf si l'option *NOBOLD* est activÃ©e).
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/16_2.png     
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/16_3.png
 
-Pour modifier les paramètres d'une phase de vol, choisissez-la avec les touches *[**UP]* et *[**DOWN]* et appuyez sur *[**MENU]* :
- # Nom : libellé de la phase (jusqu'à 6 caractères).
- # Interrupteur : sélectionner l'interrupteur (physique ou virtuel) d'activation de la phase.
- # Trims : chaque trim (Dérive / Profondeur / Gaz / Ailerons) peut avoir une valeur propre dans cette phase ou une valeur commune avec d'autres phases (0 à 4).
- # Fondu ON : permet une transition en douceur en entrant dans cette phase, sur une durée de 0 à 7,5 secondes pas pas de 0,5 s.
- # Fondu OFF : même chose en sortie de cette phase de vol.
-Pour revenir à l'écran précédent, appuyer sur *[**EXIT]*.
+Pour modifier les paramÃ¨tres d'une phase de vol, choisissez-la avec les touches *[**UP]* et *[**DOWN]* et appuyez sur *[**MENU]* :
+ # Nom : libellÃ© de la phase (jusqu'Ã  6 caractÃ¨res).
+ # Interrupteur : sÃ©lectionner l'interrupteur (physique ou virtuel) d'activation de la phase.
+ # Trims : chaque trim (DÃ©rive / Profondeur / Gaz / Ailerons) peut avoir une valeur propre dans cette phase ou une valeur commune avec d'autres phases (0 Ã  4).
+ # Fondu ON : permet une transition en douceur en entrant dans cette phase, sur une durÃ©e de 0 Ã  7,5 secondes pas pas de 0,5 s.
+ # Fondu OFF : mÃªme chose en sortie de cette phase de vol.
+Pour revenir Ã  l'Ã©cran prÃ©cÃ©dent, appuyer sur *[**EXIT]*.
 
 === Formatage des manches (DR/EXPO) (5/12) ===
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/17_1.png
 
-Cet écran permet de formater l'ordre de chaque manche (Dérive / Profondeur / Gaz / Ailerons), via un gain (historiquement appelé Dual-Rate, pour double-débattement), une fonction exponentielle ou même une courbe.
+Cet Ã©cran permet de formater l'ordre de chaque manche (DÃ©rive / Profondeur / Gaz / Ailerons), via un gain (historiquement appelÃ© Dual-Rate, pour double-dÃ©battement), une fonction exponentielle ou mÃªme une courbe.
 
-En règle générale, un gain de 75% donne un débattement équivalent à celui de 100% sur la majorité des radio commerciale. Il est aussi préférable d'utiliser une valeur inférieure à 100% pour laisser de la latitude au trim avant l'écrêtage des limites en fin de course. Il est aussi important de noter que c'est ici que se définit le débattement de chaque fonction, et non dans le menu limite comme cela est souvent (et à tort) pratiqué, ce dernier servant à ajuster la réponse de chaque servo, quelle que soit la ou les fonction(s) qui le pilote(nt).
+En rÃ¨gle gÃ©nÃ©rale, un gain de 75% donne un dÃ©battement Ã©quivalent Ã  celui de 100% sur la majoritÃ© des radio commerciale. Il est aussi prÃ©fÃ©rable d'utiliser une valeur infÃ©rieure Ã  100% pour laisser de la latitude au trim avant l'Ã©crÃªtage des limites en fin de course. Il est aussi important de noter que c'est ici que se dÃ©finit le dÃ©battement de chaque fonction, et non dans le menu limite comme cela est souvent (et Ã  tort) pratiquÃ©, ce dernier servant Ã  ajuster la rÃ©ponse de chaque servo, quelle que soit la ou les fonction(s) qui le pilote(nt).
 
-A chaque manche peut correspondre plusieurs lignes de formatage (jusqu'à 14 au total, avec un compteur en haut de l'écran), de manière à différencier les réglages pour certaines phases de vol ou simplement via un interrupteur. Comme pour les phases de vol, les formatages actifs sont affichés en gras. Par défaut (pas de ligne créée pour le manche), le gain est de 100% et aucune courbe ni différenciation par phase ou autre n'est appliquée.
+A chaque manche peut correspondre plusieurs lignes de formatage (jusqu'Ã  14 au total, avec un compteur en haut de l'Ã©cran), de maniÃ¨re Ã  diffÃ©rencier les rÃ©glages pour certaines phases de vol ou simplement via un interrupteur. Comme pour les phases de vol, les formatages actifs sont affichÃ©s en gras. Par dÃ©faut (pas de ligne crÃ©Ã©e pour le manche), le gain est de 100% et aucune courbe ni diffÃ©renciation par phase ou autre n'est appliquÃ©e.
 
-Le processus de gestion des lignes est identique à celui utilisé pour les mémoires de modèles, le revoici cependant pour bien s'en imprégner.
+Le processus de gestion des lignes est identique Ã  celui utilisÃ© pour les mÃ©moires de modÃ¨les, le revoici cependant pour bien s'en imprÃ©gner.
 
-==== Pour créer une ligne : ====
-S'il aucune ligne de formatage n'est appliquée au manche, se positionner sur la ligne vide correspondante avec les touches *[**UP]* / *[**DOWN]* et appuyer sur *[**MENU LONG]* pour créer une ligne de formatage et ouvrir son écran de paramétrage.
-Si une ligne de formatage est déjà affectée au manche, se placer dessus avec *[**UP]* / *[**DOWN]*, la sélectionner avec *[**MENU]* et appuyer sur *[**RIGHT LONG]* ou *[**LEFT LONG]* pour créer la nouvelle ligne respectivement au-dessus ou au-dessous.
+==== Pour crÃ©er une ligne : ====
+S'il aucune ligne de formatage n'est appliquÃ©e au manche, se positionner sur la ligne vide correspondante avec les touches *[**UP]* / *[**DOWN]* et appuyer sur *[**MENU LONG]* pour crÃ©er une ligne de formatage et ouvrir son Ã©cran de paramÃ©trage.
+Si une ligne de formatage est dÃ©jÃ  affectÃ©e au manche, se placer dessus avec *[**UP]* / *[**DOWN]*, la sÃ©lectionner avec *[**MENU]* et appuyer sur *[**RIGHT LONG]* ou *[**LEFT LONG]* pour crÃ©er la nouvelle ligne respectivement au-dessus ou au-dessous.
 
 ==== Pour supprimer une ligne : ====
-Se placer sur la ligne à supprimer avec *[**UP]* / *[**DOWN]*, la sélectionner avec *[**MENU]* et appuyer sur *[**EXIT LONG]*.
+Se placer sur la ligne Ã  supprimer avec *[**UP]* / *[**DOWN]*, la sÃ©lectionner avec *[**MENU]* et appuyer sur *[**EXIT LONG]*.
 
 ==== Pour dupliquer une ligne : ====
 
- * Se placer sur la ligne à copier avec *[**UP]* / *[**DOWN]*, la sélectionner avec *[**MENU]* (elle passe en surbrillance).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/18_1.png
+ * Se placer sur la ligne Ã  copier avec *[**UP]* / *[**DOWN]*, la sÃ©lectionner avec *[**MENU]* (elle passe en surbrillance).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/18_1.png
  * Se positionner sur la ligne de destination avec *[**UP]* / *[**DOWN]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/18_2.png
 Appuyer sur *[**MENU]* pour effectuer la duplication.
 
-==== Pour déplacer une ligne : ====
+==== Pour dÃ©placer une ligne : ====
 
- * Se placer sur la ligne à déplacer avec *[**UP]* / *[**DOWN]*, la sélectionner en appuyant deux fois sur *[**MENU]* (elle passe en surbrillance entourée en pointillé).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/19_1.png
+ * Se placer sur la ligne Ã  dÃ©placer avec *[**UP]* / *[**DOWN]*, la sÃ©lectionner en appuyant deux fois sur *[**MENU]* (elle passe en surbrillance entourÃ©e en pointillÃ©).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/19_1.png
  * Se positionner sur la ligne de destination avec *[**UP]* / *[**DOWN]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/19_2.png
- * Appuyer sur *[**MENU]* pour effectuer le déplacement.
-Il est possible d'interrompre à tout moment une opération de duplication ou déplacement en appuyant sur la touche *[**EXIT]*.
+ * Appuyer sur *[**MENU]* pour effectuer le dÃ©placement.
+Il est possible d'interrompre Ã  tout moment une opÃ©ration de duplication ou dÃ©placement en appuyant sur la touche *[**EXIT]*.
 
-==== Pour éditer les valeurs d'une ligne : ====
+==== Pour Ã©diter les valeurs d'une ligne : ====
 
-Se placer sur la ligne à éditer avec *[**UP]* / *[**DOWN]* et appuyer sur *[**MENU LONG]* pour ouvrir l'écran de paramétrage.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/17_2.png
+Se placer sur la ligne Ã  Ã©diter avec *[**UP]* / *[**DOWN]* et appuyer sur *[**MENU LONG]* pour ouvrir l'Ã©cran de paramÃ©trage.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/17_2.png
 
-Cet écran est composé de deux parties : à gauche les paramètres et à droite la courbe de sortie avec le curseur graphique (et ses coordonnées) associé à la position du manche. Le graphique affiche toujours l'ordre de sortie final du manche, y compris si la ligne en cours d'édition est inactive.
+Cet Ã©cran est composÃ© de deux parties : Ã  gauche les paramÃ¨tres et Ã  droite la courbe de sortie avec le curseur graphique (et ses coordonnÃ©es) associÃ© Ã  la position du manche. Le graphique affiche toujours l'ordre de sortie final du manche, y compris si la ligne en cours d'Ã©dition est inactive.
 
-Les paramètres sont les suivants :
- # Ratio : gain appliqué à l'ordre (0 à +100%).
- # Expo: taux d'exponentiel (-100% à +100%).
+Les paramÃ¨tres sont les suivants :
+ # Ratio : gain appliquÃ© Ã  l'ordre (0 Ã  +100%).
+ # Expo: taux d'exponentiel (-100% Ã  +100%).
  # Courbe : remplace l'exponentiel par une courbe
-   * soit prédéfinie : x>0, x<0, |x|, f>0, f<0, |f| (voir [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Edition_d%27un_mixage Edition d'un mixage] pour la signification des différents choix).
-   * soit personnalisée : CB1..CB8 (3 à 17 points, détails ci-après), à éditer avec *[**MENU]*.
+   * soit prÃ©dÃ©finie : x>0, x<0, |x|, f>0, f<0, |f| (voir [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Edition_d%27un_mixage Edition d'un mixage] pour la signification des diffÃ©rents choix).
+   * soit personnalisÃ©e : CB1..CB8 (3 Ã  17 points, dÃ©tails ci-aprÃ¨s), Ã  Ã©diter avec *[**MENU]*.
  # Phase : phase(s) pour laquelle la ligne est active (actif = en surbrillance).
- # Interrupteur : activation spécifique de la ligne (en complément de la phase).
- # Côté : plage sur laquelle la ligne est active (partout, lorsque l'entrée est négative ou lorsqu'elle est positive), indiqué par une flèche sur la ligne de formatage correspondante. Cela permet, via deux lignes de formatage, de différencier par côté la réponse du manche.
+ # Interrupteur : activation spÃ©cifique de la ligne (en complÃ©ment de la phase).
+ # CÃ´tÃ© : plage sur laquelle la ligne est active (partout, lorsque l'entrÃ©e est nÃ©gative ou lorsqu'elle est positive), indiquÃ© par une flÃ¨che sur la ligne de formatage correspondante. Cela permet, via deux lignes de formatage, de diffÃ©rencier par cÃ´tÃ© la rÃ©ponse du manche.
 
 === Mixeur (6/12) ===
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/20_1.png
 
-Le rôle du mixeur est de relier des entrées (appelées aussi sources : manches, potentiomètres, interrupteurs physique ou virtuel, trims digitaux, valeur statique) aux sorties (= voies = servos), avec la possibilité de croiser / modifier les ordres donnés par ces entrées.
+Le rÃ´le du mixeur est de relier des entrÃ©es (appelÃ©es aussi sources : manches, potentiomÃ¨tres, interrupteurs physique ou virtuel, trims digitaux, valeur statique) aux sorties (= voies = servos), avec la possibilitÃ© de croiser / modifier les ordres donnÃ©s par ces entrÃ©es.
 
 Pour bien situer le fonctionnement d'open9x :
- * La majorité des radiocommandes commerciales, excepté Multiplex dont la logique est similaire à celle d'open9x, proposent un panel de mixages pré-définis et à la structure figée (delta, etc.). Ces mixages sont activés au besoin et épaulés par quelques mixages libres, généralement basiques et souvent peu pratiques à cause de l'ambigüité souvent présente entre voies et fonctions (ailerons par ex.). Le tout part généralement des organes de commande avec une réaffectation éventuelles des voies.
- * A contrario, open9x autorise un routage totalement libre, partant de la finalité (les gouvernes, via les voies) et offrant la possibilité de chaîner ou d'intriquer les mixages pour créer des fonctions complexes. Par exemple, la sortie d'un mixage peut ne pas être affectée physiquement à un servo mais servir comme entrée à un ou plusieurs autres mixages (par ex. pour gérer la courbure d'une aile). Ou bien, un mixage peut influencer son voisin en le multipliant ou le remplaçant suivant le contexte. De plus, open9x permet la différenciation des mixages par phase de vol, ce que très peu de radiocommandes commerciales, même très haut de gamme, offrent.
+ * La majoritÃ© des radiocommandes commerciales, exceptÃ© Multiplex dont la logique est similaire Ã  celle d'open9x, proposent un panel de mixages prÃ©-dÃ©finis et Ã  la structure figÃ©e (delta, etc.). Ces mixages sont activÃ©s au besoin et Ã©paulÃ©s par quelques mixages libres, gÃ©nÃ©ralement basiques et souvent peu pratiques Ã  cause de l'ambigÃ¼itÃ© souvent prÃ©sente entre voies et fonctions (ailerons par ex.). Le tout part gÃ©nÃ©ralement des organes de commande avec une rÃ©affectation Ã©ventuelles des voies.
+ * A contrario, open9x autorise un routage totalement libre, partant de la finalitÃ© (les gouvernes, via les voies) et offrant la possibilitÃ© de chaÃ®ner ou d'intriquer les mixages pour crÃ©er des fonctions complexes. Par exemple, la sortie d'un mixage peut ne pas Ãªtre affectÃ©e physiquement Ã  un servo mais servir comme entrÃ©e Ã  un ou plusieurs autres mixages (par ex. pour gÃ©rer la courbure d'une aile). Ou bien, un mixage peut influencer son voisin en le multipliant ou le remplaÃ§ant suivant le contexte. De plus, open9x permet la diffÃ©renciation des mixages par phase de vol, ce que trÃ¨s peu de radiocommandes commerciales, mÃªme trÃ¨s haut de gamme, offrent.
 
-Le bénéfice de cette approche est triple :
- * La structure de mixage est univoque, un seul coup d'oeil dans le menu Mixeur permet de déterminer exhaustivement la provenance des ordres reçus par chaque servo.
- * La puissance de programmation est, objectivement, sans équivalence...
- * La souplesse, l'efficacité et la rapidité de programmation (aussi complexe soit-elle) sont elles aussi sans équivalence.
+Le bÃ©nÃ©fice de cette approche est triple :
+ * La structure de mixage est univoque, un seul coup d'oeil dans le menu Mixeur permet de dÃ©terminer exhaustivement la provenance des ordres reÃ§us par chaque servo.
+ * La puissance de programmation est, objectivement, sans Ã©quivalence...
+ * La souplesse, l'efficacitÃ© et la rapiditÃ© de programmation (aussi complexe soit-elle) sont elles aussi sans Ã©quivalence.
 
-Il y a une contrepartie à cette latitude quasi totale de programmation. En effet, la construction et la structuration des mixages nécessitent un minimum de réflexion de la part de l'utilisateur, qui doit a minima se poser les questions suivantes :
- * Quels sont les servos à actionner et quelles voies leur attribuer ?
+Il y a une contrepartie Ã  cette latitude quasi totale de programmation. En effet, la construction et la structuration des mixages nÃ©cessitent un minimum de rÃ©flexion de la part de l'utilisateur, qui doit a minima se poser les questions suivantes :
+ * Quels sont les servos Ã  actionner et quelles voies leur attribuer ?
  * Quels sont les ordres que doit recevoir chaque voie ?
  * Avec ou sans phase de vol ?
- * Comment minimiser le nombre de valeurs à programmer / régler et éviter les redondances (par ex., une courbe ou une variable globale peut définir un taux de différentiel global sur toute la voilure d'un planeur quadroflap, ou une voie virtuelle peut définir une fonction, par ex. une courbure de voilure, en groupant plusieurs entrées) ?
+ * Comment minimiser le nombre de valeurs Ã  programmer / rÃ©gler et Ã©viter les redondances (par ex., une courbe ou une variable globale peut dÃ©finir un taux de diffÃ©rentiel global sur toute la voilure d'un planeur quadroflap, ou une voie virtuelle peut dÃ©finir une fonction, par ex. une courbure de voilure, en groupant plusieurs entrÃ©es) ?
 
-==== Écran principal ====
+==== Ã‰cran principal ====
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/20_1.png
 
-Chaque ligne du mixeur correspond à un mixage. Les fonctions d'édition, de suppression, de copie et déplacement des lignes sont exactement les mêmes que pour le formatage des manches (DR/expo), permettant de créer à la carte sa propre structure de mixages.
-La aussi, les lignes actives sont indiquées en gras.
+Chaque ligne du mixeur correspond Ã  un mixage. Les fonctions d'Ã©dition, de suppression, de copie et dÃ©placement des lignes sont exactement les mÃªmes que pour le formatage des manches (DR/expo), permettant de crÃ©er Ã  la carte sa propre structure de mixages.
+La aussi, les lignes actives sont indiquÃ©es en gras.
 
-CHx correspond à la voie x du récepteur. Sur cet exemple basique (défini par défaut à la création d'un modèle et entièrement modifiable), le manche de gaz est affecté sur voie 1, avec un taux de mixage de 100% (gain de 1 pour 1), de même pour les manches de profondeur, ailerons et dérive sur respectivement les voies 2, 3 et 4.
+CHx correspond Ã  la voie x du rÃ©cepteur. Sur cet exemple basique (dÃ©fini par dÃ©faut Ã  la crÃ©ation d'un modÃ¨le et entiÃ¨rement modifiable), le manche de gaz est affectÃ© sur voie 1, avec un taux de mixage de 100% (gain de 1 pour 1), de mÃªme pour les manches de profondeur, ailerons et dÃ©rive sur respectivement les voies 2, 3 et 4.
 
-Les gains sont directement modifiables avec *[**LEFT]* / *[**RIGHT]* après y avoir accédé avec *[**UP]* / *[**DOWN]*. Sauf besoin spécifique, il est fortement conseillé (pour s'y retrouver...)  de laisser les gains à +/-100%, en considérant qu'ils s'agit plutôt d'une activation et en s'appuyant sur les formatages de manches pour ajuster les débattements par fonction.
+Les gains sont directement modifiables avec *[**LEFT]* / *[**RIGHT]* aprÃ¨s y avoir accÃ©dÃ© avec *[**UP]* / *[**DOWN]*. Sauf besoin spÃ©cifique, il est fortement conseillÃ© (pour s'y retrouver...)  de laisser les gains Ã  +/-100%, en considÃ©rant qu'ils s'agit plutÃ´t d'une activation et en s'appuyant sur les formatages de manches pour ajuster les dÃ©battements par fonction.
 
-Pour aller plus loin, voici un exemple de programmation un peu plus complexe, en l'occurence un motoplaneur avec un servo par aileron et une fonction snap-flap (entrée profondeur ajoutée sur les deux servos d'ailerons) :
+Pour aller plus loin, voici un exemple de programmation un peu plus complexe, en l'occurence un motoplaneur avec un servo par aileron et une fonction snap-flap (entrÃ©e profondeur ajoutÃ©e sur les deux servos d'ailerons) :
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/22_1.png
 
-A l'image des formatages de manches, plusieurs lignes (jusqu'à 32) peuvent être actives simultanément.
+A l'image des formatages de manches, plusieurs lignes (jusqu'Ã  32) peuvent Ãªtre actives simultanÃ©ment.
 
-De même, plusieurs lignes peuvent être affectées à une voie, avec un mode d'application spécifique (sur la voie concernée) :
- * « += » : la ligne est ajoutée au résultat des lignes précédentes (mode par défaut).
- * « *`*`*= » : la ligne multiplie le résultat de toutes les lignes précédentes.
- * « := » : la ligne remplace toutes les lignes précédentes.
+De mÃªme, plusieurs lignes peuvent Ãªtre affectÃ©es Ã  une voie, avec un mode d'application spÃ©cifique (sur la voie concernÃ©e) :
+ * Â«Â +=Â Â» : la ligne est ajoutÃ©e au rÃ©sultat des lignes prÃ©cÃ©dentes (mode par dÃ©faut).
+ * Â«Â *`*`*=Â Â» : la ligne multiplie le rÃ©sultat de toutes les lignes prÃ©cÃ©dentes.
+ * Â«Â :=Â Â» : la ligne remplace toutes les lignes prÃ©cÃ©dentes.
 
-Les valeurs « 20 » affichées à droite correspondent au différentiel d'ailerons (cf. ci-après).
+Les valeurs Â«Â 20Â Â» affichÃ©es Ã  droite correspondent au diffÃ©rentiel d'ailerons (cf. ci-aprÃ¨s).
 
 *NOTA*
 
-En l'absence d'ordre (pas de mixage ou mixage inactif) sur une voie, sa valeur de sortie est de 0% (position médiane) et non -100% (butée basse).
+En l'absence d'ordre (pas de mixage ou mixage inactif) sur une voie, sa valeur de sortie est de 0% (position mÃ©diane) et non -100% (butÃ©e basse).
 
 ==== Edition d'un mixage ====
 
@@ -606,277 +606,277 @@ En l'absence d'ordre (pas de mixage ou mixage inactif) sur une voie, sa valeur d
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/21_1.png
 
 Les options disponibles sont les suivantes :
- # Source : ordre utilisé en entrée par le mixage
-   * Tout organe physique : manches, potentiomètres, interrupteurs, trims digitaux.
+ # Source : ordre utilisÃ© en entrÃ©e par le mixage
+   * Tout organe physique : manches, potentiomÃ¨tres, interrupteurs, trims digitaux.
    * Interrupteurs virtuels : SW1...SWC.
-   * MAX :  entrée statique, la valeur de sortie du mixage est « Ratio » quand le mixage est actif, sinon 0 (transparent).
-   * 3POS : renvoie « -Ratio », 0, « +Ratio » suivant la position de l'interrupteur à 3 positions.
-   * CYC1, CYC2, CYC3: sorties du mixage hélicoptère (menu Héli 3/10). CYC1 correspond à la sortie principale de tangage pour les plateaux classique et à la sortie principale de roulis en plateau 120X.
-   * PPM1..PPM8 : entrées PPM de la prise écolage. Permet par exemple d'ajouter des fonctions de rotation de caméra en FPV.
-   * CH1..CH16 : sorties des autres mixages, utilisable pour réaliser des fonctions complexes par chaînage.
- # Ratio : gain du mixage qui multiplie la valeur de sortie (de -125% à 125%, défaut = +/-100%).
- # Décalage : décale la valeur d'entrée (de -125 à 125%, défaut = 0).
- # Trim : si « ON » la valeur du trim associé au manche en entrée de mixage est prise en compte dans le mixage, si « OFF » le trim est ignoré. Il est aussi possible d'utiliser un trim (Dérive / Profondeur / Gaz / Ailerons) différent de celui par défaut.
- # DRex : prise en compte du formatage de manche, sinon c'est l'ordre brut issu du manche qui est utilisé.
+   * MAX :  entrÃ©e statique, la valeur de sortie du mixage est Â«Â RatioÂ Â» quand le mixage est actif, sinon 0 (transparent).
+   * 3POS : renvoie Â«Â -RatioÂ Â», 0, Â«Â +RatioÂ Â» suivant la position de l'interrupteur Ã  3 positions.
+   * CYC1, CYC2, CYC3: sorties du mixage hÃ©licoptÃ¨re (menu HÃ©li 3/10). CYC1 correspond Ã  la sortie principale de tangage pour les plateaux classique et Ã  la sortie principale de roulis en plateau 120X.
+   * PPM1..PPM8 : entrÃ©es PPM de la prise Ã©colage. Permet par exemple d'ajouter des fonctions de rotation de camÃ©ra en FPV.
+   * CH1..CH16 : sorties des autres mixages, utilisable pour rÃ©aliser des fonctions complexes par chaÃ®nage.
+ # Ratio : gain du mixage qui multiplie la valeur de sortie (de -125% Ã  125%, dÃ©faut = +/-100%).
+ # DÃ©calage : dÃ©cale la valeur d'entrÃ©e (de -125 Ã  125%, dÃ©faut = 0).
+ # Trim : si Â«Â ONÂ Â» la valeur du trim associÃ© au manche en entrÃ©e de mixage est prise en compte dans le mixage, si Â«Â OFFÂ Â» le trim est ignorÃ©. Il est aussi possible d'utiliser un trim (DÃ©rive / Profondeur / Gaz / Ailerons) diffÃ©rent de celui par dÃ©faut.
+ # DRex : prise en compte du formatage de manche, sinon c'est l'ordre brut issu du manche qui est utilisÃ©.
  # Courbe : 
-   * Diff : différentiel (0 par défaut).
+   * Diff : diffÃ©rentiel (0 par dÃ©faut).
    * x>0 : la valeur de la source ne sera prise en compte que si positive (sinon 0),
-   * x<0 : idem mais pour des valeurs négatives.
+   * x<0 : idem mais pour des valeurs nÃ©gatives.
    * |x| : la valeur prise en compte sera la valeur absolue.
-   * f>0 : si la source est positive la valeur sera « + Ratio » sinon 0.
-   * f<0 : si la source est négative la valeur sera « - Ratio » sinon 0.
-   * |f| : la sortie sera « + Ratio » ou « -Ratio » suivant le signe de la source.
-   * CB1...CB8 : courbes personnalisables, définies dans le menu « COURBES 8/12 ». Depuis le mixage, presser *[**MENU]* permet d'éditer directement la courbe. Chaque courbe peut être utilisée par plusieurs mixages, soit telle quelle, soit en inverse (« ! »), ce qui est particulièrement utile pour, par exemple, définir un différentiel global d'ailerons et volets.
- # Inter : permet d'affecter un interrupteur d'activation du mixage. Le mixage est actif en permanence si aucun interrupteur n'est sélectionné.
- # Phase : phases de vol pour lesquelles le mixage est actif. Par défaut, toutes les phases sont sélectionnées.
- # Alerte: actionne une alarme sonore (1, 2 ou 3 bips répétés en continu) lorsque le mixage est actif (uniquement valable si un interrupteur est sélectionné).
- # Opération : définie le mode d'application du mixage sur la voie concernée.
-   * Ajoute : la ligne est ajoutée au résultat des lignes précédentes (mode par défaut).
-   * Multiplie : la ligne multiplie le résultat des lignes précédentes.
-   * Remplace : la ligne remplace toutes les lignes précédentes, à utiliser avec un interrupteur ou une phase de vol.
- # Retard haut / bas : retarde l'activation / désactivation du mixage (en secondes, par défaut instantané).
- # Ralenti haut / bas : ralentit le changement de valeur du mixage (en secondes, par défaut instantané). Une valeur de 2 secondes signifie que la sortie du mixage mettra 2 secondes à passer de -100% à +100%.
+   * f>0 : si la source est positive la valeur sera Â«Â + RatioÂ Â» sinon 0.
+   * f<0 : si la source est nÃ©gative la valeur sera Â«Â - RatioÂ Â» sinon 0.
+   * |f| : la sortie sera Â«Â + RatioÂ Â» ou Â«Â -RatioÂ Â» suivant le signe de la source.
+   * CB1...CB8 : courbes personnalisables, dÃ©finies dans le menu Â«Â COURBES 8/12Â Â». Depuis le mixage, presser *[**MENU]* permet d'Ã©diter directement la courbe. Chaque courbe peut Ãªtre utilisÃ©e par plusieurs mixages, soit telle quelle, soit en inverse (Â«Â !Â Â»), ce qui est particuliÃ¨rement utile pour, par exemple, dÃ©finir un diffÃ©rentiel global d'ailerons et volets.
+ # Inter : permet d'affecter un interrupteur d'activation du mixage. Le mixage est actif en permanence si aucun interrupteur n'est sÃ©lectionnÃ©.
+ # Phase : phases de vol pour lesquelles le mixage est actif. Par dÃ©faut, toutes les phases sont sÃ©lectionnÃ©es.
+ # Alerte: actionne une alarme sonore (1, 2 ou 3 bips rÃ©pÃ©tÃ©s en continu) lorsque le mixage est actif (uniquement valable si un interrupteur est sÃ©lectionnÃ©).
+ # OpÃ©ration : dÃ©finie le mode d'application du mixage sur la voie concernÃ©e.
+   * Ajoute : la ligne est ajoutÃ©e au rÃ©sultat des lignes prÃ©cÃ©dentes (mode par dÃ©faut).
+   * Multiplie : la ligne multiplie le rÃ©sultat des lignes prÃ©cÃ©dentes.
+   * Remplace : la ligne remplace toutes les lignes prÃ©cÃ©dentes, Ã  utiliser avec un interrupteur ou une phase de vol.
+ # Retard haut / bas : retarde l'activation / dÃ©sactivation du mixage (en secondes, par dÃ©faut instantanÃ©).
+ # Ralenti haut / basÂ : ralentit le changement de valeur du mixage (en secondes, par dÃ©faut instantanÃ©). Une valeur de 2 secondes signifie que la sortie du mixage mettra 2 secondes Ã  passer de -100% Ã  +100%.
 
 === Formatage des sorties (Limites) (7/12) ===
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/23_1.png  
 
-Cet écran permet de définir, pour chaque voie (CH1...CH16), les paramètres suivants (de gauche à droite dans l'écran) :
- # Offset (ou subtrim) : décale le centre de la voie.<br>Les manches peuvent être utilisés pour le régler : mettre la valeur en surbrillance, déplacer le manche de manière à mettre le servo à la position voulue, puis presser *[**MENU LONG]*.
- # Min/Max : butées mini / maxi (-100 / +100% à -125 / +125% si limites étendues) au-delà duquel l'ordre est écrété (d'où l'intérêt d'utiliser des dual-rate inférieur à 100% pour laisser de la marge au trims de manches et aux autres mixages pouvant s'appliquer sur la voies). Les limites servent aussi de gains de sortie, soit relatifs soit absolus (cf. ci-après).
- # -> / <- : sens de rotation du servo (si option *PPMCA*, sinon représenté comme "---" ou "INV").
- # 1500 (si option *PPMCA*) : neutre de servo (en µs). Décale la course entière du servo pour corriger par exemple un mauvais centrage de palonnier. Contrairement au subtrim l'amplitude de la course n'est pas modifiée, et le décalage n'apparaît pas sur l'écran de position des servos.
- # ^ / =  (si option *SYMLIMITS*) : détermine l'effet du subtrim.
-   * ^ (par défaut) : décale uniquement le centre de la courbe de réponse du servo, sans déplacer les limites (gains relatifs, en rouge sur le graphique ci-dessous).
-   * = : Décale toute la courbe (gains absolus, en bleu ci-dessous). <br>L'utilisation de « = » est indispensable dès que la voie reçoit plus d'un mixage pour conserver la linéarité de réponse de toutes les fonctions qui pilotent cette voie. Dans ce cas, l'utilisation d'un dual-rate inférieur à 100% est encore plus conseillée pour éviter un écrêtage en fin de course.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/open9x_décalages_subtrim.png
+Cet Ã©cran permet de dÃ©finir, pour chaque voie (CH1...CH16), les paramÃ¨tres suivants (de gauche Ã  droite dans l'Ã©cran) :
+ # Offset (ou subtrim) : dÃ©cale le centre de la voie.<br>Les manches peuvent Ãªtre utilisÃ©s pour le rÃ©gler : mettre la valeur en surbrillance, dÃ©placer le manche de maniÃ¨re Ã  mettre le servo Ã  la position voulue, puis presser *[**MENU LONG]*.
+ # Min/Max : butÃ©es mini / maxi (-100 / +100% Ã  -125 / +125% si limites Ã©tendues) au-delÃ  duquel l'ordre est Ã©crÃ©tÃ© (d'oÃ¹ l'intÃ©rÃªt d'utiliser des dual-rate infÃ©rieur Ã  100% pour laisser de la marge au trims de manches et aux autres mixages pouvant s'appliquer sur la voies). Les limites servent aussi de gains de sortie, soit relatifs soit absolus (cf. ci-aprÃ¨s).
+ # -> / <- : sens de rotation du servo (si option *PPMCA*, sinon reprÃ©sentÃ© comme "---" ou "INV").
+ # 1500 (si option *PPMCA*) : neutre de servo (en Âµs). DÃ©cale la course entiÃ¨re du servo pour corriger par exemple un mauvais centrage de palonnier. Contrairement au subtrim l'amplitude de la course n'est pas modifiÃ©e, et le dÃ©calage n'apparaÃ®t pas sur l'Ã©cran de position des servos.
+ # ^ / =  (si option *SYMLIMITS*) : dÃ©termine l'effet du subtrim.
+   * ^ (par dÃ©faut) : dÃ©cale uniquement le centre de la courbe de rÃ©ponse du servo, sans dÃ©placer les limites (gains relatifs, en rouge sur le graphique ci-dessous).
+   * = : DÃ©cale toute la courbe (gains absolus, en bleu ci-dessous). <br>L'utilisation de Â«Â =Â Â» est indispensable dÃ¨s que la voie reÃ§oit plus d'un mixage pour conserver la linÃ©aritÃ© de rÃ©ponse de toutes les fonctions qui pilotent cette voie. Dans ce cas, l'utilisation d'un dual-rate infÃ©rieur Ã  100% est encore plus conseillÃ©e pour Ã©viter un Ã©crÃªtage en fin de course.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/open9x_dÃ©calages_subtrim.png
 
-La fonction « Trims => Offsets » transfère la position des trims de manches vers les offsets (avec prise en compte du mixeur et du formatage de manches), puis remet les trims à zéro.
+La fonction Â«Â Trims => OffsetsÂ Â» transfÃ¨re la position des trims de manches vers les offsets (avec prise en compte du mixeur et du formatage de manches), puis remet les trims Ã  zÃ©ro.
 
-Lors de la sélection d'une voie, sa valeur de sortie (en µs si option *PPMCA*, sinon en %) est affichée en haut de l'écran :
+Lors de la sÃ©lection d'une voie, sa valeur de sortie (en Âµs si option *PPMCA*, sinon en %) est affichÃ©e en haut de l'Ã©cran :
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/23_3.png
 
 *NOTA*
 
-Hormis le neutre et le sens de rotation, la fonction principale des limites est de régler le gain de chaque demi-course de servo pour symétriser lesdites demi-courses (= avoir un débattement identique de part et d'autre du neutre pour une consigne donnée). Cela vaut aussi entre des servos ayant la même fonction (ex. servos d'ailerons). Bien évidemment, il convient de s'assurer sur le modèle que les servos puissent débattre intégralement sans aller en butée mécanique.
+Hormis le neutre et le sens de rotation, la fonction principale des limites est de rÃ©gler le gain de chaque demi-course de servo pour symÃ©triser lesdites demi-courses (= avoir un dÃ©battement identique de part et d'autre du neutre pour une consigne donnÃ©e). Cela vaut aussi entre des servos ayant la mÃªme fonction (ex. servos d'ailerons). Bien Ã©videmment, il convient de s'assurer sur le modÃ¨le que les servos puissent dÃ©battre intÃ©gralement sans aller en butÃ©e mÃ©canique.
 
 === Courbes et variables globales (8/12) ===
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/24_1.png
 
-Les courbes (de 3 à 17 points) sont utilisées par les formatages de manches ou les mixages pour définir des réactions personnalisées.
+Les courbes (de 3 Ã  17 points) sont utilisÃ©es par les formatages de manches ou les mixages pour dÃ©finir des rÃ©actions personnalisÃ©es.
 
-Les variables globales se substituent à la valeur numérique d'un taux de mixage, de dual-rate ou d'expo. Ces variables peuvent être, au besoin, liées à une fonction associées à un interrupteur (cf. « Fonctions associées à des interrupteurs » 10/12) pour permettre leur modification en vol par un organe de commande (trim électronique ou potentiomètre). De plus, chaque variable peut avoir une valeur différente par phase de vol, ce qui peut substantiellement diminuer le nombre de mixages pour les différenciation de taux (différentiel, courbure de profil, etc.) par phase.
+Les variables globales se substituent Ã  la valeur numÃ©rique d'un taux de mixage, de dual-rate ou d'expo. Ces variables peuvent Ãªtre, au besoin, liÃ©es Ã  une fonction associÃ©es Ã  un interrupteur (cf. Â«Â Fonctions associÃ©es Ã  des interrupteursÂ Â» 10/12) pour permettre leur modification en vol par un organe de commande (trim Ã©lectronique ou potentiomÃ¨tre). De plus, chaque variable peut avoir une valeur diffÃ©rente par phase de vol, ce qui peut substantiellement diminuer le nombre de mixages pour les diffÃ©renciation de taux (diffÃ©rentiel, courbure de profil, etc.) par phase.
 
-Chaque courbe ou variable globale est utilisable par autant de fonctions que nécessaire.
+Chaque courbe ou variable globale est utilisable par autant de fonctions que nÃ©cessaire.
 
-==== Pour éditer une courbe : ====
+==== Pour Ã©diter une courbe : ====
 
- # Se placer sur la ligne souhaitée avec *[**UP]* / *[**DOWN]*, la courbe correspondante apparaît.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/25_1.png
- # Appuyer une fois sur *[**MENU]* pour l'éditer.
- # Appuyer sur *[**EXIT]* pour éditer le nombre de points et le type de la courbe (le signe « ' »indique que l'abscisse de chaque point est modifiable, en plus de l'ordonnée).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/25_2.png
- # Appuyer sur *[**MENU]* pour passer en édition des coordonnées du point (Y uniquement ou X et Y avec « ' »).
- # Déplacer le curseur d'un point à l'autre avec *[**LEFT]* / *[**RIGHT]*, et modifier l'ordonnée du point avec *[**UP]* / *[**DOWN]*. Si « ' », appuyer sur *[**MENU]* pour éditer le point et modifier ses coordonnées avec *[**LEFT]* / *[**RIGHT]* et *[**UP]* / *[**DOWN]*. *[**EXIT]* permet de sortir de l'édition pour passer au point suivant.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/25_3.png
+ # Se placer sur la ligne souhaitÃ©e avec *[**UP]* / *[**DOWN]*, la courbe correspondante apparaÃ®t.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/25_1.png
+ # Appuyer une fois sur *[**MENU]* pour l'Ã©diter.
+ # Appuyer sur *[**EXIT]* pour Ã©diter le nombre de points et le type de la courbe (le signe Â«Â 'Â Â»indique que l'abscisse de chaque point est modifiable, en plus de l'ordonnÃ©e).<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/25_2.png
+ # Appuyer sur *[**MENU]* pour passer en Ã©dition des coordonnÃ©es du point (Y uniquement ou X et Y avec Â«Â 'Â Â»).
+ # DÃ©placer le curseur d'un point Ã  l'autre avec *[**LEFT]* / *[**RIGHT]*, et modifier l'ordonnÃ©e du point avec *[**UP]* / *[**DOWN]*. Si Â«Â 'Â Â», appuyer sur *[**MENU]* pour Ã©diter le point et modifier ses coordonnÃ©es avec *[**LEFT]* / *[**RIGHT]* et *[**UP]* / *[**DOWN]*. *[**EXIT]* permet de sortir de l'Ã©dition pour passer au point suivant.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/25_3.png
 
 ==== Pour modifier une variable globale (GV) : ====
 
- * Se placer sur la ligne souhaitée avec *[**UP]* / *[**DOWN]*.
+ * Se placer sur la ligne souhaitÃ©e avec *[**UP]* / *[**DOWN]*.
  * Modifier sa valeur avec *[**LEFT]* / *[**RIGHT]*.
 
-==== Pour utiliser une variable globale à à la place d'un taux: ====
+==== Pour utiliser une variable globale Ã  Ã  la place d'un taux: ====
 
- * Se placer sur le taux (ici un différentiel d'ailerons) à lier à une variable globale.
+ * Se placer sur le taux (ici un diffÃ©rentiel d'ailerons) Ã  lier Ã  une variable globale.
  * Appuyer une fois sur *[**MENU LONG]* pour basculer en liste de variables globales.
- * Sélectionner la variable globales souhaitées avec *[**LEFT]* / *[**RIGHT]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/21_3.png
- * Pour désactiver l'association du taux avec une variable globale, appuyer une fois sur *[**MENU LONG]*. La valeur réglée est bien entendu conservée.
+ * SÃ©lectionner la variable globales souhaitÃ©es avec *[**LEFT]* / *[**RIGHT]*.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/21_3.png
+ * Pour dÃ©sactiver l'association du taux avec une variable globale, appuyer une fois sur *[**MENU LONG]*. La valeur rÃ©glÃ©e est bien entendu conservÃ©e.
 
 === Interrupteurs personnalisables (9/12) ===
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/26_1.png
 
-Les interrupteurs personnalisables, au nombre de 12 (IP1...IPC) sont des interrupteurs virtuels utilisant des conditions logiques pour leur activation. Comme pour les mixages, il est possible de réaliser des chaînages entre interrupteurs virtuels.
+Les interrupteurs personnalisables, au nombre de 12 (IP1...IPC) sont des interrupteurs virtuels utilisant des conditions logiques pour leur activation. Comme pour les mixages, il est possible de rÃ©aliser des chaÃ®nages entre interrupteurs virtuels.
 
-Pour chaque interrupteur, les paramètres sont les suivants (de gauche à droite) :
+Pour chaque interrupteur, les paramÃ¨tres sont les suivants (de gauche Ã  droite) :
  # Condition logique :
    * test : v>offset, v<offset, |v|>offset, |v|<offset d>=offset et |d|>=offset.
-   * opérateurs logiques : ET (les deux opérandes doivent être à ON pour activer SW), OU (au moins un des deux opérandes doit à être à ON pour activer SW), OU-exclusif (un seul des deux opérandes doit à être à ON pour activer SW).
+   * opÃ©rateurs logiques : ET (les deux opÃ©randes doivent Ãªtre Ã  ON pour activer SW), OU (au moins un des deux opÃ©randes doit Ã  Ãªtre Ã  ON pour activer SW), OU-exclusif (un seul des deux opÃ©randes doit Ã  Ãªtre Ã  ON pour activer SW).
    * comparaison de deux sources (==, !=, >, <, >=, <=).
- # Entrée testée : premier opérande d'une comparaison logique ou première source à comparer.
- # Valeur seuil du test : seconde opérande d'une comparaison logique ou seconde source à comparer.
+ # EntrÃ©e testÃ©e : premier opÃ©rande d'une comparaison logique ou premiÃ¨re source Ã  comparer.
+ # Valeur seuil du test : seconde opÃ©rande d'une comparaison logique ou seconde source Ã  comparer.
 
-=== Fonctions personnalisées (10/12) ===
+=== Fonctions personnalisÃ©es (10/12) ===
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/27_1.png
 
-Cet écran permet de créer des fonctions personnalisées et, au besoin, de les associer à un interrupteur (physique, virtuel, activation permanente):
- # Securité : forçage à une valeur prédéfinie de n'importe quelle voie CH1..CH16.
+Cet Ã©cran permet de crÃ©er des fonctions personnalisÃ©es et, au besoin, de les associer Ã  un interrupteur (physique, virtuel, activation permanente):
+ # SecuritÃ© : forÃ§age Ã  une valeur prÃ©dÃ©finie de n'importe quelle voie CH1..CH16.
  # Ecolage.
  # Ecolage pour une seule voie (DIR / PRF / GAZ / AIL).
- # Trim Instant. : pour trimmer instantanément le modèle à partir de la position des manches.
+ # Trim Instant. : pour trimmer instantanÃ©ment le modÃ¨le Ã  partir de la position des manches.
  # Bip.
  # Vibreur (option *HAPTIC*).
- # Remise à 0 : chrono 1 ou 2, les deux chrono à la fois, données de télémesure.
+ # Remise Ã  0 : chrono 1 ou 2, les deux chrono Ã  la fois, donnÃ©es de tÃ©lÃ©mesure.
  # Vario (option *AUDIO*).
  # Jouer fichier (option *AUDIO* sur carte Sky9x).
  # Dire valeur (option *VOICE*).
- # Rétroéclairage.
- # Modification GV1...5 (option *GVARS*): permet d'associer à une variable globale un organe de réglage (potentiomètre, trim digital, manche, etc.).
+ # RÃ©troÃ©clairage.
+ # Modification GV1...5 (option *GVARS*): permet d'associer Ã  une variable globale un organe de rÃ©glage (potentiomÃ¨tre, trim digital, manche, etc.).
 
-Les interrupteurs associés sont les suivants :
+Les interrupteurs associÃ©s sont les suivants :
  # ON : toujours actif.
  # Interrupteurs physiques.
  # Interrupteurs virtuels.
- # Interrupteurs momentanés.
+ # Interrupteurs momentanÃ©s.
 
-=== Paramétrage de la télémesure (11/12) ===
+=== ParamÃ©trage de la tÃ©lÃ©mesure (11/12) ===
 
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/28_1.png
 
-Cet écran (si l'option *FRSKY* est activée) permet le paramétrage de la télémesure !FrSky, ainsi que la configuration des alarmes associées.
+Cet Ã©cran (si l'option *FRSKY* est activÃ©e) permet le paramÃ©trage de la tÃ©lÃ©mesure !FrSky, ainsi que la configuration des alarmes associÃ©es.
 
-==== Entrées analogiques A1 et A2: ====
-Pour chaque entrée, il est possible de régler les paramètres suivants :
- # Plage : calibre le gain de l'affichage de la tension (à régler avec un voltmètre)
- # Décalage : fixe le zéro de la mesure.
+==== EntrÃ©es analogiques A1 et A2: ====
+Pour chaque entrÃ©e, il est possible de rÃ©gler les paramÃ¨tres suivants :
+ # Plage : calibre le gain de l'affichage de la tension (Ã  rÃ©gler avec un voltmÃ¨tre)
+ # DÃ©calage : fixe le zÃ©ro de la mesure.
  # Deux alarmes, avec:
    * le niveau de l'alarme (---, jaune, orange, rouge)
-   * le sens de l'alarme à partir du seuil (< ou >)
+   * le sens de l'alarme Ã  partir du seuil (< ou >)
    * la valeur du seuil
-Lorsqu'une valeur est modifiée, elle est immédiatement envoyée au module !FrSky.
+Lorsqu'une valeur est modifiÃ©e, elle est immÃ©diatement envoyÃ©e au module !FrSky.
 
-==== Niveaux de réception (RSSI) Tx et Rx : ====
-Même principe, il est possible de définir deux alarmes pour le niveau de réception :
+==== Niveaux de rÃ©ception (RSSI) Tx et Rx : ====
+MÃªme principe, il est possible de dÃ©finir deux alarmes pour le niveau de rÃ©ception :
  * le niveau de l'alarme (---, jaune, orange, rouge)
  * la valeur du seuil
-Lorsqu'une valeur est modifiée, elle est immédiatement envoyée au module !FrSky.
+Lorsqu'une valeur est modifiÃ©e, elle est immÃ©diatement envoyÃ©e au module !FrSky.
 
 ==== Autres mesures : ====
- # Proto : protocole série utilisé par le récepteur de télémesure. Les options sont : None (non utilisé), le Hub !FrSky, ou le module Winged Shadow How High (il donne seulement l'altitude, mais il est plus précis).
- # Pales : nombre de pales de l'hélice pour l'affichage du compte tour.
- # Tension : entrée utilisée pour la mesure de la tension d'une propulsion électrique.
- # Courant : entrée utilisée pour la mesure de l'intensité d'une propulsion électrique.
+ # Proto : protocole sÃ©rie utilisÃ© par le rÃ©cepteur de tÃ©lÃ©mesure. Les options sont : None (non utilisÃ©), le Hub !FrSky, ou le module Winged Shadow How High (il donne seulement l'altitude, mais il est plus prÃ©cis).
+ # Pales : nombre de pales de l'hÃ©lice pour l'affichage du compte tour.
+ # Tension : entrÃ©e utilisÃ©e pour la mesure de la tension d'une propulsion Ã©lectrique.
+ # Courant : entrÃ©e utilisÃ©e pour la mesure de l'intensitÃ© d'une propulsion Ã©lectrique.
 
 ==== Vario : ====
- # Source : type de variomètre utilisé.
- # Limite : définit une alarme d'altitude avec un seuil de déclenchement.
+ # Source : type de variomÃ¨tre utilisÃ©.
+ # Limite : dÃ©finit une alarme d'altitude avec un seuil de dÃ©clenchement.
 
-==== Affichage personnalisé des capteurs sur l'écran de télémesure : ====
+==== Affichage personnalisÃ© des capteurs sur l'Ã©cran de tÃ©lÃ©mesure : ====
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/28_4.png
 
-Il est possible d'afficher jusqu'à 8 capteurs sur l'écran de télémesure, avec les paramètres suivants:
- # Source : mesure à afficher.
+Il est possible d'afficher jusqu'Ã  8 capteurs sur l'Ã©cran de tÃ©lÃ©mesure, avec les paramÃ¨tres suivants:
+ # Source : mesure Ã  afficher.
  # Min : valeur mini possible.
  # Max : valeur maxi possible.
 
-Ces sources sont aussi utilisables pour définir des interrupteurs virtuels. Les jalons affichés sur l'écran de télémesure sont automatiquement issus des infos venant des alarmes FrSky ou des Inters virtuels. Ainsi, si vous positionnez un inter virtuel lorsque l'altitude est de 400m, vous verrez apparaître une marque à 400m.
+Ces sources sont aussi utilisables pour dÃ©finir des interrupteurs virtuels. Les jalons affichÃ©s sur l'Ã©cran de tÃ©lÃ©mesure sont automatiquement issus des infos venant des alarmes FrSky ou des Inters virtuels. Ainsi, si vous positionnez un inter virtuel lorsque l'altitude est de 400m, vous verrez apparaÃ®tre une marque Ã  400m.
 
 === Gabarits (12/12) ===
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/29_1.png
 
-Les gabarits (si option *TEMPLATES*) permettent de mettre en place les mixages de base d'une configuration de modèle donnée. La navigation se fait dans l'écran, comme à l'habitude avec *[**UP]* / *[**DOWN]*, puis *[**MENU LONG]* pour activer le gabarit. Cela ajoutera le gabarit aux mixages existants du modèle courant, ou les remplacera suivant le cas.
+Les gabarits (si option *TEMPLATES*) permettent de mettre en place les mixages de base d'une configuration de modÃ¨le donnÃ©e. La navigation se fait dans l'Ã©cran, comme Ã  l'habitude avec *[**UP]* / *[**DOWN]*, puis *[**MENU LONG]* pour activer le gabarit. Cela ajoutera le gabarit aux mixages existants du modÃ¨le courant, ou les remplacera suivant le cas.
 
 Les gabarits disponibles sont les suivants :
 00 : supprime tous les mixages du Mixeur.
 01 : 4 voies simple.
 02 : fonction de coupure de gaz.
-03 : mixages d'empennage en V (dérive / profondeur).
-04 : mixages d'ailes delta ou incidence intégrale (ailerons / profondeur).
-05 : eCCPM : mixages pour pas collectif sur hélicoptère électrique.
-06 : configuration hélicoptère, à utiliser en amont d'ECCPM pour réinitialiser les mixage et les courbes.
-07 : servo test, sur la voie 15. A mettre en entrée des voies à tester, les servos se déplaçant lentement de -100% à +100%.
+03 : mixages d'empennage en V (dÃ©rive / profondeur).
+04 : mixages d'ailes delta ou incidence intÃ©grale (ailerons / profondeur).
+05 : eCCPM : mixages pour pas collectif sur hÃ©licoptÃ¨re Ã©lectrique.
+06 : configuration hÃ©licoptÃ¨re, Ã  utiliser en amont d'ECCPM pour rÃ©initialiser les mixage et les courbes.
+07 : servo test, sur la voie 15. A mettre en entrÃ©e des voies Ã  tester, les servos se dÃ©plaÃ§ant lentement de -100% Ã  +100%.
 
-[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour à la table des matières]
+[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour Ã  la table des matiÃ¨res]
 
-== Écrans de télémesure ==
+== Ã‰crans de tÃ©lÃ©mesure ==
 
-Ces écrans sont accessibles  (si l'option FRSKY est activée) en appuyant sur la touche *[**DOWN LONG]* depuis l'écran principal. Leur affichage dépend de la configuration réalisée dans le menu Télémesure 11/12.
-Le défilement des écrans est assuré par les touches *[**UP]* et *[**DOWN]* , tandis que la touche *[**MENU]* réinitialise les données de télémesure. Enfin *[**EXIT]* renvoie au menu principal.
+Ces Ã©crans sont accessibles  (si l'option FRSKY est activÃ©e) en appuyant sur la touche *[**DOWN LONG]* depuis l'Ã©cran principal. Leur affichage dÃ©pend de la configuration rÃ©alisÃ©e dans le menu TÃ©lÃ©mesure 11/12.
+Le dÃ©filement des Ã©crans est assurÃ© par les touches *[**UP]* et *[**DOWN]* , tandis que la touche *[**MENU]* rÃ©initialise les donnÃ©es de tÃ©lÃ©mesure. Enfin *[**EXIT]* renvoie au menu principal.
 
 || Les jauges graphiques : || Les tensions d'accu(s) ||
 || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/03_3.png || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/03_4.png ||
-|| Les données de l'altimètre, compte-tours... || Les données GPS : ||
+|| Les donnÃ©es de l'altimÃ¨tre, compte-tours... || Les donnÃ©es GPS : ||
 || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/03_5.png || https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/03_6.png ||
 
-Sont affichées ici la latitude, la longitude et l'altitude du modèle, ainsi que la distance du modèle au pilote. En réinitialisant les données de télémesure, la première position GPS reçue devient alors la position de départ pour les futurs calculs.
+Sont affichÃ©es ici la latitude, la longitude et l'altitude du modÃ¨le, ainsi que la distance du modÃ¨le au pilote. En rÃ©initialisant les donnÃ©es de tÃ©lÃ©mesure, la premiÃ¨re position GPS reÃ§ue devient alors la position de dÃ©part pour les futurs calculs.
 
-[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour à la table des matières]
+[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour Ã  la table des matiÃ¨res]
 
-== Exemples de mixages et bonnes pratiques associées ==
+== Exemples de mixages et bonnes pratiques associÃ©es ==
 
 === Fonction coupe-gaz ===
- # Se positionner sur la ligne du mixage de base utilisant l'entrée « gaz ».
- # Presser *[**MENU]* pour sélectionner la ligne, *[**RIGHT LONG]* pour la dupliquer en-dessous, puis éditer le mixage avec *[**MENU LONG]*.
- # Changer la source par « MAX », le ratio par -100 et sélectionner un interrupteur (ou une phase de vol) pour son activation.
- # Mettre “Remplace” dans le champ « Opération ».
- # Sortir de l'édition avec *[**EXIT]*. Le résultat est le suivant :<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/22_2.png
-CH3 est maintenant pilotée par deux mixages :
+ # Se positionner sur la ligne du mixage de base utilisant l'entrÃ©e Â«Â gazÂ Â».
+ # Presser *[**MENU]* pour sÃ©lectionner la ligne, *[**RIGHT LONG]* pour la dupliquer en-dessous, puis Ã©diter le mixage avec *[**MENU LONG]*.
+ # Changer la source par Â«Â MAXÂ Â», le ratio par -100 et sÃ©lectionner un interrupteur (ou une phase de vol) pour son activation.
+ # Mettre Â“RemplaceÂ” dans le champ Â«Â OpÃ©rationÂ Â».
+ # Sortir de l'Ã©dition avec *[**EXIT]*. Le rÃ©sultat est le suivant :<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/22_2.png
+CH3 est maintenant pilotÃ©e par deux mixages :
  * le premier transmet la valeur du manche des gaz et est actif tout le temps.
- * le second remplace le premier par la valeur de -100% quand l'interrupteur GAZ est à ON.
+ * le second remplace le premier par la valeur de -100% quand l'interrupteur GAZ est Ã  ON.
 
 === Activation d'un chauffe-bougie lorsque les gaz sont <20% ===
- # Dans « Interrupteurs personnalisés » :
+ # Dans Â«Â Interrupteurs personnalisÃ©sÂ Â» :
    * mettre en surbrillance SW1.
-   * sélectionner la condition v<ofs.
-   * sélectionner Gaz comme source.
+   * sÃ©lectionner la condition v<ofs.
+   * sÃ©lectionner Gaz comme source.
    * choisir un offset de  -80%.
- # Dans « Mixeur », créer deux mixages sur la voie du chauffe-bougie :
+ # Dans Â«Â MixeurÂ Â», crÃ©er deux mixages sur la voie du chauffe-bougie :
    * activation : source = MAX, ratio = +100%, interrupteur = SW1.
-   * désactivation :  source = MAX, ratio = -100%, interrupteur = !SW1.
+   * dÃ©sactivation :  source = MAX, ratio = -100%, interrupteur = !SW1.
 
-Rappel : ce second mixage est indispensable car, en l'absence d'ordre, la sortie d'une voie est de 0% (position médiane) et non -100% (butée basse).
+Rappel : ce second mixage est indispensable car, en l'absence d'ordre, la sortie d'une voie est de 0% (position mÃ©diane) et non -100% (butÃ©e basse).
 
-=== Mixages delta / incidence intégrale (avec différentiel global d'ailerons) ===
+=== Mixages delta / incidence intÃ©grale (avec diffÃ©rentiel global d'ailerons) ===
  # Dans la voie de l'aile(ron) gauche :
-   * créer une ligne de mixage avec source = Prof, ratio = +100%.
-   * créer une ligne de mixage avec source = Ail, ratio = +100%, diff = GVx.
+   * crÃ©er une ligne de mixage avec source = Prof, ratio = +100%.
+   * crÃ©er une ligne de mixage avec source = Ail, ratio = +100%, diff = GVx.
  # Dans la voie de l'aile(ron) droit :
-   * créer une ligne de mixage avec source = Prof, ratio = +100%.
-   * créer une ligne de mixage avec source = Ail, ratio = -100%, diff = GVx.
+   * crÃ©er une ligne de mixage avec source = Prof, ratio = +100%.
+   * crÃ©er une ligne de mixage avec source = Ail, ratio = -100%, diff = GVx.
 
-Rappel : les débattements des fonctions ailerons et profondeur se différencient indépendamment grâce aux dual-rates propres à chaque manche.
+Rappel : les dÃ©battements des fonctions ailerons et profondeur se diffÃ©rencient indÃ©pendamment grÃ¢ce aux dual-rates propres Ã  chaque manche.
 
-=== Différentiel global de voilure (ailerons, volets, dérive, etc.) ===
+=== DiffÃ©rentiel global de voilure (ailerons, volets, dÃ©rive, etc.) ===
  # Avec une courbe 3 points (solution 1) :
-   * dans « Mixeur », créer une ligne de mixage sur la voie de la gouverne 1.
-   * l'éditer, mettre ratio = +100% et activer une courbe à 3 points (pour 20% de différentiel, mettre : -80% (par ex.), 0%, +100%).
-   * créer une ligne de mixage sur la voie de la gouverne 2.
-   * l'éditer, mettre ratio = 100% et activer la courbe précédente en inverse (ex : !CB).
-   * pour modifier le différentiel, éditer la courbe et modifier la valeur de -80%.
+   * dans Â«Â MixeurÂ Â», crÃ©er une ligne de mixage sur la voie de la gouverne 1.
+   * l'Ã©diter, mettre ratio = +100% et activer une courbe Ã  3 points (pour 20% de diffÃ©rentiel, mettre : -80% (par ex.), 0%, +100%).
+   * crÃ©er une ligne de mixage sur la voie de la gouverne 2.
+   * l'Ã©diter, mettre ratio = 100% et activer la courbe prÃ©cÃ©dente en inverse (ex : !CB).
+   * pour modifier le diffÃ©rentiel, Ã©diter la courbe et modifier la valeur de -80%.
  # Avec une variable globale (solution 2) : 
-   * dans « Mixeur », créer une ligne de mixage sur la voie de la gouverne 1.
-   * l'éditer, mettre ratio = +100% et différentiel = GV1.
-   * créer une ligne de mixage sur la voie de la gouverne 2.
-   * l'éditer, mettre ratio = -100% et différentiel = GV1.
-   * pour modifier le différentiel, éditer la valeur de GV1 ou, encore mieux, lier GV1 à un potentiomètre (via une fonction associées à un interrupteur) pour régler sa valeur directement en vol.
+   * dans Â«Â MixeurÂ Â», crÃ©er une ligne de mixage sur la voie de la gouverne 1.
+   * l'Ã©diter, mettre ratio = +100% et diffÃ©rentiel = GV1.
+   * crÃ©er une ligne de mixage sur la voie de la gouverne 2.
+   * l'Ã©diter, mettre ratio = -100% et diffÃ©rentiel = GV1.
+   * pour modifier le diffÃ©rentiel, Ã©diter la valeur de GV1 ou, encore mieux, lier GV1 Ã  un potentiomÃ¨tre (via une fonction associÃ©es Ã  un interrupteur) pour rÃ©gler sa valeur directement en vol.
 
-En cas de besoin de différencier par phase de vol le différentiel, dupliquer les mixages (avec une courbe ou un variable dédiée à chaque paire) et les lier chacun à une phase de vol dédiée. Ou, encore mieux avec les cartes mères d'upgrade, utiliser les variables globales différenciées par phase.
+En cas de besoin de diffÃ©rencier par phase de vol le diffÃ©rentiel, dupliquer les mixages (avec une courbe ou un variable dÃ©diÃ©e Ã  chaque paire) et les lier chacun Ã  une phase de vol dÃ©diÃ©e. Ou, encore mieux avec les cartes mÃ¨res d'upgrade, utiliser les variables globales diffÃ©renciÃ©es par phase.
 
 === Fonction courbure d'aile (dynamique (snap-flap) + statique) + AF pour quadroflap ===
- # Dans une voie inutilisée (ex. CH10), créer la fonction « courbure » :
-   * créer une ligne de mixage avec source = Prof, ratio = xx% (ou GVx), trim et D/R = OFF.
-   * ajouter une ligne de mixage avec source = MAX, ratio = xx% (ou GVx). Ou, seconde solution très élégante, avec source = Trim de gaz, ratio = 100%.
-   * si besoin, dupliquer ces lignes pour les différencier par phase de vol (inutile avec Trim).
- # Dans une voie inutilisée (ex. CH11), créer la fonction « courbure + AF » pour volets :
-   * créer une ligne de mixage avec source = CH10, ratio = 100%.
-   * créer une ligne de mixage avec source = Gaz, ratio = xx%.
- # Dans une voie inutilisée (ex. CH12), créer la fonction « courbure + AF » pour aileron :
-   * créer une ligne de mixage avec source = CH10, ratio = 50% (couplage classique).
-   * créer une ligne de mixage avec source = Gaz, ratio = xx%.
+ # Dans une voie inutilisÃ©e (ex. CH10), crÃ©er la fonction Â«Â courbureÂ Â» :
+   * crÃ©er une ligne de mixage avec source = Prof, ratio = xx% (ou GVx), trim et D/R = OFF.
+   * ajouter une ligne de mixage avec source = MAX, ratio = xx% (ou GVx). Ou, seconde solution trÃ¨s Ã©lÃ©gante, avec source = Trim de gaz, ratio = 100%.
+   * si besoin, dupliquer ces lignes pour les diffÃ©rencier par phase de vol (inutile avec Trim).
+ # Dans une voie inutilisÃ©e (ex. CH11), crÃ©er la fonction Â«Â courbure + AFÂ Â» pour volets :
+   * crÃ©er une ligne de mixage avec source = CH10, ratio = 100%.
+   * crÃ©er une ligne de mixage avec source = Gaz, ratio = xx%.
+ # Dans une voie inutilisÃ©e (ex. CH12), crÃ©er la fonction Â«Â courbure + AFÂ Â» pour aileron :
+   * crÃ©er une ligne de mixage avec source = CH10, ratio = 50% (couplage classique).
+   * crÃ©er une ligne de mixage avec source = Gaz, ratio = xx%.
  # Dans les voies de volets : 
-   * créer une ligne de mixage avec source = Aile, ratio = +/-50%, diff = GVy
-   * créer une ligne de mixage avec source = CH11, ratio = 100%.
+   * crÃ©er une ligne de mixage avec source = Aile, ratio = +/-50%, diff = GVy
+   * crÃ©er une ligne de mixage avec source = CH11, ratio = 100%.
  # Dans les voies d'ailerons : 
-   * créer une ligne de mixage avec source = Aile, ratio = +/-100%, diff = GVy
-   * créer une ligne de mixage avec source = CH12, ratio = 100%.
+   * crÃ©er une ligne de mixage avec source = Aile, ratio = +/-100%, diff = GVy
+   * crÃ©er une ligne de mixage avec source = CH12, ratio = 100%.
 
-Le principe est de grouper les entrées par fonction plutôt que de toutes les mettre directement sur les voies de destination. Le bénéfice est double : le nombre de mixage est réduit, tandis que les réglages sont grandement simplifiés (une seule valeur par fonction est plus rapide -et logique- à régler que plusieurs fois la même valeur dupliquée dans différents mixages).
+Le principe est de grouper les entrÃ©es par fonction plutÃ´t que de toutes les mettre directement sur les voies de destination. Le bÃ©nÃ©fice est double : le nombre de mixage est rÃ©duit, tandis que les rÃ©glages sont grandement simplifiÃ©s (une seule valeur par fonction est plus rapide -et logique- Ã  rÃ©gler que plusieurs fois la mÃªme valeur dupliquÃ©e dans diffÃ©rents mixages).
 
-Une autre bonne pratique, qui en découle consiste -à chaque fois que cela est possible- à considérer les taux de mixage comme des activations par défaut, c'est à dire avec des taux de +/-100%. Le réglage des débattements par fonction étant confié aux formatages de manches, via les dual-rate.
+Une autre bonne pratique, qui en dÃ©coule consiste -Ã  chaque fois que cela est possible- Ã  considÃ©rer les taux de mixage comme des activations par dÃ©faut, c'est Ã  dire avec des taux de +/-100%. Le rÃ©glage des dÃ©battements par fonction Ã©tant confiÃ© aux formatages de manches, via les dual-rate.
 
-Cet exemple complexe peut évidemment être simplifié pour des besoins plus simples, (deux ailerons full-span, pas de courbure statique, etc.), avec potentiellement en conséquence un seul étage de fonction au lieu de deux.
+Cet exemple complexe peut Ã©videmment Ãªtre simplifiÃ© pour des besoins plus simples, (deux ailerons full-span, pas de courbure statique, etc.), avec potentiellement en consÃ©quence un seul Ã©tage de fonction au lieu de deux.
 
 === Multi-affectation du manche de gaz AF+Gaz sur moto-planeur ===
  # Dans le mixage de la voie de gaz :
@@ -884,74 +884,74 @@ Cet exemple complexe peut évidemment être simplifié pour des besoins plus simple
  # Dans le mixage de la voie/fonction d'AF :
    * utiliser une courbe 3pts' : (-100%,+100%), (-25%,-100%), (+100%,-100%).
 
-Ainsi, le manche de gaz permet de commander de manière proportionnelle les fonctions gaz et aérofreins, le tout sans avoir à le lâcher pour manoeuvrer un interrupteur ou un potentiomètre, Le découpage se fait en trois tiers :
- * Tiers inférieur : AF.
+Ainsi, le manche de gaz permet de commander de maniÃ¨re proportionnelle les fonctions gaz et aÃ©rofreins, le tout sans avoir Ã  le lÃ¢cher pour manoeuvrer un interrupteur ou un potentiomÃ¨tre, Le dÃ©coupage se fait en trois tiers :
+ * Tiers infÃ©rieur : AF.
  * Tiers central : zone neutre.
- * Tiers supérieur : gaz.
-Pour la sécurité d'utilisation, il n'est pas inutile d'ajouter sur chaque voie un mixage (MAX -100%, Remplace) lié à un interrupteur ou une phase de vol. Ou utiliser une fonction de sécurité liée à un interrupteur.
+ * Tiers supÃ©rieur : gaz.
+Pour la sÃ©curitÃ© d'utilisation, il n'est pas inutile d'ajouter sur chaque voie un mixage (MAX -100%, Remplace) liÃ© Ã  un interrupteur ou une phase de vol. Ou utiliser une fonction de sÃ©curitÃ© liÃ©e Ã  un interrupteur.
 
-=== Optimiser l'utilisation de la course mécanique d'un servo de volet ou d'aileron utilisé en AF ===
+=== Optimiser l'utilisation de la course mÃ©canique d'un servo de volet ou d'aileron utilisÃ© en AF ===
  # Dans le menu limites :
-   * décentrer volontairement les servos (d'une valeur identique) avec le sub-trim, par ex. de 25% vers le bas pour les volets ou 25% vers le haut pour les ailerons.
- # Sur le modèle :
-   * décaler le palonnier pour remettre la gouverne au neutre.
+   * dÃ©centrer volontairement les servos (d'une valeur identique) avec le sub-trim, par ex. de 25% vers le bas pour les volets ou 25% vers le haut pour les ailerons.
+ # Sur le modÃ¨le :
+   * dÃ©caler le palonnier pour remettre la gouverne au neutre.
 
-La course mécanique de chaque servo est ainsi répartie d'une manière adaptée au besoin en débattement des gouvernes. En effet, les volets se baissent généralement bien plus qu'ils ne se lèvent, et inversement pour les ailerons). Attention, cela ne fonctionne qu'avec l'option « = » (utilisée pour chaque servo).
+La course mÃ©canique de chaque servo est ainsi rÃ©partie d'une maniÃ¨re adaptÃ©e au besoin en dÃ©battement des gouvernes. En effet, les volets se baissent gÃ©nÃ©ralement bien plus qu'ils ne se lÃ¨vent, et inversement pour les ailerons. Attention, cela ne fonctionne qu'avec l'option Â«Â =Â Â» (utilisÃ©e pour chaque servo).
 
-=== Mixages pour plateau cyclique 120° « from scratch » (sans l'option *HELI*) ===
+=== Mixages pour plateau cyclique 120Â° Â«Â from scratchÂ Â» (sans l'option *HELI*) ===
  # Sur une voie libre, fonction courbe de pas (ex. CH10) :
    * une ligne de mixage avec source = Gaz, ratio = +100%, courbe.
  # Sur la voie du servo frontal :
    * une ligne de mixage avec source = Prof, ratio = +100%.
    * une ligne de mixage avec source = CH10, ratio = +100%.
- # Sur la voie du servo latéral 1 :
+ # Sur la voie du servo latÃ©ral 1 :
    * une ligne de mixage avec source = Prof, ratio = -50%.
    * une ligne de mixage avec source = Ail, ratio = +86%.
    * une ligne de mixage avec source = CH10, ratio = -100%.
- # Sur la voie du servo latéral 2 :
+ # Sur la voie du servo latÃ©ral 2 :
    * une ligne de mixage avec source = Prof, ratio = -50%.
    * une ligne de mixage avec source = Ail, ratio = -86%.
    * une ligne de mixage avec source = CH10, ratio = -100%.
 
-Le calcul des ratios se fait par trigonométrie, en considérant comme débattement de référence celui qui donne le plus petit débattement angulaire du plateau pour un débattement de servo donné (= servo frontal en fonction profondeur).
+Le calcul des ratios se fait par trigonomÃ©trie, en considÃ©rant comme dÃ©battement de rÃ©fÃ©rence celui qui donne le plus petit dÃ©battement angulaire du plateau pour un dÃ©battement de servo donnÃ© (= servo frontal en fonction profondeur).
 
-[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour à la table des matières]
+[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour Ã  la table des matiÃ¨res]
 
-== Introduction à companion9x ==
+== Introduction Ã  companion9x ==
 
-Companion9x est le logiciel (sous Windows, Linux ou  Mac) associé à open9x, permettant de :
- * télécharger les firmwares open9x avec les options de compilation souhaitées
- * lire / écrire la mémoire flash de la radio (firmware)
- * lire / écrire la mémoire eeprom de la radio (mémoires modèles)
- * créer / modifier des fichiers eeprom (effacer, ajouter, glisser / déposer depuis un autre fichier)
- * créer / modifier des mémoires de modèles dans des fichiers eeprom
- * comparer deux programmations de modèles
- * simuler le fonctionnement de la radio et de la programmation d'un modèle
+Companion9x est le logiciel (sous Windows, Linux ou  Mac) associÃ© Ã  open9x, permettant de :
+ * tÃ©lÃ©charger les firmwares open9x avec les options de compilation souhaitÃ©es
+ * lire / Ã©crire la mÃ©moire flash de la radio (firmware)
+ * lire / Ã©crire la mÃ©moire eeprom de la radio (mÃ©moires modÃ¨les)
+ * crÃ©er / modifier des fichiers eeprom (effacer, ajouter, glisser / dÃ©poser depuis un autre fichier)
+ * crÃ©er / modifier des mÃ©moires de modÃ¨les dans des fichiers eeprom
+ * comparer deux programmations de modÃ¨les
+ * simuler le fonctionnement de la radio et de la programmation d'un modÃ¨le
  
 Ecran principal :
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/c9x_main_window.png
 
-Ecran de paramétrage des firmwares, accessible depuis le menu « Fichier » (passer la souris sur les cases permet d'afficher une étiquette explicative de l'option) :
+Ecran de paramÃ©trage des firmwares, accessible depuis le menu Â«Â FichierÂ Â» (passer la souris sur les cases permet d'afficher une Ã©tiquette explicative de l'option) :
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/c9x_preferences.png
 
-Ecran de programmation d'un modèle (structure identique à celle d'open9x), accessible en double-cliquant sur le nom du modèle dans la liste de l'eeprom :
+Ecran de programmation d'un modÃ¨le (structure identique Ã  celle d'open9x), accessible en double-cliquant sur le nom du modÃ¨le dans la liste de l'eeprom :
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/c9x_mixer_screen.png
 
-Un très bel écran d'assistant de configuration automatique de modèles (gabarit) :
+Un trÃ¨s bel Ã©cran d'assistant de configuration automatique de modÃ¨les (gabarit) :
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/c9x_model_wizard.png
 
-L'écran de simulation de la radio, on peut même naviguer dans le soft comme sur la vraie radio (!) :
+L'Ã©cran de simulation de la radio, on peut mÃªme naviguer dans le soft comme sur la vraie radioÂ (!) :
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/c9x_simu.png
 
-[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour à la table des matières]
+[http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Table_des_mati%C3%A8res Retour Ã  la table des matiÃ¨res]
 
 == Pour conclure ==
 
-Si ce travail vous plaît et vous rend service, n'hésitez surtout pas à en parler autour de vous. A défaut de posséder la radio la plus chère ou la plus belle du marché, vous pourrez sans complexe revendiquer d'être l'heureux utilisateur d'une radio économique, fiable, et permettant de programmer tout ce qu'il est possible d'imaginer. Le tout avec une rigueur, une efficacité et une simplicité sans concurrence.
+Si ce travail vous plaÃ®t et vous rend service, n'hÃ©sitez surtout pas Ã  en parler autour de vous. A dÃ©faut de possÃ©der la radio la plus chÃ¨re ou la plus belle du marchÃ©, vous pourrez sans complexe revendiquer d'Ãªtre l'heureux utilisateur d'une radio Ã©conomique, fiable, et permettant de programmer tout ce qu'il est possible d'imaginer. Le tout avec une rigueur, une efficacitÃ© et une simplicitÃ© sans concurrence.
 
-Et, justement, une programmation aussi simple et logique que puissante ne devrait-elle pas être le premier objectif d'une radiocommande... programmable ? A méditer...
+Et, justement, une programmation aussi simple et logique que puissante ne devrait-elle pas Ãªtre le premier objectif d'une radiocommande... programmable ? A mÃ©diter...
