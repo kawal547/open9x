@@ -108,7 +108,7 @@ Les points importants pour le choix initial d'un firmware sont les suivants:
  * *TEMPLATES*: Utile pour les débutants qui souhaitent des exemples de programmation sur la radio. Cette option occupant un espace mémoire considérable, et les mêmes gabarits étant disponibles dans companion9x, elle peut être désactivée avec peu de désagrément une fois qu'on a compris le fonctionnement d'open9x.
  * *AUDIO*, *VOICE*, *HAPTIC*, *SP22*, *JETI*, *ARDUPILOT*, *NMEA*: Egalement à choisir en fonction des modifications matérielles.
  * *DSM2*: A choisir si l'on prévoit d'utiliser la 9x pour commander des modèles équipés de récepteurs Spektrum, et de construire le module approprié. 
- * *PPMCA*, *SYMLIMITS*, *GVARS*: Utiles principalement pour des modèles complexes. Les modélistes débutants peuvent les laissées désactivées au début pour éviter trop de confusion. 
+ * *PPMCA*, *SYMLIMITS*, *GVARS*: Utiles principalement pour des modèles complexes. Les modélistes débutants peuvent les laisser désactivées au début pour éviter trop de confusion. 
  * *DBLKEYS*, *AUTOSWITCH*: Pratique, recommandé.
  * *NOBOLD*: A laisser désactivé, la mise en gras aide vraiment à la compréhension!
  * *NOGRAPHICS*, *PGBAR*, *IMPERIAL*: Cosmétique uniquement, selon préférence.
@@ -643,7 +643,7 @@ https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/23_1.png
 
 Cet écran permet de définir, pour chaque voie (CH1...CH16), les paramètres suivants (de gauche à droite dans l'écran) :
  # Offset (ou subtrim) : décale le centre de la voie.<br>Les manches peuvent être utilisés pour le régler : mettre la valeur en surbrillance, déplacer le manche de manière à mettre le servo à la position voulue, puis presser *[**MENU LONG]*.
- # Min/Max : butées mini / maxi (-100 / +100% à -125 / +125% si limites étendues) au-delà duquel l'ordre est écrété (d'où l'intérêt d'utiliser des dual-rate inférieur à 100% pour laisser de la marge au trims de manches et aux autres mixages pouvant s'appliquer sur la voies). Les limites servent aussi de gains de sortie, soit relatifs soit absolus (cf. ci-après).
+ # Min/Max : butées mini / maxi (-100 / +100% à -125 / +125% si limites étendues) au-delà duquel l'ordre est écrété (d'où l'intérêt d'utiliser des dual-rate inférieur à 100% pour laisser de la marge au trims de manches et aux différents mixages pouvant s'appliquer sur la voie). Les limites servent aussi de gains de sortie, soit relatifs soit absolus (cf. ci-après).
  # -> / <- : sens de rotation du servo (si option *PPMCA*, sinon représenté comme "---" ou "INV").
  # 1500 (si option *PPMCA*) : neutre de servo (en µs). Décale la course entière du servo pour corriger par exemple un mauvais centrage de palonnier. Contrairement au subtrim l'amplitude de la course n'est pas modifiée, et le décalage n'apparaît pas sur l'écran de position des servos.
  # ^ / =  (si option *SYMLIMITS*) : détermine l'effet du subtrim.
