@@ -1,8 +1,21 @@
-﻿#summary open9x English changelog
+#summary open9x English changelog
 
 = open9x version history =
 
 <wiki:toc max_depth="2" />
+
+== 1641 / Nov 18 2012 ==
+
+=== [**all] ===
+ * Full German translation
+
+=== [**stock] ===
+ * Flash savings 
+
+=== [**gruvin9x] ===
+ * Bugfixes
+  
+----
 
 == 1563 / Nov 9 2012 ==
 

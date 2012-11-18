@@ -1,8 +1,21 @@
-﻿#summary Historique des changements d'Open9x en français
+#summary Historique des changements d'Open9x en français
 
 = Historique des versions d'open9x =
 
 <wiki:toc max_depth="2" />
+
+== 1641 / Nov 18 2012 ==
+
+=== [**Pour tous] ===
+ * Traduction allemande complète 
+
+=== [**stock] ===
+ * Optimisations mémoire  
+
+=== [**gruvin9x] ===
+ * Corrections de bugs
+
+----
 
 == 1563 / 9 Nov 2012 ==
 
