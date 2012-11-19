@@ -678,6 +678,8 @@ Chaque courbe ou variable globale est utilisable par autant de fonctions que né
  # Appuyer sur *[**MENU]* pour passer en édition des coordonnées du point (Y uniquement ou X et Y avec « ' »).
  # Déplacer le curseur d'un point à l'autre avec *[**LEFT]* / *[**RIGHT]*, et modifier l'ordonnée du point avec *[**UP]* / *[**DOWN]*. Si « ' », appuyer sur *[**MENU]* pour éditer le point et modifier ses coordonnées avec *[**LEFT]* / *[**RIGHT]* et *[**UP]* / *[**DOWN]*. *[**EXIT]* permet de sortir de l'édition pour passer au point suivant.<br><br>https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/25_3.png
 
+N.B. : Quelques courbes préenregistrées sont disponibles. Pour les choisir, appuyer sur *[**MENU LONG]*
+
 ==== Pour modifier une variable globale (GV) : ====
 
  * Se placer sur la ligne souhaitée avec *[**UP]* / *[**DOWN]*.
