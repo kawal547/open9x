@@ -16,7 +16,7 @@ Poté, co jsem, víceméně z nouze, vytvořil anglický překlad původního fr
 
 Česká verze vychází ze mnou průběžně aktualizované anglické verze s doplněním některých informací a postřehů, na které jsem mezitím narazil při používání vysílače s firmware Open9X a při psaní manuálu. Od původního francouzského se proto již značně odchyluje.
 
-[ Tisknutelná verze] tohoto manuálu je k dispozici na webu projektu open9x v sekci download.
+[http://code.google.com/p/open9x/downloads/detail?name=Open9X%20Manual%20CZ.pdf Tisknutelná verze] tohoto manuálu je k dispozici na webu projektu open9x v sekci download.
 
 Protože udržování tohoto manuálu v aktuálním stavu a jeho rozšiřování o další potřebné kapitoly (hlavně chybí jednoduché i komplexnější příklady použití) je již nad síly jednotlivce, rozhodl jsem se pokusit se umožnit udržování a rozvoj tím, že text zveřejním jako základ obsahu stránky Wiki manuálu. 
 
