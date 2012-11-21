@@ -26,7 +26,7 @@ S jedním z členů týmu open9x (birkym) jsme se dohodli, že se pokusíme tent
 
 Stejně jako původní francouzská a přeložená anglická, je i tato (česká a slovenská) verze poskytována bez jakékoli záruky a používáte ji výhradně na vlastní zodpovědnost a nesete veškerá rizika.
 
-Zdeněk Trojánek
+[http://code.google.com/p/open9x/people/detail?u=ztrojanek Zdeněk] Trojánek
 
 = Introduction =
 
