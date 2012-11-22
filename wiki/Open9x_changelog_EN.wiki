@@ -1,4 +1,5 @@
 #summary open9x English changelog
+#labels Featured
 
 = open9x version history =
 
@@ -18,7 +19,7 @@
 
 === [**sky9x] ===
  * Rotary encoder navigation improved
- * PCM µ-Law audio codec support 
+ * PCM mu-Law audio codec support 
   
 ----
 
