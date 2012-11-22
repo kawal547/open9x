@@ -1,4 +1,5 @@
 #summary Historique des changements d'Open9x en français
+#labels Featured
 
 = Historique des versions d'open9x =
 
@@ -18,7 +19,7 @@
 
 === [**sky9x] ===
  * Navigation par encodeur rotatif améliorée
- * Support du codec audio PCM μ-Law
+ * Support du codec audio PCM mu-Law
 
 ----
 
