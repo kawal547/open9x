@@ -19,7 +19,6 @@
 
 === [**sky9x] ===
  * Rotary encoder navigation improved
- * PCM mu-Law audio codec support 
   
 ----
 

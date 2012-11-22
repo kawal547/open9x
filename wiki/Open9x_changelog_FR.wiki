@@ -19,7 +19,6 @@
 
 === [**sky9x] ===
  * Navigation par encodeur rotatif améliorée
- * Support du codec audio PCM mu-Law
 
 ----
 
