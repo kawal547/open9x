@@ -4,6 +4,24 @@
 
 <wiki:toc max_depth="2" />
 
+== 1670 / Nov 22 2012 ==
+
+=== [**stock] ===
+ * Flash savings 
+ * Screen redraw optimisations
+ * Stick -> servo latency reduced  
+ * Fixed DSM2 instability  
+
+=== [**gruvin9x] ===
+ * Fixed WDT reset when changing protocol 
+ * Fixed stack overflow during backup / restore of models  
+
+=== [**sky9x] ===
+ * Rotary encoder navigation improved
+ * PCM µ-Law audio codec support 
+  
+----
+
 == 1641 / Nov 18 2012 ==
 
 === [**all] ===

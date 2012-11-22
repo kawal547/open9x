@@ -4,7 +4,25 @@
 
 <wiki:toc max_depth="2" />
 
-== 1641 / Nov 18 2012 ==
+== 1670 / 22 Nov 2012 ==
+
+=== [**stock] ===
+ * Optimisations mémoire  
+ * Optimisations du rafraîchissement d'écran
+ * Diminution de la latence manche -> servo 
+ * Correction d'une instabilité avec le protocole DSM2 
+
+=== [**gruvin9x] ===
+ * Correction d'un redémarrage lors du changement de protocole
+ * Correction d'un bug lors de l'archivage / restauration de modèles sur carte SD 
+
+=== [**sky9x] ===
+ * Navigation par encodeur rotatif améliorée
+ * Support du codec audio PCM μ-Law
+
+----
+
+== 1641 / 18 Nov 2012 ==
 
 === [**Pour tous] ===
  * Traduction allemande complète 
