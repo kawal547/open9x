@@ -1,6 +1,10 @@
 #summary Manuel d'Open9x en français
 #labels Featured
 
+<wiki:comment>
+TODO: Explication générale sur le principe des inters pers. et les fonctions pers.
+</wiki:comment>
+
 = Open9x - Manuel d'utilisation =
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/9x_header.png
