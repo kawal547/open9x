@@ -2,7 +2,10 @@
 #labels Featured
 
 <wiki:comment>
-TODO: Explication générale sur le principe des inters pers. et les fonctions pers.
+TODO: 
+ * Bases de companion9x un peu plus élaborées, voire manuel séparé?
+ * Fonctions avancées / sky9x (carte SD, voix, logs) 
+ * "wikifier" les différentes modifs hardware
 </wiki:comment>
 
 = Open9x - Manuel d'utilisation =
@@ -45,7 +48,7 @@ A noter aussi qu'étant donnée la simplicité de l'architecture électronique d
  * Un exemple de circuit perso : http://www.rcgroups.com/forums/showthread.php?t=1631369
 
 Il existe aussi deux cartes mères d'upgrade, adaptables sur la 9x ou sur un émetteur perso : http://gruvin9x.com/shop/ et http://www.ersky9x.net/
-Outre des capacités mémoire et une puissance de calcul nettement plus élevées que celles de la carte mère d'origine, ces cartes mère offrent de nouvelles possibilités : gestion de carte SD, encodeurs rotatifs, enregistrement des chronos à l'extinction, etc.
+Outre des capacités mémoire et une puissance de calcul nettement plus élevées que celles de la carte mère d'origine, ces cartes mère offrent de nouvelles possibilités : gestion de carte SD, encodeurs rotatifs, enregistrement des chronos à l'extinction, etc. Ces 2 cartes sont également supportées par open9x, avec des fonctionnalités supplémentaires.
 
 === Le principe Open Source ===
 
@@ -97,7 +100,7 @@ Il est un peu prématuré de parler de ces options en détail à ce stade, mais 
 || gvars || Ajoute le support de variables globales, qui peuvent être ensuite utilisées en remplacement des réglages<br>individuels des paramètres numériques. ||
 || symlimits || Permet de changer le comportement par défaut des subtrims, les rendant plus adaptés aux modèles<br>complexes où plusieurs fonctions influent sur le même servo. ||
 || potscroll || Permet la navigation dans les menus et l'édition de valeurs à l'aide des potentiomètres P1, P2 et P3 de la radio. ||
-|| sp22 || A cocher en cas d'utilisation d'un programmeur SmartieParts version 2.2 ou plus récente, le contrôle du<br>rétroéclairage étant autrement inversé. ||
+|| sp22 || A cocher en cas d'utilisation d'un programmeur !SmartieParts version 2.2 ou plus récente, le contrôle du<br>rétroéclairage étant autrement inversé. ||
 || autoswitch || Permet la sélection simplifiée des interrupteurs dans les champs y relatifs.<br>Au lieu de défiler la liste avec les touches, il suffit de basculer l'interrupteur souhaité. ||
 || dblkeys || Permet d'accélérer l'entrée de paramètres numériques avec des combinaisons de 2 touches. ||
 || nographics || Désactive les cases à cocher, les remplaçant par un simple ON/OFF. ||
@@ -193,7 +196,7 @@ Tout d'abord, voici un premier aperçu du fonctionnement d'open9x au travers du 
 
 https://open9x.googlecode.com/svn/wiki/images_open9x_manual_FR/open9x_cheminement_ordres.png
 
-Ce diagramme est volontairement simplifié aux principaux cheminements des ordres, les choses peuvent être plus complexes dans le détail. Par exemple, les fonctions personnalisées, non représentées ici, peuvent interagir avec les variables globales, pour les réglages en vol, ou avec les interrupteurs personnalisés. De même, ces derniers peuvent utiliser des informations issues de la télémesure, ou être conditionnés à des interrupteurs physiques.
+Ce diagramme est volontairement simplifié aux principaux cheminements des ordres, les choses peuvent être plus complexes dans le détail. Par exemple, les [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Fonctions_personnalis%C3%A9es_(10/12) fonctions personnalisées], non représentées ici, peuvent interagir avec les [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Courbes_et_variables_globales_(8/12) variables globales] pour les réglages en vol, ou avec les [http://code.google.com/p/open9x/wiki/Open9x_Manual_FR#Interrupteurs_personnalisables_(9/12) interrupteurs personnalisés]. De même, ces derniers peuvent utiliser des informations issues de la télémesure, ou être conditionnés à des interrupteurs physiques.
 
 Les entrées analogiques (manches et potentiomètres) ne sont pas utilisées telles quelles, mais après un filtre de calibration garantissant des courses de -100% à +100% de butée à butée (avec 0% pour point milieu). Pour les manches, ces entrées calibrées peuvent ensuite être directement utilisées dans le mixeur ou bien après application d'un formatage (dual-rate, expo, mais aussi courbe).
 
