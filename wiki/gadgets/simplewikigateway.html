@@ -1,0 +1,43 @@
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<script src="GoogleCodeWikiParser.min.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/jquery-1.5.2.min.js" type="text/javascript"></script>
+<script src="xregexp-min.js" type="text/javascript"></script>
+<link href="ph_core.min.css" rel="stylesheet" type="text/css"></link>
+<link href="ph_detail.min.css" rel="stylesheet" type="text/css"></link>
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="d_ie.css" >
+<![endif]-->
+<!--
+ * @projectDescription Simple Wiki in Gadget
+ * @link http://code.google.com/p/wikignpi
+ * @author Bruno Santos
+ * @license MIT License <http://www.opensource.org/licenses/mit-license.php>
+ *
+ * Usage:
+ *   Shown here: http://code.google.com/p/wikignpi/wiki/GadgetThatWiki#Simple_embedding_of_a_wiki_page_via_url
+-->
+</head>
+<body id="wikicontent">
+<p>Collecting data, please wait...</p>
+<script>
+_postwiki=function(data)
+{
+var g = new GoogleCodeWikiParser(false);
+g.options.disableWarnings=true;
+g.options.wikiBaseURL="http://code.google.com/p/wikignpi/wiki/";
+g.options.openURLSInNewWindow=true;
+var html = g.parse( data );
+document.body.innerHTML=html;
+}
+
+var url="http://"+document.location.hostname+"/hg/"+document.location.hash.substr(1)+".wiki";
+
+$.ajax({
+  url: url,
+  success: _postwiki
+});
+</script>
+</body>
+</html>

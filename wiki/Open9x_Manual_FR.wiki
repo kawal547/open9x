@@ -6,7 +6,10 @@ TODO:
  * Bases de companion9x un peu plus élaborées, voire manuel séparé?
  * Fonctions avancées / sky9x (carte SD, voix, logs) 
  * "wikifier" les différentes modifs hardware
+ * Liste des sources, éléments de télémétrie etc 
 </wiki:comment>
+
+[http://open9x.googlecode.com/svn/wiki/gadgets/printwikis.html?_gnpi_subversion="svn"&_gnpi_wikilist="Open9x_Manual_FR" Version imprimable]
 
 = Open9x - Manuel d'utilisation =
 
