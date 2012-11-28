@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="Gateway to XHTML pages"
+               title_url="http://code.google.com/p/wikignpi/"
+               description="Advanced gadget for showing an embedded XHTML page\nlicense MIT License http://www.opensource.org/licenses/mit-license.php"
+               author="Bruno Santos">
+    <Require feature="dynamic-height"/>
+  </ModulePrefs>
+  <UserPref name="projectname" display_name="Project Name" datatype="string" default_value="wikignpi"/>
+  <UserPref name="subversion" display_name="Subversion system" datatype="enum" default_value="hg">
+    <EnumValue value="svn" />
+    <EnumValue value="hg" />
+  </UserPref>
+  <UserPref name="xhtmlURL" display_name="URL address to the XHTML page" datatype="string" default_value="http://www.vtk.org/doc/nightly/html/index.html"/>
+  <UserPref name="baseURL" display_name="The base link for the XHTML pages" datatype="string" default_value=""/>
+  <UserPref name="autoresize" display_name="Gadget auto resize to child XHTML page contents" datatype="bool" default_value="false"/>
+  <UserPref name="disableWarnings" display_name="Don't show operational warnings from the scripts" datatype="bool"  default_value="true"/>
+  <UserPref name="openURLSInNewWindow" display_name="Open links in a new window" datatype="bool" default_value="false"/>
+  <UserPref name="showURL" display_name="Show the URL for this XHTML page as title" datatype="bool" default_value="false"/>
+  <UserPref name="cachedTime" display_name="Refresh time for the cached page in seconds" datatype="int" default_value="-1"/>
+  <UserPref name="disableScripts" display_name="Disable scripts from the target XHTML page" datatype="bool" default_value="false"/>
+  <UserPref name="waitmessage" display_name="Message to display while waiting for the XHTML page to load" datatype="string" default_value="Collecting data, please wait..."/>
+  <UserPref name="plugins" display_name="List of plug-ins to load, with respective options" datatype="string" default_value=""/>
+  <Content type="html">
+     <![CDATA[
+<script src="http://code.jquery.com/jquery-1.5.2.min.js" type="text/javascript"></script>
+<script src="http://wiki.__UP_projectname__.googlecode.com/hg/gadgets/xregexp-min.js" type="text/javascript"></script>
+<script src="http://__UP_projectname__.googlecode.com/svn/wiki/gadgets/xregexp-min.js" type="text/javascript"></script>
+<script src="http://wiki.__UP_projectname__.googlecode.com/hg/gadgets/xhtmlgateway-min.js" type="text/javascript"></script>
+<script src="http://__UP_projectname__.googlecode.com/svn/wiki/gadgets/xhtmlgateway-min.js" type="text/javascript"></script>
+<noscript>Please turn on JavaScript, otherwise you can't use this gadget...</noscript>
+<div id="htmlcontent">
+<p>__UP_waitmessage__</p>
+</div>
+
+    ]]>
+  </Content>
+</Module>
