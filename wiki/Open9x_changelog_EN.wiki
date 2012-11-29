@@ -8,8 +8,8 @@
 == 1692 / Nov 28 2012 ==
 
 === [**stock] ===
-* Flash savings  
-* Fixed backlight / inactivity timeouts
+ * Flash savings  
+ * Fixed backlight / inactivity timeouts
 
 === [**sky9x] ===
  * Fixed bug preventing selection of sound files in the custom functions
