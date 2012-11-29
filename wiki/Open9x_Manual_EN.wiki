@@ -1,6 +1,7 @@
 #summary Open9x English manual (Draft, to be translated from French)
-
+<wiki:comment>This doesn't work yet
 [http://open9x.googlecode.com/svn/wiki/gadgets/printwikis.html?_gnpi_subversion="svn"&_gnpi_wikilist="Open9x_Manual_EN" Printable version]
+</wiki:comment>
 
 = Open9x - User's manual =
 

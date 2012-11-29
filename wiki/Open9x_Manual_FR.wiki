@@ -8,8 +8,9 @@ TODO:
  * "wikifier" les différentes modifs hardware
  * Liste des sources, éléments de télémétrie etc 
 </wiki:comment>
-
+<wiki:comment>Marche pas encore....
 [http://open9x.googlecode.com/svn/wiki/gadgets/printwikis.html?_gnpi_subversion="svn"&_gnpi_wikilist="Open9x_Manual_FR" Version imprimable]
+</wiki:comment>
 
 = Open9x - Manuel d'utilisation =
 
