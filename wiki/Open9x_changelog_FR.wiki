@@ -5,6 +5,17 @@
 
 <wiki:toc max_depth="2" />
 
+== 1692 / 28 Nov 2012 ==
+
+=== [**stock] ===
+ * Optimisations mémoire  
+ * Correction du délai d'extinction du rétroéclairage et d'inactivité 
+
+=== [**sky9x] ===
+ * Correction d'un bug empêchant la sélection de fichiers sons dans les fonctions pers.
+
+----
+
 == 1670 / 22 Nov 2012 ==
 
 === [**stock] ===
