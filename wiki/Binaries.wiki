@@ -48,8 +48,11 @@ The following configuration options are currently available in companion9x:
 || PXX || Support for PXX radio protocol ||
 || DSM2 || Support for DSM2 radio protocol ||
 || ppmca || Adds possibility for PPM center adjustment ||
+|| ppmus || Display PPM informations using uS as units ||
+|| gvars || Add support for global vars ||
 || potscroll || Uses potentiometers to scroll in menus. ||
 || autoswitch || During model setup it is possible to select and set switches by moving them. ||
 || nographics || Disabling graphic of sliders and check boxes ||
 || pgbar || Shows a small progress bar when data are stored in the transmitter memory ||
 || imperial || Uses imperial units rather than the standard metric ones. ||
+|| voice || Add support for voice, remember to choose your language and download appropriate sound pack. ||
