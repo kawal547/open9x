@@ -68,13 +68,13 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>AUDIO</td>
 		<td><b>NO</b></td>
 		<td>YES</td>
-		<td>better Audio feedback (needs audio TX modification)</td>
+		<td>Better Audio feedback (needs audio TX modification)</td>
 	</tr>
 	<tr>
 		<td>VOICE</td>
 		<td><b>NO</b></td>
 		<td>YES</td>
-		<td>play Voice files (needs voice TX modification)</td>
+		<td>Play Voice files (needs voice TX modification)</td>
 	</tr>
 	<tr>
 		<td>TTS</td>
@@ -110,7 +110,7 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>THR_TRACE</td>
 		<td><b>YES</b></td>
 		<td>NO</td>
-		<td>disable THR trace (in STATS screen) </td>
+		<td>Disable THR trace (in STATS screen) </td>
 	</tr>
         <tr>
 		<td>PPM_CENTER_ADJUSTABLE</td>
@@ -158,19 +158,25 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>SDCARD</td>
 		<td><b>NO</b></td>
 		<td>YES</td>
-		<td>When V4 board used: SD-card and logs </td>
+		<td>When extension board used: SD-card and logs </td>
+	</tr>
+	<tr>
+		<td>BLUETOOTH</td>
+		<td><b>NO</b></td>
+		<td>YES</td>
+		<td>When sky9x board used: Bluetooth support added</td>
 	</tr>
 	<tr>
 		<td>PXX</td>
 		<td><b>NO</b></td>
 		<td>YES</td>
-		<td>PXX protocol (testing in progress...) </td>
+		<td>PXX protocol (dev in progress...)</td>
 	</tr>
 	<tr>
 		<td>DSM2</td>
 		<td><b>NO</b></td>
 		<td>SERIAL, PPM</td>
-		<td>DSM2 protocol (testing in progress...) </td>
+		<td>DSM2 protocol</td>
 	</tr>
 	<tr>
 		<td>TRANSLATIONS</td>
@@ -189,12 +195,6 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td><b>NO</b></td>
 		<td>YES</td>
 		<td>Progress bar on EEPROM writing</td>
-	</tr>
-	<tr>
-		<td>EXTRA_ROTARY_ENCODERS</td>
-		<td><b>NO</b></td>
-		<td>YES</td>
-		<td>Enable extra rotary encoders (V4 board only)</td>
 	</tr>
 	<tr>
 		<td>FLIGHT_PHASES</td>
