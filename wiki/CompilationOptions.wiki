@@ -12,32 +12,36 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 = Options =
 <table border="1">
 	<tr>
-		<td><i>DEFINE</i></td>
-		<td colspan="2"><i>Options</i></td>
-		<td><i>Description</i></td>
+		<td><i><b>Option</b></i></td>
+		<td colspan="2"><i><b>Value</b></i></td>
+		<td><i><b>Description</b></i></td>
 	</tr>
 	<tr>
 		<td></td>
-		<td>Default</td>
+		<td><b><i>Default</i></b></td>
 		<td></td>
 		<td></td>
 	</tr>
 	<tr>
 		<td>PCB</td>
 		<td><b>STD</b></td>
-		<td>V4, ARM</td>
-		<td>Either the stock PCB, the gruvin9x v4 PCB or the ersky9x PCB</td>
+		<td>GRUVIN9X, SKY9X,<br>X9D, ATC, STD128</br></td>
+		<td>Stock, gruvin9x, ersky9x,
+<br>X9D, ACT or Atmega128 on stock PCBs</br></td>
 	</tr>
         <tr>
 		<td>PCBREV</td>
-		<td><b>REVB</b></td>
-		<td>REV0, REVA</td>
-		<td>Revision of the board (ersky9x REVB/A or gruvin9x REVB/0)</td>
+		<td><b>REV1</b> (gruvin9x)
+<br><b>REVC</b> (ersky9x)</br></td>
+		<td>REV0, REVA, REVB</td>
+		<td>Revision of the board
+<br>(ersky9x REVC/B/A or gruvin9x REV1/0)</br></td>
 	</tr>
 	<tr>
 		<td>EXT</td>
 		<td><b>STD</b></td>
-		<td>FRSKY, JETI, NMEA, ARDUPILOT, MAVLINK</td>
+		<td>FRSKY, JETI, NMEA,
+<br>ARDUPILOT, MAVLINK,</br>TELEMETREZ</td>
 		<td>Telemetry extension (needs TX modification)</td>
 	</tr>
 	<tr>
@@ -62,7 +66,15 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>AUTOSWITCH</td>
 		<td><b>NO</b></td>
 		<td>YES</td>
-		<td>in model setup menus automatically set switch by moving some of them</td>
+		<td>In model setup menus automatically set switch
+<br> by moving some of them</br></td>
+	</tr>
+	<tr>
+		<td>DBLKEYS</td>
+		<td><b>NO</b></td>
+		<td>YES</td>
+		<td>Double key press [+/-] invert, [+/UP] max,
+<br> [-/DOWN] min, [UP/DOWN] reset to default)</br></td>
 	</tr>
 	<tr>
 		<td>AUDIO</td>
@@ -77,16 +89,22 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>Play Voice files (needs voice TX modification)</td>
 	</tr>
 	<tr>
-		<td>TTS</td>
-		<td><b>---</b></td>
-		<td>EN, FR, CZ</td>
-		<td>Speech language modification</td>
-	</tr>
-	<tr>
 		<td>HAPTIC</td>
 		<td><b>NO</b></td>
 		<td>YES</td>
 		<td>Haptic feedback (needs haptic TX modification)</td>
+	</tr>
+	<tr>
+		<td>SP22</td>
+		<td><b>NO</b></td>
+		<td>YES</td>
+		<td>`SmartieParts` 2.2 Backlight support</td>
+	</tr>
+	<tr>
+		<td>PWM_BACKLIGHT</td>
+		<td><b>NO</b></td>
+		<td>YES</td>
+		<td>Fade IN/OUT Backlight using PWM</td>
 	</tr>
 	<tr>
 		<td>SPLASH</td>
@@ -104,37 +122,32 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>BOLD</td>
 		<td><b>YES</b></td>
 		<td>NO</td>
-		<td>In setup menu bold active FPs, DR/Expos, Mixes and Switches </td>
-	</tr>	
+		<td>In setup menu will be bold active FPs, DR/Expos,
+<br>Mixes and Switches</br> </td>
+	</tr>
 	<tr>
 		<td>THR_TRACE</td>
 		<td><b>YES</b></td>
 		<td>NO</td>
-		<td>Disable THR trace (in STATS screen) </td>
+		<td>THR trace in STATS screen</td>
 	</tr>
-        <tr>
+    <tr>
 		<td>PPM_CENTER_ADJUSTABLE</td>
 		<td><b>NO</b></td>
 		<td>YES</td>
 		<td>Adjustable PPM center for servos in limits menu</td>
 	</tr>
-        <tr>
+    <tr>
 		<td>PPM_LIMITS_SYMETRICAL</td>
 		<td><b>NO</b></td>
 		<td>YES</td>
 		<td>Symetrical PPM limits for servos in limits menu</td>
 	</tr>
-        <tr>
-		<td>PPM_LIMITS_UNIT</td>
-		<td><b>PERCENT</b></td>
-		<td>US</td>
-		<td>Units for PPM center in % or µs </td>
-	</tr>
-        <tr>
-		<td>DECIMALS</td>
-		<td><b>YES</b></td>
-		<td>NO</td>
-		<td>Decimals displayed in outputs values </td>
+    <tr>
+		<td>PPM_UNIT</td>
+		<td><b>PERCENT_PREC1</b></td>
+		<td>PERCENT_PREC0, US</td>
+		<td>Units for PPM center in % or µs with precision 0 or 1 </td>
 	</tr>
 	<tr>
 		<td>FRSKY_HUB</td>
@@ -147,18 +160,18 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td><b>YES</b></td>
 		<td>NO</td>
 		<td>Winged Shadow How High supported (when EXT=FRSKY) </td>
-        <tr>
-                <td>VARIO</td>
-                <td><b>YES</b></td>
-                <td>NO</td>
-                <td>Enable variable tone telemetry vario (when EXT=FRSKY)</td>
-        </tr>
 	</tr>
 	<tr>
-		<td>SDCARD</td>
-		<td><b>NO</b></td>
-		<td>YES</td>
-		<td>When extension board used: SD-card and logs </td>
+		<td>RTCLOCK</td>
+		<td><b>YES</b></td>
+		<td>NO</td>
+		<td>Real time clock for gruvin9x, sky9x, x9d boards </td>
+	</tr>
+	<tr>
+		<td>VARIO</td>
+		<td><b>YES</b></td>
+		<td>NO</td>
+		<td>Enable variable tone telemetry vario (when EXT=FRSKY)</td>
 	</tr>
 	<tr>
 		<td>BLUETOOTH</td>
@@ -179,10 +192,23 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>DSM2 protocol</td>
 	</tr>
 	<tr>
+		<td>TX_CADDY</td>
+		<td><b>NO</b></td>
+		<td>YES</td>
+		<td>For auto-switching between DSM2/X
+<br>and Fr-Sky transmitter modules on gruvin9x board</br></td>
+	</tr>
+	<tr>
 		<td>TRANSLATIONS</td>
 		<td><b>EN</b></td>
-		<td>FR, IT, SE, CZ, DE</td>
+		<td>FR, IT, SE, CZ, DE, ES, PT</td>
 		<td>String translations</td>
+	</tr>
+	<tr>
+		<td>TTS</td>
+		<td>same as <br>TRANSLATIONS</br></td>
+		<td>EN, FR, IT, CZ, DE, PT</td>
+		<td>Speech language for voice modification</td>
 	</tr>
 	<tr>
 		<td>UNITS</td>
@@ -208,4 +234,42 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>NO</td>
 		<td>Curves support </td>
 	</tr>
+	<tr>
+		<td>XCURVES</td>
+		<td><b>YES</b></td>
+		<td>NO</td>
+		<td>Customizable curves</td>
+	</tr>
+	<tr>
+		<td>GVARS</td>
+		<td><b>NO</b></td>
+		<td>YES</td>
+		<td>Global Variables</td>
+	</tr>
+	<tr>
+		<td>3POS</td>
+		<td><b>NO</b></td>
+		<td>POT1, POT2, POT3</td>
+		<td>Enable another 3 position switch to replace a pot</td>
+	</tr>
+<wiki:comment>
+    <tr>
+		<td>DECIMALS</td>
+		<td><b>YES</b></td>
+		<td>NO</td>
+		<td>Decimals displayed in outputs values </td>
+	</tr>
+	<tr>
+		<td>SDCARD</td>
+		<td><b>NO</b></td>
+		<td>YES</td>
+		<td>When extension board used: SD-card and logs </td>
+	</tr>
+	<tr>
+		<td>EXTRA_ROTARY_ENCODERS</td>
+		<td><b>NO</b></td>
+		<td>YES</td>
+		<td>Enable extra rotary encoders (V4 board only)</td>
+	</tr>
+</wiki:comment>
 </table>
