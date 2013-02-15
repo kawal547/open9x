@@ -19,15 +19,16 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 	<tr>
 		<td></td>
 		<td><b><i>Default</i></b></td>
-		<td></td>
+		<td><b><i>Other values</i></b></td>
 		<td></td>
 	</tr>
 	<tr>
 		<td>PCB</td>
-		<td><b>STD</b></td>
-		<td>GRUVIN9X, SKY9X,<br>X9D, ATC, STD128</br></td>
-		<td>Stock, gruvin9x, ersky9x,
-<br>X9D, ACT or Atmega128 on stock PCBs</br></td>
+		<td><b>9X</b></td>
+		<td>9X128, 9XR, 9XR128,
+<br>GRUVIN9X, SKY9X, X9D</br></td>
+		<td>Stock 9X/9XR or with Atmega 128,
+<br>gruvin9x, ersky9x, X9D boards</br></td>
 	</tr>
         <tr>
 		<td>PCBREV</td>
@@ -59,8 +60,9 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<tr>
 		<td>NAVIGATION</td>
 		<td><b>NO</b></td>
-		<td>POT1, POT2, POT3, POTS</td>
-		<td>Pots use in menus navigation</td>
+		<td>POT1, POT2, POT3,<br>POTS, ROTENC</br></td>
+		<td>Use only POT1/2/3 in menus navigation
+<br>or all POTS, or Rotary encoder</br></td>
 	</tr>
 	<tr>
 		<td>AUTOSWITCH</td>
@@ -238,7 +240,7 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>XCURVES</td>
 		<td><b>YES</b></td>
 		<td>NO</td>
-		<td>Customizable curves</td>
+		<td> Customize able curves on non stock boards</td>
 	</tr>
 	<tr>
 		<td>GVARS</td>
