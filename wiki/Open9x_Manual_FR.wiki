@@ -86,7 +86,7 @@ En effet, pour des raisons techniques (la mémoire disponible dans le processeur
 
 Il est un peu prématuré de parler de ces options en détail à ce stade, mais étant donné que le choix est présenté au nouvel utilisateur avant même le flashage du firmware, et certains des écrans présentés plus tard dépendant de leur choix, nous allons les décrire brièvement ici avant de les détailler plus tard. Le manuel s'y référera en *GRAS*.
 
-|| frsky || A utiliser si l'on a modifié sa radio pour afficher les données de télémesure frsky selon le guide.<br>Ne s'applique *pas* si l'on utilise un module d'émission frsky sans pour autant avoir fait la modification en question. ||
+|| frsky || A utiliser si l'on a modifié sa radio pour afficher les données de télémesure !FrSky selon le guide.<br>Ne s'applique *pas* si l'on utilise un module d'émission frsky sans pour autant avoir fait la modification en question. ||
 || jeti || Permet à la 9x d'émuler une jetibox pour l'affichage de données et la configuration de matériel Jeti.<br>Nécessite également une modification matérielle pour raccorder le module Jeti à la radio. ||
 || ardupilot || Implémente l'affichage des données de télémesure d'un aéronef équipé d'ardupilot.<br>Nécessite également la modification matérielle pour la connexion du modem radio. ||
 || nmea || Permet l'affichage de données GPS sur l'écran de la radio.<br>Nécessite également la modification matérielle pour la réception des données. ||
