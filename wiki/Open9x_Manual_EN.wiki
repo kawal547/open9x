@@ -27,95 +27,91 @@ Thomas Husterer was the first to take the challenge in April 2010 with his th9x 
 
 ----
 
-Tous ces projets sont hébergés ici :
+ All these projects are hosted here: 
  * th9x : http://code.google.com/p/th9x/
  * er9x : http://code.google.com/p/er9x/
  * gruvin9x : http://code.google.com/p/gruvin9x/
  * ersky9x : http://code.google.com/p/ersky9x/
-Il y a aussi, avec une logique différente, Radioclone de Rafal Tomczak : http://radioclone.org/
+There is also a logically different and independent open firmware, Radioclone by Rafal Tomczak : http://radioclone.org/
 
-open9x (http://code.google.com/p/open9x/) représente la dernière évolution et aussi, à mon sens, l'arrivée à maturité de ces projets en offrant plus de fonctionnalités et de souplesse de programmation qu'aucune radio commerciale n'est en mesure d'offrir, indépendamment de sa gratuité ou du faible coût d'achat de l'émetteur.
-open9x est épaulé par le logiciel companion9x (http://code.google.com/p/companion9x/, pour Windows, Linux et Mac) qui permet de mettre à jour le FW, mais aussi de sauvegarder, programmer et même simuler les programmes de modèles sur, raffinement s'il en est, une radio virtuelle.
+open9x (http://code.google.com/p/open9x/) represents the latest development. And also, in my opinion, the igreatest maturity of these projects by offering more features and programming flexibility that no commercial radio is able to match, regardless of price.
+Open9x is supported by the software companion9x (http://code.google.com/p/companion9x/ for Windows, Mac and Linux) that allows to update the FW, but also to save, plan and even simulate programs of models on a a virtual radio, how cool is that!
 
-A noter aussi qu'étant donnée la simplicité de l'architecture électronique de la 9x, il est tout à fait envisageable de réaliser sa propre carte mère... et même sa radio autour !
- * Le schéma d'origine (attention, il s'agit de la V1, quelque peu différente de la V2 actuelle) : http://9xforums.com/forum/viewtopic.php?f=44&t=199
- * Un exemple de circuit perso : http://www.rcgroups.com/forums/showthread.php?t=1631369
+Also note that, given the simplicity of the electronic architecture of 9x, it is quite possible to produce a custom motherboard and even the whole radio system! 
+ * The original schematics (attention, it is the V1, which is somewhat different to the current V2) http://9xforums.com/forum/viewtopic.php?f=44&t=199 
+ * My own custom example: http://www.rcgroups.com/forums/showthread.php?t=1631369
 
-Il existe aussi deux cartes mères d'upgrade, adaptables sur la 9x ou sur un émetteur perso : http://gruvin9x.com/shop/ et http://www.ersky9x.net/
-Outre des capacités mémoire et une puissance de calcul nettement plus élevées que celles de la carte mère d'origine, ces cartes mère offrent de nouvelles possibilités : gestion de carte SD, encodeurs rotatifs, enregistrement des chronos à l'extinction, etc. Ces 2 cartes sont également supportées par open9x, avec des fonctionnalités supplémentaires.
+There are also two upgrade motherboards for the 9x: http://gruvin9x.com/shop/ and http://www.ersky9x.net/ which provide significantly more memeory and computing power than the original board which opens new possibilies like managing SD cards, rotary encoders, recording fligt time, etc. Open9x supports more features on both those boards.
 
-=== Le principe Open Source ===
+=== Open Source principle===
 
-open9x et companion9x sont des projets Open Source sous licence GNU v2. Malgré la somme de travail qu'ils représentent, ils sont donc libres de téléchargement, consultation, redistribution, modification (aux risques et périls de l'utilisateur...) et d'utilisation, sous réserve de respecter les termes de la licence GNU v2 notamment en cas de réutilisation du code.
+open9x and companion9x are Open Source projects under the GPL v2 GNU license. Despite the amount of work they represent, they are free to download, use, redistrubution and modification. Subject to compliance with the terms of the GNU v2 license particularly for code reuse.
 
-Il est possible de contribuer au développement de ces projets en remontant des bugs ou des propositions de nouvelles fonctionnalités sur la page ad-hoc du projet, en ouvrant un « issue » :
+It is possible to contribute to the development of these projects with bug reports or suggestions by opening an "issue": 
  * http://code.google.com/p/open9x/issues/list
  * http://code.google.com/p/companion9x/issues/list
 
-A cet effet, il est important de :
- * bien caractériser, au préalable, le bug ou, pour la proposition, son intérêt et sa cohérence
- * le décrire (en anglais... pas le choix!) de manière précise et synthétique
- * pour un bug, ne pas oublier de donner le n° de version du firmware / logiciel et les options sélectionnées.
+For your report to be helpful it's important to :
+ * Give as much details about how to reproduce a bug, including your settings, the firmware / software version numbers and the selected options
+ * Explain in detail why a suggestion would be worth considering :)
 
-Un forum dédié permet aussi d'échanger sur le sujet :
+There is also a forum on the subject of the open9x project and it's development
 http://9xforums.com/forum/viewforum.php?f=45
 
-=== Modifier la 9x pour open9x ===
+=== Modify the 9x to use open9x ===
 
-Un document décrivant les différentes étapes de modification de la 9x est proposé dans la rubrique téléchargement d'open9x :
+Modifications required to upgrade to open9x are documented in the download section:
 http://code.google.com/p/open9x/downloads/list
 
-Celui-ci n'est valable que pour la carte mère d'origine, les cartes d'upgrade ayant déjà leur propre interfaces de reprogrammation.
+This is only valid for the original motherboard, upgrade cards already having their own programming interface. 
 
-=== Choisir sa "version" d'open9x ===
+=== Choosing a "version" of open9x  ==
 
-Une fois sa radio modifiée et prête à recevoir un nouveau firmware, il est temps de se procurer une copie d'open9x. 
-Pour ce faire, télécharger [http://code.google.com/p/companion9x/ companion9x], le logiciel multiplateformes Windows / Mac / Linux qui complémente open9x. Après l'installation, ouvrir la boîte de dialogue des préférences. On y trouvera une liste déroulante contenant les différents firmwares supportés (companion9x permet également la gestion des autres firmwares alternatifs courants pour la 9x), et lorsque le firmware sélectionné est open9x, une liste de cases à cocher pour différentes options. 
+Once the radio has been modified and is ready for a new firmware, it is time to get a copy of open9x. To do this, download companion9x for Windows / Mac / Linux that complements open9x. After installation, open the Preferences dialog. It contains a dropdown containing different firmwares supported (companion9x also allows management of other common alternative firmware for 9x), and when the firmware is open9x selected, a list of checkboxes for different options.
 
-En effet, pour des raisons techniques (la mémoire disponible dans le processeur de la 9x étant limitée), il n'est plus possible sur la carte d'origine d'inclure à la fois toutes les nouvelles fonctionnalités développées récemment. Un système d'options a ainsi été mis en place, permettant à chacun de générer sa propre version de firmware en fonction des fonctionnalités qui lui seront utiles.
+In fact, for technical reasons (the available memory in the processor of 9x is limited), it is no longer possible on the original board to include all the new features developed recently. System options has been established, allowing everyone to create his own version of firmware based on the features that would be useful. 
 
-Il est un peu prématuré de parler de ces options en détail à ce stade, mais étant donné que le choix est présenté au nouvel utilisateur avant même le flashage du firmware, et certains des écrans présentés plus tard dépendant de leur choix, nous allons les décrire brièvement ici avant de les détailler plus tard. Le manuel s'y référera en *GRAS*.
+It's a bit premature to discuss these options in detail at this stage, but given the choice is presented to new users before flashing the firmware, and some of the screens presented later depending on their choice, we will describe briefly here before covering them in detail later. FIXME The manual will refer in BOLD. 
+|| frsky || Use it when modified for FrSky telemetry data according to the guide.  Does not apply if you use a FrSky transmitter module without the FrSky telemetry modification to the board. ||
+|| jeti || 9x allows to emulate a JETIBOX to display data and Jeti hardware configuration.  Also requires a hardware modification to connect the module to the Jeti radio. ||
+|| ardupilot || Implements the display of telemetry data from an aircraft equipped with ArduPilot. Also requires hardware modification to connect the radio modem. ||
+|| nmea || Allows the display of GPS data on the screen of the radio.  Also requires hardware modification for data reception. ||
+|| heli || Includes screen and CCPM mixing features for easy configuration of helicopter models. ||
+|| templates || Includes a screen providing some standard configuration templates that can be applied when creating  a new model. These are also available in companion9x. ||
+|| nosplash || Disables the splash screen displayed at startup radio and removes it from the memory to make room for other features ||
+|| nofp || Removes flight phases functionality ||
+|| nocurves || No custom curves ||
+|| audio || If you replace the piezo buzzer with a real speaker. Allows for different pitch beeps and alarm sounds. Also for variometer with FrSky telemetry ||
+|| voice || Support for voice alarms and telemetry messages. Requires hardware mod and voice board ||
+|| haptic || Support for hapitic feedback. Requires hardware modification to install vibrator motor ||
+|| PXX || Support new proprietary FrSky PXX modulation. (Experimental) Will support model match and lower latency when compatible transmitters and receivers become available ||
+|| DSM2 || Support DSM2 / DSMX Spektrum protocol. Requires hardware mod to install Spektrum RF module ||
+|| ppmca || Adds a setting for adjusting the servo neutral without affecting their travel ||
+|| gvars || Adds support for global variables (GVars) which can be used as numerical values in settings ||
+|| symlimits || Symetric limits (see details below) ||
+|| potscroll || Allows navigation through menus and editing values ​​using potentiometers P1, P2 and P3 radio. ||
+|| sp22 || Tick if you use SmartieParts programmer version 2.2 or later, otherwise backlight function will be inverted ||
+|| autoswitch ||  Allows simplified selection of switches in related fields.  Instead of scrolling through the list with keys, simply toggle the desired switch. ||
+|| dblkeys || Accelerates the entry of numerical parameters with key combinations ||
+|| nographics || Deactivate graphical on/off checkboxes and replace with text ||
+|| nobold || Do not highlight in bold active mizes, flight phases and other settings ||
+|| nottrace || Disable graphical traces in statistics screen ||
+|| pgbar || Disable progress bar when changing settings in memory ||
+|| imperial || Use imperial units ||
 
-|| frsky || A utiliser si l'on a modifié sa radio pour afficher les données de télémesure frsky selon le guide.<br>Ne s'applique *pas* si l'on utilise un module d'émission frsky sans pour autant avoir fait la modification en question. ||
-|| jeti || Permet à la 9x d'émuler une jetibox pour l'affichage de données et la configuration de matériel Jeti.<br>Nécessite également une modification matérielle pour raccorder le module Jeti à la radio. ||
-|| ardupilot || Implémente l'affichage des données de télémesure d'un aéronef équipé d'ardupilot.<br>Nécessite également la modification matérielle pour la connexion du modem radio. ||
-|| nmea || Permet l'affichage de données GPS sur l'écran de la radio.<br>Nécessite également la modification matérielle pour la réception des données. ||
-|| heli || Inclut l'écran et les fonctionnalités de mixage CCPM pour faciliter la configuration de modèles d'hélicoptères. ||
-|| templates || Inclut un écran offrant quelques gabarits de configuration standards pouvant être appliqués lors de la création<br>d'un nouveau modèle. Ceux-ci sont également disponibles dans companion9x. ||
-|| nosplash || Désactive l'écran d'accueil affiché au démarrage de la radio et le supprime de la mémoire, pour faire de la place<br>pour d'autres fonctionnalités. ||
-|| nofp || Désactive la fontionnalité des phases de vol. ||
-|| nocurves || Désactive les courbes personnalisables. ||
-|| audio || A utiliser si l'on souhaite remplacer le buzzer de la radio par un haut-parleur piezo ou à bobine.<br>Permet des sons différenciés pour les touches, les trims, différents choix de tonalités d'alarme, et en cas<br>d'utilisation de la télémesure *FRSKY* un variomètre audio. ||
-|| voice || Ajoute le support des alarmes vocales et de l'énoncé des paramètres de télémesure.<br>Nécessite une modification matérielle pour l'ajout d'un module vocal. ||
-|| haptic || Support du retour haptique, nécessite l'installation matérielle d'un vibreur. ||
-|| PXX || Support du protocole PCM !FrSky (expérimental) ||
-|| DSM2 || Support des protocoles DSM2 / DSMX Spektrum. Nécessite l'installation d'un module d'émission Spektrum. ||
-|| ppmca || Ajoute un réglage permettant l'ajustage des neutres de servos sans influer sur leurs courses. ||
-|| gvars || Ajoute le support de variables globales, qui peuvent être ensuite utilisées en remplacement des réglages<br>individuels des paramètres numériques. ||
-|| symlimits || Permet de changer le comportement par défaut des subtrims, les rendant plus adaptés aux modèles<br>complexes où plusieurs fonctions influent sur le même servo. ||
-|| potscroll || Permet la navigation dans les menus et l'édition de valeurs à l'aide des potentiomètres P1, P2 et P3 de la radio. ||
-|| sp22 || A cocher en cas d'utilisation d'un programmeur !SmartieParts version 2.2 ou plus récente, le contrôle du<br>rétroéclairage étant autrement inversé. ||
-|| autoswitch || Permet la sélection simplifiée des interrupteurs dans les champs y relatifs.<br>Au lieu de défiler la liste avec les touches, il suffit de basculer l'interrupteur souhaité. ||
-|| dblkeys || Permet d'accélérer l'entrée de paramètres numériques avec des combinaisons de 2 touches. ||
-|| nographics || Désactive les cases à cocher, les remplaçant par un simple ON/OFF. ||
-|| nobold || Désactive la mise en gras des mixeurs, inters et autres éléments actifs. ||
-|| nottrace || Désactive l'affichage graphique de l'historique des gaz dans l'écran des statistiques .||
-|| pgbar || Affiche une petite barre de progression montrant la sauvegarde des paramètres en mémoire. ||
-|| imperial || Affichage des données de télémesure en unités impériales. ||
+ The important points for the initial choice of firmware are: 
+ * *HELI*: Useful if you plan to use the radio to control helicopters.
+ * *FRSKY*: Only choose when FrSky telemetry mod is applied. Otherwise THR and AIL switches will not work.
+ * *TEMPLATES*: Usefull for beginners who want prgramming examples on their radio. This option occupying a considerable amount of memory, and the same templates are available in companion9x, it can be disabled with little inconvenience once you understand the operation of open9x.
+ * *AUDIO*, *VOICE*, *HAPTIC*, *SP22*, *JETI*, *ARDUPILOT*, *NMEA*: Also choose accoring to hardware modifications.
+ * *DSM2*: Select if you plan to use the 9x to order models with Spektrum receivers, and build the appropriate module.
+ * *PPMCA*, *SYMLIMITS*, *GVARS*: Useful mainly for complex models. Novice modelers can leave them off in the beginning to avoid too much confusion.
+ * *DBLKEYS*, *AUTOSWITCH*: Practical, recommended.
+ * *NOBOLD*: Helps understanding, should be left off.
+ * *NOGRAPHICS*, *PGBAR*, *IMPERIAL*: Cosmetic only, leave to preference.
 
-Les points importants pour le choix initial d'un firmware sont les suivants:
- * *HELI*: Bienvenu si l'on prévoit d'utiliser la radio pour commander des modèles d'hélicoptères.
- * *FRSKY*: A choisir en fonction des modifications matérielles effectuées. Si les inters THR et AIL apparaissent toujours actifs sur l'écran de la radio, c'est en général que cette option ne correspond pas au matériel.
- * *TEMPLATES*: Utile pour les débutants qui souhaitent des exemples de programmation sur la radio. Cette option occupant un espace mémoire considérable, et les mêmes gabarits étant disponibles dans companion9x, elle peut être désactivée avec peu de désagrément une fois qu'on a compris le fonctionnement d'open9x.
- * *AUDIO*, *VOICE*, *HAPTIC*, *SP22*, *JETI*, *ARDUPILOT*, *NMEA*: Egalement à choisir en fonction des modifications matérielles.
- * *DSM2*: A choisir si l'on prévoit d'utiliser la 9x pour commander des modèles équipés de récepteurs Spektrum, et de construire le module approprié. 
- * *PPMCA*, *SYMLIMITS*, *GVARS*: Utiles principalement pour des modèles complexes. Les modélistes débutants peuvent les laisser désactivées au début pour éviter trop de confusion. 
- * *DBLKEYS*, *AUTOSWITCH*: Pratique, recommandé.
- * *NOBOLD*: A laisser désactivé, la mise en gras aide vraiment à la compréhension!
- * *NOGRAPHICS*, *PGBAR*, *IMPERIAL*: Cosmétique uniquement, selon préférence.
-
-Choisir également la langue, cliquer sur OK pour sauvegarder les changements, réouvrir les préférences et cliquer sur télécharger. 
-Le firmware peut ensuite être flashé en utilisant Flasher->Ecrire la mémoire flash, et en sélectionnant le fichier téléchargé. Une fois le flashage effectué avec succès, la radio affichera une alerte d'EEPROM invalide qui est normale (l'installation est "fraîche", aucun réglage en mémoire) et qui peut être quittancée. La mémoire sera formattée, et la radio prête à l'emploi. 
+Also choose the language, click OK to save the changes, reopen preferences and click download. The firmware can then be flashed using Flasher-> Write flash memory, and select the downloaded file.
+Once the flashing successfully completed, the radio will display an alert that EEPROM is invalid. This is normal the first time because settings memory is not yet initialized. Can be acknowledged. Memory is then formatted and radio is ready.
 
 === Vue de l'émetteur et nomenclature ===
 
