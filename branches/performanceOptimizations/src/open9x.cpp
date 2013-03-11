@@ -750,9 +750,9 @@ int16_t calcRESXto1000(int16_t x)  // return x/1.024
 // @@@2 open.20.fsguruh ; 
 // channel = channelnumber -1; 
 // value = outputvalue with 100 mulitplied usual range -102400 to 102400; output -1024 to 1024
-// changed rescaling from *100 to *256 to optimize performance
-// rescaled from -262144 to 262144
-int16_t applyLimits(uint8_t channel, int32_t value)
+// changed rescaling from *100 to *2 to optimize performance and flash
+// rescaled from -2048 to 2048
+int16_t applyLimits(uint8_t channel, int16_t val1)
 {
   LimitData * lim = limitaddress(channel);
   int16_t ofs   = calc1000toRESX(lim->offset);   // multiply to 1.24 to get range (-1024..1024)
@@ -769,35 +769,36 @@ int16_t applyLimits(uint8_t channel, int32_t value)
   // thanks to gbirkus, he motivated this change, which greatly reduces overruns 
   // unfortunately the constants and 32bit compares generates about 50 bytes codes; didn't find a way to get it down.
 
-  value = limit(int32_t(-RESXl*256),value,int32_t(RESXl*256));  // saves 2 bytes compared to other solutions up to now
+  int32_t value;
+  val1 = limit(int16_t(-RESXl*8),val1,int16_t(RESXl*8));  // saves 2 bytes compared to other solutions up to now
 // #endif
   
 #if defined(PPM_LIMITS_SYMETRICAL)
-  if (value) {
+  if (val1) {
 	int16_t tmp;
     if (lim->symetrical)
-      tmp = (value > 0) ? (lim_p) : (-lim_n);
+      tmp = (val1 > 0) ? (lim_p) : (-lim_n);
     else
-      tmp = (value > 0) ? (lim_p - ofs) : (-lim_n + ofs);
-	value = (int32_t) value * tmp;   //  div by 1024*256 -> output = -1024..1024
+      tmp = (val1 > 0) ? (lim_p - ofs) : (-lim_n + ofs);
+	value = (int32_t) val1 * tmp;   //  div by 1024*256 -> output = -1024..1024
 #else    
-  if (value) {
-    int16_t tmp = (value > 0) ? (lim_p - ofs) : (-lim_n + ofs);
-	value = (int32_t) value * tmp;   //  div by 1024*256 -> output = -1024..1024
+  if (val1) {
+    int16_t tmp = (val1 > 0) ? (lim_p - ofs) : (-lim_n + ofs);
+	value = (int32_t) val1 * tmp;   //  div by 1024*256 -> output = -1024..1024
 #endif    
     
 #ifdef CORRECT_NEGATIVE_SHIFTS
     int8_t sign=(value<0?1:0);
     value-=sign;
-	tmp=value>>16;   // that's quite tricky: the shiftright 16 operation is assmbled just with addressmove; just forget the two least significant bytes; 
-	tmp>>=2;   // now one simple shift right for two bytes does the rest
+	tmp=value>>11;   // that's quite tricky: the shiftright 16 operation is assmbled just with addressmove; just forget the two least significant bytes; 
+	// tmp>>=2;   // now one simple shift right for two bytes does the rest
     tmp+=sign;
 #else
-	tmp=value>>16;   // that's quite tricky: the shiftright 16 operation is assmbled just with addressmove; just forget the two least significant bytes; 
-	tmp>>=2;   // now one simple shift right for two bytes does the rest
+	tmp=value>>11;   // that's quite tricky: the shiftright 16 operation is assmbled just with addressmove; just forget the two least significant bytes; 
+	// tmp>>=2;   // now one simple shift right for two bytes does the rest
 #endif
     
-	ofs+=tmp;  // ofs can to added directly because already recalculated,
+	ofs+=tmp;  // ofs can be added directly because already recalculated,
   }
 
   if (ofs > lim_p) ofs = lim_p;
@@ -1972,7 +1973,7 @@ uint16_t isqrt32(uint32_t n)
 int16_t  rawAnas [NUM_STICKS] = {0};
 int16_t  anas [NUM_STICKS] = {0};
 int16_t  trims[NUM_STICKS] = {0};
-int32_t  chans[NUM_CHNOUT] = {0};
+int16_t  chans[NUM_CHNOUT] = {0};
 uint8_t inacPrescale;
 uint16_t inacCounter = 0;
 uint16_t inacSum = 0;
@@ -2638,7 +2639,7 @@ void perOut(uint8_t mode, uint8_t tick10ms)
             if (dirtyChannels & ((bitfield_channels_t)1 << (k-MIXSRC_CH1+1)) & (passDirtyChannels|~(((bitfield_channels_t) 1 << md->destCh)-1)))
               passDirtyChannels |= (bitfield_channels_t) 1 << md->destCh;
             if (k-MIXSRC_CH1+1 < md->destCh || pass > 0)
-              v = chans[k-MIXSRC_CH1+1] >> 8;  // remove factor 256 from old mix loop; was 100 before
+              v = chans[k-MIXSRC_CH1+1]>>1;  
           }
         }
 #else
@@ -2651,8 +2652,9 @@ void perOut(uint8_t mode, uint8_t tick10ms)
           if (k>=MIXSRC_CH1-1 && k<=MIXSRC_CHMAX-1 && md->destCh != k-MIXSRC_CH1+1) {
             if (dirtyChannels & ((bitfield_channels_t)1 << (k-MIXSRC_CH1+1)) & (passDirtyChannels|~(((bitfield_channels_t) 1 << md->destCh)-1)))
               passDirtyChannels |= (bitfield_channels_t) 1 << md->destCh;
-            if (k-MIXSRC_CH1+1 < md->destCh || pass > 0)
-              v = chans[k-MIXSRC_CH1+1] >> 8;  // remove factor 256 from old mix loop; was 100 before
+            if (k-MIXSRC_CH1+1 < md->destCh || pass > 0) {
+              v = chans[k-MIXSRC_CH1+1]>>1;  
+            }
           }
         }
 #endif
@@ -2799,7 +2801,9 @@ void perOut(uint8_t mode, uint8_t tick10ms)
           dv = (dv * (256 + curveParam)) >> 8;		  
       }
 
-      int32_t *ptr = &chans[md->destCh]; // Save calculating address several times
+      dv>>=7; // align to -2048 to 2048
+      
+      int16_t *ptr = &chans[md->destCh]; // Save calculating address several times
       
       if (i == 0 || md->destCh != (md - 1)->destCh)
         *ptr = 0;
@@ -2807,7 +2811,6 @@ void perOut(uint8_t mode, uint8_t tick10ms)
 
       switch (md->mltpx) {
         case MLTPX_REP:
-          *ptr = dv;
 #ifdef BOLD_FONT
           for (uint8_t m=i-1; m<MAX_MIXERS && mixaddress(m)->destCh==md->destCh; m--)
             activeMixes &= ~((ACTIVE_MIXES_TYPE)1 << m);
@@ -2815,43 +2818,33 @@ void perOut(uint8_t mode, uint8_t tick10ms)
           break;
         case MLTPX_MUL:
           // @@@2 we have to remove the weight factor of 256 in case of 100%; now we use the new base of 256
-          dv >>= 8;		
           dv *= *ptr;
           dv >>= RESX_SHIFT;   // same as dv /= RESXl;
-          *ptr = dv;
           break;
         default: // MLTPX_ADD
-          *ptr += dv; //Mixer output add up to the line (dv + (dv>0 ? 100/2 : -100/2))/(100);
+          dv+=*ptr; //Mixer output add up to the line (dv + (dv>0 ? 100/2 : -100/2))/(100);
           break;
       } //endswitch md->mltpx
 #ifdef PREVENT_ARITHMETIC_OVERFLOW
-/*      
-      // a lot of assumptions must be true, for this kind of check; not really worth for only 4 bytes flash savings
-      // this solution would save again 4 bytes flash
-      int8_t testVar=(*ptr<<1)>>24;
-      if ( (testVar!=-1) && (testVar!=0 ) ) {
-        // this devices by 64 which should give a good balance between still over 100% but lower then 32x100%; should be OK
-        *ptr >>= 6;  // this is quite tricky, reduces the value a lot but should be still over 100% and reduces flash need
-      } */
-
-
+      
       PACK( union u_int16int32_t {
         struct {
-          int16_t lo;
-          int16_t hi;
-        } words_t;
+          int8_t l1;
+          int16_t m;
+          int8_t h2;
+        } parts_t;
         int32_t dword;
       });
       
       u_int16int32_t tmp;
-      tmp.dword=*ptr;
+      tmp.dword=dv;
       
       if (tmp.dword<0) {
-        if ((tmp.words_t.hi&0xFF80)!=0xFF80) tmp.words_t.hi=0xFF86; // set to min nearly
+        if ((tmp.parts_t.m&0xFF80)!=0xFF80) tmp.parts_t.m=0xFF87; // set to min nearly
       } else {
-        if ((tmp.words_t.hi|0x007F)!=0x007F) tmp.words_t.hi=0x0079; // set to max nearly
+        if ((tmp.parts_t.m&0xFF80)!=0x0000) tmp.parts_t.m=0x0079; // set to max nearly
       }
-      *ptr=tmp.dword;
+      dv=tmp.dword;
       // this implementation saves 18bytes flash
 
 /*      dv=*ptr>>8;
@@ -2862,14 +2855,16 @@ void perOut(uint8_t mode, uint8_t tick10ms)
       }*/
       // *ptr=limit( int32_t(int32_t(-1)<<23), *ptr, int32_t(int32_t(1)<<23));  // limit code cost 72 bytes
       // *ptr=limit( int32_t((-32767+RESXl)<<8), *ptr, int32_t((32767-RESXl)<<8));  // limit code cost 80 bytes
-#endif        
+#endif  
+      *ptr=dv;       
+           
      
     } //endfor mixers
 
     tick10ms = 0;
     dirtyChannels &= passDirtyChannels;
 
-  } while (++pass < 7 && dirtyChannels);  // we increased speed of mixer, therefore allow more passes; old value was 5
+  } while (++pass < 5 && dirtyChannels);
 
   mixWarning = lv_mixWarning;
 } //endfunc perOut
@@ -2895,7 +2890,7 @@ void doMixerCalculations()
 
   tmr10ms_t tmr10ms = get_tmr10ms();
   uint8_t tick10ms = (tmr10ms >= lastTMR ? tmr10ms - lastTMR : 1);  // handle tick10ms overrun
-  //@@@ open.20.fsguruh: correct overflow handling costs a lot of code; happens only each 11 min;
+  // correct overflow handling costs a lot of code; happens only each 11 min;
   // therefore forget the exact calculation and use only 1 instead; good compromise
   lastTMR = tmr10ms;
 
@@ -2956,7 +2951,7 @@ void doMixerCalculations()
         s_perout_flight_phase = p;
         perOut(e_perout_mode_normal, tick10ms);
         for (uint8_t i=0; i<NUM_CHNOUT; i++)
-          sum_chans512[i] += (chans[i] >> 4) * fp_act[p];
+          sum_chans512[i] += chans[i] * fp_act[p];
         weight += fp_act[p];
       }
     }
@@ -2984,8 +2979,8 @@ void doMixerCalculations()
     // at the end chans[i] = chans[i]/256 =>  -1024..1024
     // interpolate value with min/max so we get smooth motion from center to stop
     // this limits based on v original values and min=-1024, max=1024  RESX=1024
-    int32_t q = (s_fade_flight_phases ? (sum_chans512[i] / weight) << 4 : chans[i]);
-    ex_chans[i] = q>>8; // for the next perMain
+    int32_t q = (s_fade_flight_phases ? (sum_chans512[i] / weight) : chans[i]);
+    ex_chans[i] = q>>1; // for the next perMain
 
     int16_t value = applyLimits(i, q);  // applyLimits will remove the 256 100% basis
 
