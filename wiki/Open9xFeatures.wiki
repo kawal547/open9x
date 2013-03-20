@@ -12,7 +12,6 @@
  =Main view=
  * _*Virtual Switches Screen*_ for showing Custom Switches CS1-CSC state
  * _*CH1-8 and CH9-16 values and bars *_ screens switchable with LEFT/RIGHT 
- * New *_Warning*_ screens 
  * One Warning screen for *_all switches*_
  * *_LowEEPROM Warning*_ screens with non blocking transmission
 <wiki:comment>
@@ -20,10 +19,11 @@
 </wiki:comment>
  =RADIO SETUP=
  * _*Graphical Sliders*_ for Speaker and Haptic length
- * _*Speaker Mode/Lenght*_ separated (compile option)
- * _*Haptic Mode/Lenght*_ separated (compile option)
+ * _*Speaker Mode/Length/Strength*_ separated (compile option)
+ * _*Haptic Mode/Length/Strength*_ separated (compile option)
  * Graphical _*ON/OFF Check boxes*_
  * _*Backlight mode_* respond on Key press, Stick move or both 
+ * Changing *_Stick Mode*_ without mix mess-up.
 
  =MODEL SETUP=
  ==MODELSEL==
@@ -34,12 +34,12 @@
  * Checking switches, Throttle stick and LowEEPROM on model load. 
 
  ==SETUPmodel== 
- * Switching _*Lower/Uper case characters in Model Name*_ with LEFT/RIGHT press
+ * Switching _*Lower/Uper case characters in Model Name*_ with Long LEFT/RIGHT press
  * A full featured _*Timer2*_
  * Model based *_Throttle warning*_
  * It's possible to switch  _*TX Stick Mode*_ without messing everything in mixes
- * The _*throttle trace*_ in statistics and THt/s/% can be dependent on Channels and Pots, not only THR
- * THRt means trigger: the timer starts at _*THR trigger*_ and doesn't stop when THR again at idle
+ * The _*throttle trace*_ in statistics and THt/s/% for Timers can be dependent on Channels and Pots, not only Thr
+ * THt means trigger: the timer starts at _*THR trigger*_ and doesn't stop when Thr is again at idle
  * Model based _*Startup Switches warning*_ 
           # On S-Warning press MENU to toggle ON / OFF
           # Place your switches in the default position
@@ -55,51 +55,61 @@
  ==DR/EXPO==
  * _*DR/Expo*_ with Curve and Flight Phase support
  * *Bold weight* for active DR/EXPO
- * *`*` * *_More Flight Phases_* on one DR/EXPO line
+ * *_More Flight Phases_* on one DR/EXPO line
 
  ==MIXER==
  * _*Inverted curves*_ in Mixes and Expos
  * _*Switches like a Mix Sources*_
- * new source in Mixers and Custom Switches: *_3POS_* (ID0/1/2) which returns -100% / 0 / +100%
+ * *_3POS_* source in Mixers and Custom Switches means ID0/1/2 which returns -100% / 0 / +100%
  * Simple _*Difference for Ailerons*_
  * _*Trims like a slider*_ - trims can be used as source of mix (_*TrmR, TrmE, TrmT, TrmA *_) 
  * Trims in mixes can be selected from OFF, ON, Rud, Ele, Thr, Ail - it's possible to _*cross trims between sticks*_
  * _*Fast Inverting values_* by pressing +- at same time
  * Slow and Delay Up/Down from 0 to 7.5 seconds
  * *Bold source* for active mixes
- * *`*` * *_More Flight Phases_* on one mix line
+ * *_More Flight Phases_* on one mix line
+ * *`*` * _*Extended Weight and Offset_* to +/-245
 
  ==LIMITS==
- * _*PPM Center Adjustment_* in limits (compile option)
- * *`*` * *_Symetrical PPM limits_* (compile option)
- * _*PPM Limit Units*_ percent or microseconds (compile option)
+ * _*PPM Center Adjustment_* in limits (compile option - ppmca)
+ * _*PPM Limit Units*_ percent or microseconds (compile option - ppmus)
+ * _*Symmetrical*_ limits (compile option - symlimits)
  * _*Channel*_ value _*2 Offset*_ pressing MENU then LONG MENU on Offset
  * _*Trims 2 Offset_*
 
  ==CURVES==
  * 8 curves with _*3, 5, 9 or 17 points*_
  * _*Custom Curves*_ with _*custom X*_ values for each point
+ * Editable Global Variables that can be used in Mixes and Expos like Weight, Expo and Offset
 
  ==CUSTOM SWITCHES== 
- * _*Timers_* and _*Telemetry_* inputs in _*Custom Switches*_
+ * TX Battery (_*Batt_*), _*Timers_* and _*Telemetry_* inputs in _*Custom Switches*_
  * Trims can be used as source of custom switch, (_*TrmA, TrmT, TrmE, TrmR*_) for V1 and V2 values
  * *Bold CSx* for active Custom Switches
- * *`*` * New Custom Switches functions: *_d>=ofs_* (means difference between 2 values >= ofs) and *_|d|>=ofs_*
+ * *`*` * _*Second AND_* condition where 012TREAG3456789 corresponds to ID0 ID1 ID2 THR RUD ELE AIL GEA CS3 CS4 CS5 CS6 CS7 CS8 CS9
  
- ==FUNCTION SWITCHES== 
+ ==CUSTOM FUNCTIONS== 
  * _*Safety Channels_* (security switches) with ON/OFF switch
  * Graphical _*ON/OFF Check boxes*_
  * _*Trainer_* switches
- * _*Instatnt_* trim
+ * _*Instant_* trim
  * _*Play sounds_* switches
  * _*Haptic_* switches
  * _*Reset_* timers and/or telemetry values
  * _*Vario_* audio alerts
+ * _*Play Track_* with voice hardware modification
+ * *`*` * _*Play Both_* function where 256/7 means plaing file 256 (switch ON) and 257 (switch OFF) (voice hardware modification)
+ * _*Play Value_* of some source (voice hardware modification)
  * selectable _*Backlight*_ switch
- * Momentary switches *_SWXm*_ play sound/haptic only once
+ * _*Adjust GV_* - Adjust Global Variables with four different type of sources. To change GV parameter source type press LONG MENU
+          # Souces (sticks, pots, switches ...)
+          # Step +1/-1
+          # GV1-GV5
+          # Constant (-125 to 125)
+ * Momentary switches *_GEAm*_ play sound/haptic only once
  * Options not included in compiled FW are displayed in square bracket `[Haptic], [Vario]`
  * *Bold switch* for active Function Switches
- * *`*` * LONG MENU on a switch *_toggles between normal and momentary switch*_ (THR <=> THRm, !THR <=> !THRm)
+ * *`*` * _*Repeat timers_* (15/30/60 seconds) for Play Value, Play Both, Play Track
  
  ==TELEMETRY==
  * Support for _*`FrSky` HUB*_ 2.0 sensors
@@ -108,29 +118,36 @@
  * for easier set up Range and Offset, _*A1/A2*_ displaying _*live value*_ on telemetry setup screen
  * Screen with _*Custom Telemetry*_ view with sensors min/max options
  * Screen with _*Telemetry Bars*_
- * _*Threshholds*_ in Telemetry Bars. A1/A2/RSSI threshold is first alarm value, <br>for other telemetry sensors thresholds are set up by Custom Switch and Function Switch combination.
+ * _*Thresholds*_ in Telemetry Bars. A1/A2/RSSI threshold is first alarm value, <br>for other telemetry sensors thresholds are set up by Custom Switch and Function Switch combination.
  * *_Vario acoustic*_ warnings limits for falling/elevation 
  * supports _*Metric or Imperial units_* (compile option)
+ * *`*` * Telemetry source _*Batt_* means _*TX_* battery voltage
+ * _*Cell_* and _*Cells_* telemetry sources are from _*RC model_* battery (`FrSky` sensors)
+ * Two custom telemetry _*screens_* with four Bars or eight Numbers
 
  ==Other compile options== 
- * *_Voice*_ - hardware modification of stock board to play voice tracks. Custom languages.
+ * *_Voice*_ - hardware modification of stock board to play voice tracks
  * *_Curves*_ - disable/enable curves in model setup
  * *_Autoswitch*_ - in model setup menus automatically set switch by moving some of them
  * eeprom _*write Progress Bar_*
  * _*Bold_* fonts for active FP, DR/Exop, MIX, Custom switches, Function switches in setup menus
  * _*Nographics_* for disabling graphical sliders and ON/OFF checkboxes in setup menus
- * *`*` * _*DBLKEYS*_ - while changing values you can *_press two edit keys simultaneously*_
+ * _*DBLKEYS*_ - while changing values you can *_press two edit keys simultaneously*_
           # [LEFT+RIGHT] = inverted value
           # [LEFT+DOWN]  = min value
           # [UP+RIGHT]   = max value
           # [UP+DOWN]    = default value
  * Open9x is prepared for _*translations*_ in several languages (done for en, fr, it, se, cz, de)
 
+*[https://code.google.com/p/open9x/wiki/Open9x_Manual_FR French Wiki User Guide]*
+
 *[http://9xforums.com/wiki/index.php/Open9x_user_guide 9xforums Wiki User Guide]*
 
-*`*`* *[http://open9x.googlecode.com/files/Open9X%20Manual.pdf English User Guide Download]*
+*[http://open9x.googlecode.com/files/Open9x%20Manual.pdf English User Guide Download]*
 
-*[http://open9x.googlecode.com/files/open9x%20manual%20francais.pdf French User Guide Download]*
+*[http://open9x.googlecode.com/files/Open9X%20Manual%20CZ.pdf Czech User Guide Download]*
+
+*[http://open9x.googlecode.com/files/Open9x%20Manual%20DE.pdf German User Guide Download]*
 
 || *MAIN SCREEN* views || || ||
 || _*Two timers*_ and _*THRt*_|| _*Statistics*_ with custom Timers 1 and 2 <br>by press LONG UP on previous screen|| _*Delays*_ <br> press UP on previous screen||

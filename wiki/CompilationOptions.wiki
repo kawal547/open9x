@@ -91,6 +91,19 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>Play Voice files (needs voice TX modification)</td>
 	</tr>
 	<tr>
+		<td>CORRECT_NEGATIVE_VALUES</td>
+		<td><b>YES</b></td>
+		<td>NO</td>
+		<td>Corrects different rounding for negative values.
+<br>Instead of -99.9 you see -100.0, but uses more flash</br></td>
+	</tr>
+	<tr>
+		<td>ARITHMETIC_OVERFLOW_CHECK</td>
+		<td><b>NO</b></td>
+		<td>YES</td>
+		<td>Adds additional code to prevent arithmetic overflows.</td>
+	</tr>
+	<tr>
 		<td>HAPTIC</td>
 		<td><b>NO</b></td>
 		<td>YES</td>
@@ -126,6 +139,12 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>NO</td>
 		<td>In setup menu will be bold active FPs, DR/Expos,
 <br>Mixes and Switches</br> </td>
+	</tr>
+    <tr>
+		<td>BATTGRAPH</td>
+		<td><b>NO</b></td>
+		<td>YES</td>
+		<td>TX battery graph on main screen</td>
 	</tr>
 	<tr>
 		<td>THR_TRACE</td>
@@ -164,16 +183,16 @@ make OPTION1=VALUE1 OPTION2=VALUE2...
 		<td>Winged Shadow How High supported (when EXT=FRSKY) </td>
 	</tr>
 	<tr>
-		<td>RTCLOCK</td>
-		<td><b>YES</b></td>
-		<td>NO</td>
-		<td>Real time clock for gruvin9x, sky9x, x9d boards </td>
-	</tr>
-	<tr>
 		<td>VARIO</td>
 		<td><b>YES</b></td>
 		<td>NO</td>
 		<td>Enable variable tone telemetry vario (when EXT=FRSKY)</td>
+	</tr>
+	<tr>
+		<td>RTCLOCK</td>
+		<td><b>YES</b></td>
+		<td>NO</td>
+		<td>Real time clock for gruvin9x, sky9x, x9d boards </td>
 	</tr>
 	<tr>
 		<td>BLUETOOTH</td>
