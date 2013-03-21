@@ -60,10 +60,10 @@
 == 1947 / 10 Fév 2013 ==
 
 === [**Tous] ===
- * Alerte batteried faible moins insistante
+ * Alerte batterie faible moins insistante
  * Options DSM plus claires
  * Support du vario dans les données de télémesure
- * La calibration des potentiomètres ne tiens plus compte que des extrémités
+ * La calibration des potentiomètres ne tient plus compte que des extrémités
 
 === [**stock] ===
  * Support de l'encodeur rotatif
