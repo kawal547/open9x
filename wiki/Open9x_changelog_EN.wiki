@@ -5,6 +5,82 @@
 
 <wiki:toc max_depth="2" />
 
+== 2129 / Mar 21 2013 ==
+
+=== [**all] ===
+ * Rotary encoder feature completely reimplemented
+ * New custom switch function v1==x (where == means almost equals)
+ * New custom switch function Timer (pulled from er9x)
+ * Custom switches now have an extra AND switch
+ * Switches and Mix sources order have been reordered to allow one of the next supported options: EXTRA_3POS
+ * Throttle trace precision increased (there were only 16levels)
+ * Custom Functions screen reworked to allow more flexibility (momentary switches)
+ * New Play Both function (not on ARM boards)
+ * Repeat argument for Play Track / Play Both / Play Value functions
+ * Timer minute beep now spoken
+ * Heli and Thr Cut templates fixed (thanks to Gabriel)
+ * Tx Battery added to the sources list (for Play Value or Custom Switches)
+ * Possibility to have a silent vario on negative speeds re-enabled
+ * Tx Battery graph
+ * AdjustGVAR reimplemented (using 4 different modes: numeric value, source, another GVAR or +1/-1, long press MENU to change between modes)
+ * PlayTrack can now take a GVAR as argument
+ * Minute Beep and Countdown Beep are now timer dependant, instead of applied to all timers of all models
+ * PPM frame length automatically adjusted to a safe value when changing the number of channels (still adjustable later)
+ * Telemetry screens improved (labels for all items)
+ * Mixer weight and offset can now support values up to +/-245%
+ * JETI telemetry fixed
+
+=== [**stock] ===
+ * Around 500bytes flash saving, thanks to Andreas who is a new openTx commiter.
+ * LONG key press duration is longer
+ * Mixer speed improved (around 25%)
+
+=== [**Atmega 128] ===
+ * 6 flight phases instead of 5
+ * 16 expos instead of 14
+ * 15 custom switches instead of 12
+ * 24 custom functions instead of 16
+ * Voice queue increased to 16 instead of 8
+ * Mixer speed improved (around 25%)
+
+=== [**gruvin9x] ===
+ * 6 flight phases instead of 5
+ * 16 expos instead of 14
+ * 15 custom switches instead of 12
+ * 24 custom functions instead of 16
+ * Mixer speed improved (around 25%)
+
+=== [**sky9x] ===
+ * The SD is not started at all in case of reboot
+ * Better frequency precision for AUDIO
+ * Rotary encoder steps setting
+
+=== [**FrSky Taranis] ===
+ * Very first release for the Toledo meeting in the US!
+
+----
+
+== 1947 / Feb 10 2013 ==
+
+=== [**All] ===
+ * Battery warning less obnoxious
+ * DSM options clarified
+ * Vario support in telemetry data
+ * Pot calibration only needs ends, no center anymore
+
+=== [**stock] ===
+ * Rotary encoder support
+
+=== [**9XR] ===
+ * Support added
+
+=== [**sky9x] ===
+ * Rotary encoder button may be used to clear alarms / warnings 
+ * Larger current range for telemetry
+ * Support of s16le wav files
+
+----
+
 == 1692 / Nov 28 2012 ==
 
 === [**stock] ===

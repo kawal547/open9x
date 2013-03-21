@@ -5,6 +5,82 @@
 
 <wiki:toc max_depth="2" />
 
+== 2129 / 21 Mar 2013 ==
+
+=== [**Tous] ===
+ * Réimplémentation du support de l'encodeur rotatif
+ * Nouvelle fonction d'inter personnalisé v1==x (== signifiant environ égal)
+ * Nouvelle fonction d'inter personnalisé Timer (venu d'er9x)
+ * Les inters personnalisés ont maintenant une entrée ET suppléàmentaire
+ * Liste des sources réprganisées pour permettre la future option EXTRA_3POS pour un 2e unterrupteur 3 positions
+ * Précision du graphique de gaz améliorée
+ * Ecran des fonctions spéciales réarrangé
+ * Nouvelle fonction spéciale Lire 2 (pas sur ARM) 
+ * Réglage de répétition pour les fonctions de lecture volcale
+ * Le décompte du timer chaque minute est maintenant parlé 
+ * Gabarits hélico et coupure gaz corrigés
+ * Tension d'accu radio ajoutée à la liste des valeurs de télémesure
+ * Possibilité de désactiver les sons du vario en descente
+ * Graphique de batterie radio
+ * "Ajuster GVAR" réimplémenté (4 modes: valeur numérique, source, une autre GVAR ou incrémentation +1/-1, longue pression sur MENU pour changer de mode)
+ * Jouer Fichier peut maintenant être une GVAR
+ * Les bips de compte à rebours et de minute sont maintenant indépendants pour les 2 timers et pour chaque modèle
+ * Longueur de trame PPMmaintenant ajustée par défaut à une valeur sûre lors du changement de nombre de canaux (peut toujours être changée après).
+ * Ecrans de télémesure améliorés (chaque élément a son label)
+ * Ratio et décalage des mixeurs peuvent mantenant aller jusqu'à +/-245% 
+ * Télémesure JETI corrigée
+
+=== [**stock] ===
+ * ~500bytes de flash économisés, merci Andreas!
+ * La durée de la pression longue sue les touche est rallongée
+ * Calcul du mixeur environ 25% plus rapide
+
+=== [**Atmega 128] ===
+ * 6 phases de vol au lieu de 5
+ * 16 expos au lieu de 14
+ * 15 inters pers au lieu de 12
+ * 24 fonctions spéciales au lieu de 16
+ * Queue d'annonces vocales à 16 éléments au lieu de 8
+ * Calcul du mixeur environ 25% plus rapide
+
+=== [**gruvin9x] ===
+ * 6 phases de vol au lieu de 5
+ * 16 expos au lieu de 14
+ * 15 inters pers au lieu de 12
+ * 24 fonctions spéciales au lieu de 16
+ * Calcul du mixeur environ 25% plus rapide
+
+=== [**sky9x] ===
+ * La carte SD n'est pas montée en cas de reboot intempestif
+ * Amélioration de la génération des sons
+ * Réglage du nombre de pas de l'encodeur rotatif
+
+=== [**FrSky Taranis] ===
+ * Première version pour le show de Toledo, USA!
+
+----
+
+== 1947 / 10 Fév 2013 ==
+
+=== [**Tous] ===
+ * Alerte batteried faible moins insistante
+ * Options DSM plus claires
+ * Support du vario dans les données de télémesure
+ * La calibration des potentiomètres ne tiens plus compte que des extrémités
+
+=== [**stock] ===
+ * Support de l'encodeur rotatif
+
+=== [**9XR] ===
+ * Support ajouté
+
+=== [**sky9x] ===
+ * Le bouton de l'encodeur rotatif peut être utilisé pour quittancer une alarme
+ * Plage de mesure de courant étendue
+ * Support des fichiers wav s16le
+
+----
+
 == 1692 / 28 Nov 2012 ==
 
 === [**stock] ===
