@@ -23,7 +23,7 @@
  * Possibility to have a silent vario on negative speeds re-enabled
  * Tx Battery graph
  * AdjustGVAR reimplemented (using 4 different modes: numeric value, source, another GVAR or +1/-1, long press MENU to change between modes)
- * PlayTrack can now take a GVAR as argument
+ * !PlayTrack can now take a GVAR as argument
  * Minute Beep and Countdown Beep are now timer dependant, instead of applied to all timers of all models
  * PPM frame length automatically adjusted to a safe value when changing the number of channels (still adjustable later)
  * Telemetry screens improved (labels for all items)
@@ -55,7 +55,7 @@
  * Better frequency precision for AUDIO
  * Rotary encoder steps setting
 
-=== [**FrSky Taranis] ===
+=== [**!FrSky Taranis] ===
  * Very first release for the Toledo meeting in the US!
 
 ----

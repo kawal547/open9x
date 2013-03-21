@@ -55,7 +55,7 @@
  * Amélioration de la génération des sons
  * Réglage du nombre de pas de l'encodeur rotatif
 
-=== [**FrSky Taranis] ===
+=== [**!FrSky Taranis] ===
  * Première version pour le show de Toledo, USA!
 
 ----
