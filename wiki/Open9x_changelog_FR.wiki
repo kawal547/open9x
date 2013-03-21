@@ -55,9 +55,6 @@
  * Amélioration de la génération des sons
  * Réglage du nombre de pas de l'encodeur rotatif
 
-=== [**!FrSky Taranis] ===
- * Première version pour le show de Toledo, USA!
-
 ----
 
 == 1947 / 10 Fév 2013 ==

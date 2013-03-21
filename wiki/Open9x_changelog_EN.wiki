@@ -55,9 +55,6 @@
  * Better frequency precision for AUDIO
  * Rotary encoder steps setting
 
-=== [**!FrSky Taranis] ===
- * Very first release for the Toledo meeting in the US!
-
 ----
 
 == 1947 / Feb 10 2013 ==
