@@ -1,6 +1,7 @@
 #summary Download Latest open9x
 #labels Featured
 Open9x has become OpenTX!!!
+
 The best way to download OpenTX is to use Companion9x.
 
 For further information about companion9x, have a look at the project website: [http://code.google.com/p/companion9x/]
